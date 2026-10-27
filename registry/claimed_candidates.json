@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Five owner-published later research candidates selected for independent literal-lattice recheck; not our generated candidates or a complete registry.",
+  "scope": "Six later research candidates from parallel or peer work selected for independent literal-lattice recheck; none was generated in this run and this is not a complete registry.",
   "entries": [
     {
       "id": "GEMSDOE36_kpl36",
@@ -51,6 +51,16 @@
       "sha256": "fe6d637fad5b8fb435988b3ab31af8ae777380f78046577c505275e2e725a795",
       "reported_action": "Owner reports a negative result and 99.78% overlap against the same lattice; says not to submit.",
       "site_url": "https://buffedlizard55-lab.github.io/GEMSDOE24/"
+    },
+    {
+      "id": "GEMSDOESASS1_parallel_synthetic",
+      "site": "GEMSDOESASS1",
+      "repo": "sassnarep3-star/GEMSDOESASS1",
+      "ref": "f620a70053d2f86eed6cadb0677e72d8605fb916",
+      "path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+      "sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274",
+      "reported_action": "Another parallel run reports a synthetic research-only TIFF, negative holdout, uniqueness against a narrow subset, and no selector approval; it was merged to main separately.",
+      "site_url": "https://github.com/sassnarep3-star/GEMSDOESASS1/pull/3"
     }
   ]
 }
