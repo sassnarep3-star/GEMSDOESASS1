@@ -1,5 +1,5 @@
 {
-  "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+  "path": "/home/user/GEMSDOESASS1/docs/swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
   "checks": {
     "single_band": true,
     "dtype_float32": true,
@@ -39,7 +39,7 @@
     "nodata": null
   },
   "zip": {
-    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.zip",
+    "path": "/home/user/GEMSDOESASS1/docs/swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.zip",
     "sha256": "e17ca24ee7f5d7f9f3d8eb43996393ec352c04714b5c1f983ab97cda9d19e6e2",
     "size_bytes": 118135
   },

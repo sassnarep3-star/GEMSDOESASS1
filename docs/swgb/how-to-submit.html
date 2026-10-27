@@ -15,7 +15,7 @@ code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}pre{ba
 <small>GEMSDOESASS1 · DOE GEMS Prize Challenge (DrivenData #306) · generated from evidence/*.json · 20261027T122104Z</small></header><main>
 <div class="card"><h2 style="margin-top:0;border:0">Exactly how to make a submission</h2>
 <ol>
-<li><b>Download the file</b>: <a class="btn" href="../downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">⬇ gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</a> (or the <a href="../downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.zip">.zip</a>, which contains the same single GeoTIFF — both are accepted).</li>
+<li><b>Download the file</b>: <a class="btn" href="downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">⬇ gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</a> (or the <a href="downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.zip">.zip</a>, which contains the same single GeoTIFF — both are accepted).</li>
 <li>Log in to DrivenData and open the competition's submission page: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/</a> → <b>New submission</b>.</li>
 <li><b>File to submit</b>: choose the downloaded <code>.tif</code> (single band, float32, EPSG:32611, 3730 × 3292 px, 100 m, geotransform (100, 0, 243350, 0, −100, 4508550) — identical to the organizer template; values 0.0/1.0; no NaN).</li>
 <li><b>Note (optional)</b> — paste this so the team can tell submissions apart later:<pre>GEMSASS1 SWGB: 5x segment-withheld HGB on lidar+GeoDAWN, 44090 dots 2.8px, &gt;600m off-catalogue; HOLDOUT-DTI 0.140 vs base 0.101</pre></li>
@@ -23,7 +23,7 @@ code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}pre{ba
 <li>Weekly cap: whatever the submission page displays (DrivenData staff, <a href="https://community.drivendata.org/raw/11553">forum 11553</a>). Do not spend a slot on a file whose verdict is not <b>promote</b>.</li>
 </ol></div>
 <h2>Why earlier downloads failed with "Predicted values must be in range [0, 1]"</h2>
-<p>That message is raised when any pixel is outside [0, 1] — NaN and ±Inf included on some validators. This project's writer (<code>src/gems/submission.py</code>) clips to [0, 1], writes zeros outside the footprint, forbids NaN/Inf anywhere, and <b>refuses to write a file that fails any check</b>; the receipt is published next to the file (<a href="../downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.checks.json">checks.json</a>).</p>
+<p>That message is raised when any pixel is outside [0, 1] — NaN and ±Inf included on some validators. This project's writer (<code>src/gems/submission.py</code>) clips to [0, 1], writes zeros outside the footprint, forbids NaN/Inf anywhere, and <b>refuses to write a file that fails any check</b>; the receipt is published next to the file (<a href="downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.checks.json">checks.json</a>).</p>
 <h2>Submission format — official sources</h2>
 <ul>
 <li>Problem description, metric, submission format: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">page 967</a></li>
@@ -34,11 +34,11 @@ code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}pre{ba
 <li>Data sources: <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">GeoDAWN (USGS)</a> · <a href="https://doi.org/10.5066/P93LGLVQ">doi:10.5066/P93LGLVQ</a> · <a href="https://gbcge.org/current-projects/ingenious/">INGENIOUS</a> · <a href="https://gdr.openei.org/submissions/1391">GDR 1391</a></li>
 </ul>
 <h2>Regenerate everything yourself (no manual steps)</h2>
-<pre>pip install -r requirements.txt
+<pre>pip install -r requirements-swgb.txt
 bash scripts/fetch_reference_assets.sh        # byte-verified mirrors of template/catalogue/feature stacks + registry rasters
 python3 -m pytest -q tests                    # metric == brute-force transcription
 python3 scripts/calibrate_holdout.py          # registry rasters on the holdout
 python3 scripts/run_experiments.py canary; e1; e2; e2b; e3 e2
-python3 scripts/build_submission.py           # trains, emits, audits, validates, writes docs/downloads + evidence/run_card.json
+python3 scripts/build_submission.py           # trains, emits, audits, validates, writes docs/swgb/downloads + evidence/swgb/run_card.json
 python3 scripts/build_site.py</pre>
 </main></body></html>

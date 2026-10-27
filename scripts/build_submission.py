@@ -9,7 +9,7 @@ Pipeline (no human step):
   4. Lane audit vs the 17-raster registry (Spearman <= 0.90 and <= 70% dots within 3 px) — stop if duplicate.
   5. Validator (CRS/shape/transform == template, float32, no NaN/Inf anywhere, values in [0,1],
      zeros outside footprint, zero mass on catalogue pixels) — refuses to write a failing file.
-  6. Writes docs/downloads/<name>-zeros.tif, .zip, .checks.json and evidence/run_card.json.
+  6. Writes docs/swgb/downloads/<name>-zeros.tif, .zip, .checks.json and evidence/run_card.json.
 """
 from __future__ import annotations
 
