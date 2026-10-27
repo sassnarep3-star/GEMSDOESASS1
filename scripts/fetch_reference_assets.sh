@@ -32,5 +32,5 @@ GEMSDOE33 GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif
 GEMSDOE36 gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif
 LIST
 rm -rf "$TMP"
-sha256sum -c data/SHA256SUMS
+sha256sum -c evidence/swgb/SHA256SUMS
 echo "assets restored and verified"

@@ -4,8 +4,8 @@
 [PARALLEL-RUN PROTOCOL](docs/PROJECT_BRIEF.md#parallel-run-protocol--read-first) inside it. Core values applied
 throughout: **Maximize P(Win)** and **Own the Outcome**.
 
-Site (GitHub Pages, built from `evidence/*.json`): `docs/index.html` → executive summary + one-click download ·
-`docs/how-to-submit.html` · `docs/run-card.html` · `docs/hypotheses.html`
+Site (GitHub Pages, built from `evidence/*.json`): `docs/swgb/index.html` → executive summary + one-click download ·
+`docs/swgb/how-to-submit.html` · `docs/swgb/run-card.html` · `docs/swgb/hypotheses.html`
 
 ---
 
@@ -39,7 +39,7 @@ Why this fixes the "Predicted values must be in range [0, 1]" rejection: the wri
 | **THIS SITE** | `gemsass1-swgb-hrv2-44090dots-…-f9b3f764-zeros.tif` — unscored | **0.1401** | **✓ UNIQUE** |
 
 \* pruned rasters score ~0 on a catalogue-recovery holdout by construction (IR-01); compare only un-pruned files with ours.
-Full table with links, CIs and dot counts: `docs/index.html`. Evidence: `evidence/holdout_calibration.json`, `evidence/registry_family_overlap.json`.
+Full table with links, CIs and dot counts: `docs/swgb/index.html`. Evidence: `evidence/swgb/holdout_calibration.json`, `evidence/swgb/registry_family_overlap.json`.
 
 ## Why 0.2778 won, in three lines (details: [`knowledge/01`](knowledge/01_why_0p2778_and_what_beats_it.md))
 1. It is **exactly** the 0.2600 dotted H19-5 raster with the 6,436 dots within 200 m of the known catalogue deleted (re-derived from bytes, sym-diff 0).
@@ -64,5 +64,5 @@ IR-01 holdout anti-ranks the live family (instrument limit) · IR-02 v1 tile-wit
 ```bash
 pip install -r requirements.txt && bash scripts/fetch_reference_assets.sh && python3 -m pytest -q tests
 python3 scripts/calibrate_holdout.py && for e in canary e1 e2 e2b; do python3 scripts/run_experiments.py $e; done
-python3 scripts/run_experiments.py e3 e2 && python3 scripts/build_submission.py && python3 scripts/build_site.py
+python3 scripts/run_experiments.py e3 e2 && python3 scripts/build_submission.py && python3 scripts/swgb_build_site.py
 ```
