@@ -8,12 +8,14 @@ The user asked for an original, unique, range-valid fault-prediction GeoTIFF tha
 
 Those conditions cannot honestly be satisfied in this run: the prompt did not identify the required single-method paragraph; the reusable prepared feature cache and complete current registry are missing; the shared template needs upstream fixes; and a pinned registered lattice already rules out the commonly used 37,654-dot budget under the literal overlap criterion. We did not invent a lane, train a model, generate a lookalike TIFF, claim an estimated score or upload anything.
 
+A separate parallel run merged [a synthetic TIFF](docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif) into `main` during this review. It is retained for **research only, DO NOT SUBMIT**. Our independent recheck finds 37,596/37,654 dots (99.85%) within three pixels of the registered lattice and a failure of the conservative outside-footprint mask check. A previous 20.6% comparison against the champion did not establish full-registry uniqueness. Its claimed holdout was not reproduced here. The earlier PR, files and historical reports are preserved; superseded README and HTML text are archived under [`archive/`](archive/).
+
 ## What the audit found
 
 - Nine pinned historical mask files (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36) were compared in [`evidence/focus_audit.json`](evidence/focus_audit.json). The supplied values are **USER-REPORTED, not organizer-confirmed**; there are no hash-bound receipts in the inspected evidence. GEMSDOE32's 0.2778 and its thinning/pruning explanation are plausible claims, not a proven cause or a score for our run.
 - All 72 directional historical comparisons exceed the stipulated >70% overlap stop. GEMSDOE25 and 30 have identical masks; GEMSDOE32 B2 equals the GEMSDOE25 mask with a 2-pixel catalogue neighborhood removed. Those relationships say nothing about unseen ground truth or private scoring.
 - The pinned reference lattice's 3-pixel halo covers 5,160,724 of 5,167,373 footprint pixels. For 37,654 dots, at least 31,005 (82.34%) must overlap it. This one-reference proof is decisive at that budget, conditional on the literal registry rule; it does not automatically reject every smaller budget or establish that any remaining dot is scientifically meaningful.
-- Five later peer candidates independently failed the same literal stop (99.17%, 99.62%, 99.61%, 100%, and 99.78% overlap); see [`evidence/claimed_candidates_audit.json`](evidence/claimed_candidates_audit.json). Their source-site banners, narrower checks and reported holdouts do not constitute a full-registry clearance. No peer model or holdout was rerun.
+- Five later peer candidates and the separate parallel research raster independently failed the same literal stop (99.17%, 99.62%, 99.61%, 100%, 99.78%, and 99.85% overlap); see [`evidence/claimed_candidates_audit.json`](evidence/claimed_candidates_audit.json). Their source-site banners, narrower checks and reported holdouts do not constitute a full-registry clearance. No other run's model or holdout was rerun.
 - The official public leaderboard was observed at **0.4544 on 2026-10-27**. This is neither a candidate-bound score nor a private result and can change. No DrivenData account, submission history, or real-time slot quota was queried, and the site never automatically monitors DrivenData.
 - Fourteen core/external files were restored from hash-pinned peer mirrors, **not authenticated against organizer-provided originals**. The example mirror has 60,988 positive pixels identical to the supplied label mask, in tension with the organizer's description of a blank sample. Treat its grid/footprint as a provisional reference. Inputs and licensing caveats are in [`evidence/input_recovery.json`](evidence/input_recovery.json); raw files are excluded from this repository.
 - The pinned shared evaluator/writer silently binarize positive probabilities ([upstream issue 37](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37)). The evaluator source matches the hash in the open [empty-truth pooled-FP report](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41), and the [surface-stage overlap bug](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42) was reproduced on a synthetic example. This account has read-only access to that template and the inspected repository declares no license; no upstream fix or private fork was made.
@@ -41,10 +43,11 @@ pip install -r requirements.txt
 pytest -q
 node --test tests/web.test.js
 
-# Seventeen small pinned forensic TIFFs; verifies SHA-256 and caches locally.
+# Eighteen pinned forensic TIFFs; verifies SHA-256 and caches locally.
 python scripts/fetch_audit_inputs.py
 python scripts/audit_focus.py
 python scripts/audit_claims.py
+python scripts/audit_parallel_variants.py
 # Rebuild table and synchronize the published evidence copies.
 python scripts/render_portfolio.py
 

@@ -1,4 +1,5 @@
 import json
+from hashlib import sha256
 from pathlib import Path
 import re
 from html.parser import HTMLParser
@@ -85,10 +86,21 @@ def test_historical_table_is_generated_and_bound_to_pins():
 
 
 def test_published_data_copies_are_not_stale():
-    for path in ["focus_audit.json", "claimed_candidates_audit.json", "input_recovery.json", "champion_technical_audit.json"]:
+    for path in ["focus_audit.json", "claimed_candidates_audit.json", "input_recovery.json", "champion_technical_audit.json", "parallel_variant_audit.json"]:
         assert (ROOT / "docs/data" / path).read_bytes() == (ROOT / "evidence" / path).read_bytes()
     for path in ["focus_sources.json", "claimed_candidates.json"]:
         assert (ROOT / "docs/data" / path).read_bytes() == (ROOT / "registry" / path).read_bytes()
+
+
+def test_parallel_artifact_is_retained_but_not_promoted():
+    audit = read_json('evidence/parallel_variant_audit.json')
+    claims = read_json('evidence/claimed_candidates_audit.json')
+    row = next(r for r in claims['rows'] if r['id'] == 'GEMSDOESASS1_parallel_synthetic')
+    path = ROOT / row['path']
+    assert sha256(path.read_bytes()).hexdigest() == row['sha256'] == audit['zero']['sha256']
+    assert audit['same_inside_footprint_values'] and not audit['ok_to_submit']
+    assert row['literal_duplicate_stop'] and row['dots_within_3px_of_lattice'] == 37596
+    assert not audit['zero']['local_format_pass'] and not audit['nan']['local_format_pass']
 
 
 def test_negative_run_card_has_no_fabricated_submission():

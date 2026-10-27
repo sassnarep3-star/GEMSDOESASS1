@@ -1,0 +1,3 @@
+# Research-only legacy artifacts
+
+These files were created by a separate parallel run, not the current audit. **Do not submit them.** The zeros TIFF has 37,596/37,654 dots (99.85%) within three pixels of a registered lattice, breaching the literal 70% duplicate stop. It also fails the current conservative outside-footprint mask check. A comparison with a narrow set of historical champions does not establish global uniqueness; no organizer acceptance is established. See [`../data/claimed_candidates_audit.json`](../data/claimed_candidates_audit.json) and the [current decision](../executive-summary.html).

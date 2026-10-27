@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch a small, pinned owner-mirror audit set; never claim organizer authenticity.
 
-This fetches nine historical TIFFs, five later research candidate TIFFs and three
+This fetches nine historical TIFFs, six later research candidate TIFFs and three
 preflight inputs. It is not the complete registry or the feature stack. The public GitHub
 CLI may need authentication to avoid rate limits. No credentials are stored.
 """

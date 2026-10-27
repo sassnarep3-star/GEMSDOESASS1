@@ -51,6 +51,7 @@ def main() -> None:
         ("registry/claimed_candidates.json", "docs/data/claimed_candidates.json"),
         ("evidence/input_recovery.json", "docs/data/input_recovery.json"),
         ("evidence/champion_technical_audit.json", "docs/data/champion_technical_audit.json"),
+        ("evidence/parallel_variant_audit.json", "docs/data/parallel_variant_audit.json"),
     ]:
         (ROOT / dst).write_bytes((ROOT / src).read_bytes())
     print(f"Rendered {len(manifest['sources'])} historical rows and synchronized evidence.")
