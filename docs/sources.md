@@ -1,5 +1,7 @@
 # Source register and verification notes
 
+> **Historical review snapshot:** This document reflects the earlier baseline checkout and is not the current release decision. A parallel synthetic TIFF was added later and independently fails the literal registry check. See the [current executive summary](../executive-summary.html), [forensic evidence](../evidence/witness-audit.json), and [current run card](../evidence/run-card.json). Do not submit any existing TIFF.
+
 **Audit date:** 2026-10-27 UTC. Links below are for review. “Opened” means the page was fetched/rendered during this review, not that every claim or downloadable artifact was independently reproduced. Dynamic pages may change. This register deliberately separates official competition sources from owner-maintained GEMSDOE research pages.
 
 ## Official sources

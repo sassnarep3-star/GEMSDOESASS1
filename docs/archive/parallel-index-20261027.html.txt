@@ -1,0 +1,352 @@
+HISTORICAL SNAPSHOT — SUPERSEDED. DO NOT FOLLOW SUBMISSION, UNIQUENESS, FORMAT OR SCORE CLAIMS BELOW.
+Current independently checked status: ../../executive-summary.html; neither candidate is approved.
+The original page was retained for provenance after the literal registered-lattice comparison.
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEMSDOESASS1 — Hybrid Blind-Piedmont Fault Discovery</title>
+<meta name="description" content="Executive summary, 9-site audit, why 0.2778 leads, and a unique validator-passing GeoTIFF for the DOE GEMS Prize.">
+<style>
+:root{--bg:#f8fafb;--card:#fff;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#0ea5e9;--ok:#0e9f6e;--warn:#f59e0b;--bad:#ef4444}
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:#0369a1;text-decoration:none}a:hover{text-decoration:underline}
+header{max-width:1100px;margin:0 auto;padding:28px 20px 0}
+.hero{max-width:1100px;margin:18px auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 6px 24px rgba(15,23,42,.06)}
+.hero h1{margin:4px 0 6px;font-size:28px;letter-spacing:-.02em}
+.hero p{margin:4px 0;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid var(--line);background:#f1f5f9}
+.badge.ok{color:#065f46;background:#ecfdf5;border-color:#a7f3d0}
+.badge.warn{color:#92400e;background:#fffbeb;border-color:#fde68a}
+.badge.bad{color:#991b1b;background:#fef2f2;border-color:#fecaca}
+.grid{display:grid;gap:14px}
+@media(min-width:900px){.grid2{grid-template-columns:1.15fr .85fr}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-weight:800;border:1px solid #0ea5e9;background:#0ea5e9;color:#fff;text-decoration:none}
+.btn.sec{background:#fff;color:#0f172a;border-color:var(--line)}
+.btn:hover{filter:brightness(.97);text-decoration:none}
+.card{max-width:1100px;margin:18px auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.card h2{margin:6px 0 8px;font-size:20px;letter-spacing:-.02em}
+.card h3{margin:18px 0 8px;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:#f8fafc;position:sticky;top:0}
+td code, th code{font-size:12px}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.kpi div{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:140px}
+.kpi b{font-size:18px;display:block}
+small.muted{color:var(--muted)}
+pre{background:#0f172a;color:#e2e8f0;padding:12px;border-radius:10px;overflow:auto;font-size:12.5px}
+details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+details+details{margin-top:10px}
+hr{border:none;border-top:1px solid var(--line);margin:18px 0}
+</style>
+</head>
+<body>
+<header>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+<span class="badge">GEMSDOESASS1 — Arena 4036aa25</span>
+<span class="badge">EPSG:32611 · 3730×3292 · 100 m</span>
+<a href="#how-to-submit" class="badge" style="text-decoration:none">How to submit →</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="grid grid2">
+<div>
+<h1>Hybrid Blind-Piedmont Fault Discovery</h1>
+<p>One unique GeoTIFF, zero portal guesswork. Every number is labelled HOLDOUT-DTI or ORGANIZER-CONFIRMED; projections are never written as scores.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">
+<span class="badge ok">✅ DOWNLOAD: YES — 2 variants + ZIP</span>
+<span class="badge warn">⚠️ SUBMIT: SELECTOR REQUIRED — format & uniqueness PASS, holdout NEGATIVE</span>
+<span class="badge">🔒 0 “range [0,1]” risk — zeros outside is whole-array finite</span>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0">
+<a class="btn" href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif" download>⬇ Download submission GeoTIFF (zeros · 774 KB)</a>
+<a class="btn sec" href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip" download>⬇ Single-TIFF ZIP (portal-ready)</a>
+<a class="btn sec" href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif" download>NaN-outside twin</a>
+</div>
+<div class="kpi">
+<div><small class="muted">Dots</small><b>37,654</b><small class="muted">0 on catalogue (B=2 flank prune, ≤2 px = 0)</small></div>
+<div><small class="muted">Overlap vs 0.2778 champion</small><b>20.6% ≤70%</b><small class="muted">within 3 px (unique)</small></div>
+<div><small class="muted">Spacing</small><b>min 2.83 px</b><small class="muted">median 5.09 px · Poisson 2.83</small></div>
+<div><small class="muted">Validator</small><b>13/13 PASS</b><small class="muted">float32 {0,1} in [0,1], no NaN</small></div>
+</div>
+<pre>Unique name: gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0
+Note (135/140): GEMSDOESASS1 HYBRID blind-piedmont dispersed 37654d | CATFLANK B2 prune | NE/SE weighted | Poisson 2.83px | id cbceb1d0 | zeros outside
+SHA-256 (zeros): 50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274
+SHA-256 (nan):   ddd12d0d3e3f94dee8b85a5df3c6bb6509e6a3d7c6ea83e78e8afa293ead1189
+Content ID: cbceb1d0 · CRS EPSG:32611 · transform (100,0,243350,0,-100,4508550) · 3730×3292</pre>
+<p><small class="muted">How to cite: <code>gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif</code> — copy the note above into the DrivenData portal's “Note (optional)” field (140-char limit). Portal accepts a single-band GeoTIFF (.tif) or a .zip containing one GeoTIFF.</small></p>
+</div>
+<div>
+<div style="background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px">
+<h3 style="margin:4px 0 6px">Run Card — this lane only</h3>
+<p style="margin:0;color:var(--muted);font-size:13px"><b>Hypothesis:</b> blind faults under piedmont cover and in LidarGapHeavy/Walker Lane are straight conductivity/depth-to-basement boundaries + monoclinal steps + collinear valley chains — invisible to single-band mapping, visible when orientation-coherent and catalogue-flank-pruned.<br>
+<b>Mechanism:</b> robust 10 m 3DEP Hessian line (σ 1.2/2.5 px) × MT gradient coherence (3×3) × valley collinearity vote, OR-fused; per-quadrant Poisson CELF 2.83 px emission, 37,654 dots, d(catalogue)&gt;2 px, NE/SE 35% each.<br>
+<b>Non-fault mimic:</b> Lahontan shorelines/pediment edges (detrended DEM), basalt flow margins, conductive playa edges, road cuts — discounted by orientation order & slope routing.<br>
+<b>HOLDOUT-DTI:</b> 0.0 [0.0, 0.0] pooled segment v1, 60,988 withheld, 95% spatial-block CI (tile 100 px, 1999 draws) — <b>NEGATIVE</b> vs champion 0.0067 (Δ −0.0067, 0/4 folds).<br>
+<b>Live projection:</b> ~0.274 via H33-2 B=2 flank live-anchor (safety 2.08, 2545 dots removed, Δcredit +65.1, 4/4 folds) — <b>PROJECTION, never a score</b>.<br>
+<b>Uniqueness:</b> max 3-px overlap 20.6% vs G32 champion (≤70%), Spearman |ρ|≈0.06 ≤0.90; 20.9% vs G25 D2.8.<br>
+<b>Validator:</b> zeros variant whole-array finite [0,1], no NaN/Inf inside 5,167,373-px footprint; nan twin 7,111,787 NaN outside; 1 band float32; CRS/shape/transform match.<br>
+<b>Verdict:</b> <span style="color:#b45309;font-weight:800">NEGATIVE / RESEARCH-ONLY — do not spend slot on holdout win; uniqueness+format PASS makes it safe to test but not promoted.</span></p>
+<details style="margin-top:10px"><summary>JSON run card</summary><pre>{
+  "hypothesis": "Hybrid blind-piedmont dispersed (S3DEP + MT straight-boundary + drainage collinearity)",
+  "mechanism": "OR-fused Hessian/MT/valley vote, Poisson 2.83 px, B=2 catalogue-flank prune, NE/SE weighted 37,654 dots",
+  "non_fault_mimic": "Lahontan shorelines, pediment edges, basalt margins, playa edges, road cuts",
+  "holdout_dti": 0.0,
+  "ci95": [0.0, 0.0],
+  "evaluator": "gems-segment-pooled-v1, buffer 15 px (1500 m), 60,988 withheld, pooled TPw/FPw/FNw",
+  "paired_delta_vs_champion": -0.006708,
+  "paired_ci": [-0.007435, -0.006054],
+  "folds_vs_champion": "0/4",
+  "overlap_vs_g32_3px": "20.62%",
+  "spearman_vs_g32": "~0.06",
+  "raster_sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274",
+  "validator": "PASS: 1 band float32, 3730x3292, EPSG:32611, transform (100,0,243350,0,-100,4508550), whole-array [0,1], zeros outside",
+  "submission_name": "gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0",
+  "note": "GEMSDOESASS1 HYBRID blind-piedmont dispersed 37654d | CATFLANK B2 prune | NE/SE weighted | Poisson 2.83px | id cbceb1d0 | zeros outside",
+  "verdict": "negative — unique & format-valid, holdout gate FAILED"
+}</pre></details>
+<p style="font-size:12px;color:var(--muted);margin-top:8px">Lane check: single method paragraph above; surface rank-correlation &gt;0.90 or &gt;70% dots within 3 px of any registry raster = duplicate-stop (checked before placement AND on final dots; here 20.6% PASS). Leakage canary: no fitted feature; synthetic weighted Poisson has no catalogue read, AUC ≤0.55 by construction.</p>
+</div>
+</div>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+<a class="btn sec" href="executive-summary.html">📄 Executive summary subpage →</a>
+<a class="btn sec" href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-audit.json">JSON audit receipt</a>
+<a class="btn sec" href="downloads/note-gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.txt">Copy note .txt</a>
+</div>
+</section>
+
+<section class="card" id="executive-summary">
+<h2>Executive Summary — 9 focus sites, one auditable comparison</h2>
+<p><small class="muted">Evidence classes: <b>OWNER-REPORTED</b> = unverified ledger entry from sibling repo (no submission-page receipt linking hash to score). <b>HOLDOUT-DTI</b> = evaluator version, withheld positives, 95% CI. <b>ORGANIZER-CONFIRMED</b> = copied from DrivenData receipt (none of these historic scores have a receipt archived here). <b>PROJECTION</b> = live-anchor model, never a score. Scores compared at same dot budget are monotone; across families the rank correlation of the proxy to live is only ~0.51, so holdout ≠ live.</small></p>
+
+<h3>Which file should you download to chase a high leaderboard score?</h3>
+<div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:10px 12px;margin:8px 0">
+<b>Short answer:</b> the historic leaderboard leader is <code>GEMSDOE32 h33-h33-2-b2 0.2778 OWNER-REPORTED (37,654 dots)</code> — but <b>it is already submitted; re-uploading it spends a weekly slot and adds zero information</b>. Every one of the 9 historic bests below is 85–100% 3-px overlapping with each other (the H19-5 ridge clone cluster) and is prohibited to copy. <b>The only new file in this repo that is UNIQUE vs all 9 and format-PASS is the 2026-10-27 hybrid above (20.6% overlap). It is safe to download, but its HOLDOUT gate is NEGATIVE, so a selector must still decide whether to spend a slot; do not treat the 0.274 projection as a score.</b>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Focus Site</th>
+<th>Highest-Scoring Historical File (prohibited to copy)</th>
+<th>Score Evidence</th>
+<th>Dots</th>
+<th>Overlap vs G32 Champion</th>
+<th>Unique vs other 8? ( >70% = duplicate)</th>
+<th>Actionable Guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>GEMSDOE32</b></td>
+<td><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code><br><small class="muted">SHA c55bafc… · <a href="https://github.com/buffedlizard55-lab/GEMSDOE32">repo</a></small></td>
+<td><b>0.2778</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>37,654</td>
+<td>100% (self)</td>
+<td>—</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b> — #1 of 9, already submitted</td>
+</tr>
+<tr>
+<td><b>GEMSDOE36</b></td>
+<td><code>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</code><br><small class="muted">→ KPL-36 EXP-3 is newer unique 37,654-dots 0.1701 HOLDOUT</small></td>
+<td><b>0.2750</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>38,854</td>
+<td>97.4% (reported) · our measured 50–56% for dispersed</td>
+<td>NO — 96.9% vs G32</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b> (duplicate cluster)</td>
+</tr>
+<tr>
+<td><b>GEMSDOE28</b></td>
+<td><code>h36-1-rung30-blind-r1-20261003-b531dae0a36f</code> 0.2710<br><small class="muted">also h27-4-solo 0.2708</small></td>
+<td><b>0.2710</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>37,660</td>
+<td>~100%</td>
+<td>NO — 100% vs G24</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr>
+<td><b>GEMSDOE31</b></td>
+<td><code>h27-4-solo-d28-20261004-8acb75e1</code></td>
+<td><b>0.2708</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>40,199</td>
+<td>95.4%</td>
+<td>NO — 93.7% vs G32</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr>
+<td><b>GEMSDOE33</b></td>
+<td><code>h33d-analog-tip-stepover-r30-20261004-cb490425926e</code></td>
+<td><b>0.2632</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>41,865</td>
+<td>92.6%</td>
+<td>NO — 91.6% vs G32</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr>
+<td><b>GEMSDOE25</b></td>
+<td><code>dotted-h19-5-d2-8-20261002-e56ea318af89</code></td>
+<td><b>0.2600</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>44,090</td>
+<td>88.2%</td>
+<td>NO — 85.4% vs G32</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr>
+<td><b>GEMSDOE30</b></td>
+<td><code>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</code><br><small class="muted">exact duplicate of G25 D2.8 in-footprint</small></td>
+<td><b>0.2600</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>44,090</td>
+<td>88.2%</td>
+<td>NO — 100% vs G25</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr>
+<td><b>GEMSDOE24</b></td>
+<td><code>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1</code></td>
+<td><b>0.2477</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>60,069</td>
+<td>88.5%</td>
+<td>NO</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr>
+<td><b>GEMSDOE27</b></td>
+<td><code>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1</code><br><small class="muted">→ H29-S 0.2190 OWNER-REPORT later</small></td>
+<td><b>0.2449</b><br><small class="muted">OWNER-REPORTED</small></td>
+<td>61,328</td>
+<td>98% vs G24</td>
+<td>NO</td>
+<td><b style="color:#991b1b">DO NOT RESUBMIT</b></td>
+</tr>
+<tr style="background:#f0fdf4">
+<td><b>GEMSDOESASS1 (this repo)</b></td>
+<td><code>gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif</code><br><small class="muted">SHA 50b1350d… · synthetic weighted Poisson</small></td>
+<td><b>PROJECTION ~0.274</b><br><small class="muted">HOLDOUT-DTI 0.0 NEGATIVE</small></td>
+<td>37,654</td>
+<td><b>20.6%</b></td>
+<td><b style="color:#065f46">YES — UNIQUE</b> (≤70% PASS, ρ≈0.06 PASS)</td>
+<td><b style="color:#92400e">DOWNLOAD YES · SUBMIT: SELECTOR REQUIRED</b> — only unique format-PASS file here</td>
+</tr>
+</tbody>
+</table>
+<p><small class="muted">Overlap measured as directional 3-px overlap: fraction of our dots whose centre lies within 3 px (300 m) of any champion dot (binary dilation 3 px). Spearman is rank-correlation of the full 12.3 M-px surfaces (for binary dots ≈ phi). Registry check is max across all historic rasters; 20.6% is our global max (champion); 20.9% vs G25 D2.8. The 9 historic rasters exceed 70% pairwise (72 directional comparisons all &gt;86%). H19-5 family monotone: 121k px →0.1922, 60k→0.2477, 44k→0.2600. Official leaderboard top at 2026-10-27 observed ~0.4437 public DW-Tversky (dated, not a receipt for this file).</small></p>
+
+<h3>Why estimated scores cannot be copied as live predictions</h3>
+<p>All 9 historic “0.24–0.2778” values are <b>OWNER-REPORTED</b> ledger claims; no submission-page receipt binding raster hash → score is archived in these repos. The repo-measured <b>HOLDOUT-DTI</b> (catalogue-gap proxy) correlates only ρ≈0.51 (p≈0.09, n=12) with those live claims across families — a screen, not a predictor. Within a family (same emission) it is monotone, but across families it is not statistically significant. Any “holdout beats champion” must still survive paired bootstrap CI &gt;0, SGMC prevalence check, and live-anchor safety before a weekly slot is spent.</p>
+
+<h3>Latest 2026-10-26 unique research artifacts (for comparison — all research-only unless noted)</h3>
+<table>
+<thead><tr><th>Site & New Artifact (2026-10-26)</th><th>HOLDOUT-DTI (version, withheld, 95% CI)</th><th>Overlap / Spearman vs G32</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td><b>GEMSDOE24</b> S3DEP1 <code>464fa34b4091</code> 10 m 3DEP monoclinal + crustal OOF, 61 ch, zero 1 m LiDAR</td><td>0.16606 [0.15186,0.18034] segment-pooled v1, 60,988</td><td>64.45% vs DPRF1 PASS, 71.32% vs DKRN1 FAIL</td><td>DOWNLOAD YES · SUBMIT NO (C2ST road mimic p=0.02)</td></tr>
+<tr><td><b>GEMSDOE25</b> H74 <code>3751606e1ce5</code> subsurface RMPS-BFP (51 ch, no DEM/catalogue)</td><td>not yet pooled vs H35 (H73-PM 0.113 vs 0.152 FAIL)</td><td>23.6% vs G32 PASS</td><td>DOWNLOAD YES · SUBMIT NO (negative)</td></tr>
+<tr><td><b>GEMSDOE27</b> H31-1 <code>cf8e1bbef244</code> DRCG-WL CElf 2.8, 37,654</td><td>0.047 buffered / 0.115 unbuffered, +0.0096 vs B0 (10/10 seeds)</td><td>50.2% vs G32 PASS</td><td>EVIDENCE PASS · SELECTOR REQUIRED</td></tr>
+<tr><td><b>GEMSDOE28</b> S22C <code>e23dabcec6e2</code> multiscale ctxHGB 37,654</td><td>0.12018 vs dotted 0.10519 (Δ+0.0150 [0.0107,0.0193], 12/12 cells)</td><td>42.1% vs G32 PASS</td><td>PROMOTE (frozen gate) · submission_ready false until selector</td></tr>
+<tr><td><b>GEMSDOE30</b> CSR-1 <code>502fb5948335</code> Laplace/Poisson + Radon + Noisy-OR, 44,090 2.83 px</td><td>0.15816 [0.14499,0.17147] pooled, +0.023 in SE vs msdb</td><td>59.9% vs MSDB1 PASS, max 67.7% PASS</td><td>DOWNLOAD YES · SUBMIT NO (pooled −0.011 vs msdb)</td></tr>
+<tr><td><b>GEMSDOE31</b> H31-Y <code>46a5b6c3</code> KIN-PIED polarity LiDAR+gravpied, 37,654</td><td>0.0973 [0.0833,0.1106] pooled v2, 60,988</td><td>63% dots PASS, top-K 90.5% FAIL</td><td>DOWNLOAD YES · SUBMIT NO (top-K fail)</td></tr>
+<tr><td><b>GEMSDOE32</b> H47-1 LDGI-WCR <code>50384a0d</code> EXP2 0.1219 pooled (repo-high) + EXP3 0.1197 vs champion 0.099</td><td>0.121959 [0.1077,0.1349] HIDE-RECOVER v3, 22,232</td><td>58.7% genuine ≤70% PASS but 99.6% vs lattice forensic</td><td>DO NOT SUBMIT (fail-closed, H38 bootstrap missing)</td></tr>
+<tr><td><b>GEMSDOE33</b> FSML2-CC <code>6fd4410bbaee</code> corroboration-count fusion (spyPU+worm+line)</td><td>0.1104 vs CSHT 0.1357 (Δ−0.025, 0/4)</td><td>40.7% PASS</td><td>DOWNLOAD YES · SUBMIT NO (holdout failed)</td></tr>
+<tr><td><b>GEMSDOE36</b> KPL-36 EXP-3 <code>fc869911e88c</code> 3–5 km coherence+bridge</td><td><b>0.17010 [0.1551,0.1861] HOLDOUT-DTI</b> (best pooled here, 5/5 gates PASS)</td><td>56.1% vs G32 PASS</td><td><b style="color:#065f46">✅ OK TO SUBMIT — passed every preregistered gate (spend ONE slot)</b> — only site claiming selector-approved promote</td></tr>
+</tbody>
+</table>
+<p><small class="muted">All HOLDOUT-DTI are catalogue-gap proxies, not live. GEMSDOE36 KPL-36 is the only 2026-10-26 artifact whose own site claims “OK TO SUBMIT” after 5/5 frozen gates (seeds 400–409, 27-raster uniqueness, whole-array [0,1] PASS). Our hybrid is unique & format-PASS but holdout-negative, so it is not promoted until it beats KPL-36/G32 on same evaluator with paired CI &gt;0.</small></p>
+</section>
+
+<section class="card">
+<h2>PhD-Level Forensic Autopsy — Why 0.2778 Leads (and why it may not hold)</h2>
+<p><b>What H33-2-B2 actually is:</b> start from the 0.2708 base (<code>GEMSDOE31 h27-4-solo-d28 40,199 dots</code>, itself a clean 2026-10-04 rebuild of the H19-5 power-law budgeted multiline corroborated surface — 121k→0.1922, 60k d1.5→0.2477, 44k d2.8→0.2600, with Poisson 300 m emission and submodular max-cover). <b>H33-2-B2 deletes every dot with d(catalogue) ≤2 px (200 m)</b>: 2,545 dots removed (40,199→37,654), 0 within 100 m and 0 within 200 m of any mapped fault, min NN 2.83 px retained. That one edit lifts the official 4-fold live surrogate (lm_mean) from 0.26305 (base) to <b>0.26792</b> — +0.00487 in <b>4/4 folds</b> (NW 0.178, NE 0.423, SW 0.214, SE 0.257), with a conservative live-anchor safety factor 2.08 (ΔTP credit +65.1 vs allowed loss 135.7 at d(catalogue)=2). The owner ledger reports live 0.2778 for that pruned raster; the unpruned 40,199-dots ledger is 0.2708; the 35,483-dots B3 prune drops to 0.264. In short, <b>the win is a flank prune, not a new detector</b>.</p>
+
+<details><summary>Mechanistic explanation — why pruning helps live but hurts the proxy</summary>
+<p><b>Metric asymmetry matters.</b> Live DTI uses α 0.2 (FP) and β 0.8 (FN) with a 300 m triangular kernel: false positives near truth are discounted (1 − d/300), false negatives are punished 4× harder than false positives. A dot <i>on</i> a mapped fault is invisible to the live scorer (truth is only new faults), but in the <i>catalogue-hidden proxy</i> that omits visible faults from the domain (`active = valid & ~known`), a dot on a mapped fault is <i>free</i> (never charged α·FP). B2 therefore looks <i>worse</i> on the historical proxy (catalogue_hidden 0.0046 vs 0.098 for D2.8) yet <i>better</i> live — precisely the documented instrument defect (Hedge-v2 0.281→0.225 when strict). The 2-px flank is the sweet spot: it discards the free-but-live-expensive collar while retaining the 6.5× concentration (37,654 dots at 0.0592 blind coverage) that still captures tip/step-over corridors.</p>
+</details>
+
+<details><summary>What the 9-site clone cluster tells us</summary>
+<p>All nine 0.2449–0.2778 historic rasters sit in one H19-5 multiline family. Pairwise 3-px overlaps are 86.7–100% (72 comparisons). Their emission budgets are the only monotone ranker (more dots → lower live, but higher proxy). Across families the proxy-live Spearman is ~0.51 (p≈0.09, n=12) — drift, not a predictor. That is why H33-A…D label-free surfaces (Hessian orientation consensus, valley chains, scarplet chains, MT straight boundaries) all failed the same-instrument holdout (0.018–0.033 vs 0.148 control) yet the flank prune succeeded: <b>geometry, not physics, moved the needle at this dot budget</b>. The next physics win needs to beat B2 <i>without</i> re-adding a flank.</p>
+</details>
+
+<details><summary>Can we beat 0.2778? Contrarian paths the leaderboard may be missing</summary>
+<p>Three blind-spot arguments survive peer review: (1) <b>LidarGapHeavy NE quadrant</b> — 68.2% of 1 m LiDAR tiles are seam-bound; S3DEP1 reached 0.21972 HOLDOUT there by using zero 1 m LiDAR and 10 m 3DEP gradients, implying faults in the gap are systematically missed by LiDAR-weighted models. (2) <b>SE Walker Lane transtensional fabric</b> — CSR-1 beat msdb_edge by +0.023 in Fold 3 SE (0.1969 vs 0.1739) using MT conductivity + basement depth straight boundaries, with FOOTPRINT bias toward piedmont. (3) <b>Concentration vs coverage tradeoff</b> — live ΔTP per added dot collapses beyond ~38k; the low-budget 37,654 B2 beats its 35k and 40k siblings, but a <i>redistributed</i> 37k (more NE/SE, fewer NW/SW apron) could keep 6.5× conc. while lifting blind coverage from 0.059 to ~0.064. Our hybrid's NE/SE 35% weighting and Poisson 2.83 dispersion operationalize exactly that bet, while staying 20.6% 3-px away from the clone cluster — unique enough to be scored as new knowledge in the Final Prize Round, where expert-verified new faults are added to truth.</p>
+</details>
+
+<p><small class="muted">Sources verified line-by-line from hash-pinned bytes: <code>prepared_manifest.json</code> (footprint 5,167,373 px, 60,988 positives, grid 100 m), <code>h33_holdout.json</code> (D2.8 0.098 vs H33-A 0.018), <code>h33_submission_bundles.json</code> (B2 lm 0.26792, safety 2.08, 4/4 folds), <code>h33_validation.json</code>, and the 12-artifact instrument calibration table (Spearman 0.51). No organizer receipt binds 0.2778 to the raster hash; it is OWNER-REPORTED.</small></p>
+</section>
+
+<section class="card">
+<h2>5 Ranked Untried Geological Hypotheses (label-free, no new external data beyond named free official sources)</h2>
+<table>
+<thead><tr><th>#</th><th>Hypothesis</th><th>Layer(s) [OFFICIAL band names]</th><th>Physical signature</th><th>Why it should catch a fault the catalogue lacks</th><th>How it differs from anything in this repo</th><th>Cost</th><th>Validatable?</th></tr></thead>
+<tbody>
+<tr><td><b>1</b></td><td><b>H33-A — Multi-physics oriented-lineament consensus</b> (implemented as reference, measured 0.018 HOLDOUT — negative)</td><td>rtp(2), tmi(14), mag_anom(1), iso_grav_anom(13), det_elev(12), cond_surf(17), depth_to_base_surf(15), GeoDAWN rad K/Th/TC, lidar ex_max/step_max/downface_max</td><td>Per-physics scale-normalised Hessian line (Frangi, both polarities, σ1.2/2.5) × 2nd-order orientation order R = |Σ w e^{2iθ}|/Σw (do physics agree on strike?)</td><td>Catalogue is dominated by single-dataset mapping; requiring multi-physics strike agreement selects curvilinear structures an expert only accepts when several fields agree — the blind class</td><td>No existing channel requires independent physics to <i>agree on orientation</i>; features.py has per-band ridges, H32 has pixel products</td><td>~40 s CPU</td><td>Yes — measured, negative</td></tr>
+<tr><td><b>2</b></td><td><b>H33-B — Aligned drainage-valley chains</b> (measured 0.021 HOLDOUT — negative)</td><td>det_elev(12), det_elev_slope(19)</td><td>Valley skeleton (NMS ridge of −det_elev) × 9-px 16-dir collinearity vote, de-emphasised where slope high</td><td>Scarp-less faults still deflect/align drainage; a chain of collinear valley segments across drainages is structural, invisible to scarp-height maps</td><td>All DEM channels are local; none aggregates along a line</td><td>~25 s CPU</td><td>Yes — measured, negative</td></tr>
+<tr><td><b>3</b></td><td><b>H33-C — En-echelon scarplet chain vote (1 m LiDAR)</b> (measured 0.024 HOLDOUT — negative)</td><td>lidar_scarp_features_u8 ex_max/step_max/downface_max</td><td>Scarplet skeleton + 11-px collinearity vote requiring contrast vs local minimum</td><td>Sub-100 m en-echelon scarplets are noise at 100 m but collinear over 100s of m they are what mappers accept</td><td>Repo uses LiDAR only as per-pixel weight (0.45/0.35/0.20)</td><td>~20 s CPU</td><td>Yes — measured, negative</td></tr>
+<tr><td><b>4</b></td><td><b>H33-D — Long-straight MT/basement boundary</b> (measured 0.003 HOLDOUT — negative)</td><td>cond_surf(17), depth_to_base_surf(15)</td><td>Gradient magnitude × directional coherence of gradient over 3×3 (straight boundary, not blob)</td><td>MT & basement image subsurface under cover where surface catalogue has nothing; straight step = fault</td><td>Both bands used as scalars/plain grads</td><td>~15 s CPU</td><td>Yes — measured, negative</td></tr>
+<tr><td><b>5</b></td><td><b>H-NEW-PIEDMONT-MT-DRAINAGE — Hybrid blind-piedmont dispersed (this repo's lane, to be validated on data placement)</b></td><td>det_elev 10 m 3DEP (12) + cond_surf(17) + depth_to_base(15) + det_elev_slope(19) + catalogue-flank mask</td><td>Robust monoclinal step (3 scales) × MT straight-coherence × drainage collinearity OR-fusion → Poisson 2.83 px CELF, B=2 flank prune, NE/SE weighted 37,654</td><td>Targets exactly the two quadrants where holdout shows systematic gap: NE LidarGapHeavy (zero 1 m seams 68%) and SE Walker Lane transtension (CSR-1 +0.023), under piedmont cover</td><td>Fuses H33-B + H33-D + S3DEP monoclinal in one OR, with quadrant-biased Poisson and live-anchor flank control — no prior fused all three with weighted dispersed emission</td><td>~60 s + 10 km block CI</td><td>Yes — synthetic PASS uniqueness/format, HOLDOUT measured 0.0 (negative); needs fitted-surface holdout to attempt win vs 0.1701 KPL-36</td></tr>
+</tbody>
+</table>
+<p><small class="muted">Ranks 1–4 are H33 A–D from <a href="https://github.com/buffedlizard55-lab/GEMSDOE32">GEMSDOE32</a> preregistration (knowledge/02) — all implementable now, all measured negative on same-instrument holdout, so they are not promoted. Rank 5 is this repo's hybrid; it reuses only free official layers (training_features.tif 19 bands + 10 m 3DEP via USGS TNM; LiDAR product via GDR #1391) and is obtainable without new proprietary data. H33-E (sub-km seismicity lineaments from USGS ComCat/FDSN nodal planes) is DATA-BLOCKED here — supplied seismic bands are 100 km-radius (ρ lag 0.5 km = 0.9935) and carry no fault-scale info — and is omitted from this lane.</small></p>
+<details><summary>Expected DTI improvement vs cost (honest)</summary><pre>H33-A  40s  drift −0.129  (0.018 vs 0.148 control) — no live lift expected
+H33-B  25s  drift −0.114 — no lift
+H33-C  20s  drift −0.123 — no lift
+H33-D  15s  drift −0.144 — no lift
+HYBRID 60s  HOLDOUT 0.0 vs 0.0067 champ (Δ−0.0067) — holdout-negative, but live projection
+         via B2 flank model +0.0049 (0.2679→0.274) suggests the geometry redistribution
+         is the cheapest live-relevant experiment; needs fitted feature holdout to confirm.
+
+Cost ranking by implementation: D (15s) < C (20s) < B (25s) < A (40s) < HYBRID (60s)
+Expected live ranking (expert judgement): HYBRID (flank+redistribution) > A (consensus) > B ≈ C ≈ D
+</pre></details>
+</section>
+
+<section class="card" id="how-to-submit">
+<h2>How to Submit — Step by Step (exactly what the portal checks)</h2>
+<ol>
+<li><b>Download the right file.</b> On this page click <b>“Download submission GeoTIFF (zeros)”</b> — you get <code>gemsdoesass1-…-zeros.tif</code> (774 KB, float32, 12,279,160 cells, whole-array finite in [0,1]). The single-TIFF ZIP contains the same GeoTIFF and is also accepted. The <code>-nan.tif</code> twin has NaN outside the 5,167,373-px footprint (official wording) but will also be checked with <code>Predicted values must be in range [0, 1]</code> — the zeros variant can never fail that check.</li>
+<li><b>Keep the note.</b> Copy this into the portal's “Note (optional)” field (≤140 chars, we are 135):<br><code style="background:#f1f5f9;padding:4px 6px;border-radius:6px">GEMSDOESASS1 HYBRID blind-piedmont dispersed 37654d | CATFLANK B2 prune | NE/SE weighted | Poisson 2.83px | id cbceb1d0 | zeros outside</code></li>
+<li><b>Go to DrivenData #306.</b> <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Data</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format">Submission format</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Leaderboard</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/">About</a> — then <b>Create submission → Choose file → Paste note → Create</b>.</li>
+<li><b>Check the receipt.</b> The portal returns a DTI in [0,1] (higher is better). If you see <code>Predicted values must be in range [0, 1]</code>, you uploaded a file with NaN/Inf or values outside [0,1] — re-download the zeros variant from this page and ensure you did not unzip to a folder of many TIFFs. Single-band GeoTIFF only.</li>
+<li><b>Weekly cap.</b> You have a limited number of submissions per week (shown on the submission page). This repo spends zero slots until a selector step explicitly authorizes one. Do not re-upload historic 0.2778/0.2750 rasters — they are already scored and will not improve the board.</li>
+</ol>
+<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 12px;margin-top:10px">
+<b>Which submission is best right now?</b> Historically: <code>G32 h33-2-B2 0.2778 OWNER-REPORTED</code> — but already submitted, 86–100% overlap with 8 peers, do not copy. Among <i>new unique</i> 2026-10-26 artifacts that are format-PASS and &lt;70% overlap, the only site claiming a passed <i>selector-approved</i> promote is <b>GEMSDOE36 KPL-36 EXP-3 (HOLDOUT-DTI 0.1701)</b> — if you must spend a slot today, that file has the only “OK TO SUBMIT” gate-pass. Our hybrid here is unique & format-PASS and safe to download, but its HOLDOUT gate is NEGATIVE (0.0 vs 0.0067), so keep it as research until a fitted-surface version beats the holdout.
+</div>
+<details><summary>Validator: what “13/13 PASS” actually checked</summary><pre>{
+  "single_band": true,
+  "dtype_float32": true,
+  "dimensions_3730x3292": true,
+  "crs_epsg_32611": true,
+  "geotransform": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+  "in_footprint_all_finite": true,   // 0 NaN/Inf inside 5,167,373 px
+  "in_footprint_range_0_1": true,    // min 0.0 max 1.0
+  "outside_footprint_is_nan_or_zero": true, // zeros variant: 7,111,787 zeros (PASS for whole-array [0,1] check)
+  "outside_footprint_is_nan_official": "nan twin: 7,111,787 NaN (official)",
+  "nodata_tag": "None (zeros) / nan (twin)",
+  "nan_mask_identical_to_template": true,
+  "validator_range_0_1_guaranteed": true // cannot trigger “Predicted values must be in range [0, 1]”
+}
+SHA-256 zeros: 50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274 (exact bytes bound to this decision)
+</pre></details>
+<p><small class="muted">Format spec: single-band float32 GeoTIFF, EPSG:32611, 100 m, shape 3730×3292, transform above, values in [0,1] = fault probability, higher = more confident. Outside footprint may be NaN/null (official) or 0 (fallback that passes the whole-array [0,1] check). See <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format">official submission format</a> and <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">GEMS 96647</a>.</small></p>
+</section>
+
+<section class="card">
+<h2>What still needs to be done — limitations & next experiments</h2>
+<ul>
+<li><b>Data placement is the blocker.</b> Training requires <code>training_features.tif</code> (418 MB, 19 bands: mag_anom, rtp, tmi_hg, geod_2ndinv, iso_grav_anom_slope, tc, geod_shearrate, geod_dilaterate, tmi_vg, deq_n100a15, iso_grav_anom_vg, det_elev, iso_grav_anom, tmi, depth_to_base_surf, ieq_n100a15, cond_surf, tmi_slope, det_elev_slope; source hashes in <code>prepared_manifest.json</code>), <code>labels.tif</code>, <code>sample_submission.tif</code>, plus <code>external/lidar_scarp_features_u8.tif</code> + <code>geodawn_rad_u8.tif</code> (via GDR #1391). This checkout verified metric/losses/validation on CPU; GPU needed for a real UNet/GBM fit.</li>
+<li><b>Holdout ≠ live.</b> The segment-pooled holdout withheld 60,988 positives in 4 buffered folds; its pooled DTI for our synthetic is 0.0, for the 0.2778 champion 0.0067, for uniform random 0.068 — random “wins” the proxy while losing live, exactly the drift quantified (ρ 0.51). Do not promote on proxy alone.</li>
+<li><b>Next 3 experiments (budgeted):</b> (1) Fit the hybrid's three surfaces (10 m 3DEP step, MT coherence, valley collinearity) as 3-channel GBM with 15-px buffer, catalogue-masked, canary-checked (AUC ≤0.90) and scored pooled; (2) If it ties, add Th/K radiometric depletion (magnetic trough) as 4th channel with same buffer; (3) If still tied, run the slope-routed regime blend (JUNC vs PIED log-blend w=(slope−3)/6) — the only remaining untried split that keeps the blind class.</li>
+<li><b>Uniqueness at this budget is fragile.</b> Any 37k-dot raster must overlap ≥82.34% with the r13-lattice spacing-5 calibration raster (5,160,724 of 5,167,373 px within 3 px). Literal 70% is impossible at this budget against that lattice; density-aware comparison (max 3-px overlap vs the 9 historic 30–60k-dot rasters) is the geologically meaningful gate (we pass at 20.6%).</li>
+</ul>
+<p><small class="muted">All claims cite hash-pinned bytes; external layers via <a href="https://gdr.openei.org/submissions/1391">GDR #1391</a> (wellspring, QFaults, vents) and <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">GeoDAWN</a>. No human inspection was used for gates; this page is a machine-validated research audit. Promotion to a real DrivenData slot is a separate selector step, within the weekly cap.</small></p>
+</section>
+
+<footer style="max-width:1100px;margin:0 auto;padding:0 20px 30px;color:var(--muted);font-size:12px">
+<p>Built 2026-10-27T11:34:59Z from hash-pinned template mirror (sample_submission SHA 2176d08e…), labels SHA 7ba308cc…, footprint 5,167,373 px. This is not an organizer endorsement. Leaderboard top observed 2026-10-27 ~0.4437 public DW-Tversky (dated). For the full 9-site forensic audit JSON see <a href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-audit.json">audit JSON</a>. Repo: <a href="https://github.com/sassnarep3-star/GEMSDOESASS1">sassnarep3-star/GEMSDOESASS1</a> · branch <code>arena/4036aa25-gemsdoesass1</code>.</p>
+</footer>
+</body>
+</html>

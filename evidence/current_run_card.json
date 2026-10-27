@@ -1,4 +1,5 @@
 {
+  "status": "HISTORICAL SNAPSHOT \u2014 superseded by evidence/run-card.json; this predates the parallel research artifact and current witness audit.",
   "review_id": "GEMSDOESASS1-review-2026-10-27",
   "hypothesis": "No experiment was run: the required assigned method paragraph is absent, so no candidate lane can be selected without violating the parallel-run protocol.",
   "mechanism": "Not tested; no candidate mechanism is attributed to a raster or score.",
@@ -6,20 +7,20 @@
   "holdout_dti": {
     "evidence_class": "HOLDOUT-DTI",
     "value": null,
-    "evaluator_version": "NOT RUN — evaluator absent from checkout",
+    "evaluator_version": "NOT RUN \u2014 evaluator absent from checkout",
     "withheld_positive_count": null,
     "confidence_interval_95": null,
-    "protocol": "NOT RUN — no data, cached stack, labels, or shared evaluator"
+    "protocol": "NOT RUN \u2014 no data, cached stack, labels, or shared evaluator"
   },
   "correlation_overlap_vs_registry": {
     "preplacement_surface_max_abs_spearman": null,
     "final_dots_max_within_3px_overlap": null,
     "registry_version": null,
-    "status": "NOT RUN — no raster registry or candidate surface/dots"
+    "status": "NOT RUN \u2014 no raster registry or candidate surface/dots"
   },
   "raster_sha256": null,
   "validator_output": {
-    "status": "NOT RUN — no candidate TIFF was written",
+    "status": "NOT RUN \u2014 no candidate TIFF was written",
     "no_nan_inside_footprint": null,
     "values_within_0_1": null,
     "crs_matches": null,

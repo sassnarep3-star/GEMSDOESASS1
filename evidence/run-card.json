@@ -1,0 +1,78 @@
+{
+  "schema": "gems-sass1-run-card-v1",
+  "created_utc": "2026-10-27T11:36:00Z",
+  "updated_utc": "2026-10-27T11:55:03.286572+00:00",
+  "hypothesis": "A concurrent branch proposed hybrid blind-piedmont evidence and generated a synthetic quadrant-weighted Poisson research raster. The synthetic raster is not a fitted geophysical model and was not generated in this audit.",
+  "mechanism": "The proposed (untested here) rationale is that aligned piedmont morphology, conductivity and basin-depth boundaries can indicate buried faults missing from the mapped catalogue.",
+  "named_non_fault_process": "Road cuts, depositional contacts and lithologic boundaries can imitate structural scarps and geophysical edges; synthetic placement is not geological evidence.",
+  "experiment_budget": {
+    "experiments_run": 0,
+    "max_experiments": 3,
+    "max_wall_seconds": 7200,
+    "weekly_slots_used": 0,
+    "scope": "This audit run; a concurrent prior branch generated the research artifact, but its training and evaluator cannot be independently replayed here."
+  },
+  "holdout": {
+    "evidence_class": "NOT RUN",
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "holdout_dti": null,
+    "confidence_interval_95": null,
+    "reason": "No shared evaluator, prepared cache, or candidate surface was available for an independent replay. Prior branch claims remain unverified."
+  },
+  "feature_canaries": {
+    "status": "NOT RUN",
+    "max_auc": null
+  },
+  "registry": {
+    "preplacement_surface_rank_correlation": null,
+    "preplacement_status": "NOT RUN: surface unavailable",
+    "candidate_final_dot_overlap": 0.9984596590003718,
+    "reference": "reg-052 pinned owner lattice",
+    "candidate_dots": 37654,
+    "overlapping_dots": 37596,
+    "duplicate": true,
+    "final_binary_spearman_with_lattice": 0.0006543671733625434,
+    "scope": "Only a subset of the registry was read; this one literal breach is sufficient to reject. Binary final-dot Spearman is not the unavailable pre-placement surface test.",
+    "independent_witness": "evidence/witness-audit.json"
+  },
+  "raster_sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274",
+  "raster_file": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+  "raster_origin": "Previously generated in concurrent PR #3; research-only, not a new output from this audit.",
+  "validator": {
+    "status": "INDEPENDENT READ-BACK against owner mirror only; not organizer authentication or portal acceptance",
+    "band_count": 1,
+    "dtype": "float32",
+    "no_nan_inside_footprint": true,
+    "values_in_0_1_inside_footprint": true,
+    "full_array_finite_and_in_0_1": true,
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "crs_shape_transform_match_owner_mirror": true,
+    "outside_zero_variant": "all zero; official outside-bounds compliance and portal acceptance unverified",
+    "nan_twin_sha256": "ddd12d0d3e3f94dee8b85a5df3c6bb6509e6a3d7c6ea83e78e8afa293ead1189",
+    "nan_twin_outside": "all NaN; official portal acceptance unverified",
+    "zip_member_matches_zero_variant": true
+  },
+  "submission": {
+    "name": null,
+    "note": null,
+    "file": null,
+    "okay_to_download_as_submission": false,
+    "okay_to_submit": false,
+    "selector_approved": false,
+    "reason": "The research artifact fails the literal novelty stop; no approved submission name or note exists."
+  },
+  "verdict": "negative"
+}
