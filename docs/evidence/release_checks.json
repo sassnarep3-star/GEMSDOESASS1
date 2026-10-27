@@ -1,7 +1,7 @@
 {
   "release_class": "negative research result; no competition artifact",
   "review_date_utc": "2026-10-27",
-  "python_tests_passed": 32,
+  "python_tests_passed": 33,
   "javascript_tests_passed": 5,
   "rendered_browser_pages": 13,
   "mobile_layouts_tested": 4,
@@ -20,7 +20,7 @@
     "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
     "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
     "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
-    "scripts/build_site.py": "e44ac6f9d1d70891d8d6db4ecd0388b76e9199dc31ce452a125b349924ce252e",
+    "scripts/build_site.py": "60d0e991f2eeb431d75ae61905d2384b51c980ce03daa9531d015dd1760a1e98",
     "scripts/evaluate_holdout.py": "f7e5e37af6577db82b453fb1ba9e7d6b516e5b246656f5bea4ba0a1c78a0420a",
     "scripts/novelty.py": "005f8dd23c4c6ff915580adb192a02a6f03c1ef7158150d4a36dfa3518fadfc2",
     "scripts/prepare_data.py": "3f9fe8bf4cde7a98764769ac559b115b9f1256ff2e5ca4cd4f5d6282f9814606",
@@ -32,5 +32,6 @@
     "Pages reconfiguration denied HTTP 403; existing legacy deployment retained.",
     "No official organizer receipts or network access to official contest pages.",
     "First-pass protocol defect corrected; numerical holdout retained only as exploratory negative evidence."
-  ]
+  ],
+  "concurrent_main_preserved": true
 }

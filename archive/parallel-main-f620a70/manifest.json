@@ -1,0 +1,90 @@
+{
+  "source_commit": "f620a70053d2f86eed6cadb0677e72d8605fb916",
+  "reason": "Preserve concurrently merged, separately negative research without endorsing its projections or uniqueness claims.",
+  "files": [
+    {
+      "original_path": "README.md",
+      "archived_path": "archive/parallel-main-f620a70/original/README.md",
+      "sha256": "ad2b9ca1567af20c999dc043099317091d3d5e44144ec0e1c3dc6a0b749702a2",
+      "bytes": 19307
+    },
+    {
+      "original_path": "docs/.nojekyll",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-audit.json",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-audit.json",
+      "sha256": "a2c8ce710a364225d9014907079aeb85bdca07e64971b2ff7f9bf1601ae5be30",
+      "bytes": 844
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif",
+      "sha256": "ddd12d0d3e3f94dee8b85a5df3c6bb6509e6a3d7c6ea83e78e8afa293ead1189",
+      "bytes": 1558039
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+      "sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274",
+      "bytes": 793296
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip",
+      "sha256": "1ad2a0451e2eea2211e6ae3f5f49f7c5ea32a676509f5ce10f0bd63520594e64",
+      "bytes": 184601
+    },
+    {
+      "original_path": "docs/downloads/note-gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.txt",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/downloads/note-gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.txt",
+      "sha256": "b9f42b978da5f5f241ddd4fff0979e5fd80cf9524eb6901d3724233b175940bd",
+      "bytes": 135
+    },
+    {
+      "original_path": "docs/executive-summary.html",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/executive-summary.html.txt",
+      "sha256": "2279c0bd72b39dc126ac96350168155d4e74449edd004eb6e480deecbdc068f9",
+      "bytes": 10274
+    },
+    {
+      "original_path": "docs/executive-summary.md",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/executive-summary.md",
+      "sha256": "a4f851440c856085e3939c643f6bcafe1c4bece903fa064ea1599ac7b3cf280d",
+      "bytes": 11989
+    },
+    {
+      "original_path": "docs/hypotheses.md",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/hypotheses.md",
+      "sha256": "f782bdb1fb97adbea97f071eb79e4a7e901eb40dd900d311df363b353f925d09",
+      "bytes": 9364
+    },
+    {
+      "original_path": "docs/index.html",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/index.html.txt",
+      "sha256": "8c9e2d2a0206a3766af67d76de318eebbe1bcc71ab02c04911f86ccb3dc7296f",
+      "bytes": 37280
+    },
+    {
+      "original_path": "docs/review-2026-10-27.md",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/review-2026-10-27.md",
+      "sha256": "2d23c10bd1e8756c65a9352379a75cdf3413c1afaa47b812b1c910022511dbe1",
+      "bytes": 21925
+    },
+    {
+      "original_path": "docs/sources.md",
+      "archived_path": "archive/parallel-main-f620a70/original/docs/sources.md",
+      "sha256": "ade08403d1daffaa57d165bff2797590317addaa10d3ddf4261a490a894cdcde",
+      "bytes": 7991
+    },
+    {
+      "original_path": "evidence/current_run_card.json",
+      "archived_path": "archive/parallel-main-f620a70/original/evidence/current_run_card.json",
+      "sha256": "3b22406f9276dd2cb36dba98f889b69f714f72e9d702aaf590cd4d42ec867837",
+      "bytes": 1798
+    }
+  ]
+}

@@ -218,3 +218,15 @@ def test_writer_rejects_outside_footprint_and_known_fault_support(tmp_path):
     with pytest.raises(ValueError,match='mapped catalogue'):
         write_submission(tmp_path/'known.tif',p,tmp_path/'missing.tif',np.ones_like(p,bool),catalogue=p>0,name='test',note='test')
     assert not list(tmp_path.iterdir())
+
+
+def test_concurrent_main_research_preserved_not_promoted():
+    manifest = json.loads((ROOT/'archive/parallel-main-f620a70/manifest.json').read_text())
+    assert len(manifest['files']) == 14
+    for row in manifest['files']:
+        p = ROOT / row['archived_path']
+        assert p.stat().st_size == row['bytes']
+        assert hashlib.sha256(p.read_bytes()).hexdigest() == row['sha256']
+        if row['original_path'].endswith('.html'):
+            assert p.suffix == '.txt'
+    assert not list((ROOT/'docs/downloads').glob('*.tif'))
