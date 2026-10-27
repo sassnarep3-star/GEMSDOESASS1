@@ -1,0 +1,59 @@
+{
+  "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "all_checks_passed": true,
+  "positive_pixels": 44090,
+  "footprint_pixels": 5167373,
+  "min": 0.0,
+  "max": 1.0,
+  "sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+  "size_bytes": 152542,
+  "profile": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "nodata": null
+  },
+  "zip": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.zip",
+    "sha256": "e17ca24ee7f5d7f9f3d8eb43996393ec352c04714b5c1f983ab97cda9d19e6e2",
+    "size_bytes": 118135
+  },
+  "submission_note": "GEMSASS1 SWGB: 5x segment-withheld HGB on lidar+GeoDAWN, 44090 dots 2.8px, >600m off-catalogue; HOLDOUT-DTI 0.140 vs base 0.101",
+  "meta": {
+    "lane": "E2-SWGB",
+    "emission": {
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "prune_px": 6.0,
+      "dots_within_2px_of_catalogue": 0,
+      "dots_on_catalogue": 0,
+      "dots_with_lidar": 38257,
+      "field_quantile_of_last_dot": 0.9056152903999769
+    }
+  }
+}

@@ -1,0 +1,10 @@
+# Large regenerable rasters: restored by `bash scripts/fetch_reference_assets.sh`
+data/features/*.tif
+data/registry/*.tif
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+# scratch
+work/
