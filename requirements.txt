@@ -1,5 +1,5 @@
-# Independent read-back audit; not a training or submission environment.
 numpy==2.4.6
 scipy==1.17.1
 rasterio==1.4.4
+scikit-learn==1.9.1
 pytest==9.1.1

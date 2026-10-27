@@ -1,7 +1,6 @@
 .venv/
-.local-data/
+.cache/
 __pycache__/
 .pytest_cache/
-*.pyc
-
-node_modules/
+data/
+*.partial

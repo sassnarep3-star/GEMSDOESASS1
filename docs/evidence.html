@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GEMS fault-detection research: nine-site comparison, strict submission gates and auditable negative results.">
+<meta name="color-scheme" content="light"><title>Evidence and source feed · GEMS Fieldnotes</title><link rel="stylesheet" href="assets/site.css"></head>
+<body><a class="skip" href="#main">Skip to content</a><header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="research.html">Research & sources</a><a href="evidence.html" aria-current="page">Evidence</a></nav></div></header>
+<main id="main"><p class="eyebrow">Evidence / immutable experiment record</p><h1>A negative result.<br>Fully accounted for.</h1><p class="lead">One hypothesis experiment. No competition upload. Source snapshots, raw failed checks, corrected checks and review findings are preserved together.</p><div class="metrics"><div class="metric"><span class="label">Exploratory HOLDOUT-DTI</span><span class="value">0.0390</span><p>95% CI 0.0283–0.0501</p></div>
+<div class="metric"><span class="label">Same-run control DTI</span><span class="value">0.0730</span><p>95% CI 0.0569–0.0892</p></div>
+<div class="metric"><span class="label">Final dot overlap</span><span class="value">100%</span><p>Within 3 px of one registry raster</p></div>
+<div class="metric"><span class="label">New approved downloads</span><span class="value">None</span><p>Stop, do not use a weekly slot</p></div></div>
+<p class="small">Both DTI measurements: <code>gems57-pooled-hide-v2</code> · 56,454 withheld positive pixels · 1,999 physical-block bootstrap resamples. Not leaderboard estimates. First-pass execution was protocol-disqualified before placement; retain as exploratory negatives only.</p><section class="section" id="correction"><h2>The protocol error we found and fixed.</h2><div class="callout"><strong>Do not treat the first-pass holdout as promotion-qualified.</strong> The original pre-placement audit checked Spearman ranks but omitted positive-support overlap; it also continued despite an unassessable registry file. Review corrected both. The identical surface fails the pre-placement overlap gate. No new experiment, dot placement or TIFF followed the correction.</div><p>The original run card and rank scan remain in the evidence directory. The current card explicitly records the error and disqualifies the execution for promotion. The runner now applies both literal tests at both phases and stops before placement on any incomplete clearance. Shared geometry is reused without a private metric change.</p></section>
+<section class="section"><div class="grid2"><article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3><div class="barrow"><span>gravity_gradient_s2</span><div class="track"><div class="bar " style="width:60.9%"></div></div><strong>0.0730</strong></div><div class="barrow"><span>gravity_gradient_s5</span><div class="track"><div class="bar " style="width:59.8%"></div></div><strong>0.0718</strong></div><div class="barrow"><span>signed_opposition_s2</span><div class="track"><div class="bar " style="width:57.4%"></div></div><strong>0.0689</strong></div><div class="barrow"><span>signed_opposition_s5</span><div class="track"><div class="bar " style="width:55.1%"></div></div><strong>0.0662</strong></div><div class="barrow"><span>basement_gradient_s2</span><div class="track"><div class="bar " style="width:39.2%"></div></div><strong>0.0471</strong></div><div class="barrow"><span>basement_gradient_s5</span><div class="track"><div class="bar " style="width:37.3%"></div></div><strong>0.0447</strong></div><div class="barrow"><span>low_surface_expression</span><div class="track"><div class="bar " style="width:33.2%"></div></div><strong>0.0398</strong></div><div class="barrow"><span>BGAC-1</span><div class="track"><div class="bar candidate" style="width:32.5%"></div></div><strong>0.0390</strong></div><p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores. All feature AUC canaries fell between 0.4045 and 0.5727.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article><article class="panel"><p class="kicker">Validation scope</p><h3>No phantom TIFF receipt.</h3><p>The in-memory surface is finite and in [0,1]. No BGAC-1 submission file exists, so there is no on-disk BGAC-1 submission validator pass and its raster SHA256 is null. Reference-grid metadata is identified as reference-only, not as a generated TIFF.</p><p>The restored catalogue has the same SHA256 as the mirrored label raster. This is hide-and-recover proxy validation, not evaluation on hidden new-fault truth.</p><a href="evidence/run_card.json">Authoritative JSON run card →</a></article></div></section>
+<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while this run was underway. Its original files are in a learning-only archive, not active downloads. Its projection and nine-champion uniqueness claims are not endorsed. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence, not a duplicate submission.</h2><div class="panel"><ul class="evidence-list"><li><a href="evidence/run_card.json">Current run card</a><span>JSON ↗</span></li><li><a href="evidence/first_pass_run_card.json">Preserved first-pass card</a><span>JSON ↗</span></li><li><a href="evidence/corrected_surface_novelty.json">Corrected pre-placement stop</a><span>JSON ↗</span></li><li><a href="evidence/surface_novelty.json">Original full rank-only surface scan</a><span>JSON ↗</span></li><li><a href="evidence/dot_novelty.json">First-pass final-dot stop</a><span>JSON ↗</span></li><li><a href="evidence/nine_site_audit.json">Nine-site byte / duplicate / H33 mechanism audit</a><span>JSON ↗</span></li><li><a href="evidence/canaries.json">Per-feature leakage canaries</a><span>JSON ↗</span></li><li><a href="evidence/holdout.json">Exploratory holdout and paired confidence intervals</a><span>JSON ↗</span></li><li><a href="evidence/feature_cache.json">Feature cache hashes and layer tags</a><span>JSON ↗</span></li><li><a href="evidence/focus_inventory.json">Complete frozen nine-site TIFF inventory</a><span>JSON ↗</span></li><li><a href="evidence/PROVENANCE.json">Unmodified shared-tool provenance</a><span>JSON ↗</span></li><li><a href="evidence/release_checks.json">Frozen implementation hashes and verification checks</a><span>JSON ↗</span></li></ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2><p class="small">Static snapshot checked: 2026-10-27T11:58:40.093528+00:00. GitHub heads only—not a current competition leaderboard. Changed heads require a new registry audit; they never update the frozen experiment.</p><p class="small" id="feed-live-status" role="status">Current GitHub freshness will be checked automatically if browser access is available.</p><div class="table-wrap"><table class="feed-grid"><thead><tr><th>Source</th><th>Experiment pin</th><th>Current head</th><th>Advisory</th></tr></thead><tbody><tr data-source-repo="GEMSDOE24" data-frozen-ref="cf093c8c5e9fa77294ecf4c59b79cdade92cbc06"><td>GEMSDOE24</td><td><code>cf093c8c5e9f</code></td><td><code data-current-head>a1ecb683a9fd</code></td><td data-advisory>Changed — audit required</td></tr><tr data-source-repo="GEMSDOE25" data-frozen-ref="227347d0f1beb420c0dd2a7dd4079ddc6389f5ab"><td>GEMSDOE25</td><td><code>227347d0f1be</code></td><td><code data-current-head>227347d0f1be</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE27" data-frozen-ref="6c34f5b7cb7756d23c258df051318b7b11cd9ab4"><td>GEMSDOE27</td><td><code>6c34f5b7cb77</code></td><td><code data-current-head>6c34f5b7cb77</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE28" data-frozen-ref="f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309"><td>GEMSDOE28</td><td><code>f78c1e8fdc2f</code></td><td><code data-current-head>f78c1e8fdc2f</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE30" data-frozen-ref="3c3d7255fdbb3a94375eff086522463a8eaca449"><td>GEMSDOE30</td><td><code>3c3d7255fdbb</code></td><td><code data-current-head>3c3d7255fdbb</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE31" data-frozen-ref="abd9a45cc7adf046d7d3829eb6e8c980943f462d"><td>GEMSDOE31</td><td><code>abd9a45cc7ad</code></td><td><code data-current-head>abd9a45cc7ad</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE32" data-frozen-ref="1398109a23f04a2ace71c1bd2f527cfba87860b5"><td>GEMSDOE32</td><td><code>1398109a23f0</code></td><td><code data-current-head>1398109a23f0</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE33" data-frozen-ref="122e2240a835c9c84831943ee3489dbb48fd6e85"><td>GEMSDOE33</td><td><code>122e2240a835</code></td><td><code data-current-head>122e2240a835</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE36" data-frozen-ref="61783525af4aa6dcf8da0bc68b06fa38b89ed27a"><td>GEMSDOE36</td><td><code>61783525af4a</code></td><td><code data-current-head>61783525af4a</code></td><td data-advisory>Matches snapshot</td></tr></tbody></table></div></section><section class="section"><h2>The run card.</h2><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;generated_utc&quot;: &quot;2026-10-27T11:37:33.643679+00:00&quot;,
+  &quot;hypothesis&quot;: &quot;BGAC-1: buried basin-edge anti-gradient consistency&quot;,
+  &quot;mechanism&quot;: &quot;Signed gravity/basement gradient opposition at 2 and 5 px scales with weak surface-expression weighting.&quot;,
+  &quot;non_fault_mimic&quot;: &quot;A smooth depositional basin margin with low-density fill; gravity-derived basement inversion coupling.&quot;,
+  &quot;experiments_run&quot;: 1,
+  &quot;experiment_budget&quot;: 3,
+  &quot;max_runtime_seconds&quot;: 7200,
+  &quot;evaluator_version&quot;: &quot;gems57-pooled-hide-v2&quot;,
+  &quot;holdout_dti&quot;: 0.039036202252430756,
+  &quot;ci95&quot;: [
+    0.02831042154170415,
+    0.05013486199386167
+  ],
+  &quot;withheld_positive_pixels&quot;: 56454,
+  &quot;correlation_overlap_vs_registry&quot;: {
+    &quot;surface&quot;: 0.14906748299549635,
+    &quot;dots&quot;: 0.018191755828337725,
+    &quot;overlap&quot;: 1.0,
+    &quot;surface_overlap&quot;: 1.0,
+    &quot;surface_corrected_scan_max_spearman&quot;: 0.04162206479197677,
+    &quot;scope_note&quot;: &quot;First-pass full rank scan retained; corrected surface and dot overlap scans stop at first violation, not full-registry maxima.&quot;
+  },
+  &quot;raster_sha256&quot;: null,
+  &quot;canonical_surface_sha256&quot;: &quot;072b5b588380ec6a49069707c86e288aedeacdaebe641618f72373e8cf1af660&quot;,
+  &quot;validator_output&quot;: {
+    &quot;file_status&quot;: &quot;NOT WRITTEN: duplicate gate&quot;,
+    &quot;in_memory_surface_all_finite&quot;: true,
+    &quot;in_memory_surface_range_0_1&quot;: true,
+    &quot;reference_grid_only&quot;: {
+      &quot;shape&quot;: [
+        3730,
+        3292
+      ],
+      &quot;crs&quot;: &quot;EPSG:32611&quot;,
+      &quot;transform&quot;: [
+        100,
+        0,
+        243350,
+        0,
+        -100,
+        4508550
+      ]
+    },
+    &quot;on_disk_submission_validation&quot;: null
+  },
+  &quot;submission_name&quot;: null,
+  &quot;note&quot;: &quot;BGAC-1 signed basin-edge test; no leaderboard score or weekly-slot approval.&quot;,
+  &quot;verdict&quot;: &quot;negative&quot;,
+  &quot;approved_for_submission&quot;: false,
+  &quot;submission_slots_used&quot;: 0,
+  &quot;data_provenance&quot;: &quot;SHA-verified public owner mirror; not organizer authenticated.&quot;,
+  &quot;limitations&quot;: [
+    &quot;No organizer submission-page receipt or weekly-cap verification.&quot;,
+    &quot;Global novelty outside the nine focus repositories is unverified.&quot;,
+    &quot;No compatible prior local holdout best existed in this empty repository.&quot;
+  ],
+  &quot;canary_pass&quot;: true,
+  &quot;holdout_evidence_class&quot;: &quot;HOLDOUT-DTI&quot;,
+  &quot;best_comparable_control&quot;: &quot;gravity_gradient_s2&quot;,
+  &quot;canonical_dots_sha256&quot;: &quot;d510a8033961ab8de4179d135c2161dce96ef5ded06c1e110bbbc2502fefe2a1&quot;,
+  &quot;final_dot_count&quot;: 35385,
+  &quot;stop_reason&quot;: &quot;Corrected literal surface overlap exceeds 70%; stop before placement. No additional dot placement or experiment during correction.&quot;,
+  &quot;paired_comparison&quot;: {
+    &quot;evidence_class&quot;: &quot;HOLDOUT-DTI&quot;,
+    &quot;evaluator_version&quot;: &quot;gems57-pooled-hide-v2&quot;,
+    &quot;delta&quot;: -0.033991047304325166,
+    &quot;ci95&quot;: [
+      -0.046639890891942516,
+      -0.02197053548489654
+    ],
+    &quot;withheld_positive_pixels&quot;: 56454
+  },
+  &quot;elapsed_seconds&quot;: 97.85318028400002,
+  &quot;protocol_correction&quot;: &quot;Pass 2 found that first-pass surface audit tested rank only and continued despite an unassessable prior. Both are now fixed; holdout retained only as exploratory negative evidence, NOT protocol-qualified promotion evidence.&quot;,
+  &quot;holdout_status&quot;: &quot;EXPLORATORY HOLDOUT-DTI; protocol execution disqualified before placement&quot;,
+  &quot;first_pass_record&quot;: &quot;first_pass_run_card.json&quot;,
+  &quot;surface_audit&quot;: &quot;corrected_surface_novelty.json&quot;,
+  &quot;planned_submission_name&quot;: &quot;gems-sass1-bgac1-20261027-d510a8033961&quot;
+}</pre></section></main><footer><span>Independent research workspace · not an organizer website</span><span>Evidence before submission. No competition uploads automated.</span><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">View repository ↗</a></footer><script src="assets/source-feed.js" defer></script></body></html>

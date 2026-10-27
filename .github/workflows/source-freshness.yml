@@ -1,0 +1,28 @@
+name: Source freshness advisory
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * *'
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Read public source heads only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/refresh_sources.py
+      - run: python scripts/build_site.py
+      - name: Preserve advisory snapshot (not a promotion or Pages deployment)
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-source-freshness
+          path: |
+            knowledge/source_feed.json
+            docs/
+          retention-days: 14
