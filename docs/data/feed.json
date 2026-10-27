@@ -1,0 +1,89 @@
+{
+  "generated_utc": "2026-10-27T11:54:39.008229+00:00",
+  "baseline_observed_utc": "2026-10-27T11:39:20.425077+00:00",
+  "scope": "GitHub main-branch metadata only; not a score, slot quota, or complete raster registry.",
+  "status": "complete",
+  "sites": [
+    {
+      "site": "GEMSDOE24",
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "baseline_ref": "cf093c8c5e9fa77294ecf4c59b79cdade92cbc06",
+      "observed_utc": "2026-10-27T11:54:37.151967+00:00",
+      "current_ref": "a1ecb683a9fda2aa4612f27e28896ebb8b19ad08",
+      "status": "changed",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE24"
+    },
+    {
+      "site": "GEMSDOE25",
+      "repo": "buffedlizard55-lab/GEMSDOE25",
+      "baseline_ref": "227347d0f1beb420c0dd2a7dd4079ddc6389f5ab",
+      "observed_utc": "2026-10-27T11:54:37.152872+00:00",
+      "current_ref": "227347d0f1beb420c0dd2a7dd4079ddc6389f5ab",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE25"
+    },
+    {
+      "site": "GEMSDOE27",
+      "repo": "buffedlizard55-lab/GEMSDOE27",
+      "baseline_ref": "6c34f5b7cb7756d23c258df051318b7b11cd9ab4",
+      "observed_utc": "2026-10-27T11:54:37.161047+00:00",
+      "current_ref": "6c34f5b7cb7756d23c258df051318b7b11cd9ab4",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE27"
+    },
+    {
+      "site": "GEMSDOE28",
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "baseline_ref": "f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309",
+      "observed_utc": "2026-10-27T11:54:37.548442+00:00",
+      "current_ref": "f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE28"
+    },
+    {
+      "site": "GEMSDOE30",
+      "repo": "buffedlizard55-lab/GEMSDOE30",
+      "baseline_ref": "3c3d7255fdbb3a94375eff086522463a8eaca449",
+      "observed_utc": "2026-10-27T11:54:37.619830+00:00",
+      "current_ref": "3c3d7255fdbb3a94375eff086522463a8eaca449",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE30"
+    },
+    {
+      "site": "GEMSDOE31",
+      "repo": "buffedlizard55-lab/GEMSDOE31",
+      "baseline_ref": "abd9a45cc7adf046d7d3829eb6e8c980943f462d",
+      "observed_utc": "2026-10-27T11:54:37.647044+00:00",
+      "current_ref": "abd9a45cc7adf046d7d3829eb6e8c980943f462d",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE31"
+    },
+    {
+      "site": "GEMSDOE32",
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "baseline_ref": "1398109a23f04a2ace71c1bd2f527cfba87860b5",
+      "observed_utc": "2026-10-27T11:54:37.968842+00:00",
+      "current_ref": "1398109a23f04a2ace71c1bd2f527cfba87860b5",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE32"
+    },
+    {
+      "site": "GEMSDOE33",
+      "repo": "buffedlizard55-lab/GEMSDOE33",
+      "baseline_ref": "122e2240a835c9c84831943ee3489dbb48fd6e85",
+      "observed_utc": "2026-10-27T11:54:38.086960+00:00",
+      "current_ref": "122e2240a835c9c84831943ee3489dbb48fd6e85",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE33"
+    },
+    {
+      "site": "GEMSDOE36",
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "baseline_ref": "61783525af4aa6dcf8da0bc68b06fa38b89ed27a",
+      "observed_utc": "2026-10-27T11:54:38.549607+00:00",
+      "current_ref": "61783525af4aa6dcf8da0bc68b06fa38b89ed27a",
+      "status": "unchanged",
+      "repo_url": "https://github.com/buffedlizard55-lab/GEMSDOE36"
+    }
+  ]
+}

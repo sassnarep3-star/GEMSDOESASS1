@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "run_id": "GEMSDOESASS1-20261027-preflight",
+  "hypothesis": "Prospective only, not an assigned lane: cross-strike signed gravity, magnetic and topographic profiles may reveal covered fault steps.",
+  "mechanism": "Independent, similarly oriented step profiles might reflect displacement and juxtaposition across a concealed structure; a future fold-local test must falsify this.",
+  "named_non_fault_mimic": "Lithologic contacts and eroded lake terraces; lava-flow margins and survey artifacts are additional mimics.",
+  "experiments_run": 0,
+  "competition_slots_used": 0,
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "value": null,
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "ci95": null,
+    "reason": "No model was fitted or evaluated; the method lane and reusable feature cache were not supplied."
+  },
+  "correlation_overlap_vs_registry": {
+    "candidate_surface": null,
+    "candidate_final_dots": null,
+    "registry_complete": false,
+    "historical_audit": "The nine pinned historical masks were compared with each other, not with a new candidate; see focus_audit.json.",
+    "budget_preflight": "The pinned registered lattice alone forces more than 70% overlap at 37,654 candidate dots; this is not a proof for every possible smaller budget."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "not_run_no_candidate",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "organizer_acceptance_confirmed": false
+  },
+  "submission_name": null,
+  "note": "No candidate file was generated. Do not submit.",
+  "verdict": "negative",
+  "eligible_for_separate_slot_selector": false,
+  "ok_to_download_submission": false,
+  "ok_to_submit": false,
+  "blockers": [
+    "The prompt refers to an assigned method paragraph but does not contain one.",
+    "The template's prepared feature stack is not present; restored inputs are peer mirrors, not organizer-authenticated.",
+    "A complete current registry and pre-placement surface comparisons are unavailable.",
+    "At the common 37,654-dot budget, the registered lattice proves a mandatory literal duplicate stop.",
+    "Shared template has open probability-binarization, empty-truth pooled-FP and surface preview-overlap issues; this account is read-only, so no shared fix was applied.",
+    "No candidate holdout, per-feature leakage canaries, validated competition TIFF, or paired baseline comparison exists.",
+    "The authenticated account's current slot allowance and organizer acceptance are unknown."
+  ],
+  "shared_template_issues": {
+    "template_ref": "1398109a23f04a2ace71c1bd2f527cfba87860b5",
+    "permission": "read-only; no upstream patch or private fork",
+    "probability_binarization": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37",
+    "empty_truth_pooled_fp": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41",
+    "surface_preview_overlap": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42",
+    "note": "Existing upstream reports remain open; the surface-gate symptom was reproduced on a synthetic 16x16 example, and the pooled evaluator source matches the hash in issue 41."
+  }
+}

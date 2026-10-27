@@ -1,0 +1,12 @@
+# Local inputs and workspaces; never commit competition data or credentials.
+.venv/
+.work/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.partial
+*.npy
+*.npz
+
+data/raw/

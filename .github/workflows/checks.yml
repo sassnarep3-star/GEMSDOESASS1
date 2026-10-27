@@ -1,0 +1,37 @@
+name: Audit and site checks
+
+on:
+  push:
+    branches: [main, 'arena/**']
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 7 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install pinned audit dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Test raster contracts, evidence and site links
+        run: python -m pytest -q
+      - name: Test live-feed failure modes
+        run: node --test tests/web.test.js
+      - name: Verify generated site matches committed evidence
+        run: |
+          python scripts/render_portfolio.py
+          git diff --exit-code -- docs/index.html docs/data
+      - name: Check public GitHub metadata only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/refresh_sources.py --require-complete --out "$RUNNER_TEMP/source-feed.json"
