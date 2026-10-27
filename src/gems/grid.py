@@ -22,7 +22,7 @@ FEATURES = DATA / "features"
 REGISTRY = DATA / "registry"
 EVIDENCE = ROOT / "evidence" / "swgb"
 DOCS = ROOT / "docs"
-DOWNLOADS = DOCS / "swgb" / "downloads"
+DOWNLOADS = ROOT / "swgb" / "downloads"
 WORK = ROOT / "work"
 
 CRS = "EPSG:32611"

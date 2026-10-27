@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from gems.registry import REGISTRY_ENTRIES  # noqa: E402
 
-DOCS = ROOT / "docs" / "swgb"
+DOCS = ROOT / "swgb"
 EV = ROOT / "evidence" / "swgb"
 card = json.loads((EV / "run_card.json").read_text())
 fam = {r["file"]: r for r in json.loads((EV / "registry_family_overlap.json").read_text())}
@@ -25,7 +25,7 @@ e2 = json.loads((EV / "e2_swgb_holdout.json").read_text())
 e2b = json.loads((EV / "e2b_static_swgb_holdout.json").read_text())
 sweep = json.loads((EV / "e3_prune_sweep_e2.json").read_text())
 ff = json.loads((EV / "farfield_diagnostic.json").read_text())
-chk = json.loads(next((ROOT / "docs" / "swgb" / "downloads").glob("*.checks.json")).read_text())
+chk = json.loads(next((ROOT / "swgb" / "downloads").glob("*.checks.json")).read_text())
 SUB = card["submission_name"]
 SITE_URL = {s: f"https://buffedlizard55-lab.github.io/{s}/" for s, _, _ in REGISTRY_ENTRIES}
 REPO_URL = {s: f"https://github.com/buffedlizard55-lab/{s}" for s, _, _ in REGISTRY_ENTRIES}
@@ -151,7 +151,7 @@ bash scripts/fetch_reference_assets.sh        # byte-verified mirrors of templat
 python3 -m pytest -q tests                    # metric == brute-force transcription
 python3 scripts/calibrate_holdout.py          # registry rasters on the holdout
 python3 scripts/run_experiments.py canary; e1; e2; e2b; e3 e2
-python3 scripts/build_submission.py           # trains, emits, audits, validates, writes docs/swgb/downloads + evidence/swgb/run_card.json
+python3 scripts/build_submission.py           # trains, emits, audits, validates, writes swgb/downloads + evidence/swgb/run_card.json
 python3 scripts/build_site.py</pre>
 """
 (DOCS / "how-to-submit.html").write_text(page("How to submit to the DOE GEMS Prize Challenge", body))

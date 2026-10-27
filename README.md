@@ -8,8 +8,8 @@
 [PARALLEL-RUN PROTOCOL](docs/PROJECT_BRIEF.md#parallel-run-protocol--read-first) inside it. Core values applied
 throughout: **Maximize P(Win)** and **Own the Outcome**.
 
-Site (GitHub Pages, built from `evidence/*.json`): `docs/swgb/index.html` → executive summary + one-click download ·
-`docs/swgb/how-to-submit.html` · `docs/swgb/run-card.html` · `docs/swgb/hypotheses.html`
+Site (GitHub Pages, built from `evidence/*.json`): `swgb/index.html` → executive summary + one-click download ·
+`swgb/how-to-submit.html` · `swgb/run-card.html` · `swgb/hypotheses.html`
 
 ---
 
@@ -17,10 +17,10 @@ Site (GitHub Pages, built from `evidence/*.json`): `docs/swgb/index.html` → ex
 
 | | |
 |---|---|
-| **File** | [`docs/swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif`](docs/swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif) (or the `.zip` beside it) |
+| **File** | [`swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif`](swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif) (or the `.zip` beside it) |
 | **sha256** | `f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729` |
 | **Submission note (127 chars)** | `GEMSASS1 SWGB: 5x segment-withheld HGB on lidar+GeoDAWN, 44090 dots 2.8px, >600m off-catalogue; HOLDOUT-DTI 0.140 vs base 0.101` |
-| **Format** | single band float32 · EPSG:32611 · 3730×3292 · transform (100,0,243350,0,−100,4508550) · values {0,1} · **no NaN/Inf anywhere** · zeros outside footprint · 44,090 positive pixels · 0 on known-fault pixels — all 11 validator checks pass from bytes ([receipt](docs/swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.checks.json)) |
+| **Format** | single band float32 · EPSG:32611 · 3730×3292 · transform (100,0,243350,0,−100,4508550) · values {0,1} · **no NaN/Inf anywhere** · zeros outside footprint · 44,090 positive pixels · 0 on known-fault pixels — all 11 validator checks pass from bytes ([receipt](swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.checks.json)) |
 | **Unique?** | **Yes.** Max Spearman vs the 17 registry rasters 0.115 (limit 0.90); max 57.8 % of dots within 3 px of any registry raster (limit 70 %) |
 | **Estimated score** | **HOLDOUT-DTI 0.1401 [0.1329, 0.1452]** (`GEMSASS1-HR-v2-segment`, 60,988 withheld positives). The 0.2600 live file scores 0.1011 on the same evaluator. PROJECTION 0.19–0.28 — **a projection is not a score**; the holdout cannot rank the 0.24–0.28 family (IR-01). |
 | **Verdict** | `promote` (to the selector; spending a weekly slot is the human/selector's decision per protocol §6) |
@@ -43,7 +43,7 @@ Why this fixes the "Predicted values must be in range [0, 1]" rejection: the wri
 | **THIS SITE** | `gemsass1-swgb-hrv2-44090dots-…-f9b3f764-zeros.tif` — unscored | **0.1401** | **✓ UNIQUE** |
 
 \* pruned rasters score ~0 on a catalogue-recovery holdout by construction (IR-01); compare only un-pruned files with ours.
-Full table with links, CIs and dot counts: `docs/swgb/index.html`. Evidence: `evidence/swgb/holdout_calibration.json`, `evidence/swgb/registry_family_overlap.json`.
+Full table with links, CIs and dot counts: `swgb/index.html`. Evidence: `evidence/swgb/holdout_calibration.json`, `evidence/swgb/registry_family_overlap.json`.
 
 ## Why 0.2778 won, in three lines (details: [`knowledge/01`](knowledge/01_why_0p2778_and_what_beats_it.md))
 1. It is **exactly** the 0.2600 dotted H19-5 raster with the 6,436 dots within 200 m of the known catalogue deleted (re-derived from bytes, sym-diff 0).
@@ -78,7 +78,7 @@ python3 scripts/run_experiments.py e3 e2 && python3 scripts/build_submission.py 
 
 > **Submission status (two parallel lanes, reconciled 2026-10-27):**
 > * **BGAC lane (this section's pipeline): BLOCKED** — the single preregistered BGAC-1 experiment failed both the improvement and literal dot-overlap gates; no BGAC TIFF is cleared.
-> * **SWGB lane (section above): one unique TIFF cleared by its automatic gates and promoted to the selector** — `docs/swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif`. Its evaluator (`GEMSASS1-HR-v2-segment`) differs from `gems57-pooled-hide-v2`; numbers from the two lanes are not directly comparable and neither is a leaderboard forecast.
+> * **SWGB lane (section above): one unique TIFF cleared by its automatic gates and promoted to the selector** — `swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif`. Its evaluator (`GEMSASS1-HR-v2-segment`) differs from `gems57-pooled-hide-v2`; numbers from the two lanes are not directly comparable and neither is a leaderboard forecast.
 
 **Start every session here**, then read [the persistent project brief](knowledge/PROJECT_BRIEF.md), [hypotheses](knowledge/hypotheses.md), [three-pass review](evidence/review.md) and [run card](evidence/run_card.json). The brief is a deduplicated transcription of the user's repeated prompt, not a verbatim archive. It preserves the mission, Core Values / Own the Outcome, strict protocol, sources, validation, download and release requirements.
 
