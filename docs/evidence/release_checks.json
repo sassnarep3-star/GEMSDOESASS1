@@ -1,7 +1,7 @@
 {
   "release_class": "negative research result; no competition artifact",
   "review_date_utc": "2026-10-27",
-  "python_tests_passed": 33,
+  "python_tests_passed": 34,
   "javascript_tests_passed": 5,
   "rendered_browser_pages": 13,
   "mobile_layouts_tested": 4,
@@ -33,5 +33,6 @@
     "No official organizer receipts or network access to official contest pages.",
     "First-pass protocol defect corrected; numerical holdout retained only as exploratory negative evidence."
   ],
-  "concurrent_main_preserved": true
+  "concurrent_main_preserved": true,
+  "concurrent_main_snapshots_preserved": 2
 }

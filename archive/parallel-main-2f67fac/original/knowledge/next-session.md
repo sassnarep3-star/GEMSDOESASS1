@@ -1,0 +1,10 @@
+# Next-session plan
+
+1. Resolve the absent single method paragraph and the conflicting GEMSDOE24 / 57GEMSDOE shared-template pins. Do not silently assign a method in the middle of a parallel run.
+2. Reuse an intact, provenance-verified prepared feature cache, the template holdout and writer, and a **complete current** surface/raster registry. An owner-published manifest points to a 419 MB split feature mirror on GitHub, but the parts and assembled bytes were not downloaded here; the mirror is not organizer-authenticated, and recreating the cache privately would violate this run's reuse constraint. Confirm data rights for every input.
+3. Resolve the dense lattice rule. Its literal gate is incompatible with the historical 37,654-dot budget. Any future protocol revision needs explicit authorization; a smaller budget does not automatically pass and targeting the lattice holes is not geological discovery.
+4. Obtain a same-evaluator baseline and archived paired bootstrap evidence. Run per-feature leakage canaries; check each candidate surface before placing points; use whole-segment buffered fold-local features, pixel-exact visible-fault masking, pooled DTI and a 95% paired spatial CI. Stop after at most three trials or two hours.
+5. Generate a new file **only** if the earlier gates and data provenance permit it; use the shared writer and automatically re-open the bytes. Audit [0,1], finite inside footprint, CRS, dimensions and transform. Investigate the authorized sample and the reported range error without silent clipping or guessing at outside encoding.
+6. Separately select an eligible candidate within the actual account quota. Preserve the submission-page receipt and link its score to the exact TIFF hash; document generative AI use and source licensing. Never claim a public score from a holdout proxy.
+
+No action above is currently a human geology inspection. Account access, official sample identity, lane and registry clarification are external prerequisites; a fully automated technical gate cannot invent them.

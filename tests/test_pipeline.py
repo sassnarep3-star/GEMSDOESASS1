@@ -230,3 +230,12 @@ def test_concurrent_main_research_preserved_not_promoted():
         if row['original_path'].endswith('.html'):
             assert p.suffix == '.txt'
     assert not list((ROOT/'docs/downloads').glob('*.tif'))
+
+
+def test_second_parallel_audit_preserved_and_ledger_retained():
+    manifest = json.loads((ROOT/'archive/parallel-main-2f67fac/manifest.json').read_text())
+    assert len(manifest['files']) == 44
+    for row in manifest['files']:
+        assert hashlib.sha256((ROOT/row['archived_path']).read_bytes()).hexdigest() == row['sha256']
+    assert (ROOT/'knowledge/user-provided-submission-ledger.md').is_file()
+    assert 'testpaths = tests' in (ROOT/'pytest.ini').read_text()
