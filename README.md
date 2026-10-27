@@ -73,3 +73,7 @@ The official competition data download requires an authenticated competition acc
 ---
 
 **Current status:** documentation-only repository review. No model, experiment, score estimate, TIF, website, or submission was produced. This status changes only with reproducible, pinned evidence.
+
+## This review session's additional artifacts
+
+The detailed [nine-site executive review](docs/executive-summary.md), [ranked hypothesis shortlist](docs/hypotheses.md), and [source register](docs/sources.md) supplement the [repository review and evidence ledger](docs/review-2026-10-27.md). A machine-readable blocked/negative run card is at [`evidence/current_run_card.json`](evidence/current_run_card.json). Read the executive review for the current page-by-page status, conflicts, and evidence labels. No TIFF was created or approved.
