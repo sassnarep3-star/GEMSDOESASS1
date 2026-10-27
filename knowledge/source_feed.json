@@ -1,0 +1,70 @@
+{
+  "checked_utc": "2026-10-27T11:58:40.093528+00:00",
+  "sources": [
+    {
+      "repo": "GEMSDOE24",
+      "frozen_ref": "cf093c8c5e9fa77294ecf4c59b79cdade92cbc06",
+      "current_ref": "a1ecb683a9fda2aa4612f27e28896ebb8b19ad08",
+      "changed_since_experiment": true,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE25",
+      "frozen_ref": "227347d0f1beb420c0dd2a7dd4079ddc6389f5ab",
+      "current_ref": "227347d0f1beb420c0dd2a7dd4079ddc6389f5ab",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE27",
+      "frozen_ref": "6c34f5b7cb7756d23c258df051318b7b11cd9ab4",
+      "current_ref": "6c34f5b7cb7756d23c258df051318b7b11cd9ab4",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE28",
+      "frozen_ref": "f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309",
+      "current_ref": "f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE30",
+      "frozen_ref": "3c3d7255fdbb3a94375eff086522463a8eaca449",
+      "current_ref": "3c3d7255fdbb3a94375eff086522463a8eaca449",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE31",
+      "frozen_ref": "abd9a45cc7adf046d7d3829eb6e8c980943f462d",
+      "current_ref": "abd9a45cc7adf046d7d3829eb6e8c980943f462d",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE32",
+      "frozen_ref": "1398109a23f04a2ace71c1bd2f527cfba87860b5",
+      "current_ref": "1398109a23f04a2ace71c1bd2f527cfba87860b5",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE33",
+      "frozen_ref": "122e2240a835c9c84831943ee3489dbb48fd6e85",
+      "current_ref": "122e2240a835c9c84831943ee3489dbb48fd6e85",
+      "changed_since_experiment": false,
+      "status": "checked"
+    },
+    {
+      "repo": "GEMSDOE36",
+      "frozen_ref": "61783525af4aa6dcf8da0bc68b06fa38b89ed27a",
+      "current_ref": "61783525af4aa6dcf8da0bc68b06fa38b89ed27a",
+      "changed_since_experiment": false,
+      "status": "checked"
+    }
+  ],
+  "feed_scope": "GitHub commit freshness only. Not a live competition leaderboard; no scores, experiments or approvals refreshed.",
+  "requires_registry_refresh": true
+}

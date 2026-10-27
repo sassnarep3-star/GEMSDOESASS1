@@ -1,10 +1,8 @@
-# Large regenerable rasters: restored by `bash scripts/fetch_reference_assets.sh`
-data/features/*.tif
-data/registry/*.tif
-# Python
+.venv/
+.cache/
 __pycache__/
-*.pyc
 .pytest_cache/
-*.egg-info/
-# scratch
+data/
+*.partial
+# SWGB lane scratch (fold fields, final field)
 work/

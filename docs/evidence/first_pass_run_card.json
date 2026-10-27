@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-27T11:37:33.643679+00:00",
+  "hypothesis": "BGAC-1: buried basin-edge anti-gradient consistency",
+  "mechanism": "Signed gravity/basement gradient opposition at 2 and 5 px scales with weak surface-expression weighting.",
+  "non_fault_mimic": "A smooth depositional basin margin with low-density fill; gravity-derived basement inversion coupling.",
+  "experiments_run": 1,
+  "experiment_budget": 3,
+  "max_runtime_seconds": 7200,
+  "evaluator_version": "gems57-pooled-hide-v2",
+  "holdout_dti": 0.039036202252430756,
+  "ci95": [
+    0.02831042154170415,
+    0.05013486199386167
+  ],
+  "withheld_positive_pixels": 56454,
+  "correlation_overlap_vs_registry": {
+    "surface": 0.14906748299549635,
+    "dots": 0.018191755828337725,
+    "overlap": 1.0
+  },
+  "raster_sha256": null,
+  "canonical_surface_sha256": "072b5b588380ec6a49069707c86e288aedeacdaebe641618f72373e8cf1af660",
+  "validator_output": {
+    "status": "not written"
+  },
+  "submission_name": null,
+  "note": "BGAC-1 signed basin-edge test; no leaderboard score or weekly-slot approval.",
+  "verdict": "negative",
+  "approved_for_submission": false,
+  "submission_slots_used": 0,
+  "data_provenance": "SHA-verified public owner mirror; not organizer authenticated.",
+  "limitations": [
+    "No organizer submission-page receipt or weekly-cap verification.",
+    "Global novelty outside the nine focus repositories is unverified.",
+    "No compatible prior local holdout best existed in this empty repository."
+  ],
+  "canary_pass": true,
+  "holdout_evidence_class": "HOLDOUT-DTI",
+  "best_comparable_control": "gravity_gradient_s2",
+  "canonical_dots_sha256": "d510a8033961ab8de4179d135c2161dce96ef5ded06c1e110bbbc2502fefe2a1",
+  "final_dot_count": 35385,
+  "stop_reason": "duplicate final dots: literal protocol stop; no TIFF packaged",
+  "paired_comparison": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "delta": -0.033991047304325166,
+    "ci95": [
+      -0.046639890891942516,
+      -0.02197053548489654
+    ],
+    "withheld_positive_pixels": 56454
+  },
+  "elapsed_seconds": 97.85318028400002
+}

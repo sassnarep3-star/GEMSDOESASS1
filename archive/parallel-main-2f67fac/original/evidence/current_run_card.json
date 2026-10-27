@@ -1,0 +1,41 @@
+{
+  "status": "HISTORICAL SNAPSHOT \u2014 superseded by evidence/run-card.json; this predates the parallel research artifact and current witness audit.",
+  "review_id": "GEMSDOESASS1-review-2026-10-27",
+  "hypothesis": "No experiment was run: the required assigned method paragraph is absent, so no candidate lane can be selected without violating the parallel-run protocol.",
+  "mechanism": "Not tested; no candidate mechanism is attributed to a raster or score.",
+  "named_non_fault_process_that_could_mimic_it": "Not applicable; no candidate surface was generated.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "value": null,
+    "evaluator_version": "NOT RUN \u2014 evaluator absent from checkout",
+    "withheld_positive_count": null,
+    "confidence_interval_95": null,
+    "protocol": "NOT RUN \u2014 no data, cached stack, labels, or shared evaluator"
+  },
+  "correlation_overlap_vs_registry": {
+    "preplacement_surface_max_abs_spearman": null,
+    "final_dots_max_within_3px_overlap": null,
+    "registry_version": null,
+    "status": "NOT RUN \u2014 no raster registry or candidate surface/dots"
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "NOT RUN \u2014 no candidate TIFF was written",
+    "no_nan_inside_footprint": null,
+    "values_within_0_1": null,
+    "crs_matches": null,
+    "shape_matches": null,
+    "transform_matches": null,
+    "band_count_single": null,
+    "dtype_float32": null
+  },
+  "submission_name": null,
+  "submission_note": null,
+  "submission_note_max_characters": 140,
+  "verdict": "negative",
+  "reason": "Blocked before experiment and file generation. The checkout has no data/tools/registry, the official competition data endpoint redirected to login, and the mandatory assigned lane paragraph was not supplied. No file is OK to download or submit.",
+  "experiments_used": 0,
+  "experiment_budget_max": 3,
+  "elapsed_hours_budget_max": 2,
+  "weekly_submission_slot_used": false
+}

@@ -1,0 +1,101 @@
+{
+  "checked_utc": "2026-10-27T12:02:17.591Z",
+  "browser": "153.0.8010.0",
+  "desktop_viewport": [
+    1440,
+    1000
+  ],
+  "mobile_viewport": [
+    375,
+    812
+  ],
+  "pages": [
+    {
+      "route": "index.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "Overview · GEMS Fieldnotes"
+    },
+    {
+      "route": "executive-summary.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "Executive summary · GEMS Fieldnotes"
+    },
+    {
+      "route": "research.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "Research and sources · GEMS Fieldnotes"
+    },
+    {
+      "route": "evidence.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "Evidence and source feed · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE24.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE24 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE25.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE25 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE27.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE27 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE28.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE28 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE30.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE30 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE31.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE31 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE32.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE32 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE33.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE33 · GEMS Fieldnotes"
+    },
+    {
+      "route": "sites/GEMSDOE36.html",
+      "status": 200,
+      "page_wide_overflow": false,
+      "title": "GEMSDOE36 · GEMS Fieldnotes"
+    }
+  ],
+  "mobile_pages_checked": 4,
+  "page_errors": [],
+  "disabled_submission_button": true,
+  "historical_rows": 9,
+  "screenshot_paths": [
+    ".cache/desktop-preview.png",
+    ".cache/mobile-preview.png"
+  ],
+  "scope": "Rendered UI/navigation and page-wide overflow. Not competition acceptance, scientific validation or score confirmation."
+}

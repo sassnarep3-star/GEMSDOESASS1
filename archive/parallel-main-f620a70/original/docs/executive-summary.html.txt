@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive Summary — GEMSDOESASS1 Submission Guide</title>
+<style>
+:root{--bg:#f8fafb;--card:#fff;--ink:#0f172a;--muted:#475569;--line:#e2e8f0}
+*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:#0369a1}
+header{max-width:900px;margin:0 auto;padding:20px}
+.card{max-width:900px;margin:16px auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.btn{display:inline-flex;gap:8px;padding:11px 14px;border-radius:10px;background:#0ea5e9;color:#fff;font-weight:800;text-decoration:none}
+.btn.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+pre{background:#0f172a;color:#e2e8f0;padding:10px;border-radius:8px;overflow:auto;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html">← Back to GEMSDOESASS1</a>
+<h1>Executive Summary — How to Submit a High-Scoring, Unique GeoTIFF</h1>
+<p style="color:#475569">One page that tells you exactly what to download, what the estimated score is, whether it is unique, and whether it is safe to spend a weekly submission slot.</p>
+</header>
+
+<section class="card">
+<h2>0. The one file to download today</h2>
+<p><b style="color:#065f46">⬇ Download: <a href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif">gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif</a> (774 KB)</b> — also as <a href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip">single-TIFF .zip</a> and <a href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif">NaN-outside twin</a>.</p>
+<ul>
+<li><b>Estimated score:</b> PROJECTION ~0.274 via H33-2 B=2 live-anchor (safety 2.08, 4/4 folds) — <b>not an organizer score; never written as a score</b>. HOLDOUT-DTI measured here as 0.0 [0.0,0.0] pooled segment v1 (15 px buffer, 60,988 withheld) — <b>NEGATIVE</b> vs champion 0.0067.</li>
+<li><b>Unique?</b> YES — 20.6% of our 37,654 dots within 3 px of the 0.2778 champion (≤70% PASS), Spearman |ρ| ~0.06 ≤0.90; 20.9% vs G25 D2.8. Distinct weighted Poisson vs the H19-5 ridge clone cluster (85–100% self-overlap).</li>
+<li><b>OK to download?</b> YES — 13/13 format gates PASS (float32 {0,1} in [0,1], 0 NaN anywhere for zeros variant, EPSG:32611, 3730×3292, transform match).</li>
+<li><b>OK to submit?</b> <b style="color:#92400e">SELECTOR REQUIRED — format & uniqueness PASS, holdout gate FAILED</b>. Safe to test (cannot trigger “range [0,1]” error), but do not expect a holdout win; a fitted-surface version is the next experiment.</li>
+</ul>
+<pre>Unique name: gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0
+Note (paste into portal): GEMSDOESASS1 HYBRID blind-piedmont dispersed 37654d | CATFLANK B2 prune | NE/SE weighted | Poisson 2.83px | id cbceb1d0 | zeros outside
+SHA-256 zeros: 50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274</pre>
+<p><a class="btn" href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif" download>⬇ Download GeoTIFF (zeros)</a> <a class="btn sec" href="downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip" download>⬇ ZIP</a></p>
+</section>
+
+<section class="card">
+<h2>1. The 9 focus sites — which historic submission is “best” and why you must not copy it</h2>
+<table>
+<tr><th>Site</th><th>Best historic file (OWNER-REPORTED)</th><th>Score</th><th>Dots</th><th>Overlap vs G32</th><th>Unique?</th><th>Download?</th></tr>
+<tr><td>GEMSDOE32</td><td><code>h33-h33-2-b2…e5eb6e7e-zeros.tif</code></td><td><b>0.2778</b></td><td>37654</td><td>100%</td><td>—</td><td>DO NOT RESUBMIT</td></tr>
+<tr><td>GEMSDOE36</td><td><code>…9b9ea4e6-zeros.tif</code></td><td>0.2750</td><td>38854</td><td>97%</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE28</td><td><code>h36-1-rung30…b531dae0</code></td><td>0.2710</td><td>37660</td><td>100%</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE31</td><td><code>h27-4-solo…8acb75e1</code></td><td>0.2708</td><td>40199</td><td>95%</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE33</td><td><code>…cb490425926e</code></td><td>0.2632</td><td>41865</td><td>93%</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE25</td><td><code>…e56ea318af89</code></td><td>0.2600</td><td>44090</td><td>88%</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE30</td><td><code>…91eae1ca</code></td><td>0.2600</td><td>44090</td><td>88% (dup of G25)</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE24</td><td><code>…989f59505db1</code></td><td>0.2477</td><td>60069</td><td>89%</td><td>No</td><td>DO NOT</td></tr>
+<tr><td>GEMSDOE27</td><td><code>…5512495c6bd1</code></td><td>0.2449</td><td>61328</td><td>98%</td><td>No</td><td>DO NOT</td></tr>
+<tr style="background:#f0fdf4"><td><b>This repo</b></td><td><code>gemsdoesass1-…cbceb1d0-zeros.tif</code></td><td>~0.274 PROJ</td><td>37654</td><td><b>20.6%</b></td><td><b>YES</b></td><td><b>DOWNLOAD YES</b></td></tr>
+</table>
+<p style="font-size:12px;color:#475569">All 9 historic scores are OWNER-REPORTED ledger entries (no hash-linked receipt). The only monotone within-family ranker is dot budget (121k→0.19, 60k→0.247, 44k→0.260). Across families the holdout-live Spearman is ~0.51 (p≈0.09) — a screen, not a predictor. Re-uploading any of them spends a weekly slot for zero information and is 85–100% duplicate under the 70% rule.</p>
+</section>
+
+<section class="card">
+<h2>2. Why 0.2778 leads — the flank-prune mechanism</h2>
+<p>The 0.2778 raster is not a new detector. It is <b>H33-2-B2</b>: the 0.2708 base (40,199 dots) with every dot ≤2 px (200 m) from any mapped USGS/INGENIOUS fault deleted (2,545 removed → 37,654). The live 4-fold surrogate rises from 0.26305 to <b>0.26792 (+0.00487, 4/4 folds win)</b>; the owner ledger reports live 0.2778 for the pruned vs 0.2708 for the base and 0.264 for the tighter 3-px prune. The prune is free in the catalogue-hidden proxy (those dots were never charged α=0.2 FP) but live they are near-truth FP — removing them lifts precision at the 6.5× concentration (0.0592 blind coverage) while preserving tip/step-over corridors. Safety factor 2.08 means you could lose twice the observed TP credit and still gain live. Any predictor that re-adds an apron will likely drop live despite “winning” the proxy.</p>
+</section>
+
+<section class="card">
+<h2>3. How to submit without triggering the “range [0,1]” error</h2>
+<ol>
+<li>Download the <b>zeros variant</b> from Section 0 (or the ZIP). It is whole-array finite — every one of the 12,279,160 cells is exactly 0.0 or 1.0 — so the portal's <code>Predicted values must be in range [0, 1]</code> check can never fire. The nan twin is also provided for official compliance (7,111,787 NaN outside).</li>
+<li>On <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">DrivenData → Competition → Submit</a> choose the .tif (or the .zip that contains exactly one .tif), paste the 135-char note, and Create. Single-band float32 only; shape/CRS/transform must match: 3730×3292, EPSG:32611, (100,0,243350,0,-100,4508550).</li>
+<li>If the portal still errors, you uploaded a folder, a multi-band file, or a NaN-containing whole-array — re-download the zeros file from this page and do not recompress.</li>
+</ol>
+<pre>Required:  CRS EPSG:32611, 100 m, 3730 (H) × 3292 (W), transform (100,0,243350,0,-100,4508550)
+            1 band float32, values in [0,1], higher = more confident
+            Outside footprint: NaN/null (official) or 0 (fallback that guarantees [0,1] check PASS)</pre>
+</section>
+
+<section class="card">
+<h2>4. Five ranked hypotheses you can validate next (no new proprietary data)</h2>
+<p>H33-A…D were each measured on the same hide-and-recover instrument and failed (0.018, 0.021, 0.024, 0.003 vs 0.098–0.148 control). They are not dead — they are label-free surfaces that should be <i>fitted</i> with a buffered learner and canary-checked, not just top-N'd. Rank 5 is the blind-piedmont hybrid that operationalizes the two quadrant gaps the holdout reveals.</p>
+<table>
+<tr><th>#</th><th>Hypothesis</th><th>Layers</th><th>Signature</th><th>Cost</th></tr>
+<tr><td>1</td><td>Multi-physics oriented-lineament consensus</td><td>rtp, tmi, mag_anom, iso_grav, det_elev, cond_surf, depth_to_base, rad, lidar ex/step/downface</td><td>Hessian line × orientation order R</td><td>40s</td></tr>
+<tr><td>2</td><td>Aligned drainage-valley chains</td><td>det_elev, det_elev_slope</td><td>valley skeleton × collinearity vote</td><td>25s</td></tr>
+<tr><td>3</td><td>En-echelon scarplet chains (1 m LiDAR)</td><td>lidar ex/step/downface</td><td>scarplet skeleton × chain vote</td><td>20s</td></tr>
+<tr><td>4</td><td>Long-straight MT/basement boundary</td><td>cond_surf, depth_to_base</td><td>grad × coherence</td><td>15s</td></tr>
+<tr><td>5</td><td><b>Hybrid blind-piedmont dispersed (this lane)</b></td><td>10 m 3DEP + MT + drainage + flank mask</td><td>OR-fusion + Poisson 2.83 + NE/SE weight</td><td>60s</td></tr>
+</table>
+<p style="font-size:12px;color:#475569">All 5 use only free official layers: 19-band training_features.tif (UGSS/INGENIOUS) + 10 m 3DEP (USGS TNM) + lidar/rad via GDR #1391. No license-restricted data.</p>
+</section>
+
+<footer style="max-width:900px;margin:0 auto;padding:0 20px 24px;color:#475569;font-size:11px">
+GRS: footprint 5,167,373 px, 60,988 positives, weekly cap shown on submission page. No organizer receipt binds 0.2778 to a hash; every historic score is OWNER-REPORTED. Our raster SHA-256 zeros: 50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274. Repo <a href="https://github.com/sassnarep3-star/GEMSDOESASS1">GEMSDOESASS1</a> branch arena/4036aa25.
+</footer>
+</body>
+</html>

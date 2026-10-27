@@ -1,0 +1,270 @@
+{
+  "source_commit": "2f67facb5e822ec080ccbb8a85826c8d3bfd8166",
+  "reason": "Preserve complete concurrent main research/audit source while retaining one authoritative active pipeline/site.",
+  "files": [
+    {
+      "original_path": ".github/workflows/audit.yml",
+      "archived_path": "archive/parallel-main-2f67fac/original/.github/workflows/audit.yml",
+      "sha256": "5013e8b6e32748096b44e4f110a2116952eff1b511297ebf4a71bae48c2737b6",
+      "bytes": 1041
+    },
+    {
+      "original_path": ".gitignore",
+      "archived_path": "archive/parallel-main-2f67fac/original/.gitignore",
+      "sha256": "5848dd7848f06259dbee2cf3ec931b1b9287e7bffc0bcbeb8ff4b9a8a9737260",
+      "bytes": 69
+    },
+    {
+      "original_path": ".nojekyll",
+      "archived_path": "archive/parallel-main-2f67fac/original/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original_path": "README.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/README.md",
+      "sha256": "62d69618a576c643176294149faaf6242eb32930b02ffd0cb56f48223978ba3c",
+      "bytes": 10612
+    },
+    {
+      "original_path": "assets/app.js",
+      "archived_path": "archive/parallel-main-2f67fac/original/assets/app.js",
+      "sha256": "2cf92cbc2726d40786ea51f0976f889d8d6e06545e1a2adca6044c39fb027141",
+      "bytes": 4019
+    },
+    {
+      "original_path": "assets/style.css",
+      "archived_path": "archive/parallel-main-2f67fac/original/assets/style.css",
+      "sha256": "e3acc61e6676c36ee81490e51b7f152498162e7b7c09798374ac36f42ea6fe46",
+      "bytes": 14802
+    },
+    {
+      "original_path": "data/inputs.json",
+      "archived_path": "archive/parallel-main-2f67fac/original/data/inputs.json",
+      "sha256": "dfb6c9f8b9a10b4a5c859f6b5c1afa920b4bc60aff614e03b8300c09afbf9f7f",
+      "bytes": 5948
+    },
+    {
+      "original_path": "data/site-summary.json",
+      "archived_path": "archive/parallel-main-2f67fac/original/data/site-summary.json",
+      "sha256": "229dc8c0b47da179f2e4d87960dd8ccf5aa5899237c201cdc2fbfc0f6b330739",
+      "bytes": 9770
+    },
+    {
+      "original_path": "docs/.nojekyll",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original_path": "docs/archive/README.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/archive/README.md",
+      "sha256": "efeccdf09467730fc759c030d422f59cf910997a569d3ce76b461a8fb913eba8",
+      "bytes": 825
+    },
+    {
+      "original_path": "docs/archive/parallel-executive-summary-20261027.html.txt",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/archive/parallel-executive-summary-20261027.html.txt",
+      "sha256": "8b938e2c5b0f020198dd7af74bbf79ac7fea502169646aa956a6ce7eb633938f",
+      "bytes": 10573
+    },
+    {
+      "original_path": "docs/archive/parallel-index-20261027.html.txt",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/archive/parallel-index-20261027.html.txt",
+      "sha256": "ec147cc8e0baab11a437ec2a5849329c6aa56125e9ba5f03e73be092323d329c",
+      "bytes": 37579
+    },
+    {
+      "original_path": "docs/downloads/README.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/downloads/README.md",
+      "sha256": "e3e3637d3e78bdcfc8697362ca316543145eb5b6da43d78204346f33f2564eff",
+      "bytes": 941
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-audit.json",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-audit.json",
+      "sha256": "a977be5fcc1d07530aef22bd340173dea1fbbe1c4fef02914e6c9389020a651f",
+      "bytes": 1688
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif",
+      "sha256": "ddd12d0d3e3f94dee8b85a5df3c6bb6509e6a3d7c6ea83e78e8afa293ead1189",
+      "bytes": 1558039
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+      "sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274",
+      "bytes": 793296
+    },
+    {
+      "original_path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip",
+      "sha256": "1ad2a0451e2eea2211e6ae3f5f49f7c5ea32a676509f5ce10f0bd63520594e64",
+      "bytes": 184601
+    },
+    {
+      "original_path": "docs/downloads/note-gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.txt",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/downloads/note-gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.txt",
+      "sha256": "b9f42b978da5f5f241ddd4fff0979e5fd80cf9524eb6901d3724233b175940bd",
+      "bytes": 135
+    },
+    {
+      "original_path": "docs/executive-summary.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/executive-summary.html.txt",
+      "sha256": "7d0c7e4fea1d997a7a57b455758388e619be01dfd21c16d5abac9b994e9ebb52",
+      "bytes": 733
+    },
+    {
+      "original_path": "docs/executive-summary.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/executive-summary.md",
+      "sha256": "88decdb7ce8ef84c778ad6928c8c5bb271905ecc6a7faab64144d4473e67ad1c",
+      "bytes": 12413
+    },
+    {
+      "original_path": "docs/hypotheses.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/hypotheses.md",
+      "sha256": "d891284822052c7b4fa3ac4fd97d9efe551e7d9287289c73220e612240f5f9d8",
+      "bytes": 9788
+    },
+    {
+      "original_path": "docs/index.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/index.html.txt",
+      "sha256": "dec8b5d9403a83711f56e7b80d7a32f5070198e3e24ec3a9d09aece7404d93d1",
+      "bytes": 739
+    },
+    {
+      "original_path": "docs/review-2026-10-27.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/review-2026-10-27.md",
+      "sha256": "e61c44f56613713e91845faf71dc915e17b83d885bd5781db0ca2be6149afb23",
+      "bytes": 22349
+    },
+    {
+      "original_path": "docs/sources.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/docs/sources.md",
+      "sha256": "2f3c6e98c1b41e1792a8e5ae47032160a19152fb9f60b0edda6154d95acd9913",
+      "bytes": 8415
+    },
+    {
+      "original_path": "evidence/current_run_card.json",
+      "archived_path": "archive/parallel-main-2f67fac/original/evidence/current_run_card.json",
+      "sha256": "34b5b6e57fb4a105d776435c050d84ab8d506722529598ae9575990de317cf7b",
+      "bytes": 1962
+    },
+    {
+      "original_path": "evidence/run-card.json",
+      "archived_path": "archive/parallel-main-2f67fac/original/evidence/run-card.json",
+      "sha256": "914de6cab88dfd1dbdbe981c6860b20396abdee66472263c184f37089e9b957f",
+      "bytes": 3586
+    },
+    {
+      "original_path": "evidence/witness-audit.json",
+      "archived_path": "archive/parallel-main-2f67fac/original/evidence/witness-audit.json",
+      "sha256": "92baf89c44b079a08931f57b68087f91b38eb8d05a0dc7b191a647d6d4c46474",
+      "bytes": 33860
+    },
+    {
+      "original_path": "executive-summary.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/executive-summary.html.txt",
+      "sha256": "b22c13f7eacb770ce36eb6a85fe250fa1a322ce7c4099146fb454a4d8e2ba72b",
+      "bytes": 11293
+    },
+    {
+      "original_path": "index.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/index.html.txt",
+      "sha256": "893abb6b95ae9dccd2e1d848c664ed3b1ad9b59fc856e246c9052b78f4a67ffa",
+      "bytes": 19827
+    },
+    {
+      "original_path": "knowledge/evidence-and-sources.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/knowledge/evidence-and-sources.md",
+      "sha256": "f939564396f939107971a16269f4bf17b2cf5e9ad183fb0022b9fae653008414",
+      "bytes": 11313
+    },
+    {
+      "original_path": "knowledge/next-session.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/knowledge/next-session.md",
+      "sha256": "887ead9ff9401b1409f80f16a2b8d69fb756127f9e00450daa6ef0b5e9ca51a0",
+      "bytes": 2044
+    },
+    {
+      "original_path": "knowledge/research-preregistration.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/knowledge/research-preregistration.md",
+      "sha256": "30380b2ac1c40dd1bb5606a9bfec27c5fb829da267f6f709beaa405816d09101",
+      "bytes": 8479
+    },
+    {
+      "original_path": "knowledge/review-passes.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/knowledge/review-passes.md",
+      "sha256": "eebfffe567af1663cecfc824b00c3aa5b943cb719440f430242031d3bb0c855b",
+      "bytes": 4989
+    },
+    {
+      "original_path": "knowledge/user-provided-submission-ledger.md",
+      "archived_path": "archive/parallel-main-2f67fac/original/knowledge/user-provided-submission-ledger.md",
+      "sha256": "e4a0016655281c04d3553503b2b4198b90b2801cb63b687eeca66b2aaf2e449c",
+      "bytes": 15577
+    },
+    {
+      "original_path": "requirements.txt",
+      "archived_path": "archive/parallel-main-2f67fac/original/requirements.txt",
+      "sha256": "f2b71a1a7d7112f7edbeb03241a1423b6f3403cf3746d77ad2243e55dd9f2f4a",
+      "bytes": 130
+    },
+    {
+      "original_path": "research.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/research.html.txt",
+      "sha256": "2ef098cf5d1bc97c2db7e8118819abdea3c36a119f5c847f6384a0e1c5567689",
+      "bytes": 7133
+    },
+    {
+      "original_path": "scripts/audit_witnesses.py",
+      "archived_path": "archive/parallel-main-2f67fac/original/scripts/audit_witnesses.py",
+      "sha256": "fbf7fd70c86bbbc5346292ca8eaf5f73e6206e218b9ea3fbdfc00b547d95d752",
+      "bytes": 17866
+    },
+    {
+      "original_path": "scripts/fetch_witnesses.py",
+      "archived_path": "archive/parallel-main-2f67fac/original/scripts/fetch_witnesses.py",
+      "sha256": "b0dc2d48fbf7083869cc11ba77ba8d47c4f57ba4aba0426b8aa67aac00b9b68f",
+      "bytes": 5732
+    },
+    {
+      "original_path": "scripts/render_site.py",
+      "archived_path": "archive/parallel-main-2f67fac/original/scripts/render_site.py",
+      "sha256": "6758261e66cf11d8b0e692b5e631f1e66fee6cb28c28df1c1404fca83f4cf124",
+      "bytes": 3640
+    },
+    {
+      "original_path": "sources.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/sources.html.txt",
+      "sha256": "6fcec5872ea2153f63c019ee2a27d1f18ed712507c724c3b0e8258b4c8633215",
+      "bytes": 7506
+    },
+    {
+      "original_path": "templates/index.html",
+      "archived_path": "archive/parallel-main-2f67fac/original/templates/index.html.txt",
+      "sha256": "c9eebe37e7deda003dfc973d48c19588fe607716966d53541d0eace4c805f860",
+      "bytes": 9127
+    },
+    {
+      "original_path": "tests/test_site.py",
+      "archived_path": "archive/parallel-main-2f67fac/original/tests/test_site.py",
+      "sha256": "0a2c38d6de8bcd5958e0a9a97291b879c4f7ef8340cc7f4eb4ff60779d0da03b",
+      "bytes": 4341
+    },
+    {
+      "original_path": "tests/test_ui.cjs",
+      "archived_path": "archive/parallel-main-2f67fac/original/tests/test_ui.cjs",
+      "sha256": "7c33a73e29d2c29c47fbe10b204ba439f0a8581e3cb0cbc7bc9aea05a413743c",
+      "bytes": 2726
+    },
+    {
+      "original_path": "tests/test_witness_audit.py",
+      "archived_path": "archive/parallel-main-2f67fac/original/tests/test_witness_audit.py",
+      "sha256": "d844b30ad0d90f0983564f5ef20a938901946d70bb78cc98da5d8beae9e17bef",
+      "bytes": 12769
+    }
+  ]
+}
