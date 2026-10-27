@@ -1,6 +1,6 @@
-> **Historical snapshot:** Some availability and status statements in this earlier report are superseded. See the current [executive summary](executive-summary.html) and [independent recheck](data/claimed_candidates_audit.json). The parallel synthetic TIFF is research-only and **must not be submitted**.
-
 # Executive summary — nine focus sites and submission decision
+
+> **Historical review snapshot:** This document reflects the earlier baseline checkout and is not the current release decision. A parallel synthetic TIFF was added later and independently fails the literal registry check. See the [current executive summary](../executive-summary.html), [forensic evidence](../evidence/witness-audit.json), and [current run card](../evidence/run-card.json). Do not submit any existing TIFF.
 
 **Review date:** 2026-10-27 UTC. **Decision from this repository:** no submission is approved; no GeoTIFF was generated. The checkout contains only a 14-byte README at baseline. It has no code, data, cached features, holdout evaluator, submission writer, registry, or tests. The official competition data page redirected this review to the DrivenData login page. The protocol's required single assigned-method paragraph was not present. A placeholder TIFF would not satisfy the scientific or technical requirements, and copying an existing site's TIFF would violate the uniqueness requirement.
 

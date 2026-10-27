@@ -1,69 +1,65 @@
-# GEMS Fieldnotes
+# GEMS Research Desk
 
-An evidence-led executive brief and reproducible raster audit for the DOE GEMS Prize. **Decision: negative. There is no new competition-ready GeoTIFF, no download to submit, no holdout score, and no authorized submission. No competition slot was used.** The run card is [`docs/data/run-card.json`](docs/data/run-card.json).
+> **Submission status: DO NOT SUBMIT.** This audit generated no GeoTIFF and no file is cleared. A concurrent branch added a synthetic research TIFF, but it fails the literal novelty check. The nine-site historical files and that artifact are research references, not upload recommendations. [Open the executive summary](executive-summary.html) · [Read the negative run card](evidence/run-card.json) · [View the GitHub Pages dashboard](https://sassnarep3-star.github.io/GEMSDOESASS1/).
 
-## Requested objectives
+## Read at the start of every session — project brief
 
-The user asked for an original, unique, range-valid fault-prediction GeoTIFF that might exceed the reported GEMSDOE32 score; a nine-site executive-summary website with source links, upload guidance and an easy download; and a PR merged to `main`. The research protocol requires ranking new geological hypotheses *before* implementation, staying in one assigned method lane, testing on a buffered whole-segment holdout with leakage canaries and the official pooled DTI, checking the full registry before and after placement, independently validating the saved TIFF, and using a separate selector before spending a weekly slot. At most three experiments or two hours were permitted. A negative result is a valid deliverable.
+The user's project brief is preserved here in operational form; repeated copies of the same request are collapsed, and the nine priority records are retained in [the claims ledger](data/site-summary.json), with the wider list of user-provided claims preserved [here](knowledge/user-provided-submission-ledger.md). The goal is to discover faults indicative of geothermal resources and ultimately compete for the GEMS Prize, while making evidence, sources, uncertainty, file identity, and the actual submission decision obvious. Build a clean, useful, auditable GitHub Pages site with an executive-summary subpage and an easy download **only for a genuinely eligible new file**. The user explicitly requests autonomous machine inspection, a unique filename and a short submission note, and no invented claims.
 
-Those conditions cannot honestly be satisfied in this run: the prompt did not identify the required single-method paragraph; the reusable prepared feature cache and complete current registry are missing; the shared template needs upstream fixes; and a pinned registered lattice already rules out the commonly used 37,654-dot budget under the literal overlap criterion. We did not invent a lane, train a model, generate a lookalike TIFF, claim an estimated score or upload anything.
+**User's highest-urgency instruction:** “MUST GENERATE A UNIQUE TIF SUBMISSION FOR THE COMPETITION. DO NOT COPY A PREVIOUS SUBMISSION UNLESS IT'S FOR LEARNING AND EDUCATION. BUT WE MUST GENERATE A UNIQUE TIF SUBMISSION. IT MUST BE OBVIOUS WHETHER IT IS OK TO DOWNLOAD AND SUBMIT THE GENERATED TIF SUBMISSION.”
 
-A separate parallel run merged [a synthetic TIFF](docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif) into `main` during this review. It is retained for **research only, DO NOT SUBMIT**. Our independent recheck finds 37,596/37,654 dots (99.85%) within three pixels of the registered lattice and a failure of the conservative outside-footprint mask check. A previous 20.6% comparison against the champion did not establish full-registry uniqueness. Its claimed holdout was not reproduced here. The earlier PR, files and historical reports are preserved; superseded README and HTML text are archived under [`archive/`](archive/).
+**Parallel-run protocol (user's wording, normalized only for formatting):**
 
-## What the audit found
+1. **LANE.** Your lane is the single method paragraph below. Stay inside it. If your raster's rank-correlation with any registry raster exceeds 0.90, or more than 70% of your dots fall within 3 px of one registry raster's dots, you have drifted into another lane: log it as a duplicate and stop. Check this on the surface before placement AND on the final dots.
+2. **REUSE, DON'T REBUILD.** Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`. Holdout = hide-and-recover: withhold whole fault segments with a buffer, derive every catalogue-based feature only from the visible faults, mask visible faults pixel-exactly, score pooled DTI (alpha 0.2, beta 0.8, 300 m triangular kernel). If a shared tool is wrong, fix it once in the template and report it; never keep a private fork.
+3. **LABEL EVERY NUMBER** as HOLDOUT-DTI (evaluator version, number of withheld positives, 95% CI) or ORGANIZER-CONFIRMED (copied from a submission-page receipt). A projection is never written as a score. Historical user-supplied figures without a receipt are explicitly marked **USER-REPORTED / UNVERIFIED**, never promoted to either evidence class.
+4. **LEAKAGE CANARY.** Test each feature alone on the holdout before trusting any result. AUC above 0.90 means leakage until proven otherwise.
+5. **RUN CARD.** End with one JSON card: hypothesis; mechanism; the named non-fault process that could mimic it; holdout DTI + CI; correlation/overlap vs registry; raster sha256; validator output (no NaN inside the footprint, values in [0,1], CRS/shape/transform match); submission name + note of at most 140 characters; verdict promote / negative. Negative results are deliverables.
+6. **BUDGET.** Stop after 3 experiments or 2 hours. Do not pick submissions: promotion to a real slot is a separate selector step, within the weekly cap shown on the submission page.
 
-- Nine pinned historical mask files (GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36) were compared in [`evidence/focus_audit.json`](evidence/focus_audit.json). The supplied values are **USER-REPORTED, not organizer-confirmed**; there are no hash-bound receipts in the inspected evidence. GEMSDOE32's 0.2778 and its thinning/pruning explanation are plausible claims, not a proven cause or a score for our run.
-- All 72 directional historical comparisons exceed the stipulated >70% overlap stop. GEMSDOE25 and 30 have identical masks; GEMSDOE32 B2 equals the GEMSDOE25 mask with a 2-pixel catalogue neighborhood removed. Those relationships say nothing about unseen ground truth or private scoring.
-- The pinned reference lattice's 3-pixel halo covers 5,160,724 of 5,167,373 footprint pixels. For 37,654 dots, at least 31,005 (82.34%) must overlap it. This one-reference proof is decisive at that budget, conditional on the literal registry rule; it does not automatically reject every smaller budget or establish that any remaining dot is scientifically meaningful.
-- Five later peer candidates and the separate parallel research raster independently failed the same literal stop (99.17%, 99.62%, 99.61%, 100%, 99.78%, and 99.85% overlap); see [`evidence/claimed_candidates_audit.json`](evidence/claimed_candidates_audit.json). Their source-site banners, narrower checks and reported holdouts do not constitute a full-registry clearance. No other run's model or holdout was rerun.
-- The official public leaderboard was observed at **0.4544 on 2026-10-27**. This is neither a candidate-bound score nor a private result and can change. No DrivenData account, submission history, or real-time slot quota was queried, and the site never automatically monitors DrivenData.
-- Fourteen core/external files were restored from hash-pinned peer mirrors, **not authenticated against organizer-provided originals**. The example mirror has 60,988 positive pixels identical to the supplied label mask, in tension with the organizer's description of a blank sample. Treat its grid/footprint as a provisional reference. Inputs and licensing caveats are in [`evidence/input_recovery.json`](evidence/input_recovery.json); raw files are excluded from this repository.
-- The pinned shared evaluator/writer silently binarize positive probabilities ([upstream issue 37](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37)). The evaluator source matches the hash in the open [empty-truth pooled-FP report](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41), and the [surface-stage overlap bug](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42) was reproduced on a synthetic example. This account has read-only access to that template and the inspected repository declares no license; no upstream fix or private fork was made.
+The supplied prompt refers to a “single method paragraph below” but contains no identifiable method assignment. Do not silently invent a lane. Before implementing a future lane, propose 3–5 geological hypotheses, rank expected holdout benefit and implementation cost, identify exact layers, transforms, non-fault mimics, differences from existing work, and trustworthy public data. Verify external data availability and rights; validate the top assigned candidate on the spatially blocked holdout against the same-protocol best. Do not spend a competition slot on an unvalidated idea.
 
-The four prospective geological ideas and their data, mimics, costs and limitations are in [`research/hypotheses.md`](research/hypotheses.md). They are not an assigned lane, tested models or a claim of global novelty.
+**Maximize P(Win)** by weighing evidence and protecting limited slots. **Own the Outcome** by fixing what can be fixed, recording failures and constraints, and leaving reproducible next steps. Review the work in three passes: implement and verify; inspect and fix defects; re-check against the full request. The user's request also asks to open and merge a PR to main after verification, without claiming completion of blocked scientific work.
 
-## Website
+## What this session established
 
-The static site lives in [`docs/`](docs/index.html): overview and nine-site table, [executive summary / conditional upload guidance](docs/executive-summary.html), and [research, sources and evidence](docs/research.html). The GitHub Pages address is <https://sassnarep3-star.github.io/GEMSDOESASS1/> once the `main` `/docs` deployment is configured and built. Serve it locally (use HTTP, not `file://`, for the JSON feed):
+- The starting repository contained only a one-line README. No candidate lane, prepared shared stack, evaluation setup, complete registry, or authenticated competition files were present.
+- The nine strongest historical claims in the supplied list are tracked in [the dashboard](index.html#priority-sites). GEMSDOE32 B2 is **0.2778 USER-REPORTED / UNVERIFIED**; no organizer submission-page receipt connects that value to the audited mirror bytes. No public-score estimate is defensible. A public leaderboard observation was **0.4544** at 2026-10-27 11:31 UTC; it is not a receipt for this project and may change.
+- We fetched small, SHA-pinned owner-repository mirrors strictly for learning/audit, not to submit. All 72 directed comparisons among the nine historical masks exceed the 70% 3-pixel threshold. The audited GEMSDOE25 and GEMSDOE30 masks are identical; GEMSDOE32's B2 equals GEMSDOE25's dots after removing the two-pixel known-catalogue neighborhood. These relationships do not prove what bytes were uploaded or why scores changed.
+- The exact GEMSDOE36 KPL36 file, despite a site banner saying to submit, has **99.17%** of dots within 3 pixels of a registered lattice. It fails the stated literal gate. A pinned lattice covers nearly the whole owner-mirror footprint and mathematically forces any 37,654-dot candidate to have at least **82.34%** overlap. This proof does not automatically rule out every smaller candidate or authorize targeting uncovered holes. See the [independent audit](evidence/witness-audit.json) and [evidence ledger](knowledge/evidence-and-sources.md).
+- A concurrent branch added a synthetic weighted-Poisson research raster (and NaN/zero twins). We independently read back both files: **37,596 / 37,654 = 99.85%** of their dots are within 3 pixels of the registered lattice, so **DO NOT SUBMIT**. Its previous nine-file uniqueness claim excluded this witness; the pre-placement surface and earlier reported holdout were not independently replayed. A local [research-artifact notice](docs/downloads/README.md) and [current run card](evidence/run-card.json) preserve its byte hashes and read-back checks.
+- The owner-mirror sample's positive pixels exactly match its known-label mirror, inconsistent with the official page's description of an absence sample. Its hash proves mirror identity, not organizer provenance; it was used for grid and footprint only. The prior [0,1] portal rejection has no retained rejected bytes or diagnosis. Do not claim that either zeros or NaNs outside the footprint are accepted without verifying the authorized sample and organizer guidance.
+- The official competition data tab redirects unauthenticated users to login. The related sites document two different shared-template lineages and an owner-published raw-feature mirror, but neither an agreed prepared cache nor the complete current registry is present. This audit performed zero geological experiments and used zero weekly uploads. [Four prospective hypotheses](knowledge/research-preregistration.md) and a [next-session plan](knowledge/next-session.md) are retained.
 
-```bash
-python -m http.server 8000 --bind 0.0.0.0 --directory docs
-```
+## Run the independent read-back audit
 
-The site checks the nine **public GitHub heads only** from the reader's browser and compares them to a pinned baseline. GEMSDOE24 changed after the pinned baseline; two of its new research artifacts were checked against the lattice but are not incorporated into the frozen historical score table, and their holdouts were not rerun. Changed, partial, rate-limited and offline cases are visibly distinguished; the last recorded snapshot is labeled as such. A changed head calls for re-audit and never updates score claims or grants permission to submit. The scheduled CI tests the tools; neither the site nor CI monitors DrivenData.
-
-## Reproduce the independent checks
-
-Requires Python 3.11 or newer, Node 20+ for the browser-script unit tests, and `gh` for public GitHub input downloads (authentication may be required for rate limits). Some downloads are large; inspect source licenses and access terms before reuse.
+Requires Python 3.11 (tested), `gh` and access to the public pinned GitHub blobs. The audit downloads only small historical witnesses into `.local-data/` (Git-ignored); it is **not** a model, the shared holdout evaluator, the shared submission writer or a selector. It never submits anything.
 
 ```bash
 python -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest -q
-node --test tests/web.test.js
-
-# Eighteen pinned forensic TIFFs; verifies SHA-256 and caches locally.
-python scripts/fetch_audit_inputs.py
-python scripts/audit_focus.py
-python scripts/audit_claims.py
-python scripts/audit_parallel_variants.py
-# Rebuild table and synchronize the published evidence copies.
-python scripts/render_portfolio.py
-
-# Optional: restore the pinned shared template and 14 owner-mirrored core/external
-# inputs (>400 MB) to .cache/. Does not build the missing feature cache or run a model.
-python scripts/restore_inputs.py
+python scripts/fetch_witnesses.py
+python scripts/audit_witnesses.py --output evidence/witness-audit.json
+python scripts/render_site.py
+python -m pytest -q
+node tests/test_ui.cjs  # optional UI logic test
 ```
 
-To inspect an actual saved candidate against an **authenticated** template (neither is included here):
+Input hashes and pinned source paths are in [`data/inputs.json`](data/inputs.json); [the full results](evidence/witness-audit.json) include actual read-back grid/range checks, 72 directional overlaps, KPL36's failed witness, the lattice bound, the concurrent research artifact and the mask identities. An intact SHA is not an organizer receipt. Do not use these audit witnesses as new submissions.
 
-```bash
-python scripts/validate_tif.py path/to/candidate.tif path/to/official_sample.tif --out local-format-report.json
-```
+The dashboard's optional source-freshness check requests only the nine public GitHub repository heads, caches successful checks briefly, and shows changed or unavailable sources without changing the submission decision. It does **not** scrape DrivenData or treat a changed repository as a new score. Current competition data, quota, leaderboard and rules require their own authorized sources.
 
-The independent checker fails closed on grid/band/dtype, interior mask, non-finite/out-of-range raw values, outside-footprint nullness and non-self-contained sidecars. It also checks the template against the observed mirror grid `(3730, 3292)`, transform `(100, 0, 243350, 0, -100, 4508550)`; those observed coordinates are not organizer-authenticated. Its additional requirement of finite raw storage *and* an internal mask outside is conservative, not a claim that the organizer's uploader accepts that encoding. A passing local check cannot establish model validity, registry uniqueness, organizer acceptance, or slot permission.
+## Additional Fieldnotes cross-check
 
-## Official references
+A second, independently reproducible [Fieldnotes brief](docs/fieldnotes.html) extends this audit without changing the `DO NOT SUBMIT` decision. It restores 14 hash-pinned peer-mirrored core/external inputs (not organizer-authenticated), ranks four prospective hypotheses, and checks five additional peer TIFFs against the lattice. All five exceed 99% overlap; the earlier synthetic TIFF is separately checked at 99.85%. No peer holdout was replayed. The outside-footprint and whole-array range tests are conservative local checks, not proof of portal acceptance. Its [run card](docs/data/run-card.json) records **this preflight** separately from the Research Desk card; neither authorizes a slot.
 
-[Problem, data, metric and GeoTIFF contract](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [DOE/NLR prize rules](https://docs.nlr.gov/docs/fy26osti/96647.pdf) · [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) · [DOE GDR INGENIOUS 1391](https://gdr.openei.org/submissions/1391) · [staff: site submission limit governs](https://community.drivendata.org/t/submission-amount-question/11553) · [staff: rolling window](https://community.drivendata.org/t/weekly-submissions/11524). The [research page](docs/research.html#sources) distinguishes primary sources from peer claims and notes access, licensing and uncertainty.
+The shared template is read-only to this account and has open reports for [probability binarization](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37), [empty-truth pooled-FP bookkeeping](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41), and [surface-stage preview overlap](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42). No private fork or upstream patch was made. See [Fieldnotes implementation and reproduction](FIELDNOTES.md), [variant checks](evidence/parallel_variant_audit.json), and its [three-pass review](research/review-log.md).
+
+## Primary sources
+
+- [DrivenData problem, metric and submission format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) · [data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/)
+- [DrivenData staff clarification on exact known-fault masking](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4) · [official rules PDF](https://docs.nlr.gov/docs/fy26osti/96647.pdf) · [organizer reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
+- [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) · [USGS 3DEP](https://www.usgs.gov/3d-elevation-program) · [DOE OpenEI INGENIOUS record](https://gdr.openei.org/submissions/1391) · [USGS blind-geothermal play-fairway synthesis](https://www.usgs.gov/publications/discovering-blind-geothermal-systems-great-basin-region-integrated-geologic-and)
+
+Full provenance, licensing limitations, score classes and irregularities are in [the source ledger](knowledge/evidence-and-sources.md). The requested three-pass review is recorded [here](knowledge/review-passes.md).

@@ -30,7 +30,7 @@ jobs:
       - name: Verify generated site matches committed evidence
         run: |
           python scripts/render_portfolio.py
-          git diff --exit-code -- docs/index.html docs/data
+          git diff --exit-code -- docs/fieldnotes.html docs/data
       - name: Check public GitHub metadata only
         env:
           GH_TOKEN: ${{ github.token }}

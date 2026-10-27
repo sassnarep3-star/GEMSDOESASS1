@@ -10,3 +10,7 @@ __pycache__/
 *.npz
 
 data/raw/
+
+# Additional independent witness-audit cache and Node packages.
+.local-data/
+node_modules/

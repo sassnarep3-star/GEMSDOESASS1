@@ -37,7 +37,7 @@ def render_rows(manifest: dict, audit: dict) -> str:
 def main() -> None:
     manifest = json.loads((ROOT / "registry" / "focus_sources.json").read_text())
     audit = json.loads((ROOT / "evidence" / "focus_audit.json").read_text())
-    page = ROOT / "docs" / "index.html"
+    page = ROOT / "docs" / "fieldnotes.html"
     text = page.read_text()
     if text.count(START) != 1 or text.count(END) != 1:
         raise ValueError("Expected one pair of portfolio markers")

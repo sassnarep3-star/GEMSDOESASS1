@@ -61,6 +61,9 @@
     "literal_duplicate_stop": true,
     "local_format_pass": false,
     "ok_to_submit": false,
-    "evidence": "claimed_candidates_audit.json"
+    "evidence": "claimed_candidates_audit.json",
+    "dots_within_3px_of_pinned_GEMSDOE32": 5699,
+    "prior_champion_comparison_reproduced": false,
+    "lattice_registry_snapshot": "reg-052; see ../../evidence/witness-audit.json"
   }
 }

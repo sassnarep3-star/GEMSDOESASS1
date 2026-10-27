@@ -1,6 +1,6 @@
-> **Historical snapshot:** Some availability and status statements in this earlier report are superseded. See the current [executive summary](executive-summary.html) and [independent recheck](data/claimed_candidates_audit.json). The parallel synthetic TIFF is research-only and **must not be submitted**.
-
 # Ranked candidate hypotheses and blocked validation plan
+
+> **Historical review snapshot:** This document reflects the earlier baseline checkout and is not the current release decision. A parallel synthetic TIFF was added later and independently fails the literal registry check. See the [current executive summary](../executive-summary.html), [forensic evidence](../evidence/witness-audit.json), and [current run card](../evidence/run-card.json). Do not submit any existing TIFF.
 
 **Status:** preregistration/design only. No experiment was run. The prompt refers to a single assigned method paragraph, but none is present in this checkout; the lane is therefore unspecified. No candidate below is certified as novel against the full GEMSDOE registry. The checkout is empty of data, feature caches, registry files, and shared evaluator/writer. The official competition data endpoint redirects to login. Per protocol, do not choose or execute a method until the assigned lane, inputs, and registry are restored.
 

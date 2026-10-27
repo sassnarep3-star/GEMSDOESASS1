@@ -74,7 +74,7 @@ def test_feed_cli_can_fail_on_partial_and_still_write_result(tmp_path, monkeypat
 def test_historical_table_is_generated_and_bound_to_pins():
     manifest = read_json("registry/focus_sources.json")
     audit = read_json("evidence/focus_audit.json")
-    html = (ROOT / "docs/index.html").read_text()
+    html = (ROOT / "docs/fieldnotes.html").read_text()
     expected = render_rows(manifest, audit)
     between = html.split("<!-- PORTFOLIO_START -->")[1].split("<!-- PORTFOLIO_END -->")[0].strip()
     assert expected == between
