@@ -1,0 +1,2 @@
+-r requirements-lock.txt
+scikit-image==0.26.0

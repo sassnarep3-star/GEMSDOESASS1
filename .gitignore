@@ -4,3 +4,5 @@ __pycache__/
 .pytest_cache/
 data/
 *.partial
+# SWGB lane scratch (fold fields, final field)
+work/

@@ -1,0 +1,107 @@
+{
+  "experiment": "E2-SWGB",
+  "hypothesis": "segment-withheld supervised learner",
+  "features": [
+    "lidar_coh100",
+    "lidar_cross_max",
+    "lidar_dipole",
+    "lidar_downface_max",
+    "lidar_ex_max",
+    "lidar_ex_max_s3",
+    "lidar_ex_mean",
+    "lidar_face_asym",
+    "lidar_lapneg_max",
+    "lidar_lappos_max",
+    "lidar_relief",
+    "lidar_step_max",
+    "lidar_strike",
+    "lidar_strike_cos2",
+    "lidar_strike_sin2",
+    "lidar_upface_max",
+    "mag_TMI_up150",
+    "mag_hgrad_s2",
+    "mag_hgrad_s5",
+    "rad_K",
+    "rad_K_grad_s3",
+    "rad_TC",
+    "rad_Th",
+    "rad_ThK",
+    "rad_ThK_grad_s3",
+    "rad_U",
+    "rad_UK",
+    "rad_UTh",
+    "cat_logdist",
+    "cat_logtip",
+    "cat_dens",
+    "cat_strike_agree"
+  ],
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "holdout_dti": 0.15857734012508118,
+  "ci95": [
+    0.15188696221119738,
+    0.16489556710860143
+  ],
+  "n_withheld_positives": 60988,
+  "tp": 14972.688923859772,
+  "fp": 213169.5242862291,
+  "fn": 46015.31107614023,
+  "per_fold": [
+    {
+      "fold": 0,
+      "n_test": 13289,
+      "tp": 3245.700786268478,
+      "fp": 42500.531164005064,
+      "fn": 10043.299213731521,
+      "dti": 0.1640863265805955,
+      "emitted": 44090
+    },
+    {
+      "fold": 1,
+      "n_test": 12209,
+      "tp": 2872.568853237057,
+      "fp": 42708.578569834666,
+      "fn": 9336.431146762943,
+      "dti": 0.1521211417437463,
+      "emitted": 44090
+    },
+    {
+      "fold": 2,
+      "n_test": 11470,
+      "tp": 2939.0459818498157,
+      "fp": 42625.14982078964,
+      "fn": 8530.954018150183,
+      "dti": 0.16070161457776105,
+      "emitted": 44090
+    },
+    {
+      "fold": 3,
+      "n_test": 12776,
+      "tp": 3087.8249431158783,
+      "fp": 42583.66945926816,
+      "fn": 9688.175056884122,
+      "dti": 0.15953547755989614,
+      "emitted": 44090
+    },
+    {
+      "fold": 4,
+      "n_test": 11244,
+      "tp": 2827.548359388542,
+      "fp": 42751.5952723316,
+      "fn": 8416.451640611458,
+      "dti": 0.1561230122326311,
+      "emitted": 44090
+    }
+  ],
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ]
+  },
+  "beats_bar": true,
+  "n_dots": 44090,
+  "spacing_px": 2.8,
+  "elapsed_s": 373.4
+}
