@@ -1,0 +1,36 @@
+{
+  "release_class": "negative research result; no competition artifact",
+  "review_date_utc": "2026-10-27",
+  "python_tests_passed": 32,
+  "javascript_tests_passed": 5,
+  "rendered_browser_pages": 13,
+  "mobile_layouts_tested": 4,
+  "shared_tools_changed": false,
+  "experiments": 1,
+  "experimental_runtime_seconds": 97.85318028400002,
+  "protocol_qualified_for_promotion": false,
+  "implementation_sha256": {
+    "docs/assets/site.css": "ee0ae492ad14d529d665532363b36aab300c1715317f35e576d044486cc7da24",
+    "docs/assets/source-feed.js": "f19a1cab0976bad7aacd1e3364cf5fb6c83476d43b2000fc6e5a16164c0e1646",
+    "knowledge/PROJECT_BRIEF.md": "d8b7c67bab02d56566479791e58d97641af6cc68a45bf4ef0e9340c059aebd05",
+    "knowledge/hypotheses.md": "629550e464ed287e52a8c6934b4d371803cf64c545ab1fed614eed4d42179421",
+    "knowledge/scientific_analysis.md": "ce5b64c64f221ed5396b75d2f7df062d025d739d4a564bf8a3ef98df00c522eb",
+    "requirements-lock.txt": "601e6cc9b6ed4c63f2b98f27edb385629c62d5da1d7a4d560b16c020a895d1c8",
+    "requirements.txt": "c47bfe940d6e9d35ab56c5a2ea471ab7a5f1e260e709d9e514794d65414c4f12",
+    "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
+    "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
+    "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
+    "scripts/build_site.py": "e44ac6f9d1d70891d8d6db4ecd0388b76e9199dc31ce452a125b349924ce252e",
+    "scripts/evaluate_holdout.py": "f7e5e37af6577db82b453fb1ba9e7d6b516e5b246656f5bea4ba0a1c78a0420a",
+    "scripts/novelty.py": "005f8dd23c4c6ff915580adb192a02a6f03c1ef7158150d4a36dfa3518fadfc2",
+    "scripts/prepare_data.py": "3f9fe8bf4cde7a98764769ac559b115b9f1256ff2e5ca4cd4f5d6282f9814606",
+    "scripts/refresh_sources.py": "95ef64b6c47fb2c6bb87327d2d0bd507bbf56093afedf829d18a54f6362bdb27",
+    "scripts/registry_snapshot.py": "48127b253f8d093dedb4d802ab45f60394992b401861745d0aacefb9ddcf716f",
+    "scripts/verify_release.py": "cf0747040da2e710deec397e77751f34f854f477a948c47e7867bd582fc01aa3"
+  },
+  "limitations": [
+    "Pages reconfiguration denied HTTP 403; existing legacy deployment retained.",
+    "No official organizer receipts or network access to official contest pages.",
+    "First-pass protocol defect corrected; numerical holdout retained only as exploratory negative evidence."
+  ]
+}
