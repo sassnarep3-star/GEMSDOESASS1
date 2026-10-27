@@ -1,0 +1,33 @@
+{
+  "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+  "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "checks": {
+    "template_single_band": true,
+    "template_float32": true,
+    "template_expected_shape": true,
+    "template_expected_transform": true,
+    "template_epsg_32611": true,
+    "template_100m_north_up": true,
+    "template_nonempty_footprint": true,
+    "template_footprint_finite": true,
+    "geotiff": true,
+    "self_contained": true,
+    "single_band": true,
+    "float32": true,
+    "crs_matches_template": true,
+    "epsg_32611": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_masked_inside_footprint": true,
+    "no_nan_or_inf_inside_footprint": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_nan_or_inf_anywhere_raw": true,
+    "all_raw_values_in_0_1": true,
+    "outside_is_null_mask_or_nan": false
+  },
+  "local_format_pass": false,
+  "inside_nonfinite_count": 0,
+  "outside_nonfinite_count": 0,
+  "organizer_acceptance_confirmed": false,
+  "note": "Local saved-byte checks only; no organizer acceptance, novelty, holdout or slot approval is inferred."
+}

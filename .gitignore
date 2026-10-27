@@ -1,7 +1,16 @@
+# Local inputs and workspaces; never commit competition data or credentials.
 .venv/
-.local-data/
+.work/
+.cache/
 __pycache__/
 .pytest_cache/
-*.pyc
+*.py[cod]
+*.partial
+*.npy
+*.npz
 
+data/raw/
+
+# Additional independent witness-audit cache and Node packages.
+.local-data/
 node_modules/

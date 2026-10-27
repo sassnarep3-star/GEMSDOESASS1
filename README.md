@@ -50,6 +50,12 @@ Input hashes and pinned source paths are in [`data/inputs.json`](data/inputs.jso
 
 The dashboard's optional source-freshness check requests only the nine public GitHub repository heads, caches successful checks briefly, and shows changed or unavailable sources without changing the submission decision. It does **not** scrape DrivenData or treat a changed repository as a new score. Current competition data, quota, leaderboard and rules require their own authorized sources.
 
+## Additional Fieldnotes cross-check
+
+A second, independently reproducible [Fieldnotes brief](docs/fieldnotes.html) extends this audit without changing the `DO NOT SUBMIT` decision. It restores 14 hash-pinned peer-mirrored core/external inputs (not organizer-authenticated), ranks four prospective hypotheses, and checks five additional peer TIFFs against the lattice. All five exceed 99% overlap; the earlier synthetic TIFF is separately checked at 99.85%. No peer holdout was replayed. The outside-footprint and whole-array range tests are conservative local checks, not proof of portal acceptance. Its [run card](docs/data/run-card.json) records **this preflight** separately from the Research Desk card; neither authorizes a slot.
+
+The shared template is read-only to this account and has open reports for [probability binarization](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37), [empty-truth pooled-FP bookkeeping](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41), and [surface-stage preview overlap](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42). No private fork or upstream patch was made. See [Fieldnotes implementation and reproduction](FIELDNOTES.md), [variant checks](evidence/parallel_variant_audit.json), and its [three-pass review](research/review-log.md).
+
 ## Primary sources
 
 - [DrivenData problem, metric and submission format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) · [data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/)
