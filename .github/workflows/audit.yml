@@ -28,7 +28,7 @@ jobs:
           set -e
           cat /tmp/gems-fetch.log
           if [ "$result" -ne 0 ]; then
-            while IFS= read -r line; do echo "::error::$line"; done < <(tail -n 8 /tmp/gems-fetch.log)
+            while IFS= read -r line; do echo "::error::$line"; done < /tmp/gems-fetch.log
             exit "$result"
           fi
       - name: Test full read-back and site consistency
