@@ -114,5 +114,23 @@
       "local_name": "registry_snapshot.json",
       "sha256": "55166644a4f3c496a5065ae4895f3a1406ed15bb6441cad421f69d0b2599b70b"
     }
-  ]
+  ],
+  "local_research_artifacts": [
+    {
+      "id": "parallel_zeros",
+      "path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+      "sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274"
+    },
+    {
+      "id": "parallel_nan",
+      "path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-nan.tif",
+      "sha256": "ddd12d0d3e3f94dee8b85a5df3c6bb6509e6a3d7c6ea83e78e8afa293ead1189"
+    },
+    {
+      "id": "parallel_zip",
+      "path": "docs/downloads/gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0.zip",
+      "sha256": "1ad2a0451e2eea2211e6ae3f5f49f7c5ea32a676509f5ce10f0bd63520594e64"
+    }
+  ],
+  "local_artifacts_scope": "Research-only files introduced by concurrent PR #3, not produced by this forensic audit. Neither TIFF is submit-approved."
 }

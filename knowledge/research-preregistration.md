@@ -1,6 +1,6 @@
 # Prospective research slate — no lane assigned, no experiment run
 
-**Decision:** negative / no candidate. These are *proposals for choosing a future lane*, not tested models or public-score projections. This checkout was empty before this review, so none was implemented here; that is **not** a claim that all related repositories or the literature are novel. The shared registry and a single assigned-method paragraph are missing. Do not start a run until the protocol's lane and full registry can be established. A passing surface must be checked *before* placing dots. Stop on either literal novelty violation.
+**Decision:** negative / no eligible candidate. These are *proposals for choosing a future lane*, not tested models or public-score projections. This checkout was empty before this review, so none was implemented here; that is **not** a claim that all related repositories or the literature are novel. The shared registry and a single assigned-method paragraph are missing. Do not start a run until the protocol's lane and full registry can be established. A passing surface must be checked *before* placing dots. Stop on either literal novelty violation.
 
 Rankings below are qualitative scientific judgments (uncertain expected *holdout* benefit, not numerical score forecasts) and estimated engineering cost, not results.
 
@@ -23,3 +23,7 @@ The official problem asks for **fault probabilities**, not direct discovery of a
 6. At most three experiments or two hours; no upload in the experiment lane. Record a machine-readable run card even for a negative result.
 
 The pinned lattice covers almost the entire owner-mirror footprint within 3 pixels. Its preflight proves standard-budget placement fails, even before any hypothesis is fit. A smaller dot budget is **not** automatically unique; do not target the few uncovered pixels to game the rule. A changed registry definition or threshold needs explicit authorization, not a quiet exception.
+
+## Parallel research artifact discovered during merge
+
+A concurrent branch proposed a blind-piedmont hybrid but its saved research output is described as **synthetic weighted Poisson**, not a fitted surface using the proposed geophysical layers. Its 37,654-dot mask is 99.85% within 3 pixels of the registered lattice and is therefore a literal duplicate. This does not supply the missing user-assigned method paragraph or prove that a fitted hybrid has been tested. Do not submit it; see the [current audit](../evidence/witness-audit.json).

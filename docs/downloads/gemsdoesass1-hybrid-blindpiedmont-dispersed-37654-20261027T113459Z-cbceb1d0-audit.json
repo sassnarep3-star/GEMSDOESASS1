@@ -1,0 +1,45 @@
+{
+  "status": "SUPERSEDED \u2014 RESEARCH ONLY / DO NOT SUBMIT. The earlier nine-file uniqueness claim did not include the registered lattice; independent read-back found a literal duplicate.",
+  "current_audit": "../../evidence/witness-audit.json",
+  "independent_lattice_overlap": {
+    "dots": 37654,
+    "hits": 37596,
+    "fraction": 0.9984596590003718,
+    "duplicate": true
+  },
+  "independent_overlap_with_GEMSDOE32": {
+    "reference": "GEMSDOE32",
+    "dots": 37654,
+    "hits": 5699,
+    "fraction": 0.15135178201519095,
+    "duplicate": false,
+    "spearman_binary": 0.00031086503753478064
+  },
+  "note_on_prior_overlap_field": "The earlier 20.62% champion figure differs from 15.135% measured here against the pinned GEMSDOE32 witness; comparison scope/method may differ. Neither limited comparison overrides the lattice failure.",
+  "file": "gemsdoesass1-hybrid-blindpiedmont-dispersed-37654-20261027T113459Z-cbceb1d0-zeros.tif",
+  "sha256": "50b1350dd92cde3af8bd85f13f39f7feb8c82416f095df281cd8c5291dbb1274",
+  "content_id": "cbceb1d0",
+  "timestamp": "20261027T113459Z",
+  "grid": {
+    "epsg": 32611,
+    "height": 3730,
+    "width": 3292,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ]
+  },
+  "dots": 37654,
+  "on_catalogue": 0,
+  "min_dist_px": 2.8284271247461903,
+  "median_dist_px": 5.09,
+  "footprint_pixels": 5167373,
+  "overlap_vs_champion_3px_pct": 20.62,
+  "crs": "EPSG:32611",
+  "values": "float32 {0,1} in [0,1] whole-array finite for zeros variant",
+  "note": "GEMSDOESASS1 HYBRID blind-piedmont dispersed 37654d | CATFLANK B2 prune | NE/SE weighted | Poisson 2.83px | id cbceb1d0 | zeros outside"
+}

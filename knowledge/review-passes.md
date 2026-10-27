@@ -16,8 +16,14 @@
 ## Pass 3 — request and release re-check
 
 - Preserved the key protocol, priorities, sources and core values in the README, plus the wider user-supplied historical claim list with explicit unverified provenance. No old raster is offered as a new competition submission.
-- Verified that the dashboard and run card fail closed: no candidate, no fabricated holdout/CI/score, no name or note for an uncreated file, no automatic slot selection. Maintained a separate public leaderboard observation rather than calling it a submission receipt.
+- Verified that the dashboard and run card fail closed: no eligible candidate, no fabricated holdout/CI/score, no approved name or note, no automatic slot selection. Maintained a separate public leaderboard observation rather than calling it a submission receipt.
 - Rechecked the official outside-bounds wording, noted the owner-sample/label discrepancy and avoided claiming that a zeros-only TIFF fixes the user's prior range error. Identified the missing data/rights, lane, template, registry, quota and authenticated receipt as prerequisites in the next-session plan.
 - Re-ran the Python tests, JavaScript logic checks, static-link validation, a complete read-back integration test and desktop/mobile browser smoke tests. The GitHub workflow repeats the pinned fetch and tests without writing to the repository or contacting DrivenData.
 
 **Remaining unmet objective:** no protocol-unique, scored or upload-cleared new TIFF exists. These negative findings are not a substitute for a successful competition entry.
+
+### Concurrent main-branch reconciliation
+
+- While this branch was open, three other pull requests merged. Their original research files were preserved, rather than overwritten. A synthetic 37,654-dot raster from PR #3 was independently SHA-checked and inspected; its dot mask overlaps the pinned `reg-052` lattice by **99.85%**. It is not unique under the user's literal rule, regardless of its smaller overlap with nine historic masks.
+- Replaced the earlier actionable site pages with redirects to the current fail-closed decision and retained their full previous HTML as explicitly superseded plaintext snapshots under `docs/archive/`. The research TIFFs, ZIP, note, prior audit and earlier documentation remain available. The historical JSON card is clearly marked as superseded; `evidence/run-card.json` is the authoritative current card.
+- Reopened both TIFF twins, checked their SHA, in-footprint range, CRS/grid, outside values, identical dot masks and ZIP member, and included the result in the automated audit and tests. We did not reproduce the prior claimed holdout, validate its score projection, or infer that a zeros-only raster is accepted by the portal.

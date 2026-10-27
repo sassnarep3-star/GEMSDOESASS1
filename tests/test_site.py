@@ -30,7 +30,7 @@ def parse(path):
 
 
 def test_all_local_site_links_and_anchor_targets_exist():
-    for name in ('index.html', 'executive-summary.html', 'research.html', 'sources.html'):
+    for name in ('index.html', 'executive-summary.html', 'research.html', 'sources.html', 'docs/index.html', 'docs/executive-summary.html'):
         page = ROOT / name
         p = parse(page)
         assert len(p.ids) == len(set(p.ids)), f'Duplicate id in {name}'
@@ -77,7 +77,21 @@ def test_run_card_does_not_convert_missing_evidence_to_a_pass():
     assert card['experiment_budget']['weekly_slots_used'] == 0
     assert card['holdout']['holdout_dti'] is None
     assert card['holdout']['confidence_interval_95'] is None
-    assert card['raster_sha256'] is None
-    assert card['validator']['no_nan_inside_footprint'] is None
+    audit = json.loads((ROOT / 'evidence/witness-audit.json').read_text())
+    parallel = audit['parallel_research_artifact']
+    assert card['raster_sha256'] == parallel['zeros_tif']['sha256']
+    assert card['validator']['no_nan_inside_footprint'] is True
+    assert card['registry']['candidate_final_dot_overlap'] == parallel['overlap_with_lattice']['fraction']
+    assert card['registry']['duplicate'] is True
     assert card['submission']['okay_to_submit'] is False
     assert card['submission']['name'] is None and card['submission']['note'] is None
+
+
+def test_old_site_urls_redirect_to_current_fail_closed_pages():
+    for name, target in [('docs/index.html', '../index.html'),
+                         ('docs/executive-summary.html', '../executive-summary.html')]:
+        body = (ROOT / name).read_text(encoding='utf-8')
+        assert 'DO NOT SUBMIT' in body
+        assert f'url={target}' in body
+        assert 'Download GeoTIFF' not in body
+    assert (ROOT / 'docs/archive/parallel-index-20261027.html.txt').is_file()

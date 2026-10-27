@@ -131,6 +131,16 @@ def test_committed_evidence_is_negative_and_complete():
     assert x['historical_nine_pairwise']['all_72_fail_overlap']
     assert len(x['historical_nine_pairwise']['comparisons']) == 72
     assert x['kpl36']['overlap_with_lattice']['duplicate']
+    parallel = x['parallel_research_artifact']
+    assert parallel['overlap_with_lattice'] == {'dots': 37654, 'hits': 37596,
+        'fraction': 37596/37654, 'duplicate': True}
+    assert parallel['zeros_tif']['no_nan_or_inf_inside']
+    assert parallel['zeros_tif']['whole_array_range_0_1']
+    assert parallel['zeros_tif']['outside_all_zero']
+    assert parallel['nan_tif']['outside_all_nan'] and not parallel['nan_tif']['full_array_finite']
+    assert parallel['twins_have_same_in_footprint_binary_mask']
+    assert parallel['zip_member_matches_zeros']
+    assert max(r['fraction'] for r in parallel['versus_nine_historical_witnesses']) == 6262/37654
     assert x['literal_budget_bound']['guaranteed_duplicate']
     assert x['sample']['ones_equal_label_mirror']
     assert x['lattice']['registered_id'] == 'reg-052'
@@ -172,3 +182,36 @@ def test_full_readback_reproduces_committed_evidence_when_witnesses_are_availabl
     expected.pop('generated_utc')
     actual.pop('generated_utc')
     assert actual == expected
+
+
+def test_tracked_research_artifacts_reject_a_mismatched_zip(tmp_path, monkeypatch):
+    import hashlib
+    import zipfile
+    import audit_witnesses
+    from rasterio.crs import CRS
+    monkeypatch.setattr(audit_witnesses, 'ROOT', tmp_path)
+    fp = np.array([[True, True], [True, False]])
+    grid = (CRS.from_epsg(32611), Affine(100, 0, 0, 0, -100, 400), (2, 2))
+    z = tmp_path / 'z.tif'
+    n = tmp_path / 'n.tif'
+    zvals = np.array([[0, 1], [0, 0]])
+    nvals = np.array([[0, 1], [0, np.nan]])
+    write_tif(z, zvals)
+    write_tif(n, nvals)
+    archive = tmp_path / 'z.zip'
+    with zipfile.ZipFile(archive, 'w') as bundle:
+        bundle.write(z, 'z.tif')
+    digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+    rows = [{'id': name, 'path': path.name, 'sha256': digest(path)} for name, path in
+            [('parallel_zeros', z), ('parallel_nan', n), ('parallel_zip', archive)]]
+    report, dots = audit_witnesses.inspect_local_research_artifacts({'local_research_artifacts': rows}, grid, fp)
+    assert report['twins_have_same_in_footprint_binary_mask'] and dots.sum() == 1
+    with zipfile.ZipFile(archive, 'w') as bundle:
+        # Keep the same name and length, but alter the member bytes.
+        bundle.writestr('z.tif', b'x' * z.stat().st_size)
+    rows[-1]['sha256'] = digest(archive)
+    with pytest.raises(ValueError, match='does not match'):
+        audit_witnesses.inspect_local_research_artifacts({'local_research_artifacts': rows}, grid, fp)
+    rows[0]['path'] = '../z.tif'
+    with pytest.raises(ValueError, match='Invalid local'):
+        audit_witnesses.inspect_local_research_artifacts({'local_research_artifacts': rows}, grid, fp)

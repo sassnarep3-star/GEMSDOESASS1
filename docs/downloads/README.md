@@ -1,0 +1,5 @@
+# Research artifacts — NOT SUBMISSION-APPROVED
+
+The two synthetic TIFFs and ZIP in this directory were generated in concurrent PR #3 and are retained for research and provenance. An independent read-back found **37,596 of 37,654 dots (99.85%)** within three pixels of a registered lattice, exceeding the literal 70% duplicate stop. Both TIFFs contain the same in-footprint dot mask. **Do not upload either version or the ZIP to the competition.**
+
+The zeros TIFF is finite in [0,1] throughout; its outside-footprint values are zero. Its NaN twin has NaNs outside and finite [0,1] values inside. Neither observation proves organizer-format acceptance, and the pre-placement surface and earlier holdout have not been independently reproduced. The older note and audit are historical records, not a submission authorization. See the [current run card](../../evidence/run-card.json) and [pixel-level audit](../../evidence/witness-audit.json).

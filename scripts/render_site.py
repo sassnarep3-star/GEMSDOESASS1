@@ -19,7 +19,9 @@ def render() -> str:
     sites = ledger['sites']
     if len(sites) != 9 or len({s['site'] for s in sites}) != 9:
         raise ValueError('Expected nine distinct sites')
-    if audit['submission_ready'] is not False or not audit['historical_nine_pairwise']['all_72_fail_overlap']:
+    if (audit['submission_ready'] is not False or not audit['historical_nine_pairwise']['all_72_fail_overlap']
+            or not audit['parallel_research_artifact']['overlap_with_lattice']['duplicate']
+            or not audit['kpl36']['overlap_with_lattice']['duplicate']):
         raise ValueError('Static negative decision no longer matches audit evidence')
     rows = []
     for site in sorted(sites, key=lambda x: float(x['reported_value']), reverse=True):
@@ -44,6 +46,7 @@ def render() -> str:
         '{{BEST_CLAIM}}': max(sites, key=lambda s: float(s['reported_value']))['reported_value'],
         '{{LEADER_VALUE}}': ledger['leaderboard_observation']['value'],
         '{{KPL_PERCENT}}': f"{100 * audit['kpl36']['overlap_with_lattice']['fraction']:.2f}",
+        '{{PARALLEL_PERCENT}}': f"{100 * audit['parallel_research_artifact']['overlap_with_lattice']['fraction']:.2f}",
     }
     for key, val in replacement.items():
         if template.count(key) != 1:
