@@ -111,7 +111,7 @@ def test_fetch_rejects_bad_pins_and_hash_mismatch(tmp_path, monkeypatch):
                 {**good, 'path':'../file'}, {**good, 'sha256':'oops'}):
         with pytest.raises(ValueError):
             check_entry(bad)
-    def fake_run(_command, *, stdout, check, timeout):
+    def fake_run(_command, *, stdout, stderr, check, timeout):
         stdout.write(b'wrong data')
     monkeypatch.setattr('fetch_witnesses.subprocess.run', fake_run)
     with pytest.raises(ValueError, match='SHA-256 mismatch'):
@@ -215,3 +215,47 @@ def test_tracked_research_artifacts_reject_a_mismatched_zip(tmp_path, monkeypatc
     rows[0]['path'] = '../z.tif'
     with pytest.raises(ValueError, match='Invalid local'):
         audit_witnesses.inspect_local_research_artifacts({'local_research_artifacts': rows}, grid, fp)
+
+
+def test_fetch_fallback_is_limited_to_known_binary_error_and_remains_hash_pinned(tmp_path, monkeypatch):
+    import hashlib
+    import subprocess
+    import fetch_witnesses
+    entry = {'id':'x', 'repo':'owner/repo', 'ref':'a'*40, 'path':'docs/a.tif',
+             'local_name':'x.tif', 'sha256':hashlib.sha256(b'complete').hexdigest()}
+    def transform_error(command, *, stdout, stderr, check, timeout):
+        stdout.write(b'partial-binary-data')
+        raise subprocess.CalledProcessError(1, command, stderr=b'transform: short source buffer\n')
+    def successful_http(_entry, stream):
+        stream.write(b'complete')
+    monkeypatch.setattr(fetch_witnesses.subprocess, 'run', transform_error)
+    monkeypatch.setattr(fetch_witnesses, 'fetch_raw_http', successful_http)
+    assert fetch_witnesses.fetch(entry, tmp_path) == 'downloaded and verified'
+    assert (tmp_path / 'x.tif').read_bytes() == b'complete'  # partial bytes discarded
+    (tmp_path / 'x.tif').unlink()
+    def http_wrong(_entry, stream):
+        stream.write(b'wrong')
+    monkeypatch.setattr(fetch_witnesses, 'fetch_raw_http', http_wrong)
+    with pytest.raises(ValueError, match='SHA-256 mismatch'):
+        fetch_witnesses.fetch(entry, tmp_path)
+    assert list(tmp_path.iterdir()) == []
+    def auth_error(command, *, stdout, stderr, check, timeout):
+        raise subprocess.CalledProcessError(1, command, stderr=b'HTTP 401: authentication required')
+    def should_not_run(*args):
+        pytest.fail('Fallback must not mask authentication failures')
+    monkeypatch.setattr(fetch_witnesses.subprocess, 'run', auth_error)
+    monkeypatch.setattr(fetch_witnesses, 'fetch_raw_http', should_not_run)
+    with pytest.raises(subprocess.CalledProcessError):
+        fetch_witnesses.fetch(entry, tmp_path)
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_http_fallback_refuses_cross_host_and_insecure_redirects():
+    from urllib.request import Request
+    from fetch_witnesses import ApiOnlyRedirect
+    handler = ApiOnlyRedirect()
+    original = Request('https://api.github.com/owner/file', headers={'Authorization':'Bearer example'})
+    for url in ('https://example.com/file', 'http://api.github.com/file',
+                'https://api.github.com.evil.example/file', 'https://user@api.github.com/file'):
+        with pytest.raises(ValueError, match='Refusing'):
+            handler.redirect_request(original, None, 302, 'Found', {}, url)

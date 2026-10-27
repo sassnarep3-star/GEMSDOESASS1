@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Fetch hash-pinned owner mirrors for a read-only audit, not for submission.
 
-Only public GitHub blobs named in data/inputs.json are read, via the user's
-existing gh authentication.  Files are ignored by Git and are not used as training data.
+Only public GitHub blobs named in data/inputs.json are read, normally via gh.
+A tightly scoped HTTPS API fallback handles one known gh binary-transfer error.
+Files are ignored by Git and are not used as training data.
 """
 from __future__ import annotations
 
@@ -13,7 +14,10 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import tempfile
+from urllib.parse import quote, urlsplit
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'data' / 'inputs.json'
@@ -40,6 +44,39 @@ def check_entry(entry: dict) -> None:
         raise ValueError('Invalid repository path')
 
 
+class ApiOnlyRedirect(HTTPRedirectHandler):
+    """Never forward an optional GitHub token to another host or insecure URL."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        url = urlsplit(newurl)
+        if (url.scheme != 'https' or url.hostname != 'api.github.com'
+                or url.port not in (None, 443) or url.username or url.password):
+            raise ValueError('Refusing a redirect outside HTTPS api.github.com')
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def fetch_raw_http(entry: dict, stream) -> None:
+    """Bounded, exact-byte fallback for the specific gh binary transform bug."""
+    repo, ref = entry['repo'], entry['ref']
+    path = quote(entry['path'], safe='/')
+    url = f'https://api.github.com/repos/{repo}/contents/{path}?ref={ref}'
+    headers = {'Accept': 'application/vnd.github.raw+json', 'User-Agent': 'gems-witness-audit'}
+    token = os.environ.get('GH_TOKEN') or os.environ.get('GITHUB_TOKEN')
+    if token:
+        headers['Authorization'] = f'Bearer {token}'
+    request = Request(url, headers=headers)
+    max_bytes = 16 * 1024 * 1024  # All pinned witnesses are much smaller; avoid unbounded downloads.
+    total = 0
+    with build_opener(ApiOnlyRedirect()).open(request, timeout=120) as response:
+        while True:
+            block = response.read(1024 * 1024)
+            if not block:
+                break
+            total += len(block)
+            if total > max_bytes:
+                raise ValueError('Witness response exceeds the permitted transfer size')
+            stream.write(block)
+
+
 def fetch(entry: dict, destination: Path) -> str:
     check_entry(entry)
     target = destination / entry['local_name']
@@ -52,10 +89,22 @@ def fetch(entry: dict, destination: Path) -> str:
     tmp = Path(tmp_name)
     try:
         with os.fdopen(fd, 'wb') as stream:
-            subprocess.run(
-                ['gh', 'api', endpoint, '-H', 'Accept: application/vnd.github.raw+json'],
-                stdout=stream, check=True, timeout=120,
-            )
+            try:
+                subprocess.run(
+                    ['gh', 'api', endpoint, '-H', 'Accept: application/vnd.github.raw+json'],
+                    stdout=stream, stderr=subprocess.PIPE, check=True, timeout=120,
+                )
+            except subprocess.CalledProcessError as error:
+                # Some gh releases incorrectly transcode binary output and emit
+                # this exact error. Do not fall back on authentication or other failures.
+                if error.stderr and error.stderr.strip() == b'transform: short source buffer':
+                    stream.seek(0)
+                    stream.truncate()
+                    fetch_raw_http(entry, stream)
+                else:
+                    if error.stderr:
+                        sys.stderr.write(error.stderr.decode('utf-8', errors='replace'))
+                    raise
         if sha256(tmp) != entry['sha256']:
             raise ValueError(f"SHA-256 mismatch for {entry['id']}; not installing file")
         os.replace(tmp, target)
