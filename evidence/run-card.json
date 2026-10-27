@@ -1,0 +1,49 @@
+{
+  "schema": "gems-sass1-run-card-v1",
+  "created_utc": "2026-10-27T11:36:00Z",
+  "hypothesis": "No assigned method lane was supplied. A future, untested possibility is cross-flight-line magnetic profile consistency as evidence of buried fault structure.",
+  "mechanism": "A buried structural discontinuity could create reproducible magnetic profile changes across survey lines; existing processing and geological ambiguity must be controlled.",
+  "named_non_fault_process": "Lithologic contacts, dike swarms and flight-line levelling or striping can generate similar patterns.",
+  "experiment_budget": {
+    "experiments_run": 0,
+    "max_experiments": 3,
+    "max_wall_seconds": 7200,
+    "weekly_slots_used": 0,
+    "reason": "No single assigned lane or prepared shared cache/complete registry; a pinned registry lattice independently proves that the standard 37,654-dot budget cannot pass the literal overlap rule."
+  },
+  "holdout": {
+    "evidence_class": "NOT RUN",
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "holdout_dti": null,
+    "confidence_interval_95": null,
+    "reason": "No new model or candidate; historical holdout evidence is not substituted."
+  },
+  "feature_canaries": {"status": "NOT RUN", "max_auc": null},
+  "registry": {
+    "candidate_surface_rank_correlation": null,
+    "candidate_final_dot_overlap": null,
+    "candidate_checks": "NOT RUN: no new candidate surface or dots",
+    "independent_witness": "evidence/witness-audit.json",
+    "witness_kpl36_overlap_with_lattice": 0.9916874701226961,
+    "standard_budget_minimum_overlap": 0.8234184947150369,
+    "scope": "These are geometric audit measurements of an existing file and an existing registered witness, not candidate novelty checks against a complete registry."
+  },
+  "raster_sha256": null,
+  "validator": {
+    "status": "NOT RUN: no new submission raster",
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "note": "A read-back audit of an existing KPL36 witness is in evidence/witness-audit.json and is not a validator result for a new raster."
+  },
+  "submission": {
+    "name": null,
+    "note": null,
+    "file": null,
+    "okay_to_download_as_submission": false,
+    "okay_to_submit": false,
+    "selector_approved": false
+  },
+  "verdict": "negative"
+}
