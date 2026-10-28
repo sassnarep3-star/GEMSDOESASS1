@@ -1,5 +1,12 @@
-# No cleared submission
+# Downloads
 
-The BGAC-1 run is negative. The mandatory novelty gate required stopping before packaging. There is deliberately no TIFF or ZIP here. Test fixtures are generated only in temporary test directories, never in downloads.
+## ⛔ DO NOT SUBMIT
 
-See ../executive-summary.html and ../evidence/run_card.json. Do not rename an old prediction to create a purportedly unique submission.
+`gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif`
+
+H-PBSC research GeoTIFF. Unique and format-valid. **HOLDOUT-DTI 0.0650** lost the 0.1011 bar.
+`ok_to_submit = false`. Download for audit only.
+
+## ✅ OK TO SUBMIT (selector) — prior SWGB lane
+
+See `../../swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif`.

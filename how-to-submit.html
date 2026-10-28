@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to submit — GEMSDOESASS1</title><style>
+:root{--bg:#0b1220;--card:#121a2f;--ink:#e8eef8;--mut:#93a0b8;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--acc:#38bdf8;--line:#1e293b}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header,main,footer{max-width:1120px;margin:auto;padding:0 20px}header{padding:28px 20px 8px}
+nav a{color:var(--acc);margin-right:16px;text-decoration:none;font-size:14px}
+h1{font-size:30px;margin:8px 0 6px}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.mut{color:var(--mut)}a{color:var(--acc)}
+.banner{border-radius:14px;padding:22px 24px;margin:18px 0;border:1px solid}
+.banner.bad{background:#2a1216;border-color:#7f1d1d}
+.banner.ok{background:#052e16;border-color:#166534}
+.banner h2{margin:0 0 10px;border:0}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin:6px 8px 6px 0}
+.btn.go{background:var(--ok);color:#052e16}
+.btn.stop{background:#7f1d1d;color:#fecaca}
+.btn.alt{background:#1e293b;color:var(--ink);border:1px solid #334155}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700}
+.ok{background:#064e3b;color:#86efac}.no{background:#4c0519;color:#fda4af}.wn{background:#451a03;color:#fcd34d}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+pre{background:#070d18;padding:12px;border-radius:8px;overflow:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+footer{padding:28px 20px 50px;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><nav><a href="index.html">Home</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="run-card.html">Run card</a><a href="swgb/index.html">Prior SWGB lane</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">Repo</a></nav><h1>How to submit — GEMSDOESASS1</h1>
+<p class="mut">GEMSDOESASS1 · DOE GEMS Prize (DrivenData #306) · session 2026-10-28 H-PBSC · numbers from evidence/*.json</p>
+</header><main>
+<div class="banner bad"><h2>Do not upload the H-PBSC research TIF</h2>
+<p>Upload the prior SWGB file instead. H-PBSC is unique and format-valid but lost the holdout bar.</p></div>
+<ol class="card">
+<li>Download <a href="swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</a> (or its .zip).</li>
+<li>Go to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData → New submission</a>.</li>
+<li>Choose the .tif or the .zip that contains only that GeoTIFF.</li>
+<li>Note (optional, ≤140 chars): <code>GEMSASS1 SWGB: 5x segment-withheld HGB on lidar+GeoDAWN, 44090 dots 2.8px, &gt;600m off-catalogue; HOLDOUT-DTI 0.140 vs base 0.101</code></li>
+<li>Confirm the file is single-band float32, EPSG:32611, 3730×3292, values in [0,1]. The writer refuses to emit anything else.</li>
+</ol>
+<p>Official format: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem description — submission format</a>.
+Rules PDF (login-walled): <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">NLR 96647</a>.</p>
+</main>
+<footer>Read the standing brief in docs/PROJECT_BRIEF.md every session. Core values: Maximize P(Win), Own the Outcome.
+Competition: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem</a> ·
+<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">leaderboard</a></footer></body></html>

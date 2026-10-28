@@ -20,13 +20,13 @@
     "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
     "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
     "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
-    "scripts/build_site.py": "60d0e991f2eeb431d75ae61905d2384b51c980ce03daa9531d015dd1760a1e98",
+    "scripts/build_site.py": "3215694a1571e9bee3ab93cdcb5cabcce16aeb76b1586e9d7def1b24f30e7a31",
     "scripts/evaluate_holdout.py": "f7e5e37af6577db82b453fb1ba9e7d6b516e5b246656f5bea4ba0a1c78a0420a",
     "scripts/novelty.py": "005f8dd23c4c6ff915580adb192a02a6f03c1ef7158150d4a36dfa3518fadfc2",
     "scripts/prepare_data.py": "3f9fe8bf4cde7a98764769ac559b115b9f1256ff2e5ca4cd4f5d6282f9814606",
     "scripts/refresh_sources.py": "95ef64b6c47fb2c6bb87327d2d0bd507bbf56093afedf829d18a54f6362bdb27",
     "scripts/registry_snapshot.py": "48127b253f8d093dedb4d802ab45f60394992b401861745d0aacefb9ddcf716f",
-    "scripts/verify_release.py": "cf0747040da2e710deec397e77751f34f854f477a948c47e7867bd582fc01aa3"
+    "scripts/verify_release.py": "ef28b0832be4ca0b544faff4958755217421affd9b1b9d287a2f28d0b2bf0aba"
   },
   "limitations": [
     "Pages reconfiguration denied HTTP 403; existing legacy deployment retained.",

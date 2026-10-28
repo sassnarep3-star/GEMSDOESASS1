@@ -1,0 +1,329 @@
+{
+  "hypothesis": "Uncatalogued Holocene normal faults in the NW Great Basin preferentially bound internally drained playas: a coherent lidar step with a low-relief hanging-wall neighborhood, weakly corroborated by a shallow magnetic edge from basement offset. USGS/INGENIOUS Qfaults under-map these 1\u20135 m scarps because they sit in alluvium kilometres from the range front; the hidden 1 m lidar labels include them (the 0.2778 champion's median catalogue distance is ~2 km).",
+  "mechanism": "Label-free product of ranked lidar step_max^0.40, along-strike coh100^0.30, inverted 800 m-scale relief (playa neighborhood)^0.25, mild LoG dipole. E1 added (0.40+0.60*rank mag_hgrad_s2) and lost to E2 (no mag): HOLDOUT-DTI 0.0621 vs 0.0650. Poisson-disk 2.8 px, 600 m catalogue exclusion at emission. No supervised learner and no catalogue-distance features. Winner = E2-nomag.",
+  "named_non_fault_mimic": "Pluvial Lake Lahontan shorelines and wave-cut benches: coherent, low-relief, playa-bounding, usually without a magnetic edge. Canal banks and fluvial terrace risers.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "value": 0.0650250550024214,
+    "ci95": [
+      0.06052134654263499,
+      0.06934134585328819
+    ],
+    "n_withheld_positives": 60988,
+    "bar_0p2600_family_base": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ],
+      "evidence": "evidence/swgb/holdout_calibration.json"
+    },
+    "beats_bar": false,
+    "farfield_gt5px": {
+      "evaluator": "GEMSASS1-HR-v2-segment-farfield>5px",
+      "holdout_dti": 0.060585577704010615,
+      "ci95": [
+        0.05684678059884087,
+        0.06449467469602357
+      ],
+      "n_withheld_positives": 51094,
+      "tp": 4522.538420132497,
+      "fp": 164337.02287361713,
+      "fn": 46571.46157986751,
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 11092,
+          "tp": 880.4838243524632,
+          "fp": 32856.91385865912,
+          "fn": 10211.516175647535,
+          "dti": 0.056365107308324607,
+          "emitted": 33214
+        },
+        {
+          "fold": 1,
+          "n_test": 10281,
+          "tp": 929.8345950163578,
+          "fp": 32709.72736692491,
+          "fn": 9351.165404983643,
+          "dti": 0.0621850116965865,
+          "emitted": 33098
+        },
+        {
+          "fold": 2,
+          "n_test": 9587,
+          "tp": 773.0368166475691,
+          "fp": 32794.46824441707,
+          "fn": 8813.963183352433,
+          "dti": 0.053746185609846626,
+          "emitted": 33117
+        },
+        {
+          "fold": 3,
+          "n_test": 10693,
+          "tp": 918.543837554948,
+          "fp": 33043.94631834141,
+          "fn": 9774.456162445053,
+          "dti": 0.059852084485659804,
+          "emitted": 33434
+        },
+        {
+          "fold": 4,
+          "n_test": 9441,
+          "tp": 1020.6393465611579,
+          "fp": 32931.96708527462,
+          "fn": 8420.360653438842,
+          "dti": 0.07115781109436912,
+          "emitted": 33349
+        }
+      ]
+    }
+  },
+  "correlation_overlap_vs_registry": {
+    "max_spearman": 0.029272152222565722,
+    "max_frac_dots_within_3px": 0.25301428799065173,
+    "thresholds": {
+      "spearman": 0.9,
+      "overlap": 0.7,
+      "px": 3
+    },
+    "is_duplicate": false,
+    "rows": [
+      {
+        "site": "GEMSDOE24",
+        "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+        "owner_reported_score": 0.2477,
+        "spearman": 0.023102188030774306,
+        "frac_dots_within_3px": 0.2508896797153025,
+        "registry_dots": 60069,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE24",
+        "file": "gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+        "owner_reported_score": 0.0859,
+        "spearman": 0.029272152222565722,
+        "frac_dots_within_3px": 0.12888404950337282,
+        "registry_dots": 37654,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE25",
+        "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "owner_reported_score": 0.26,
+        "spearman": 0.0191117004945192,
+        "frac_dots_within_3px": 0.23960269825250968,
+        "registry_dots": 44090,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE25",
+        "file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "owner_reported_score": 0.0742,
+        "spearman": 0.016363541646881186,
+        "frac_dots_within_3px": 0.18226483242152228,
+        "registry_dots": 44832,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE27",
+        "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+        "owner_reported_score": 0.2449,
+        "spearman": 0.022852277299297532,
+        "frac_dots_within_3px": 0.25301428799065173,
+        "registry_dots": 61328,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE27",
+        "file": "gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+        "owner_reported_score": 0.219,
+        "spearman": 0.02622438551646853,
+        "frac_dots_within_3px": 0.15950496627184363,
+        "registry_dots": 37654,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+        "owner_reported_score": 0.2708,
+        "spearman": 0.017581956429377283,
+        "frac_dots_within_3px": 0.23960269825250968,
+        "registry_dots": 40199,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+        "owner_reported_score": 0.2649,
+        "spearman": 0.01898598094630715,
+        "frac_dots_within_3px": 0.23962925585595155,
+        "registry_dots": 42294,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+        "owner_reported_score": 0.271,
+        "spearman": 0.01835103804906475,
+        "frac_dots_within_3px": 0.23726562914962554,
+        "registry_dots": 37660,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+        "owner_reported_score": 0.2707,
+        "spearman": 0.018690513925789645,
+        "frac_dots_within_3px": 0.2380623572528815,
+        "registry_dots": 37860,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif",
+        "owner_reported_score": 0.0217,
+        "spearman": 0.002314097577376973,
+        "frac_dots_within_3px": 0.05263717002177724,
+        "registry_dots": 11082,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE30",
+        "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+        "owner_reported_score": 0.26,
+        "spearman": 0.0191117004945192,
+        "frac_dots_within_3px": 0.23960269825250968,
+        "registry_dots": 44090,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE30",
+        "file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "owner_reported_score": 0.1462,
+        "spearman": 0.018014591025314927,
+        "frac_dots_within_3px": 0.1678174961491475,
+        "registry_dots": 44090,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE31",
+        "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+        "owner_reported_score": 0.2708,
+        "spearman": 0.017581956429377283,
+        "frac_dots_within_3px": 0.23960269825250968,
+        "registry_dots": 40199,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE32",
+        "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+        "owner_reported_score": 0.2778,
+        "spearman": 0.01682661038091265,
+        "frac_dots_within_3px": 0.23960269825250968,
+        "registry_dots": 37654,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE33",
+        "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+        "owner_reported_score": 0.2632,
+        "spearman": 0.018615659871724016,
+        "frac_dots_within_3px": 0.24223190099325437,
+        "registry_dots": 41865,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE36",
+        "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+        "owner_reported_score": 0.275,
+        "spearman": 0.01784010511314108,
+        "frac_dots_within_3px": 0.24371912678599883,
+        "registry_dots": 38854,
+        "duplicate": false
+      }
+    ],
+    "extra_sibling_and_prior_swgb": {
+      "max_spearman": 0.023262606608625346,
+      "max_frac_dots_within_3px": 0.26013172571307164,
+      "is_duplicate": false,
+      "rows": [
+        {
+          "site": "GEMSDOESASS1-SWGB",
+          "file": "gemsass1-swgb-hrv2.tif",
+          "spearman": 0.02276804776971994,
+          "frac_dots_within_3px": 0.2537313432835821,
+          "registry_dots": 44090,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-XGHF",
+          "file": "gemsdoesass2-xghf.tif",
+          "spearman": 0.023262606608625346,
+          "frac_dots_within_3px": 0.26013172571307164,
+          "registry_dots": 37654,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-LWST",
+          "file": "gemsdoesass3-lwst.tif",
+          "spearman": 0.0035718179709545053,
+          "frac_dots_within_3px": 0.11496786529983534,
+          "registry_dots": 37654,
+          "duplicate": false
+        }
+      ]
+    }
+  },
+  "emission": {
+    "n_dots": 37654,
+    "spacing_px": 2.8,
+    "prune_px": 6.0,
+    "dots_within_2px_of_catalogue": 0,
+    "dots_on_catalogue": 0,
+    "dots_with_lidar": 37654,
+    "median_catalogue_dist_px": 27.0,
+    "field_quantile_of_last_dot": 0.9699772011813352
+  },
+  "raster_sha256": "2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9",
+  "validator_output": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "submission_name": "gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif",
+  "submission_note": "GEMSASS1 PBSC: playa-bounding step\u00d7coh\u00d7low-relief 37654d 2.8px >600m offcat; HOLDOUT-DTI 0.065 vs bar 0.101",
+  "note_length": 107,
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "score_labels": "No live score exists for this file. HOLDOUT-DTI is not a leaderboard score; projections are not scores. 0.2778 is OWNER-REPORT, not ORGANIZER-CONFIRMED.",
+  "organizer_confirmed": null,
+  "generated_utc": "20261028T225532Z",
+  "elapsed_s": 68.0,
+  "n_segments": 3199,
+  "budget": {
+    "experiments_run": [
+      "e1_pbsc",
+      "e2_nomag"
+    ],
+    "protocol_limit": 3
+  },
+  "irregularities": [
+    "IR-LATTICE-01: 13gems 5-px lattice covers 99.87% of the footprint; excluded from the 70% rule (same policy as the SWGB lane).",
+    "IR-04: sibling live scores are OWNER-REPORT; DrivenData is not on this sandbox allowlist."
+  ],
+  "winner_experiment": "e2_nomag",
+  "canary_pass": true,
+  "approved_for_submission": false,
+  "submission_path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif"
+}

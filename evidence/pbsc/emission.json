@@ -1,0 +1,10 @@
+{
+  "n_dots": 37654,
+  "spacing_px": 2.8,
+  "prune_px": 6.0,
+  "dots_within_2px_of_catalogue": 0,
+  "dots_on_catalogue": 0,
+  "dots_with_lidar": 37654,
+  "median_catalogue_dist_px": 27.0,
+  "field_quantile_of_last_dot": 0.9699772011813352
+}

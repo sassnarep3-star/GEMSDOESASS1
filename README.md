@@ -1,6 +1,29 @@
 # GEMSDOESASS1 — DOE GEMS Prize Challenge: unique, auto-validated fault-prediction submissions
 
-> This README has two parts. **Part A (SWGB lane)** below produced the cleared file. **Part B (BGAC lane, `vendor/gems57` pipeline)** follows and documents a negative result and its own tooling. Both sets of evidence are kept; nothing was deleted.
+**Read first, every session:** [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md) (standing user brief, verbatim) and [`AGENTS.md`](AGENTS.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
+
+# Part 0 — H-PBSC lane (session 2026-10-28)
+
+**Is the new GeoTIFF OK to submit?** **NO.** Unique and format-valid; lost the holdout bar.
+
+| | |
+|---|---|
+| **Research file (DO NOT SUBMIT)** | [`docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif`](docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif) |
+| **sha256** | `2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9` |
+| **Note (107/140)** | `GEMSASS1 PBSC: playa-bounding step×coh×low-relief 37654d 2.8px >600m offcat; HOLDOUT-DTI 0.065 vs bar 0.101` |
+| **HOLDOUT-DTI** | **0.0650 [0.0605, 0.0693]** (`GEMSASS1-HR-v2-segment`, 60,988 withheld positives) vs bar **0.1011 [0.0956, 0.1072]** |
+| **Unique?** | **Yes.** max Spearman 0.029 (limit 0.90); max 25.3 % of dots within 3 px of any of 17 focus rasters (limit 70%); vs prior SWGB / SASS2 / SASS3 max 26.0 % |
+| **Validator** | 11/11 from bytes: float32, EPSG:32611, 3730×3292, template transform, values {0,1}, no NaN/Inf, zeros outside footprint, 0 on catalogue |
+| **Verdict** | `negative` · `ok_to_submit = false` |
+| **What to upload instead** | Prior SWGB file in Part A (HOLDOUT-DTI 0.1401, unique, `promote`) |
+
+Lane: playa-bounding scarp corridor (lidar `step_max` × `coh100` × low-relief 800 m neighborhood × LoG dipole). E1 (+ mag) 0.0621; E2 (no mag, shipped) 0.0650. E3 not run (bar not beaten). Canary max AUC 0.573. Median catalogue distance of shipped dots: 27 px (~2.7 km). Named mimic: Lake Lahontan shorelines. Evidence: `evidence/pbsc/run_card.json`. Hypotheses: `knowledge/03_hypotheses_20261028.md`. Site: [`index.html`](index.html) (hero is a red **DO NOT SUBMIT** banner).
+
+Why 0.2778 (GEMSDOE32 `h33-h33-2-b2`) cannot be copied: it **is** the 0.2600 H19-5 dotted field minus dots ≤2 px from the catalogue (sym-diff 0). Beating it needs a better *field*. H-PBSC is a different field and is unique; it does not recover withheld catalogue segments as well as H19-5/SWGB, so it is not promoted.
+
+---
+
+> This README then has two earlier parts. **Part A (SWGB lane)** produced the only cleared-for-selector file. **Part B (BGAC lane)** is a prior negative. Nothing was deleted.
 
 # Part A — SWGB lane (session 2026-10-27)
 

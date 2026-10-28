@@ -1,0 +1,61 @@
+{
+  "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif",
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "all_checks_passed": true,
+  "positive_pixels": 37654,
+  "footprint_pixels": 5167373,
+  "min": 0.0,
+  "max": 1.0,
+  "sha256": "2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9",
+  "size_bytes": 143456,
+  "profile": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "nodata": null
+  },
+  "zip": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.zip",
+    "sha256": "a5719863c46f1fcd68dac69d2206338975d67102f7a1e0098a79283e2f081557",
+    "size_bytes": 108331
+  },
+  "submission_note": "GEMSASS1 PBSC: playa-bounding step\u00d7coh\u00d7low-relief 37654d 2.8px >600m offcat; HOLDOUT-DTI 0.065 vs bar 0.101",
+  "meta": {
+    "lane": "H-PBSC",
+    "experiment": "e2_nomag",
+    "emission": {
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "prune_px": 6.0,
+      "dots_within_2px_of_catalogue": 0,
+      "dots_on_catalogue": 0,
+      "dots_with_lidar": 37654,
+      "median_catalogue_dist_px": 27.0,
+      "field_quantile_of_last_dot": 0.9699772011813352
+    }
+  }
+}
