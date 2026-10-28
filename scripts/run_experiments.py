@@ -189,5 +189,6 @@ def run_e3(which: str):
 
 
 if __name__ == "__main__":
+    raise SystemExit("BLOCKED: historical SWGB run stopped; do not overwrite evidence or exceed budget")
     cmd = sys.argv[1]
     {"canary": canary, "e1": run_e1, "e2": run_e2, "e2b": lambda: run_e2(static_only=True)}.get(cmd, lambda: run_e3(sys.argv[2]))()

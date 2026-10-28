@@ -1,3 +1,5 @@
+> **Historical record — superseded decision:** The SWGB artifact fails the literal novelty rule against a pinned lattice. Earlier promotion, uniqueness and unsupported causal claims below are not endorsed. See [post-hoc review](../evidence/swgb_lattice_review.json) and [current analysis](scientific_analysis.md).
+
 # Hypotheses register (pre-ranked before implementation, outcomes appended)
 
 Ranking key: expected DTI gain (holdout-measurable) × implementation cost with the data in this checkout

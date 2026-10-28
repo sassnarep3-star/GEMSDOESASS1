@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
-"""Build the final unique submission from the promoted lane (E2-SWGB) and audit it automatically.
+"""Blocked historical SWGB builder, retained for audit only.
 
-Pipeline (no human step):
-  1. Five segment-withheld gradient-boosting models (one per holdout fold, exactly as in E2).
-  2. Inference with the FULL catalogue as visible context; the 5 probability fields are averaged.
-  3. Emission: Poisson-disk dots (2.8 px) from the averaged field, restricted to pixels > 2 px from
-     any known catalogue pixel (exclusion radius 6 px = 600 m, applied BEFORE placement; chosen on the prune sweep).
-  4. Lane audit vs the 17-raster registry (Spearman <= 0.90 and <= 70% dots within 3 px) — stop if duplicate.
-  5. Validator (CRS/shape/transform == template, float32, no NaN/Inf anywhere, values in [0,1],
-     zeros outside footprint, zero mass on catalogue pixels) — refuses to write a failing file.
-  6. Writes swgb/downloads/<name>-zeros.tif, .zip, .checks.json and evidence/run_card.json.
+Its curated-registry, post-placement audit is insufficient under the protocol.
+The shipped artifact was found to duplicate a pinned lattice. See
+``evidence/swgb_lattice_review.json``. This script cannot create new outputs.
 """
 from __future__ import annotations
 
@@ -37,6 +31,10 @@ STAMP = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
 
 
 def main():
+    # The historical builder audits a hand-picked subset and only after placement.
+    # A later audit found its shipped TIFF duplicates the pinned lattice. Never
+    # create or promote another artifact using this incomplete workflow.
+    raise SystemExit("BLOCKED: legacy SWGB builder is not protocol-compliant; see evidence/swgb_lattice_review.json")
     from sklearn.ensemble import HistGradientBoostingClassifier
     t0 = time.time()
     foot, cat = load_footprint(), load_catalogue()

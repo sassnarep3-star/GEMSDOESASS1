@@ -1,0 +1,42 @@
+{
+  "audit_type": "POST-HOC REGISTRY-MEASUREMENT, not a new experiment; single witness only",
+  "candidate": "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+  "candidate_sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+  "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "template_provenance": "owner mirror, not organizer authenticated",
+  "prior_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/cf093c8c5e9fa77294ecf4c59b79cdade92cbc06/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "prior_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "candidate_positive_pixels": 44090,
+  "radius_pixels": 3,
+  "candidate_directed_overlap": 0.9987071898389658,
+  "threshold": 0.7,
+  "duplicate": true,
+  "surface_check": "not reconstructed; no pre-placement clearance established",
+  "registry_scope": "one pinned lattice witness; not a complete scan or global uniqueness proof",
+  "format_check": {
+    "bands": 1,
+    "dtype": "float32",
+    "crs": "EPSG:32611",
+    "width": 3292,
+    "height": 3730,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "nan_pixels": 0,
+    "infinity_pixels": 0,
+    "min": 0.0,
+    "max": 1.0,
+    "mass_outside_footprint": 0,
+    "problems": [],
+    "ok": true,
+    "validation_class": "local on-disk template/range check; not organizer upload acceptance"
+  },
+  "approved_for_submission": false,
+  "verdict": "negative",
+  "note": "Duplicate against registry lattice; do not submit."
+}

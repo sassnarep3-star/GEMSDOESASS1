@@ -16,3 +16,10 @@
 - The source feed reports GitHub commit changes only. It cannot update a verified competition leaderboard from this network.
 - Nine-site summaries here do not modify the nine separate upstream repositories. Updating their own landing pages would require a separate authorized cross-repository release.
 - Read README + PROJECT_BRIEF + the frozen run card first, every session.
+
+## 2026-10-28 reconciliation: SWGB is blocked too
+
+- The earlier SWGB public landing page and README incorrectly called its curated 17-raster check a complete uniqueness clearance. The pinned full-registry lattice was not included. The new [single-witness byte audit](../evidence/swgb_lattice_review.json), reproducible with `python scripts/audit_swgb_lattice.py`, finds 99.87071898389658% of SWGB dots within 3 px. This exceeds 70%; the release is **negative**. The original card is preserved, not silently rewritten.
+- The TIFF is retained for provenance in `swgb/downloads/` but is **not approved to submit**; local range/grid validation is not an organizer receipt. Its surface was not subjected to a complete pre-placement clearance. No new experiment or upload was performed.
+- The legacy SWGB builder is now fail-closed rather than allowed to create another artifact with the partial, post-placement-only audit. Resume work only after a documented policy resolution and a compatible full audit on both stages, using the shared evaluator and writer.
+- A new observation requires correcting all public entry points; rebuild both `scripts/build_site.py` and `scripts/swgb_build_site.py`, and run regression tests. The prior SWGB hypotheses document is historical, not a current promotion decision.
