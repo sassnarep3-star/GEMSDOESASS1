@@ -20,3 +20,7 @@ The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIE
 - The source feed reports GitHub commit changes only. It cannot update a verified competition leaderboard from this network.
 - Nine-site summaries here do not modify the nine separate upstream repositories. Updating their own landing pages would require a separate authorized cross-repository release.
 - Read README + PROJECT_BRIEF + the frozen run card first, every session.
+
+## 2026-10-28 correction: SWGB is also blocked
+
+The prior SWGB promotion used only 17 rasters. A direct byte-hash-verified check against the frozen GEMSDOE24 lattice witness found 99.8707% directed dot overlap, exceeding the literal 70% threshold. See `evidence/swgb_witness_audit.json` and `scripts/audit_swgb_witness.py`. The TIFF is retained for research only. This is a single-witness failure, not a new experiment or a complete registry scan; no surface audit or leaderboard validation is implied. The historical promotion card is superseded, not erased. The SWGB release and legacy site builders are disabled until a separately documented policy change and proper gates exist.

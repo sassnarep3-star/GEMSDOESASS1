@@ -17,3 +17,7 @@ Root landing and SWGB pages now fail closed and point to the reviewed executive 
 Complete the full, current registry audit at surface and dot stages under a clearly authorized future lane and resolve the literal lattice obstruction before placement. Obtain official template provenance, rules and organizer receipts via an authorized environment; evaluate a visible-only incumbent on the same buffered holdout. Do not convert a holdout to a leaderboard prediction. A repository merge is not a submission approval.
 
 Evidence: [SWGB run card](swgb/run_card.json), [BGAC run card](run_card.json), [surface audit](corrected_surface_novelty.json), [nine-site inventory](../registry/focus_inventory.json). [Official reference solution](https://github.com/drivendataorg/gems-prize-reference-solution), [competition data](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) and [competition rules](https://www.drivendata.org/competitions/306/competition-doe-gems/) are provided for review; pages outside the sandbox allowlist were not independently verified this session.
+
+## Subsequent witness measurement
+
+A later review directly measured the historical SWGB TIFF against the lattice, finding a duplicate under the literal overlap rule. See [witness audit](swgb_witness_audit.json) and [review](review_2026-10-28.md). This does not change the historic account above.
