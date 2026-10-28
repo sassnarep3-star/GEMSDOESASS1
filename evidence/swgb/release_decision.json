@@ -18,7 +18,7 @@
     "candidate_dots": 44090,
     "threshold": 0.7,
     "scope": "One previously omitted pinned focus-site calibration raster suffices to disqualify; full expanded scan unnecessary after stop.",
-    "source": "evidence/swgb/lattice_correction.json"
+    "source": "evidence/swgb_lattice_audit.json"
   },
   "raster_sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
   "validator_output": {

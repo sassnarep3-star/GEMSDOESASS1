@@ -13,6 +13,10 @@ Pipeline (no human step):
 """
 from __future__ import annotations
 
+# Release review 2026-10-28: this legacy lane used an incomplete registry.
+# Fail before imports, computation, writes, or overwriting frozen run evidence.
+raise SystemExit("BLOCKED: SWGB duplicate against full registry; see evidence/swgb_lattice_audit.json")
+
 import json
 import sys
 import time
@@ -37,11 +41,6 @@ STAMP = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
 
 
 def main():
-    # This legacy builder compared only 17 published top files, omitting the pinned
-    # GEMSDOE24 calibration lattice. Its existing output fails 44,033/44,090
-    # dots within 3 px (>70%). Do not regenerate/write a purportedly approved TIFF.
-    # See evidence/swgb/lattice_correction.json and scripts/audit_swgb_lattice.py.
-    raise SystemExit('BLOCKED: historical SWGB lane duplicates the expanded registry; no new submission may be written')
     from sklearn.ensemble import HistGradientBoostingClassifier
     t0 = time.time()
     foot, cat = load_footprint(), load_catalogue()
