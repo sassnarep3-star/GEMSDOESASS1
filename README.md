@@ -1,6 +1,6 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
-**Do not submit the historical SWGB TIFF.** Its advertised uniqueness was based on a curated registry subset and is disproved under the requested literal overlap gate. A local format pass is not approval. No candidate is ready for submission. [Executive summary](docs/executive-summary.html) · [review](evidence/swgb_lattice_review.json) · [next steps](knowledge/NEXT_STEPS.md).
+**Do not submit the historical SWGB TIFF.** Its advertised uniqueness was based on a curated registry subset and is disproved under the requested literal overlap gate. A local format pass is not approval. No candidate is ready for submission. [Executive summary](docs/executive-summary.html) · [review](evidence/swgb_lattice_review.json) · [parallel-session reconciliation](evidence/release_reconciliation.md) · [next steps](knowledge/NEXT_STEPS.md).
 
 Read the [project brief](knowledge/PROJECT_BRIEF.md) at the beginning of every session. It is a deduplicated transcription of the user prompt, not a claim of a byte-exact archive. Focus on evidence, Maximize P(Win), and Own the Outcome.
 

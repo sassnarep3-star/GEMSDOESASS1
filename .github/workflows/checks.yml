@@ -22,5 +22,6 @@ jobs:
       - run: pytest -q
       - run: python scripts/build_site.py && python scripts/swgb_build_site.py
       - run: python scripts/verify_release.py
+      - run: python scripts/check_release_entrypoints.py
       - run: node --check docs/assets/source-feed.js && node --test tests/test_feed.mjs
       - run: git diff --check && git diff --exit-code -- docs swgb/*.html
