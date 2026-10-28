@@ -1,0 +1,13 @@
+{
+  "candidate_sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+  "witness_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "witness_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/cf093c8c5e9fa77294ecf4c59b79cdade92cbc06/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "candidate_dots": 44090,
+  "directed_overlap_within_3px": 0.9987071898389658,
+  "duplicate": true,
+  "scope": "One frozen registry witness; not a complete registry scan.",
+  "surface_gate": "not established by this audit",
+  "format_check": "candidate all-finite and in [0,1]; grid matches witness, not organizer-authenticated template",
+  "verdict": "negative",
+  "approved_for_submission": false
+}

@@ -37,6 +37,7 @@ STAMP = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
 
 
 def main():
+    raise SystemExit("Blocked: SWGB failed the frozen registry witness overlap gate; no release may be generated.")
     from sklearn.ensemble import HistGradientBoostingClassifier
     t0 = time.time()
     foot, cat = load_footprint(), load_catalogue()
