@@ -1,3 +1,5 @@
+> **2026-10-28 correction:** SWGB is also blocked. Its final-dot overlap with the frozen registry lattice is 99.8707%, above the literal 70% limit; its broad pre-placement clearance is missing. See [the reproducible review](../evidence/swgb-review.md). Do not spend a slot or run its old builder.
+
 # Next session — ordered actions
 
 1. **Resolve the novelty-policy obstruction outside this stopped run.** The 5-pixel lattice in `GEMSDOE24/inputs/calibration` is within 3 pixels of 99.8713% of the footprint and 100% of BGAC-1 dots. Never silently exclude it or change 70%/3 px. The strict protocol leaves no basis for manufacturing a submission-ready TIFF now. Any future amendment must be explicit, versioned and preregistered.

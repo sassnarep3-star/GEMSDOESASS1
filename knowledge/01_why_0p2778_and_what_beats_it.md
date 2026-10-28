@@ -1,3 +1,5 @@
+> **Superseded claims warning (2026-10-28):** the SWGB uniqueness and promotion assertions below are invalid under the broader registry. The purported hidden-truth distribution, causal explanation, projection, and leaderboard snapshot are not organizer-verified. See [the witness review](../evidence/swgb-review.md) and [scientific analysis](scientific_analysis.md). Historical text is retained for audit.
+
 # Why `h33-h33-2-b2…-zeros` scored 0.2778, and what it takes to beat it
 
 *Session 2026-10-27. Every number is tagged **[measured-here]** (re-computed from bytes in this
