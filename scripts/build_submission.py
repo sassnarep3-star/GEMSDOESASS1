@@ -13,6 +13,10 @@ Pipeline (no human step):
 """
 from __future__ import annotations
 
+# Release review 2026-10-28: this legacy lane used an incomplete registry.
+# Fail before imports, computation, writes, or overwriting frozen run evidence.
+raise SystemExit("BLOCKED: SWGB duplicate against full registry; see evidence/swgb_lattice_audit.json")
+
 import json
 import sys
 import time
@@ -37,11 +41,6 @@ STAMP = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
 
 
 def main():
-    # The historical 17-file-only audit omitted a known blocking registry raster
-    # and never audited the surface against the broader registry. Do not train,
-    # place dots or overwrite the historical evidence until a protocol-compliant
-    # implementation is preregistered and replaces this stopped run.
-    raise SystemExit("BLOCKED: SWGB duplicate witness; no release or new experiment. See evidence/swgb-review.md")
     from sklearn.ensemble import HistGradientBoostingClassifier
     t0 = time.time()
     foot, cat = load_footprint(), load_catalogue()

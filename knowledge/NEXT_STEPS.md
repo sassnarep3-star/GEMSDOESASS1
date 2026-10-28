@@ -1,4 +1,6 @@
-> **2026-10-28 correction:** SWGB is also blocked. Its final-dot overlap with the frozen registry lattice is 99.8707%, above the literal 70% limit; its broad pre-placement clearance is missing. See [the reproducible review](../evidence/swgb-review.md). Do not spend a slot or run its old builder.
+# Next session — read the release correction first
+
+The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIEW_2026-10-28.md): the actual TIFF fails the literal expanded-registry novelty gate. Its build and site generators are blocked. No slot should be spent. Preserve the old SWGB evidence as historical, not an approval.
 
 # Next session — ordered actions
 

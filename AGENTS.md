@@ -1,6 +1,6 @@
 # Start here, every session
 
-Read README.md, knowledge/PROJECT_BRIEF.md, knowledge/NEXT_STEPS.md, evidence/review.md and evidence/run_card.json before changing this project.
+Read README.md, knowledge/PROJECT_BRIEF.md, knowledge/NEXT_STEPS.md, evidence/review.md and evidence/run_card.json and knowledge/RELEASE_REVIEW_2026-10-28.md before changing this project.
 
 Do not erase negative evidence, relax novelty thresholds, invent leaderboard scores, reinterpret owner reports as organizer confirmation, or spend a weekly slot. This session's BGAC-1 lane stopped on a duplicate. Follow the explicit stop protocol; any future policy amendment must be outside this run and documented before experiments.
 

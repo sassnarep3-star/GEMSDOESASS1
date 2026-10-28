@@ -29,10 +29,11 @@ def test_historical_builder_stops_before_writing():
 
 
 def test_active_swgb_pages_fail_closed():
-    subprocess.run([sys.executable, 'scripts/swgb_build_site.py'], cwd=ROOT, check=True, capture_output=True)
+    result = subprocess.run([sys.executable, 'scripts/swgb_build_site.py'], cwd=ROOT, capture_output=True, text=True)
+    assert result.returncode != 0 and 'BLOCKED' in result.stderr
     for name in ('index.html', 'how-to-submit.html', 'run-card.html', 'hypotheses.html'):
         html = (ROOT / 'swgb' / name).read_text()
-        assert 'Do not submit' in html and 'Duplicate under the literal protocol' in html
+        assert 'Do not submit' in html and 'not approved' in html.lower()
         assert 'href="downloads/' not in html and 'OK TO DOWNLOAD AND SUBMIT' not in html
     root = (ROOT / 'index.html').read_text()
-    assert 'No TIFF is approved' in root and 'Do not submit' in root
+    assert 'not approved' in root.lower() and 'DO NOT SUBMIT' in root

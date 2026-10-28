@@ -55,7 +55,7 @@ shared `dot_overlap` and `validate` functions. It only writes a receipt when
 explicitly requested via `--output`; it cannot approve a submission. It applies
 the footprint to both supports, as the existing broad audit does. The raster
 itself, original narrower run card, and old generator text remain preserved;
-the SWGB build command now exits before training or writing.
+the SWGB builder and legacy site generator now exit before imports or writes.
 
 ## Review passes and next actions
 
@@ -66,7 +66,7 @@ the SWGB build command now exits before training or writing.
    invalid clearance. The witness is a calibration lattice, so whether it should
    be in a future submission-only registry requires an explicit external policy
    decision; excluding it silently would change this run's rules.
-3. **Release hardening:** replaced active SWGB pages with blocked notices,
+3. **Release hardening:** the concurrent main-line review replaced active SWGB pages with blocked notices,
    blocked the old narrow-registry builder before computation, retained old
    pages' source as historical text, and added regression tests. Review the
    [next-session plan](../knowledge/NEXT_STEPS.md) before running anything.
@@ -80,3 +80,5 @@ sandbox. Official file hashes, current rules/weekly cap, current leaderboard and
 submission receipts remain unverified. The conflict between user-supplied
 leaderboard values is unresolved. Public project-site summaries here do not
 modify the nine separate source repositories.
+
+This independent review was integrated with the concurrent [main-line review](../knowledge/RELEASE_REVIEW_2026-10-28.md); both witness measurements agree.
