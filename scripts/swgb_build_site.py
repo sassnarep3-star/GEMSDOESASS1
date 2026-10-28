@@ -5,6 +5,9 @@ Pages: index.html (executive summary + download), how-to-submit.html, run-card.h
 """
 from __future__ import annotations
 
+# Fail closed: the historical generator advertises promotion from a partial registry.
+raise SystemExit("SWGB site generation disabled: partial novelty audit; see evidence/release_reconciliation.md")
+
 import html
 import json
 import sys
