@@ -1,6 +1,27 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
-**Do not submit the historical SWGB TIFF.** Its advertised uniqueness was based on a curated registry subset and is disproved under the requested literal overlap gate. A local format pass is not approval. No candidate is ready for submission. [Executive summary](docs/executive-summary.html) · [review](evidence/swgb_lattice_review.json) · [parallel-session reconciliation](evidence/release_reconciliation.md) · [independent witness](evidence/swgb_witness_review.json) · [next steps](knowledge/NEXT_STEPS.md).
+**Read first, every session:** [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
+
+**Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
+
+# Part 0 — H-PBSC lane (session 2026-10-28)
+
+**Is the new GeoTIFF OK to submit?** **NO.**
+
+| | |
+|---|---|
+| **Research file (DO NOT SUBMIT)** | [`docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif`](docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif) |
+| **sha256** | `2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9` |
+| **Note (107/140)** | `GEMSASS1 PBSC: playa-bounding step×coh×low-relief 37654d 2.8px >600m offcat; HOLDOUT-DTI 0.065 vs bar 0.101` |
+| **HOLDOUT-DTI** | **0.0650 [0.0605, 0.0693]** (`GEMSASS1-HR-v2-segment`, 60,988 withheld positives) vs bar **0.1011 [0.0956, 0.1072]** |
+| **vs 17 competitive rasters** | max Spearman 0.029; max 3 px **25.3%** (under 70%) |
+| **vs 13gems lattice** | **99.48%** (37,460 / 37,654) — duplicate if the lattice counts |
+| **Validator** | 11/11 from bytes: float32, EPSG:32611, 3730×3292, values {0,1}, no NaN |
+| **Verdict** | `negative` · `ok_to_submit = false` |
+
+Lane: playa-bounding scarp corridor. E1 (+mag) 0.0621; E2 (no mag, shipped) 0.0650. E3 not run. Canary max AUC 0.573. GEMSDOE32 0.2778 is H19-5 dotted minus catalogue-proximal dots — copying it cannot beat it.
+
+---
 
 Read the [project brief](knowledge/PROJECT_BRIEF.md) at the beginning of every session. It is a deduplicated transcription of the user prompt, not a claim of a byte-exact archive. Focus on evidence, Maximize P(Win), and Own the Outcome.
 

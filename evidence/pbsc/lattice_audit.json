@@ -1,0 +1,19 @@
+{
+  "evidence_class": "DATA-MEASUREMENT",
+  "generated_utc": "2026-10-28T230400Z",
+  "lattice_file": "GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "candidate": "docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif",
+  "candidate_dots": 37654,
+  "lattice_dots": 206895,
+  "within_3_px": 37460,
+  "frac_dots_within_3px": 0.9948478249322781,
+  "threshold": 0.7,
+  "duplicate_if_lattice_counts": true,
+  "swgb_same_instrument": {
+    "frac_dots_within_3px": 0.9987071898389658,
+    "within_3_px": 44033,
+    "candidate_dots": 44090,
+    "source": "evidence/swgb_lattice_audit.json"
+  },
+  "note": "MEASURED-HERE after merging origin/main's SWGB lattice withdrawal. Competitive 17-file uniqueness (max 25.3%) does not survive the calibration lattice. No exemption applied."
+}

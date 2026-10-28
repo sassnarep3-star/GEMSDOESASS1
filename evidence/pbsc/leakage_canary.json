@@ -1,0 +1,26 @@
+{
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "fold": 0,
+  "n_withheld_positives": 13289,
+  "auc": {
+    "lidar_step_max": 0.5639063892128828,
+    "lidar_step_max__neg": 0.43609361078711717,
+    "lidar_coh100": 0.5007873759312214,
+    "lidar_coh100__neg": 0.49921262406877864,
+    "lidar_relief": 0.5627908380991797,
+    "lidar_relief__neg": 0.43720916190082026,
+    "lidar_dipole": 0.5675972017269922,
+    "lidar_dipole__neg": 0.43240279827300776,
+    "lidar_downface_max": 0.5726554789675672,
+    "lidar_downface_max__neg": 0.4273445210324328,
+    "lidar_ex_max": 0.5612814672849725,
+    "lidar_ex_max__neg": 0.4387185327150275,
+    "mag_hgrad_s2": 0.5315684048837385,
+    "mag_hgrad_s2__neg": 0.46843159511626153,
+    "rad_K_grad_s3": 0.5159982667996087,
+    "rad_K_grad_s3__neg": 0.4840017332003913,
+    "rad_ThK_grad_s3": 0.5318064371848897,
+    "rad_ThK_grad_s3__neg": 0.46819356281511026
+  },
+  "flagged_over_0p90": {}
+}

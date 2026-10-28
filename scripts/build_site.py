@@ -42,7 +42,9 @@ def table(rows, prefix=''):
 
 
 def gate_banner():
-    return '''<aside class="status" aria-label="Submission decision"><span class="pill">Negative · stop required</span><h2>No TIFF cleared for submission.</h2><p>The method failed improvement and literal novelty gates. No new submission file was packaged. Do not download an older file and rename it.</p><button class="button" type="button" disabled>No approved TIFF to download</button><p class="small" style="margin-top:13px;margin-bottom:0">Automated decision. No visual inspection required.<br>Competition slots used: none.</p></aside>'''
+    return '''<aside class="status" aria-label="Submission decision"><span class="pill">Negative · stop required</span><h2>BGAC-1: no TIFF cleared. H-PBSC research TIFF is not for upload.</h2><p>BGAC-1 failed novelty. The later H-PBSC lane wrote a unique format-valid research GeoTIFF that <strong>lost the holdout bar</strong> (<code>ok_to_submit = false</code>). Do not upload it. The only selector-cleared file is the prior SWGB raster on the site home.</p>
+<p class="small"><a href="https://sassnarep3-star.github.io/GEMSDOESASS1/">Open the home-page decision (red / green banners) ↗</a></p>
+<p class="small" style="margin-top:13px;margin-bottom:0">Automated decision. No visual inspection required.<br>Competition slots used: none.</p></aside>'''
 
 
 def metric_strip(card):

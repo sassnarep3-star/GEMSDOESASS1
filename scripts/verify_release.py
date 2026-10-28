@@ -41,7 +41,7 @@ class Links(HTMLParser):
 def check_links():
     docs = ROOT / 'docs'
     pages = list(docs.rglob('*.html'))
-    require(len(pages) == 13, 'expected four main pages and nine site summaries')
+    require(len(pages) == 13, 'expected four main Fieldnotes pages and nine site summaries')
     parsed = {}
     for page in pages:
         parser = Links(); parser.feed(page.read_text()); parsed[page.resolve()] = parser
@@ -76,7 +76,15 @@ def main():
     require(len(card['note']) <= 140 and len(card['planned_submission_name']) <= 140, 'name/note length')
     require(card['validator_output']['on_disk_submission_validation'] is None, 'phantom file validator')
     require(card['holdout_status'].startswith('EXPLORATORY'), 'protocol disqualification must be disclosed')
-    require(not list((ROOT / 'docs/downloads').glob('*.tif')) and not list((ROOT / 'docs/downloads').glob('*.zip')), 'blocked release must have no downloadable prediction')
+    pbsc = strict_json(ROOT / 'evidence/pbsc/run_card.json')
+    require(pbsc['verdict'] == 'negative' and pbsc['ok_to_submit'] is False, 'H-PBSC must remain a negative research artifact')
+    require(pbsc['holdout_dti']['label'] == 'HOLDOUT-DTI', 'H-PBSC score class')
+    require(len(pbsc['submission_note']) <= 140, 'H-PBSC note length')
+    tifs = list((ROOT / 'docs/downloads').glob('*.tif'))
+    zips = list((ROOT / 'docs/downloads').glob('*.zip'))
+    require(all(p.name == pbsc['submission_name'] for p in tifs), 'docs/downloads may only hold the named H-PBSC research TIF')
+    require(all(p.name.startswith(pbsc['submission_name'].replace('.tif', '')) for p in zips), 'docs/downloads zip must match H-PBSC')
+    require(card['raster_sha256'] is None, 'BGAC still must not claim a TIFF')
     correction = strict_json(ROOT / 'evidence/corrected_surface_novelty.json')
     require(correction['duplicate'] and not correction['cleared'], 'pre-placement stop missing')
     require(correction['candidate_values_sha256'] == card['canonical_surface_sha256'], 'corrective audit changed candidate')

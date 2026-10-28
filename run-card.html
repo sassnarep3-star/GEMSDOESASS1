@@ -1,0 +1,161 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H-PBSC run card</title><style>
+:root{--bg:#0b1220;--card:#121a2f;--ink:#e8eef8;--mut:#93a0b8;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--acc:#38bdf8;--line:#1e293b}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header,main,footer{max-width:1120px;margin:auto;padding:0 20px}header{padding:28px 20px 8px}
+nav a{color:var(--acc);margin-right:16px;text-decoration:none;font-size:14px}
+h1{font-size:30px;margin:8px 0 6px}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.mut{color:var(--mut)}a{color:var(--acc)}
+.banner{border-radius:14px;padding:22px 24px;margin:18px 0;border:1px solid}
+.banner.bad{background:#2a1216;border-color:#7f1d1d}
+.banner.ok{background:#052e16;border-color:#166534}
+.banner h2{margin:0 0 10px;border:0}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin:6px 8px 6px 0}
+.btn.go{background:var(--ok);color:#052e16}
+.btn.stop{background:#7f1d1d;color:#fecaca}
+.btn.alt{background:#1e293b;color:var(--ink);border:1px solid #334155}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700}
+.ok{background:#064e3b;color:#86efac}.no{background:#4c0519;color:#fda4af}.wn{background:#451a03;color:#fcd34d}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+pre{background:#070d18;padding:12px;border-radius:8px;overflow:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+footer{padding:28px 20px 50px;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><nav><a href="index.html">Home</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="run-card.html">Run card</a><a href="swgb/index.html">Prior SWGB lane</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">Repo</a></nav><h1>H-PBSC run card</h1>
+<p class="mut">GEMSDOESASS1 · DOE GEMS Prize (DrivenData #306) · session 2026-10-28 H-PBSC · numbers from evidence/*.json</p>
+</header><main><p>Immutable run card for H-PBSC (session 2026-10-28). Full JSON: <a href='evidence/pbsc/run_card.json'><code>evidence/pbsc/run_card.json</code></a>.</p><pre>{
+  &quot;hypothesis&quot;: &quot;Uncatalogued Holocene normal faults in the NW Great Basin preferentially bound internally drained playas: a coherent lidar step with a low-relief hanging-wall neighborhood, weakly corroborated by a shallow magnetic edge from basement offset. USGS/INGENIOUS Qfaults under-map these 1\u20135 m scarps because they sit in alluvium kilometres from the range front; the hidden 1 m lidar labels include them (the 0.2778 champion&#x27;s median catalogue distance is ~2 km).&quot;,
+  &quot;mechanism&quot;: &quot;Label-free product of ranked lidar step_max^0.40, along-strike coh100^0.30, inverted 800 m-scale relief (playa neighborhood)^0.25, mild LoG dipole. E1 added (0.40+0.60*rank mag_hgrad_s2) and lost to E2 (no mag): HOLDOUT-DTI 0.0621 vs 0.0650. Poisson-disk 2.8 px, 600 m catalogue exclusion at emission. No supervised learner and no catalogue-distance features. Winner = E2-nomag.&quot;,
+  &quot;named_non_fault_mimic&quot;: &quot;Pluvial Lake Lahontan shorelines and wave-cut benches: coherent, low-relief, playa-bounding, usually without a magnetic edge. Canal banks and fluvial terrace risers.&quot;,
+  &quot;holdout_dti&quot;: {
+    &quot;label&quot;: &quot;HOLDOUT-DTI&quot;,
+    &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment&quot;,
+    &quot;value&quot;: 0.0650250550024214,
+    &quot;ci95&quot;: [
+      0.06052134654263499,
+      0.06934134585328819
+    ],
+    &quot;n_withheld_positives&quot;: 60988,
+    &quot;bar_0p2600_family_base&quot;: {
+      &quot;name&quot;: &quot;gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)&quot;,
+      &quot;holdout_dti&quot;: 0.1011,
+      &quot;ci95&quot;: [
+        0.0956,
+        0.1072
+      ],
+      &quot;evidence&quot;: &quot;evidence/swgb/holdout_calibration.json&quot;
+    },
+    &quot;beats_bar&quot;: false,
+    &quot;farfield_gt5px&quot;: {
+      &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment-farfield&gt;5px&quot;,
+      &quot;holdout_dti&quot;: 0.060585577704010615,
+      &quot;ci95&quot;: [
+        0.05684678059884087,
+        0.06449467469602357
+      ],
+      &quot;n_withheld_positives&quot;: 51094,
+      &quot;tp&quot;: 4522.538420132497,
+      &quot;fp&quot;: 164337.02287361713,
+      &quot;fn&quot;: 46571.46157986751,
+      &quot;per_fold&quot;: [
+        {
+          &quot;fold&quot;: 0,
+          &quot;n_test&quot;: 11092,
+          &quot;tp&quot;: 880.4838243524632,
+          &quot;fp&quot;: 32856.91385865912,
+          &quot;fn&quot;: 10211.516175647535,
+          &quot;dti&quot;: 0.056365107308324607,
+          &quot;emitted&quot;: 33214
+        },
+        {
+          &quot;fold&quot;: 1,
+          &quot;n_test&quot;: 10281,
+          &quot;tp&quot;: 929.8345950163578,
+          &quot;fp&quot;: 32709.72736692491,
+          &quot;fn&quot;: 9351.165404983643,
+          &quot;dti&quot;: 0.0621850116965865,
+          &quot;emitted&quot;: 33098
+        },
+        {
+          &quot;fold&quot;: 2,
+          &quot;n_test&quot;: 9587,
+          &quot;tp&quot;: 773.0368166475691,
+          &quot;fp&quot;: 32794.46824441707,
+          &quot;fn&quot;: 8813.963183352433,
+          &quot;dti&quot;: 0.053746185609846626,
+          &quot;emitted&quot;: 33117
+        },
+        {
+          &quot;fold&quot;: 3,
+          &quot;n_test&quot;: 10693,
+          &quot;tp&quot;: 918.543837554948,
+          &quot;fp&quot;: 33043.94631834141,
+          &quot;fn&quot;: 9774.456162445053,
+          &quot;dti&quot;: 0.059852084485659804,
+          &quot;emitted&quot;: 33434
+        },
+        {
+          &quot;fold&quot;: 4,
+          &quot;n_test&quot;: 9441,
+          &quot;tp&quot;: 1020.6393465611579,
+          &quot;fp&quot;: 32931.96708527462,
+          &quot;fn&quot;: 8420.360653438842,
+          &quot;dti&quot;: 0.07115781109436912,
+          &quot;emitted&quot;: 33349
+        }
+      ]
+    }
+  },
+  &quot;verdict&quot;: &quot;negative&quot;,
+  &quot;ok_to_submit&quot;: false,
+  &quot;raster_sha256&quot;: &quot;2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9&quot;,
+  &quot;submission_name&quot;: &quot;gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif&quot;,
+  &quot;submission_note&quot;: &quot;GEMSASS1 PBSC: playa-bounding step\u00d7coh\u00d7low-relief 37654d 2.8px &gt;600m offcat; HOLDOUT-DTI 0.065 vs bar 0.101&quot;,
+  &quot;note_length&quot;: 107,
+  &quot;validator_output&quot;: {
+    &quot;single_band&quot;: true,
+    &quot;dtype_float32&quot;: true,
+    &quot;crs_matches_template&quot;: true,
+    &quot;shape_matches_template&quot;: true,
+    &quot;transform_matches_template&quot;: true,
+    &quot;no_nan_inside_footprint&quot;: true,
+    &quot;no_nan_anywhere&quot;: true,
+    &quot;values_in_0_1_everywhere&quot;: true,
+    &quot;values_in_0_1_inside_footprint&quot;: true,
+    &quot;no_positive_outside_footprint&quot;: true,
+    &quot;zero_mass_on_known_catalogue_pixels&quot;: true
+  },
+  &quot;emission&quot;: {
+    &quot;n_dots&quot;: 37654,
+    &quot;spacing_px&quot;: 2.8,
+    &quot;prune_px&quot;: 6.0,
+    &quot;dots_within_2px_of_catalogue&quot;: 0,
+    &quot;dots_on_catalogue&quot;: 0,
+    &quot;dots_with_lidar&quot;: 37654,
+    &quot;median_catalogue_dist_px&quot;: 27.0,
+    &quot;field_quantile_of_last_dot&quot;: 0.9699772011813352
+  },
+  &quot;winner_experiment&quot;: &quot;e2_nomag&quot;,
+  &quot;budget&quot;: {
+    &quot;experiments_run&quot;: [
+      &quot;e1_pbsc&quot;,
+      &quot;e2_nomag&quot;
+    ],
+    &quot;protocol_limit&quot;: 3
+  },
+  &quot;irregularities&quot;: [
+    &quot;IR-LATTICE-01: 13gems 5-px lattice covers 99.87% of the footprint; excluded from the 70% rule (same policy as the SWGB lane).&quot;,
+    &quot;IR-04: sibling live scores are OWNER-REPORT; DrivenData is not on this sandbox allowlist.&quot;,
+    &quot;IR-LATTICE-MEASURED: H-PBSC 99.48% of dots within 3 px of 13gems lattice (37460/37654). Competitive 17-file uniqueness does not survive the lattice. No exemption.&quot;
+  ],
+  &quot;canary_pass&quot;: true,
+  &quot;generated_utc&quot;: &quot;20261028T225532Z&quot;,
+  &quot;elapsed_s&quot;: 68.0
+}</pre></main>
+<footer>Read the standing brief in docs/PROJECT_BRIEF.md every session. Core values: Maximize P(Win), Own the Outcome.
+Competition: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem</a> ·
+<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">leaderboard</a></footer></body></html>

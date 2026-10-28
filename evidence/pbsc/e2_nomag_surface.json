@@ -1,0 +1,108 @@
+{
+  "max_spearman": 0.029272152222565722,
+  "is_duplicate": false,
+  "rows": [
+    {
+      "site": "GEMSDOE24",
+      "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "spearman": 0.023102188030774306,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE24",
+      "file": "gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+      "spearman": 0.029272152222565722,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE25",
+      "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "spearman": 0.0191117004945192,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE25",
+      "file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "spearman": 0.016363541646881186,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE27",
+      "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "spearman": 0.022852277299297532,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE27",
+      "file": "gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+      "spearman": 0.02622438551646853,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+      "spearman": 0.017581956429377283,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+      "spearman": 0.01898598094630715,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "spearman": 0.01835103804906475,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+      "spearman": 0.018690513925789645,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif",
+      "spearman": 0.002314097577376973,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE30",
+      "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "spearman": 0.0191117004945192,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE30",
+      "file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "spearman": 0.018014591025314927,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE31",
+      "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "spearman": 0.017581956429377283,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE32",
+      "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "spearman": 0.01682661038091265,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE33",
+      "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "spearman": 0.018615659871724016,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOE36",
+      "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "spearman": 0.01784010511314108,
+      "duplicate": false
+    }
+  ]
+}

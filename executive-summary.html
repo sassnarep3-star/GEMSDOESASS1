@@ -1,1 +1,106 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=docs/executive-summary.html"><title>GEMS executive summary</title></head><body><p><a href="docs/executive-summary.html">Open the executive summary.</a></p></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary — nine sites + this session</title><style>
+:root{--bg:#0b1220;--card:#121a2f;--ink:#e8eef8;--mut:#93a0b8;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--acc:#38bdf8;--line:#1e293b}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header,main,footer{max-width:1120px;margin:auto;padding:0 20px}header{padding:28px 20px 8px}
+nav a{color:var(--acc);margin-right:16px;text-decoration:none;font-size:14px}
+h1{font-size:30px;margin:8px 0 6px}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.mut{color:var(--mut)}a{color:var(--acc)}
+.banner{border-radius:14px;padding:22px 24px;margin:18px 0;border:1px solid}
+.banner.bad{background:#2a1216;border-color:#7f1d1d}
+.banner.ok{background:#052e16;border-color:#166534}
+.banner h2{margin:0 0 10px;border:0}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin:6px 8px 6px 0}
+.btn.go{background:var(--ok);color:#052e16}
+.btn.stop{background:#7f1d1d;color:#fecaca}
+.btn.alt{background:#1e293b;color:var(--ink);border:1px solid #334155}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700}
+.ok{background:#064e3b;color:#86efac}.no{background:#4c0519;color:#fda4af}.wn{background:#451a03;color:#fcd34d}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+pre{background:#070d18;padding:12px;border-radius:8px;overflow:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+footer{padding:28px 20px 50px;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><nav><a href="index.html">Home</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="run-card.html">Run card</a><a href="swgb/index.html">Prior SWGB lane</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">Repo</a></nav><h1>Executive summary — nine sites + this session</h1>
+<p class="mut">GEMSDOESASS1 · DOE GEMS Prize (DrivenData #306) · session 2026-10-28 H-PBSC · numbers from evidence/*.json</p>
+</header><main>
+<p>Every live number in the nine-site table is <b>OWNER-REPORT</b> (copied from sibling ledgers; no submission-page receipt in this sandbox).
+Every holdout number is <b>HOLDOUT-DTI</b> on evaluator <code>GEMSASS1-HR-v2-segment</code>, 60,988 withheld positives.
+A projection is never a score. DrivenData / USGS / Dropbox are not on this sandbox allowlist.</p>
+
+<h2>Which file should you submit?</h2>
+<table>
+<tr><th>File</th><th>Evidence class</th><th>Estimate</th><th>Unique vs 9 sites?</th><th>Submit?</th></tr>
+<tr>
+<td><code>gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</code><br><a href="swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">audit only</a></td>
+<td>HOLDOUT-DTI GEMSASS1-HR-v2-segment</td>
+<td>0.1401 [0.1329, 0.1452]</td>
+<td><span class="badge no">FAILS lattice 99.87%</span></td>
+<td><span class="badge no">DO NOT SUBMIT</span></td>
+</tr>
+<tr>
+<td><code>gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif</code><br><a href="docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif">audit only</a></td>
+<td>HOLDOUT-DTI GEMSASS1-HR-v2-segment</td>
+<td>0.0650 [0.0605, 0.0693]</td>
+<td><span class="badge no">17-file unique (25.3%); lattice 99.48%</span></td>
+<td><span class="badge no">DO NOT SUBMIT — holdout lost and lattice duplicate</span></td>
+</tr>
+</table>
+
+<h2>Nine focus sites — best OWNER-REPORT file at each</h2>
+<p class="mut">“Unique vs 0.2600” = fraction of that file’s dots within 3 px of <code>gems25-dotted-h19-5-d2-8</code>.
+The 0.24–0.28 ladder is one field (H19-5) with emission/pruning edits. Resubmitting any of them spends a slot and adds no information.</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Site</th><th>Best file</th><th>Live (OWNER-REPORT)</th><th>HOLDOUT-DTI here</th><th>Dots</th><th>3 px vs 0.2600</th><th>Unique?</th><th>Submit?</th></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE24/'>GEMSDOE24</a></td><td><code>gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</code></td><td>0.2477<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0968<br><span class='mut'>[0.0917, 0.1018]</span></td><td>60,069</td><td>100.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE25/'>GEMSDOE25</a></td><td><code>gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</code></td><td>0.2600<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.1011<br><span class='mut'>[0.0967, 0.1060]</span></td><td>44,090</td><td>100.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE27/'>GEMSDOE27</a></td><td><code>gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</code></td><td>0.2449<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0965<br><span class='mut'>[0.0920, 0.1018]</span></td><td>61,328</td><td>98.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE28/'>GEMSDOE28</a></td><td><code>gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</code></td><td>0.2710<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0302<br><span class='mut'>[0.0285, 0.0318]</span></td><td>37,660</td><td>100.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE30/'>GEMSDOE30</a></td><td><code>gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</code></td><td>0.2600<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.1011<br><span class='mut'>[0.0967, 0.1060]</span></td><td>44,090</td><td>100.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE31/docs/'>GEMSDOE31</a></td><td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td><td>0.2708<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0314<br><span class='mut'>[0.0297, 0.0332]</span></td><td>40,199</td><td>100.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html'>GEMSDOE32</a></td><td><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code></td><td>0.2778<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0044<br><span class='mut'>[0.0041, 0.0048]</span></td><td>37,654</td><td>100.0%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE33/'>GEMSDOE33</a></td><td><code>GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</code></td><td>0.2632<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0547<br><span class='mut'>[0.0523, 0.0572]</span></td><td>41,865</td><td>99.7%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+<tr><td><a href='https://buffedlizard55-lab.github.io/GEMSDOE36/docs/'>GEMSDOE36</a></td><td><code>gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</code></td><td>0.2750<br><span class='badge wn'>OWNER-REPORT</span></td><td>0.0045<br><span class='mut'>[0.0042, 0.0048]</span></td><td>38,854</td><td>97.5%</td><td><span class='badge no'>H19-5 family — NOT unique</span></td><td><span class='badge no'>DO NOT RESUBMIT</span></td></tr>
+</table>
+</div>
+
+<h2>Why GEMSDOE32’s 0.2778 is the group best — and why copying it cannot beat it</h2>
+<ol>
+<li><b>Bytes (MEASURED-HERE, previous session):</b> <code>h33-h33-2-b2</code> is exactly <code>dotted-h19-5-d2-8</code> (44,090 dots, live 0.2600) minus the 6,436 dots within 2 px of the published catalogue = 37,654 dots, pixel-identical (sym-diff 0).</li>
+<li><b>Metric (official DTI α=0.2, β=0.8, 300 m triangle; known-fault pixels ignored):</b> emitted mass is taxed at 0.2; a dot 1–2 px off a mapped scarp is pure FP. Deleting those dots raised 0.2600 → 0.2708 → 0.2778. That is emission efficiency, not a new geological field.</li>
+<li><b>Habitat:</b> a catalogue-flank file (h66, median 5.8 px) scored 0.0742 live; the champion’s median is 19.6 px (~2 km). Hidden labels are far-field lidar scarps.</li>
+<li><b>Can we beat 0.2778?</b> Only with a <i>better field</i> at ~37–44 k dots that also clears the lattice rule (or a versioned policy amendment). H-PBSC is a different field and is unique vs the 17 competitive rasters, but it lost holdout (0.0650 vs 0.1011) and is 99.48% within 3 px of the calibration lattice. SWGB’s 17-file promote is withdrawn for the same lattice. Neither number is a live forecast.</li>
+</ol>
+
+<h2>This session’s experiments (budget 2 of 3; E3 emission sweep not run because the bar was not beaten)</h2>
+<table>
+<tr><th>Exp</th><th>Lane</th><th>HOLDOUT-DTI</th><th>95% CI</th><th>Beats 0.1011?</th></tr>
+<tr><td>E1</td><td>H-PBSC + weak mag</td><td>0.0621</td><td>[0.0575, 0.0666]</td><td>no</td></tr>
+<tr><td>E2 (winner)</td><td>H-PBSC no mag</td><td>0.0650</td><td>[0.0605, 0.0693]</td><td>no</td></tr>
+</table>
+<p>Leakage canary: max AUC 0.573 (limit 0.90) — pass. Named non-fault mimic: Lake Lahontan shorelines / terrace risers / canals.</p>
+
+<h2>Validator (automatic — no human inspector)</h2>
+<pre>{
+  &quot;single_band&quot;: true,
+  &quot;dtype_float32&quot;: true,
+  &quot;crs_matches_template&quot;: true,
+  &quot;shape_matches_template&quot;: true,
+  &quot;transform_matches_template&quot;: true,
+  &quot;no_nan_inside_footprint&quot;: true,
+  &quot;no_nan_anywhere&quot;: true,
+  &quot;values_in_0_1_everywhere&quot;: true,
+  &quot;values_in_0_1_inside_footprint&quot;: true,
+  &quot;no_positive_outside_footprint&quot;: true,
+  &quot;zero_mass_on_known_catalogue_pixels&quot;: true
+}</pre>
+<p>All 11 checks passed from bytes. Zeros outside the footprint; no NaN/Inf; values in {0,1}. This is the fix for the portal error <code>Predicted values must be in range [0, 1]</code> — but passing the format gate is not scientific promotion.</p>
+</main>
+<footer>Read the standing brief in docs/PROJECT_BRIEF.md every session. Core values: Maximize P(Win), Own the Outcome.
+Competition: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem</a> ·
+<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">leaderboard</a></footer></body></html>
