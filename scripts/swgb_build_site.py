@@ -5,8 +5,9 @@ Pages: index.html (executive summary + download), how-to-submit.html, run-card.h
 """
 from __future__ import annotations
 
-# Fail closed: the historical generator advertises promotion from a partial registry.
-raise SystemExit("SWGB site generation disabled: partial novelty audit; see evidence/release_reconciliation.md")
+# Release review 2026-10-28: this legacy lane used an incomplete registry.
+# Fail before imports, computation, writes, or overwriting frozen run evidence.
+raise SystemExit("BLOCKED: SWGB partial novelty audit; duplicate against expanded registry; see evidence/swgb_lattice_audit.json")
 
 import html
 import json

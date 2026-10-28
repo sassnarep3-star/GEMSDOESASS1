@@ -1,18 +1,14 @@
-# GEMSDOESASS1 — DOE GEMS Prize research
+# GEMSDOESASS1 — geothermal fault prediction research
 
-## Submission status: NOT APPROVED
+> **DO NOT SUBMIT: no submission is cleared.** The previously promoted SWGB TIFF fails the literal novelty gate: 44,033 of 44,090 dots lie within 3 pixels of a pinned registry lattice (99.8707%; limit 70%). The earlier 17-raster audit did not include that prior. This is a registry measurement, not a leaderboard score. [Review and reproduction](knowledge/RELEASE_REVIEW_2026-10-28.md).
+>
+> The BGAC lane also stopped as a duplicate. A format-valid file is not necessarily a novel or high-scoring submission. Do not spend a slot on either file. Historical SWGB assets are retained only for audit, not recommendation.
 
-There is **no submission-ready TIFF**. The previous SWGB site and root page asserted approval after comparison with only 17 selected prior rasters. That is not a complete registry audit under the requested protocol, and its previous promotion does not establish eligibility. The historical SWGB file and receipts remain available in the repository for research, not submission. The BGAC lane stopped on a duplicate and cannot produce a submission. Do not spend a competition slot.
-
-Start every session with [the project brief](knowledge/PROJECT_BRIEF.md), [next steps](knowledge/NEXT_STEPS.md), [review](evidence/review.md), and [run card](evidence/run_card.json). The [executive summary](docs/index.html) contains nine historical site summaries. Historical user/owner reports are not organizer-confirmed receipts; no leaderboard score estimate is available.
-
-The stricter review applies to the current checked-out run, not retroactively to another lane's actual execution. The SWGB evidence is preserved; its earlier narrower conclusions are not proof of novelty against all registry rasters. See [release reconciliation](evidence/release_reconciliation.md).
+**Start every session** with the [project brief](docs/PROJECT_BRIEF.md), [next steps](knowledge/NEXT_STEPS.md), [latest review](knowledge/RELEASE_REVIEW_2026-10-28.md), and [BGAC run card](evidence/run_card.json). Apply the brief’s Maximize P(Win) and Own the Outcome principles. The [executive summary](docs/executive-summary.html) compares the nine priority sites; no unverified report is an organizer-confirmed score. The [superseded README](archive/2026-10-28-release-review/readme-superseded.txt) and original SWGB pages are preserved for provenance, not as guidance.
 
 # Part B — BGAC lane (`vendor/gems57` pipeline)
 
-> **Submission status (two parallel lanes, reconciled 2026-10-27):**
-> * **BGAC lane (this section's pipeline): BLOCKED** — the single preregistered BGAC-1 experiment failed both the improvement and literal dot-overlap gates; no BGAC TIFF is cleared.
-> * **SWGB lane: NOT APPROVED.** Its historical receipt tested only 17 selected rasters, not the full frozen registry; pre-placement novelty was not established under this protocol. The historical file and evidence are retained for research only. Its evaluator differs from `gems57-pooled-hide-v2`; neither is a leaderboard forecast.
+> **Submission status (reviewed 2026-10-28): BOTH LANES BLOCKED.** SWGB fails the literal expanded-registry novelty gate; BGAC is negative. Historical promotion claims are superseded.
 
 **Start every session here**, then read [the persistent project brief](knowledge/PROJECT_BRIEF.md), [hypotheses](knowledge/hypotheses.md), [three-pass review](evidence/review.md) and [run card](evidence/run_card.json). The brief is a deduplicated transcription of the user's repeated prompt, not a verbatim archive. It preserves the mission, Core Values / Own the Outcome, strict protocol, sources, validation, download and release requirements.
 
