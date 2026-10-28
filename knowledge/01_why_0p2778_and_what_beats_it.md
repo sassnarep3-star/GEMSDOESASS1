@@ -1,4 +1,4 @@
-> **Historical record — superseded decision:** The SWGB artifact fails the literal novelty rule against a pinned lattice. Earlier promotion, uniqueness and unsupported causal claims below are not endorsed. See [post-hoc review](../evidence/swgb_lattice_review.json) and [current analysis](scientific_analysis.md).
+> **Historical record — superseded decision:** The SWGB artifact fails the literal novelty rule against a pinned lattice. Earlier promotion, uniqueness and unsupported causal claims below are not endorsed; see also the independent [witness review](../evidence/swgb-review.md). See [post-hoc review](../evidence/swgb_lattice_review.json) and [current analysis](scientific_analysis.md).
 
 # Why `h33-h33-2-b2…-zeros` scored 0.2778, and what it takes to beat it
 
