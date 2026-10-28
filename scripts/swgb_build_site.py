@@ -5,7 +5,7 @@ Pages: index.html (executive summary + download), how-to-submit.html, run-card.h
 """
 from __future__ import annotations
 
-raise SystemExit("Blocked: legacy SWGB site asserts a superseded promotion. Use docs/ instead.")
+raise SystemExit("Blocked: partial novelty audit; SWGB promotion is superseded. Use docs/ instead.")
 
 import html
 import json
