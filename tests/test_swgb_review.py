@@ -11,7 +11,7 @@ from rasterio.transform import from_origin
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-import audit_swgb_lattice as audit
+import audit_swgb_lattice_witness as audit
 
 
 def write_tif(path, values, transform=None):
@@ -59,7 +59,7 @@ def test_legacy_builder_is_blocked():
     result = subprocess.run([sys.executable, str(ROOT / 'scripts/build_submission.py')],
                             capture_output=True, text=True, cwd=ROOT)
     assert result.returncode != 0
-    assert 'BLOCKED: legacy SWGB builder' in result.stderr
+    assert 'BLOCKED:' in result.stderr
 
 
 @pytest.mark.parametrize('script,args', [('run_experiments.py', ['e1']), ('calibrate_holdout.py', [])])

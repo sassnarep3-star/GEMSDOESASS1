@@ -7,6 +7,10 @@ The shipped artifact was found to duplicate a pinned lattice. See
 """
 from __future__ import annotations
 
+# Release review 2026-10-28: this legacy lane used an incomplete registry.
+# Fail before imports, computation, writes, or overwriting frozen run evidence.
+raise SystemExit("BLOCKED: SWGB duplicate against full registry; see evidence/swgb_lattice_audit.json")
+
 import json
 import sys
 import time

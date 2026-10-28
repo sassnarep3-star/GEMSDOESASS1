@@ -1,3 +1,7 @@
+# Next session — read the release correction first
+
+The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIEW_2026-10-28.md): the actual TIFF fails the literal expanded-registry novelty gate. Its build and site generators are blocked. No slot should be spent. Preserve the old SWGB evidence as historical, not an approval.
+
 # Next session — ordered actions
 
 1. **Resolve the novelty-policy obstruction outside this stopped run.** The 5-pixel lattice in `GEMSDOE24/inputs/calibration` is within 3 pixels of 99.8713% of the footprint and 100% of BGAC-1 dots. Never silently exclude it or change 70%/3 px. The strict protocol leaves no basis for manufacturing a submission-ready TIFF now. Any future amendment must be explicit, versioned and preregistered.
@@ -19,7 +23,7 @@
 
 ## 2026-10-28 reconciliation: SWGB is blocked too
 
-- The earlier SWGB public landing page and README incorrectly called its curated 17-raster check a complete uniqueness clearance. The pinned full-registry lattice was not included. The new [single-witness byte audit](../evidence/swgb_lattice_review.json), reproducible with `python scripts/audit_swgb_lattice.py`, finds 99.87071898389658% of SWGB dots within 3 px. This exceeds 70%; the release is **negative**. The original card is preserved, not silently rewritten.
+- The earlier SWGB public landing page and README incorrectly called its curated 17-raster check a complete uniqueness clearance. The pinned full-registry lattice was not included. The new [single-witness byte audit](../evidence/swgb_lattice_review.json), reproducible with `python scripts/audit_swgb_lattice_witness.py`, finds 99.87071898389658% of SWGB dots within 3 px. This exceeds 70%; the release is **negative**. The original card is preserved, not silently rewritten.
 - The TIFF is retained for provenance in `swgb/downloads/` but is **not approved to submit**; local range/grid validation is not an organizer receipt. Its surface was not subjected to a complete pre-placement clearance. No new experiment or upload was performed.
 - The legacy SWGB builder is now fail-closed rather than allowed to create another artifact with the partial, post-placement-only audit. Resume work only after a documented policy resolution and a compatible full audit on both stages, using the shared evaluator and writer.
 - A new observation requires correcting all public entry points; rebuild both `scripts/build_site.py` and `scripts/swgb_build_site.py`, and run regression tests. The prior SWGB hypotheses document is historical, not a current promotion decision.

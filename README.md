@@ -6,7 +6,7 @@ Read the [project brief](knowledge/PROJECT_BRIEF.md) at the beginning of every s
 
 # Part B — BGAC lane (`vendor/gems57` pipeline)
 
-> **Submission status: NO SUBMISSION APPROVED.** BGAC stopped on novelty. The prior SWGB "promote" decision is superseded: a post-hoc audit against a pinned registry lattice found 99.8707% candidate-directed overlap within 3 pixels, exceeding the 70% protocol limit. Its pre-placement surface was not cleared. The artifact is retained for audit only. See [review receipt](evidence/swgb_lattice_review.json) and [reproducible audit](scripts/audit_swgb_lattice.py). No weekly slot was used in this review.
+> **Submission status: NO SUBMISSION APPROVED.** BGAC stopped on novelty. The prior SWGB "promote" decision is superseded: a post-hoc audit against a pinned registry lattice found 99.8707% candidate-directed overlap within 3 pixels, exceeding the 70% protocol limit. Its pre-placement surface was not cleared. The artifact is retained for audit only. See [review receipt](evidence/swgb_lattice_review.json) and [reproducible audit](scripts/audit_swgb_lattice_witness.py). No weekly slot was used in this review.
 
 **Start every session here**, then read [the persistent project brief](knowledge/PROJECT_BRIEF.md), [hypotheses](knowledge/hypotheses.md), [three-pass review](evidence/review.md) and [run card](evidence/run_card.json). The brief is a deduplicated transcription of the user's repeated prompt, not a verbatim archive. It preserves the mission, Core Values / Own the Outcome, strict protocol, sources, validation, download and release requirements.
 
@@ -44,7 +44,7 @@ python -m venv .venv
 .venv/bin/pytest -q
 python scripts/build_site.py
 python scripts/swgb_build_site.py
-.venv/bin/python scripts/audit_swgb_lattice.py  # pinned witness; needs gh if not cached
+.venv/bin/python scripts/audit_swgb_lattice_witness.py  # pinned witness; needs gh if not cached
 python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 
