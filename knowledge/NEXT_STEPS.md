@@ -1,6 +1,6 @@
 # Next session — read the release correction first
 
-The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIEW_2026-10-28.md): the actual TIFF fails the literal expanded-registry novelty gate. Its build and site generators are blocked. No slot should be spent. Preserve the old SWGB evidence as historical, not an approval.
+The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIEW_2026-10-28.md): the actual TIFF fails the literal expanded-registry novelty gate. Its legacy builder is blocked and its site generator only produces withdrawn-status pages. No slot should be spent. Preserve the old SWGB evidence as historical, not an approval.
 
 # Next session — ordered actions
 
@@ -21,6 +21,12 @@ The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIE
 - Nine-site summaries here do not modify the nine separate upstream repositories. Updating their own landing pages would require a separate authorized cross-repository release.
 - Read README + PROJECT_BRIEF + the frozen run card first, every session.
 
+## 2026-10-28 reconciliation: SWGB is blocked too
+
+- The earlier SWGB public landing page and README incorrectly called its curated 17-raster check a complete uniqueness clearance. The pinned full-registry lattice was not included. The new [single-witness byte audit](../evidence/swgb_lattice_review.json), reproducible with `python scripts/audit_swgb_lattice_witness.py`, finds 99.87071898389658% of SWGB dots within 3 px. This exceeds 70%; the release is **negative**. The original card is preserved, not silently rewritten.
+- The TIFF is retained for provenance in `swgb/downloads/` but is **not approved to submit**; local range/grid validation is not an organizer receipt. Its surface was not subjected to a complete pre-placement clearance. No new experiment or upload was performed.
+- The legacy SWGB builder is now fail-closed rather than allowed to create another artifact with the partial, post-placement-only audit. Resume work only after a documented policy resolution and a compatible full audit on both stages, using the shared evaluator and writer.
+- A new observation requires correcting all public entry points; rebuild both `scripts/build_site.py` and `scripts/swgb_build_site.py`, and run regression tests. The prior SWGB hypotheses document is historical, not a current promotion decision.
 ## 2026-10-28 SWGB correction (takes precedence over the earlier SWGB slot suggestion)
 
 The earlier SWGB approval is **withdrawn**: its 17-file registry omitted a pinned GEMSDOE24 calibration lattice. Independently rerunning the exact raster overlap on the preserved SWGB TIFF found 44,033/44,090 dots within 3 px of the lattice (99.8707% > 70%). `evidence/swgb_lattice_audit.json` and `evidence/swgb/release_decision.json` supersede the old SWGB `run_card.json` promotion. The legacy builder is now fail-closed; all landing pages say NOT OK TO SUBMIT. No new experiment, TIF, or portal slot was used. Do not submit the preserved research TIFF.

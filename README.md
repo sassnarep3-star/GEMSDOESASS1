@@ -1,16 +1,12 @@
-# GEMSDOESASS1 — geothermal fault prediction research
+# GEMSDOESASS1 — GEMS fault-detection research
 
-> **DO NOT SUBMIT: no submission is cleared.** The previously promoted SWGB TIFF fails the literal novelty gate: 44,033 of 44,090 dots lie within 3 pixels of a pinned registry lattice (99.8707%; limit 70%). The earlier 17-raster audit did not include that prior. This is a registry measurement, not a leaderboard score. [Review and reproduction](knowledge/RELEASE_REVIEW_2026-10-28.md).
->
-> An independent follow-up revalidated the existing TIFF against the pinned mirrored template and the shared validator. [Independent witness receipt](evidence/swgb_witness_review.json) and [reproduction](evidence/swgb-review.md).
->
-> The BGAC lane also stopped as a duplicate. A format-valid file is not necessarily a novel or high-scoring submission. Do not spend a slot on either file. Historical SWGB assets are retained only for audit, not recommendation.
+**Do not submit the historical SWGB TIFF.** Its advertised uniqueness was based on a curated registry subset and is disproved under the requested literal overlap gate. A local format pass is not approval. No candidate is ready for submission. [Executive summary](docs/executive-summary.html) · [review](evidence/swgb_lattice_review.json) · [parallel-session reconciliation](evidence/release_reconciliation.md) · [independent witness](evidence/swgb_witness_review.json) · [next steps](knowledge/NEXT_STEPS.md).
 
-**Start every session** with the [project brief](docs/PROJECT_BRIEF.md), [next steps](knowledge/NEXT_STEPS.md), [latest review](knowledge/RELEASE_REVIEW_2026-10-28.md), and [BGAC run card](evidence/run_card.json). Apply the brief’s Maximize P(Win) and Own the Outcome principles. The [executive summary](docs/executive-summary.html) compares the nine priority sites; no unverified report is an organizer-confirmed score. The [superseded README](archive/2026-10-28-release-review/readme-superseded.txt) and original SWGB pages are preserved for provenance, not as guidance.
+Read the [project brief](knowledge/PROJECT_BRIEF.md) at the beginning of every session. It is a deduplicated transcription of the user prompt, not a claim of a byte-exact archive. Focus on evidence, Maximize P(Win), and Own the Outcome.
 
 # Part B — BGAC lane (`vendor/gems57` pipeline)
 
-> **Submission status (reviewed 2026-10-28): BOTH LANES BLOCKED.** SWGB fails the literal expanded-registry novelty gate; BGAC is negative. Historical promotion claims are superseded.
+> **Submission status: NO SUBMISSION APPROVED.** BGAC stopped on novelty. The prior SWGB "promote" decision is superseded: a post-hoc audit against a pinned registry lattice found 99.8707% candidate-directed overlap within 3 pixels, exceeding the 70% protocol limit. Its pre-placement surface was not cleared. The artifact is retained for audit only. See [review receipt](evidence/swgb_lattice_review.json) and [reproducible audit](scripts/audit_swgb_lattice_witness.py). No weekly slot was used in this review.
 
 **Start every session here**, then read [the persistent project brief](knowledge/PROJECT_BRIEF.md), [hypotheses](knowledge/hypotheses.md), [three-pass review](evidence/review.md) and [run card](evidence/run_card.json). The brief is a deduplicated transcription of the user's repeated prompt, not a verbatim archive. It preserves the mission, Core Values / Own the Outcome, strict protocol, sources, validation, download and release requirements.
 
@@ -30,9 +26,9 @@ See the [executive summary](docs/executive-summary.html), [nine-site pages](docs
 
 ## What this checkout actually contains
 
-The initial commit had only `# GEMSDOESASS1`. This change builds the first pipeline/site here. It does not inherit the training/GPU verification asserted in the chat. The CPU experiment reuses pinned shared tools from [GEMSDOE32](https://github.com/buffedlizard55-lab/GEMSDOE32/tree/1398109a23f04a2ace71c1bd2f527cfba87860b5/vendor/gems57), including the cached-band builder, whole-component spatial folds, evaluator, and fail-closed submission writer. [Vendor provenance](vendor/PROVENANCE.json) identifies exact hashes; no shared metric was forked or changed.
+The initial commit had only `# GEMSDOESASS1`. The prior sessions built the pipelines and sites described here. It does not inherit the training/GPU verification asserted in the chat. The CPU experiment reuses pinned shared tools from [GEMSDOE32](https://github.com/buffedlizard55-lab/GEMSDOE32/tree/1398109a23f04a2ace71c1bd2f527cfba87860b5/vendor/gems57), including the cached-band builder, whole-component spatial folds, evaluator, and fail-closed submission writer. [Vendor provenance](vendor/PROVENANCE.json) identifies exact hashes; no shared metric was forked or changed.
 
-The restored feature stack is approximately 419 MB. Raw data, caches, historical TIFFs and the Python environment are ignored by Git; only receipts, code and the static site are tracked. The complete frozen registry has 414 TIFF blobs in the nine public priority repos (outside `data/`). Other sites/private submissions are not covered. One prior has nonfinite footprint values and one is an incompatible format fixture; these are explicitly recorded, never silently normalized into clearance.
+The core mirrored feature stack is approximately 419 MB when restored. Raw feature stacks, caches and the Python environment are ignored by Git. The mirrored reference rasters and historical SWGB TIFF are tracked for audit; they are not organizer-authenticated. The complete frozen registry has 414 TIFF blobs in the nine public priority repos (outside `data/`). Other sites/private submissions are not covered. One prior has nonfinite footprint values and one is an incompatible format fixture; these are explicitly recorded, never silently normalized into clearance.
 
 ## Reproduce / verify
 
@@ -47,6 +43,8 @@ python -m venv .venv
 .venv/bin/python scripts/verify_release.py         # evidence + site checks, no data needed
 .venv/bin/pytest -q
 python scripts/build_site.py
+python scripts/swgb_build_site.py
+.venv/bin/python scripts/audit_swgb_lattice_witness.py  # pinned witness; needs gh if not cached
 python -m http.server 8000 --bind 0.0.0.0 --directory docs
 ```
 

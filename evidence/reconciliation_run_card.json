@@ -1,0 +1,39 @@
+{
+  "hypothesis": "Historical SWGB: a learner recovering withheld mapped faults using lidar, radiometric, magnetic and visible-catalogue context might transfer to unmapped faults.",
+  "mechanism": "Average segment-withheld gradient-boosted fields, place spatially separated dots, exclude a catalogue buffer. This is a post-hoc audit of existing output, not a new experiment.",
+  "named_non_fault_process": "Fluvial terrace risers can mimic linear scarps; lithologic contacts can mimic geophysical edges.",
+  "holdout_dti": {
+    "label": "HISTORICAL HOLDOUT-DTI; not protocol-qualified",
+    "evaluator_version": "GEMSASS1-HR-v2-segment",
+    "withheld_positives": 60988,
+    "value": 0.1401177698809108,
+    "ci95": [0.13292982848668847, 0.14517912287076093],
+    "source": "evidence/swgb/run_card.json, holdout_dti_shipped_emission",
+    "caveat": "Prior record, not independently rerun here; no calibrated leaderboard prediction. Novelty was not cleared before placement and a post-hoc dot witness fails."
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_rank_correlation": null,
+    "surface_overlap": null,
+    "surface_status": "not reconstructed or cleared",
+    "final_dot_overlap_single_lattice_witness": 0.9987071898389658,
+    "radius_pixels": 3,
+    "threshold": 0.70,
+    "scope": "Single pinned witness, not a complete registry audit. Duplicate under literal threshold; no global uniqueness claim.",
+    "receipt": "evidence/swgb_lattice_review.json"
+  },
+  "raster_sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+  "validator_output": {
+    "class": "local format check against owner mirror, not organizer acceptance",
+    "no_nan_inside_footprint": true,
+    "all_finite": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "receipt": "evidence/swgb_lattice_review.json"
+  },
+  "submission_name": "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+  "note": "Historical SWGB; duplicate against lattice, do not submit.",
+  "verdict": "negative",
+  "approved_for_submission": false,
+  "new_experiments_this_review": 0,
+  "submission_slots_used_this_review": 0
+}

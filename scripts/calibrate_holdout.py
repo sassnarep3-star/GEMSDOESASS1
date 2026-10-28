@@ -8,6 +8,7 @@ HOLDOUT-DTI / PROJECTION, never a score.
 Output: evidence/holdout_calibration.json
 """
 import json, sys, time
+raise SystemExit("BLOCKED: historical SWGB calibration would overwrite frozen evidence")
 from pathlib import Path
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))

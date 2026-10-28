@@ -1,39 +1,70 @@
-"""Regression tests for the withdrawn SWGB release decision."""
 import hashlib
 import json
 from pathlib import Path
 import subprocess
 import sys
 
+import numpy as np
+import pytest
+import rasterio
+from rasterio.transform import from_origin
+
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import audit_swgb_lattice_witness as audit
 
 
-def test_witness_receipt_is_negative_and_identifies_the_actual_bytes():
-    receipt = json.loads((ROOT / 'evidence/swgb_witness_review.json').read_text())
-    candidate = ROOT / receipt['local_format_validation']['file']
-    assert hashlib.sha256(candidate.read_bytes()).hexdigest() == receipt['input_sha256']['candidate']
-    assert receipt['local_format_validation']['all_checks_passed']
-    assert receipt['directed_overlap_within_3px'] > receipt['overlap_limit']
+def write_tif(path, values, transform=None):
+    with rasterio.open(path, 'w', driver='GTiff', height=values.shape[0], width=values.shape[1],
+                       count=1, dtype='float32', crs='EPSG:32611',
+                       transform=transform or from_origin(100, 200, 100, 100)) as ds:
+        ds.write(values.astype('float32'), 1)
+
+
+def test_directed_overlap_and_grid_checks(tmp_path, monkeypatch):
+    candidate, lattice, template = [tmp_path / x for x in ('candidate.tif', 'lattice.tif', 'template.tif')]
+    a = np.zeros((12, 12), dtype='float32'); a[3, 3] = 1; a[8, 8] = 1
+    b = np.zeros_like(a); b[3, 4] = 1
+    write_tif(candidate, a); write_tif(lattice, b); write_tif(template, np.zeros_like(a))
+    for name, path in [('CANDIDATE_SHA', candidate), ('LATTICE_SHA', lattice), ('TEMPLATE_SHA', template)]:
+        monkeypatch.setattr(audit, name, audit.digest(path))
+    report = audit.audit(candidate, lattice, template)
+    assert report['candidate_directed_overlap'] == .5
+    assert report['duplicate'] is False
+    assert report['approved_for_submission'] is False  # one witness never clears
+    assert report['format_check']['ok']
+    write_tif(lattice, b, transform=from_origin(101, 200, 100, 100))
+    with pytest.raises(ValueError, match='Hash mismatch'):
+        audit.audit(candidate, lattice, template)
+    monkeypatch.setattr(audit, 'LATTICE_SHA', audit.digest(lattice))
+    with pytest.raises(ValueError, match='Misaligned'):
+        audit.audit(candidate, lattice, template)
+
+
+def test_frozen_receipt_and_withdrawal():
+    receipt = json.loads((ROOT / 'evidence/swgb_lattice_review.json').read_text())
+    artifact = ROOT / 'swgb/downloads' / receipt['candidate']
+    assert hashlib.sha256(artifact.read_bytes()).hexdigest() == receipt['candidate_sha256']
+    assert receipt['candidate_directed_overlap'] > receipt['threshold']
     assert receipt['duplicate'] and not receipt['approved_for_submission']
-    assert receipt['verdict'] == 'negative'
-    assert 'not a complete registry scan' in receipt['scope']
+    assert receipt['format_check']['ok']
+    for page in [ROOT / 'index.html', *(ROOT / 'swgb').glob('*.html')]:
+        text = page.read_text().lower()
+        assert 'do not submit' in text
+        assert 'ok to download and submit' not in text
+        assert '.tif"' not in text
 
 
-def test_historical_builder_stops_before_writing():
-    candidate_dir = ROOT / 'swgb/downloads'
-    before = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in candidate_dir.iterdir() if p.is_file()}
-    p = subprocess.run([sys.executable, 'scripts/build_submission.py'], cwd=ROOT, capture_output=True, text=True)
-    after = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in candidate_dir.iterdir() if p.is_file()}
-    assert p.returncode != 0 and 'BLOCKED' in p.stderr
-    assert before == after
+def test_legacy_builder_is_blocked():
+    result = subprocess.run([sys.executable, str(ROOT / 'scripts/build_submission.py')],
+                            capture_output=True, text=True, cwd=ROOT)
+    assert result.returncode != 0
+    assert 'BLOCKED:' in result.stderr
 
 
-def test_active_swgb_pages_fail_closed():
-    result = subprocess.run([sys.executable, 'scripts/swgb_build_site.py'], cwd=ROOT, capture_output=True, text=True)
-    assert result.returncode != 0 and 'BLOCKED' in result.stderr
-    for name in ('index.html', 'how-to-submit.html', 'run-card.html', 'hypotheses.html'):
-        html = (ROOT / 'swgb' / name).read_text()
-        assert 'Do not submit' in html and 'not approved' in html.lower()
-        assert 'href="downloads/' not in html and 'OK TO DOWNLOAD AND SUBMIT' not in html
-    root = (ROOT / 'index.html').read_text()
-    assert 'not approved' in root.lower() and 'DO NOT SUBMIT' in root
+@pytest.mark.parametrize('script,args', [('run_experiments.py', ['e1']), ('calibrate_holdout.py', [])])
+def test_old_experiment_commands_cannot_overwrite_evidence(script, args):
+    result = subprocess.run([sys.executable, str(ROOT / 'scripts' / script), *args],
+                            capture_output=True, text=True, cwd=ROOT)
+    assert result.returncode != 0
+    assert 'BLOCKED:' in result.stderr

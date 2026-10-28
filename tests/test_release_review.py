@@ -44,7 +44,7 @@ def test_invalid_grid_and_values_fail_closed(tmp_path):
         compare(candidate, prior)
 
 
-@pytest.mark.parametrize('script', ['build_submission.py', 'swgb_build_site.py'])
+@pytest.mark.parametrize('script', ['build_submission.py'])
 def test_legacy_release_tools_stop_before_side_effects(script):
     card = ROOT / 'evidence/run_card.json'
     old = card.read_bytes()
