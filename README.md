@@ -2,6 +2,8 @@
 
 > **DO NOT SUBMIT: no submission is cleared.** The previously promoted SWGB TIFF fails the literal novelty gate: 44,033 of 44,090 dots lie within 3 pixels of a pinned registry lattice (99.8707%; limit 70%). The earlier 17-raster audit did not include that prior. This is a registry measurement, not a leaderboard score. [Review and reproduction](knowledge/RELEASE_REVIEW_2026-10-28.md).
 >
+> An independent follow-up revalidated the existing TIFF against the pinned mirrored template and the shared validator. [Independent witness receipt](evidence/swgb_witness_review.json) and [reproduction](evidence/swgb-review.md).
+>
 > The BGAC lane also stopped as a duplicate. A format-valid file is not necessarily a novel or high-scoring submission. Do not spend a slot on either file. Historical SWGB assets are retained only for audit, not recommendation.
 
 **Start every session** with the [project brief](docs/PROJECT_BRIEF.md), [next steps](knowledge/NEXT_STEPS.md), [latest review](knowledge/RELEASE_REVIEW_2026-10-28.md), and [BGAC run card](evidence/run_card.json). Apply the brief’s Maximize P(Win) and Own the Outcome principles. The [executive summary](docs/executive-summary.html) compares the nine priority sites; no unverified report is an organizer-confirmed score. The [superseded README](archive/2026-10-28-release-review/readme-superseded.txt) and original SWGB pages are preserved for provenance, not as guidance.
