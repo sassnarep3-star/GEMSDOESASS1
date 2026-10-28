@@ -36,18 +36,18 @@ A projection is never a score. DrivenData / USGS / Dropbox are not on this sandb
 <table>
 <tr><th>File</th><th>Evidence class</th><th>Estimate</th><th>Unique vs 9 sites?</th><th>Submit?</th></tr>
 <tr>
-<td><code>gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</code><br><a href="swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">download</a></td>
+<td><code>gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</code><br><a href="swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">audit only</a></td>
 <td>HOLDOUT-DTI GEMSASS1-HR-v2-segment</td>
-<td><b>0.1401</b> [0.1329, 0.1452]</td>
-<td><span class="badge ok">YES — max ρ 0.115, max 3 px 57.8%</span></td>
-<td><span class="badge ok">OK TO SUBMIT (selector)</span></td>
+<td>0.1401 [0.1329, 0.1452]</td>
+<td><span class="badge no">FAILS lattice 99.87%</span></td>
+<td><span class="badge no">DO NOT SUBMIT</span></td>
 </tr>
 <tr>
-<td><code>gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif</code><br><a href="docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif">research download</a></td>
+<td><code>gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif</code><br><a href="docs/downloads/gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif">audit only</a></td>
 <td>HOLDOUT-DTI GEMSASS1-HR-v2-segment</td>
 <td>0.0650 [0.0605, 0.0693]</td>
-<td><span class="badge ok">YES — max ρ 0.029, max 3 px 25.3%</span></td>
-<td><span class="badge no">DO NOT SUBMIT — lost holdout bar 0.1011</span></td>
+<td><span class="badge no">17-file unique (25.3%); lattice 99.48%</span></td>
+<td><span class="badge no">DO NOT SUBMIT — holdout lost and lattice duplicate</span></td>
 </tr>
 </table>
 
@@ -74,7 +74,7 @@ The 0.24–0.28 ladder is one field (H19-5) with emission/pruning edits. Resubmi
 <li><b>Bytes (MEASURED-HERE, previous session):</b> <code>h33-h33-2-b2</code> is exactly <code>dotted-h19-5-d2-8</code> (44,090 dots, live 0.2600) minus the 6,436 dots within 2 px of the published catalogue = 37,654 dots, pixel-identical (sym-diff 0).</li>
 <li><b>Metric (official DTI α=0.2, β=0.8, 300 m triangle; known-fault pixels ignored):</b> emitted mass is taxed at 0.2; a dot 1–2 px off a mapped scarp is pure FP. Deleting those dots raised 0.2600 → 0.2708 → 0.2778. That is emission efficiency, not a new geological field.</li>
 <li><b>Habitat:</b> a catalogue-flank file (h66, median 5.8 px) scored 0.0742 live; the champion’s median is 19.6 px (~2 km). Hidden labels are far-field lidar scarps.</li>
-<li><b>Can we beat 0.2778?</b> Only with a <i>better field</i> at ~37–44 k dots. H-PBSC is a different field (playa-bounding step, not openness) and is unique, but it lost the catalogue-recovery holdout (0.0650 vs 0.1011). SWGB remains the only holdout-positive unique field in this repo. Neither number is a live forecast. Public #1 on 2026-10-28 was reported by GEMSDOE32 as 0.4544 (OFFICIAL page read by that sibling; not re-fetched here).</li>
+<li><b>Can we beat 0.2778?</b> Only with a <i>better field</i> at ~37–44 k dots that also clears the lattice rule (or a versioned policy amendment). H-PBSC is a different field and is unique vs the 17 competitive rasters, but it lost holdout (0.0650 vs 0.1011) and is 99.48% within 3 px of the calibration lattice. SWGB’s 17-file promote is withdrawn for the same lattice. Neither number is a live forecast.</li>
 </ol>
 
 <h2>This session’s experiments (budget 2 of 3; E3 emission sweep not run because the bar was not beaten)</h2>

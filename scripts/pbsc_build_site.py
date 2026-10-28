@@ -112,58 +112,7 @@ def nine_rows():
 
 
 def home_body():
-    pbsc_ok = PBSC["ok_to_submit"]
-    swgb_ok = SWGB["verdict"] == "promote"
-    hd = PBSC["holdout_dti"]
-    sh = SWGB["holdout_dti_shipped_emission"]
-    return f"""
-<div class="banner bad">
-<h2>⛔ THIS SESSION (H-PBSC) — DO NOT SUBMIT the new GeoTIFF</h2>
-<p><span class="badge no">verdict = negative</span> · <span class="badge no">ok_to_submit = false</span>
-· unique, format-valid research artifact. It lost the hide-and-recover bar.</p>
-<p><b>HOLDOUT-DTI {hd['value']:.4f} {fmt_ci(hd['ci95'])}</b>
-({hd['evaluator']}, {hd['n_withheld_positives']:,} withheld positives)
-vs bar 0.1011 {fmt_ci(hd['bar_0p2600_family_base']['ci95'])} for the 0.2600 family base.
-A projection is not a score. No ORGANIZER-CONFIRMED live score exists for this file.</p>
-<p>
-<a class="btn stop" href="{PBSC_HREF}">Download research TIF (DO NOT SUBMIT)</a>
-<a class="btn alt" href="docs/downloads/{PBSC_FILE.replace('.tif','.zip')}">.zip</a>
-<a class="btn alt" href="docs/downloads/{PBSC_FILE.replace('.tif','.checks.json')}">validator 11/11</a>
-</p>
-<p class="mut">File <code>{html.escape(PBSC_FILE)}</code><br>
-sha256 <code>{PBSC['raster_sha256']}</code><br>
-DrivenData note ({PBSC['note_length']}/140): <code>{html.escape(PBSC['submission_note'])}</code><br>
-{EM['n_dots']:,} dots · 2.8 px · 600 m off-catalogue · median catalogue distance {EM['median_catalogue_dist_px']:.0f} px
-· max Spearman vs 17 focus rasters {UNI['focus']['max_spearman']:.3f} (limit 0.90)
-· max 3 px overlap {100*UNI['focus']['max_frac_dots_within_3px']:.1f}% (limit 70%)
-· vs prior SWGB / SASS2 / SASS3 overlap {100*UNI['extra']['max_frac_dots_within_3px']:.1f}%</p>
-</div>
-
-<div class="banner ok">
-<h2>✅ PRIOR LANE (SWGB, 2026-10-27) — OK TO DOWNLOAD AND SUBMIT</h2>
-<p>This is the only file in the repository that passed uniqueness + validator + holdout-bar gates.
-Promotion to a weekly slot is still a <b>selector</b> decision (protocol §6). It is not a promise of a live score above 0.2778.</p>
-<p><b>HOLDOUT-DTI {sh['value']:.4f} {fmt_ci(sh['ci95'])}</b>
-({sh['evaluator']}, {sh['n_withheld_positives']:,} withheld positives) vs 0.1011 for the 0.2600 base on the same evaluator.</p>
-<p>
-<a class="btn go" href="{SWGB_HREF}">⬇ Download {html.escape(SWGB_FILE)}</a>
-<a class="btn alt" href="swgb/downloads/{SWGB_FILE.replace('.tif','.zip')}">.zip</a>
-<a class="btn alt" href="swgb/how-to-submit.html">How to submit</a>
-</p>
-<p class="mut">sha256 <code>{SWGB['raster_sha256']}</code><br>
-note ({SWGB['note_length']}/140): <code>{html.escape(SWGB['submission_note'])}</code></p>
-</div>
-
-<div class="card">
-<h2 style="margin-top:0">What to do on the DrivenData form</h2>
-<ol>
-<li>Open <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">New submission</a> (login required).</li>
-<li>Upload the <b>SWGB</b> <code>.tif</code> or <code>.zip</code> — not the PBSC research file.</li>
-<li>Paste the SWGB note above. Values are in {{0,1}}, float32, EPSG:32611, 3730×3292 — this fixes <code>Predicted values must be in range [0, 1]</code>.</li>
-<li>Do not resubmit any GEMSDOE24–36 file. They are already scored (OWNER-REPORT) and are the H19-5 family.</li>
-</ol>
-</div>
-"""
+    raise RuntimeError("root index.html is fail-closed by hand; do not regenerate it from this builder")
 
 
 def exec_body():
@@ -177,18 +126,18 @@ A projection is never a score. DrivenData / USGS / Dropbox are not on this sandb
 <table>
 <tr><th>File</th><th>Evidence class</th><th>Estimate</th><th>Unique vs 9 sites?</th><th>Submit?</th></tr>
 <tr>
-<td><code>{html.escape(SWGB_FILE)}</code><br><a href="{SWGB_HREF}">download</a></td>
+<td><code>{html.escape(SWGB_FILE)}</code><br><a href="{SWGB_HREF}">audit only</a></td>
 <td>HOLDOUT-DTI {SWGB['holdout_dti_shipped_emission']['evaluator']}</td>
-<td><b>{SWGB['holdout_dti_shipped_emission']['value']:.4f}</b> {fmt_ci(SWGB['holdout_dti_shipped_emission']['ci95'])}</td>
-<td><span class="badge ok">YES — max ρ 0.115, max 3 px 57.8%</span></td>
-<td><span class="badge ok">OK TO SUBMIT (selector)</span></td>
+<td>{SWGB['holdout_dti_shipped_emission']['value']:.4f} {fmt_ci(SWGB['holdout_dti_shipped_emission']['ci95'])}</td>
+<td><span class="badge no">FAILS lattice 99.87%</span></td>
+<td><span class="badge no">DO NOT SUBMIT</span></td>
 </tr>
 <tr>
-<td><code>{html.escape(PBSC_FILE)}</code><br><a href="{PBSC_HREF}">research download</a></td>
+<td><code>{html.escape(PBSC_FILE)}</code><br><a href="{PBSC_HREF}">audit only</a></td>
 <td>HOLDOUT-DTI {hd['evaluator']}</td>
 <td>{hd['value']:.4f} {fmt_ci(hd['ci95'])}</td>
-<td><span class="badge ok">YES — max ρ {UNI['focus']['max_spearman']:.3f}, max 3 px {100*UNI['focus']['max_frac_dots_within_3px']:.1f}%</span></td>
-<td><span class="badge no">DO NOT SUBMIT — lost holdout bar 0.1011</span></td>
+<td><span class="badge no">17-file unique (25.3%); lattice 99.48%</span></td>
+<td><span class="badge no">DO NOT SUBMIT — holdout lost and lattice duplicate</span></td>
 </tr>
 </table>
 
@@ -207,7 +156,7 @@ The 0.24–0.28 ladder is one field (H19-5) with emission/pruning edits. Resubmi
 <li><b>Bytes (MEASURED-HERE, previous session):</b> <code>h33-h33-2-b2</code> is exactly <code>dotted-h19-5-d2-8</code> (44,090 dots, live 0.2600) minus the 6,436 dots within 2 px of the published catalogue = 37,654 dots, pixel-identical (sym-diff 0).</li>
 <li><b>Metric (official DTI α=0.2, β=0.8, 300 m triangle; known-fault pixels ignored):</b> emitted mass is taxed at 0.2; a dot 1–2 px off a mapped scarp is pure FP. Deleting those dots raised 0.2600 → 0.2708 → 0.2778. That is emission efficiency, not a new geological field.</li>
 <li><b>Habitat:</b> a catalogue-flank file (h66, median 5.8 px) scored 0.0742 live; the champion’s median is 19.6 px (~2 km). Hidden labels are far-field lidar scarps.</li>
-<li><b>Can we beat 0.2778?</b> Only with a <i>better field</i> at ~37–44 k dots. H-PBSC is a different field (playa-bounding step, not openness) and is unique, but it lost the catalogue-recovery holdout (0.0650 vs 0.1011). SWGB remains the only holdout-positive unique field in this repo. Neither number is a live forecast. Public #1 on 2026-10-28 was reported by GEMSDOE32 as 0.4544 (OFFICIAL page read by that sibling; not re-fetched here).</li>
+<li><b>Can we beat 0.2778?</b> Only with a <i>better field</i> at ~37–44 k dots that also clears the lattice rule (or a versioned policy amendment). H-PBSC is a different field and is unique vs the 17 competitive rasters, but it lost holdout (0.0650 vs 0.1011) and is 99.48% within 3 px of the calibration lattice. SWGB’s 17-file promote is withdrawn for the same lattice. Neither number is a live forecast.</li>
 </ol>
 
 <h2>This session’s experiments (budget 2 of 3; E3 emission sweep not run because the bar was not beaten)</h2>
@@ -226,14 +175,13 @@ The 0.24–0.28 ladder is one field (H19-5) with emission/pruning edits. Resubmi
 
 def how_body():
     return f"""
-<div class="banner bad"><h2>Do not upload the H-PBSC research TIF</h2>
-<p>Upload the prior SWGB file instead. H-PBSC is unique and format-valid but lost the holdout bar.</p></div>
+<div class="banner bad"><h2>Do not upload anything from this repository today</h2>
+<p>H-PBSC lost the holdout bar and fails the lattice overlap rule (99.48%). SWGB’s prior promote is withdrawn (lattice 99.87%). BGAC never packaged a file.</p></div>
 <ol class="card">
-<li>Download <a href="{SWGB_HREF}">{html.escape(SWGB_FILE)}</a> (or its .zip).</li>
-<li>Go to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData → New submission</a>.</li>
-<li>Choose the .tif or the .zip that contains only that GeoTIFF.</li>
-<li>Note (optional, ≤140 chars): <code>{html.escape(SWGB['submission_note'])}</code></li>
-<li>Confirm the file is single-band float32, EPSG:32611, 3730×3292, values in [0,1]. The writer refuses to emit anything else.</li>
+<li>Wait until a future lane clears uniqueness (including the calibration lattice, unless a versioned policy says otherwise), holdout, and the format writer.</li>
+<li>Then go to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">DrivenData → New submission</a>.</li>
+<li>Upload a single-band GeoTIFF or a zip of one GeoTIFF. Values must be in [0,1] (the writer refuses anything else — this is the fix for <code>Predicted values must be in range [0, 1]</code>).</li>
+<li>Paste a note ≤140 characters from that future run card. Do not resubmit GEMSDOE24–36 files.</li>
 </ol>
 <p>Official format: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem description — submission format</a>.
 Rules PDF (login-walled): <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">NLR 96647</a>.</p>
@@ -257,10 +205,6 @@ def write_root_pages():
 
 
 def main():
-    (ROOT / "index.html").write_text(page(
-        "GEMSDOESASS1 — unique TIF generated; H-PBSC is NOT for upload",
-        home_body(),
-    ))
     (ROOT / "executive-summary.html").write_text(page(
         "Executive summary — nine sites + this session",
         exec_body(),

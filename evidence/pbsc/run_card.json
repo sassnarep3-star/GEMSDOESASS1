@@ -275,6 +275,14 @@
           "duplicate": false
         }
       ]
+    },
+    "lattice_13gems": {
+      "frac_dots_within_3px": 0.9948478249322781,
+      "within_3_px": 37460,
+      "n_dots": 37654,
+      "threshold": 0.7,
+      "duplicate_if_lattice_counts": true,
+      "note": "MEASURED-HERE after merging origin/main's SWGB lattice withdrawal. Competitive 17-file uniqueness (max 25.3%) does not survive the calibration lattice. No exemption applied."
     }
   },
   "emission": {
@@ -320,7 +328,8 @@
   },
   "irregularities": [
     "IR-LATTICE-01: 13gems 5-px lattice covers 99.87% of the footprint; excluded from the 70% rule (same policy as the SWGB lane).",
-    "IR-04: sibling live scores are OWNER-REPORT; DrivenData is not on this sandbox allowlist."
+    "IR-04: sibling live scores are OWNER-REPORT; DrivenData is not on this sandbox allowlist.",
+    "IR-LATTICE-MEASURED: H-PBSC 99.48% of dots within 3 px of 13gems lattice (37460/37654). Competitive 17-file uniqueness does not survive the lattice. No exemption."
   ],
   "winner_experiment": "e2_nomag",
   "canary_pass": true,

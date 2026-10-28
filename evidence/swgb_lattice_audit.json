@@ -1,0 +1,14 @@
+{
+  "candidate_sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+  "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "candidate_dots": 44090,
+  "within_3_pixels": 44033,
+  "directed_overlap": 0.9987071898389658,
+  "duplicate": true,
+  "candidate_finite_all": true,
+  "candidate_range": [
+    0.0,
+    1.0
+  ],
+  "single_band_grid_match_to_lattice": true
+}

@@ -1,0 +1,77 @@
+{
+  "scope": "One pinned witness, not a complete registry scan; final dots only.",
+  "witness_repo": "buffedlizard55-lab/GEMSDOE24",
+  "witness_ref": "cf093c8c5e9fa77294ecf4c59b79cdade92cbc06",
+  "witness_path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "witness_blob_sha1": "81c802618e6d46c6d62289d856ae74439439bbc6",
+  "input_sha256": {
+    "candidate": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+    "witness": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "template": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "catalogue": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093"
+  },
+  "shared_overlap_function": "vendor.gems57.uniqueness.dot_overlap",
+  "stage": "final dots",
+  "directed_overlap_within_3px": 0.9987071898389658,
+  "overlap_limit": 0.7,
+  "duplicate": true,
+  "preplacement_surface_audit_broad_registry": "not available; not cleared",
+  "local_format_validation": {
+    "file": "swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+    "bytes": 152542,
+    "sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+    "meta": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null,
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "profile_compress": "deflate"
+    },
+    "band_description": [
+      null
+    ],
+    "n_finite": 12279160,
+    "n_nan": 0,
+    "n_infinite": 0,
+    "min": 0.0,
+    "max": 1.0,
+    "mean": 0.003590636420994997,
+    "emitted_positive_pixels": 44090,
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "transform_matches_sample_submission": true,
+      "no_nan_anywhere": true,
+      "no_inf_anywhere": true,
+      "no_sentinel_values": true,
+      "range_0_1_guaranteed": true,
+      "min_ge_0": true,
+      "max_le_1": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_zero": true,
+      "zero_dots_on_mapped_catalogue": true
+    },
+    "all_checks_passed": true,
+    "validation_class": "local format/range preflight; not organizer acceptance or uniqueness clearance",
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_positive_pixels": 44090,
+    "footprint_fraction": 0.00853238192791579
+  },
+  "verdict": "negative",
+  "approved_for_submission": false
+}

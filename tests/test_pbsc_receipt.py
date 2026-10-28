@@ -71,8 +71,11 @@ def test_canary_not_flagged():
 def test_homepage_makes_submit_decision_obvious():
     home = (ROOT / "index.html").read_text()
     assert "DO NOT SUBMIT" in home
-    assert CARD["submission_name"] in home
-    assert "OK TO DOWNLOAD AND SUBMIT" in home
-    swgb = json.loads((ROOT / "evidence/swgb/run_card.json").read_text())
-    assert swgb["submission_name"] in home
-    assert "Predicted values must be in range [0, 1]" in home
+    assert "NOT APPROVED" in home
+    assert "ok to download and submit" not in home.lower()
+    assert ".tif\"" not in home
+    assert "H-PBSC" in home
+    assert "99.48%" in home
+    summary = (ROOT / "executive-summary.html").read_text()
+    assert CARD["submission_name"] in summary
+    assert "DO NOT SUBMIT" in summary
