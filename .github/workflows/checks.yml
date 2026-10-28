@@ -23,5 +23,6 @@ jobs:
       - run: python scripts/build_site.py
       - run: python scripts/verify_release.py
       - run: python scripts/check_release_entrypoints.py
+      - run: python scripts/verify_swgb_correction.py
       - run: node --check docs/assets/source-feed.js && node --test tests/test_feed.mjs
       - run: git diff --check && git diff --exit-code -- docs
