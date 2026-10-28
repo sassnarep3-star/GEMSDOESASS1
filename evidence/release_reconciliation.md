@@ -1,3 +1,5 @@
+> **Update 2026-10-28:** A subsequent direct measurement found the SWGB raster fails against the pinned lattice. This earlier reconciliation is preserved as a snapshot; see [new release review](../knowledge/RELEASE_REVIEW_2026-10-28.md).
+
 # Release reconciliation — 2026-10-28
 
 ## Pass 1: inventory

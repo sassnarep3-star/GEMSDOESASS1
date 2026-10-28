@@ -1,3 +1,7 @@
+# Next session — read the release correction first
+
+The former SWGB recommendation is revoked. See [2026-10-28 review](RELEASE_REVIEW_2026-10-28.md): the actual TIFF fails the literal expanded-registry novelty gate. Its build and site generators are blocked. No slot should be spent. Preserve the old SWGB evidence as historical, not an approval.
+
 # Next session — ordered actions
 
 1. **Resolve the novelty-policy obstruction outside this stopped run.** The 5-pixel lattice in `GEMSDOE24/inputs/calibration` is within 3 pixels of 99.8713% of the footprint and 100% of BGAC-1 dots. Never silently exclude it or change 70%/3 px. The strict protocol leaves no basis for manufacturing a submission-ready TIFF now. Any future amendment must be explicit, versioned and preregistered.
