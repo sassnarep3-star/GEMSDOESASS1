@@ -1,0 +1,37 @@
+{
+  "hypothesis": "SWGB segment-withheld gradient boosting on lidar and GeoDAWN with visible-fault context",
+  "mechanism": "Modelled scarp/geophysical signatures emitted as off-catalogue Poisson-disk dots",
+  "named_non_fault_mimic": "Pluvial Lake Lahontan shorelines and fluvial terrace risers",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSASS1-HR-v2-segment",
+    "value": 0.1401,
+    "ci95": [0.1329, 0.1452],
+    "withheld_positives": 60988,
+    "source": "evidence/swgb/e3_prune_sweep_e2.json"
+  },
+  "correlation_overlap_vs_registry": {
+    "original_17_file_max_spearman": 0.11453684418024024,
+    "original_17_file_max_overlap": 0.5775232479020186,
+    "expanded_registry_lattice_overlap": 0.9987071898389658,
+    "expanded_registry_lattice_overlap_count": 44033,
+    "candidate_dots": 44090,
+    "threshold": 0.7,
+    "scope": "One previously omitted pinned focus-site calibration raster suffices to disqualify; full expanded scan unnecessary after stop.",
+    "source": "evidence/swgb/lattice_correction.json"
+  },
+  "raster_sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+  "validator_output": {
+    "format": "11/11 passed in frozen on-disk receipt; independently hash-checked in correction",
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "source": "swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.checks.json"
+  },
+  "submission_name": "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+  "submission_note": "Research-only SWGB; duplicates GEMSDOE24 lattice within 3 px. Do not submit.",
+  "verdict": "negative",
+  "approved_for_submission": false,
+  "submission_slots_used_this_correction": 0,
+  "reason": "A prior 17-file registry omitted the calibration lattice despite the parallel protocol requiring comparison to ANY registry raster. Exact 44,033/44,090 directed overlap exceeds 70%. This supersedes the original promote label; existing TIFF retained for audit only. No new experiment or TIFF made."
+}

@@ -12,14 +12,14 @@ table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px
 code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}pre{background:#0b1226;padding:12px;border-radius:8px;overflow:auto}
 .mut{color:var(--mut)}small{color:var(--mut)}a{color:var(--acc)}
 </style></head><body><header><nav><a href="index.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="run-card.html">Run card &amp; evidence</a><a href="hypotheses.html">Hypotheses</a><a href="../index.html">Project home</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">Repository</a></nav><h1>How to submit to the DOE GEMS Prize Challenge</h1>
-<small>GEMSDOESASS1 · DOE GEMS Prize Challenge (DrivenData #306) · generated from evidence/*.json · 20261027T122104Z</small></header><main>
+<small>GEMSDOESASS1 · DOE GEMS Prize Challenge (DrivenData #306) · generated from evidence/*.json · 20261027T122104Z</small></header><main><div class="card" style="border-color:#ef4444"><strong>⛔ Release correction: NO APPROVED TIFF.</strong> SWGB is format-valid but duplicates a pinned GEMSDOE24 lattice (99.87% dot overlap &gt; 70% limit). Historical promotion claims on this site are superseded. Do not submit the research TIFF. <a href="run-card.html">Correction evidence →</a></div>
 <div class="card"><h2 style="margin-top:0;border:0">Exactly how to make a submission</h2>
 <ol>
-<li><b>Download the file</b>: <a class="btn" href="downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">⬇ gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</a> (or the <a href="downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.zip">.zip</a>, which contains the same single GeoTIFF — both are accepted).</li>
+<li><b>First check approval:</b> There is NO approved submission in this repo. The retained <a href="downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif">research TIFF</a> is format-valid but fails the mandatory uniqueness test. Do NOT upload it.</li>
 <li>Log in to DrivenData and open the competition's submission page: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/</a> → <b>New submission</b>.</li>
-<li><b>File to submit</b>: choose the downloaded <code>.tif</code> (single band, float32, EPSG:32611, 3730 × 3292 px, 100 m, geotransform (100, 0, 243350, 0, −100, 4508550) — identical to the organizer template; values 0.0/1.0; no NaN).</li>
+<li><b>For a future approved file only</b>, choose its <code>.tif</code> (single band, float32, EPSG:32611, 3730 × 3292 px, 100 m, geotransform (100, 0, 243350, 0, −100, 4508550) — identical to the organizer template; values 0.0/1.0; no NaN).</li>
 <li><b>Note (optional)</b> — paste this so the team can tell submissions apart later:<pre>GEMSASS1 SWGB: 5x segment-withheld HGB on lidar+GeoDAWN, 44090 dots 2.8px, &gt;600m off-catalogue; HOLDOUT-DTI 0.140 vs base 0.101</pre></li>
-<li>Submit. Copy the score shown on the submission page into <code>registry/organizer_confirmed.json</code> (name, sha256 <code>f98c20df5bc67a48…</code>, score, UTC time). Only then may the number be written as ORGANIZER-CONFIRMED anywhere in this project.</li>
+<li>After a separate selector clears a new file within the weekly cap, submit and copy the score shown on the submission page into <code>registry/organizer_confirmed.json</code> (name, sha256 <code>f98c20df5bc67a48…</code>, score, UTC time). Only then may the number be written as ORGANIZER-CONFIRMED anywhere in this project.</li>
 <li>Weekly cap: whatever the submission page displays (DrivenData staff, <a href="https://community.drivendata.org/raw/11553">forum 11553</a>). Do not spend a slot on a file whose verdict is not <b>promote</b>.</li>
 </ol></div>
 <h2>Why earlier downloads failed with "Predicted values must be in range [0, 1]"</h2>
@@ -39,6 +39,6 @@ bash scripts/fetch_reference_assets.sh        # byte-verified mirrors of templat
 python3 -m pytest -q tests                    # metric == brute-force transcription
 python3 scripts/calibrate_holdout.py          # registry rasters on the holdout
 python3 scripts/run_experiments.py canary; e1; e2; e2b; e3 e2
-python3 scripts/build_submission.py           # trains, emits, audits, validates, writes swgb/downloads + evidence/swgb/run_card.json
+python3 scripts/audit_swgb_lattice.py --lattice /path/to/verified/lattice.tif   # audits existing TIFF; fails novelty gate
 python3 scripts/build_site.py</pre>
 </main></body></html>

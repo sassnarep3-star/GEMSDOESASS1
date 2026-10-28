@@ -16,3 +16,9 @@
 - The source feed reports GitHub commit changes only. It cannot update a verified competition leaderboard from this network.
 - Nine-site summaries here do not modify the nine separate upstream repositories. Updating their own landing pages would require a separate authorized cross-repository release.
 - Read README + PROJECT_BRIEF + the frozen run card first, every session.
+
+## 2026-10-28 SWGB correction (takes precedence over the earlier SWGB slot suggestion)
+
+The earlier SWGB approval is **withdrawn**: its 17-file registry omitted a pinned GEMSDOE24 calibration lattice. Independently rerunning the exact raster overlap on the preserved SWGB TIFF found 44,033/44,090 dots within 3 px of the lattice (99.8707% > 70%). `evidence/swgb/lattice_correction.json` and `release_decision.json` supersede the old SWGB `run_card.json` promotion. The legacy builder is now fail-closed; all landing pages say NOT OK TO SUBMIT. No new experiment, TIF, or portal slot was used. Do not submit the preserved research TIFF.
+
+Before attempting another research run, resolve the literal all-registry lattice obstruction with an explicit versioned policy amendment **outside this stopped run**; don't quietly omit calibration rasters, restrict the registry to scored files after the fact, or change thresholds. Verify official data/licensing/weekly cap and receipts in an environment with access to organizer resources. If a subsequent run is authorized, preregister its method lane and compare every candidate surface and final dots against the full pinned inventory before claiming approval. The existing holdout estimates do not predict a leaderboard result above the owner-reported 0.2778 or the conflicting 0.3195/0.4413 figures.
