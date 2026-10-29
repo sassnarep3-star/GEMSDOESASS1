@@ -1,7 +1,7 @@
-# Project brief (verbatim user prompt — read at the start of every session)
+# Project brief (deduplicated user-request transcript — read at the start of every session)
 
-> The original message contained this brief twice (an exact duplicate block); it is stored once here.
-> Nothing below has been edited except the removal of that duplicate.
+> The original message contained repeated material; this brief is a deduplicated operational transcript, not a byte-for-byte verbatim archive.
+> Repeated duplicate blocks are stored once, and the wording has been consolidated for readability.
 
 Review the repo.
 
