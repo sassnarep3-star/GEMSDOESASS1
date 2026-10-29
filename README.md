@@ -1,6 +1,6 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
-**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Core values: **Maximize P(Win)** · **Own the Outcome**.
+**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Latest independent [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
 
 **This session’s review (2026-10-29):** [`knowledge/hypotheses_20261029.md`](knowledge/hypotheses_20261029.md) is a ranked, untested slate only. The prior lane’s negative result and novelty stop remain in force; no experiment, submission TIFF, score estimate, or slot approval was produced.
 
