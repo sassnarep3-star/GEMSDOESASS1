@@ -1,6 +1,8 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
-**Read first, every session:** [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
+**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Latest independent [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
+
+**This session’s review (2026-10-29):** [`knowledge/hypotheses_20261029.md`](knowledge/hypotheses_20261029.md) is a ranked, untested slate only. The prior lane’s negative result and novelty stop remain in force; no experiment, submission TIFF, score estimate, or slot approval was produced.
 
 **Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
 
