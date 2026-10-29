@@ -60,3 +60,17 @@ def test_current_pages_revoke_promotion():
         assert 'downloads/' not in page.read_text()
     result = json.loads((ROOT / 'evidence/swgb_lattice_audit.json').read_text())
     assert result['duplicate'] and result['within_3_pixels'] / result['candidate_dots'] > .70
+
+
+def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
+    """A revoked candidate must never be called a selector-cleared submission."""
+    pages = [ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html']
+    pages += sorted((ROOT / 'docs/sites').glob('GEMSDOE*.html'))
+    for page in pages:
+        text = page.read_text()
+        assert 'No file is approved for submission.' in text
+        assert 'selector-cleared file' not in text
+        assert 'red / green banners' not in text
+    download_index = (ROOT / 'docs/downloads/README.md').read_text()
+    assert 'No TIFF in this repository is approved' in download_index
+    assert 'OK TO SUBMIT' not in download_index

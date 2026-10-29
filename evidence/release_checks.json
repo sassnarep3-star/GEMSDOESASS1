@@ -20,7 +20,7 @@
     "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
     "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
     "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
-    "scripts/build_site.py": "3215694a1571e9bee3ab93cdcb5cabcce16aeb76b1586e9d7def1b24f30e7a31",
+    "scripts/build_site.py": "0eb881af1d018f495297e2c9fcc3ac90285b9ecdbfe439c46f28018797bc557a",
     "scripts/evaluate_holdout.py": "f7e5e37af6577db82b453fb1ba9e7d6b516e5b246656f5bea4ba0a1c78a0420a",
     "scripts/novelty.py": "005f8dd23c4c6ff915580adb192a02a6f03c1ef7158150d4a36dfa3518fadfc2",
     "scripts/prepare_data.py": "3f9fe8bf4cde7a98764769ac559b115b9f1256ff2e5ca4cd4f5d6282f9814606",
@@ -34,5 +34,16 @@
     "First-pass protocol defect corrected; numerical holdout retained only as exploratory negative evidence."
   ],
   "concurrent_main_preserved": true,
-  "concurrent_main_snapshots_preserved": 2
+  "concurrent_main_snapshots_preserved": 2,
+  "post_review_2026-10-29": {
+    "scope": "User-facing release-status maintenance only; no experiment or scientific evidence changed.",
+    "python_tests_passed": 54,
+    "javascript_tests_passed": 5,
+    "generated_page_count": 13,
+    "internal_links_checked": 182,
+    "stale_selector_approval_removed": true,
+    "no_tiff_approved": true,
+    "weekly_slots_used": 0,
+    "review_record": "evidence/repo_review_2026-10-29.md"
+  }
 }
