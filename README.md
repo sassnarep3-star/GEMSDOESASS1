@@ -1,6 +1,6 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
-**Read first, every session:** [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md). Latest code/evidence review: [`knowledge/REVIEW_2026-10-29.md`](knowledge/REVIEW_2026-10-29.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
+**Read first, every session:** [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md). Latest reviews: [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md) and [technical evidence/validation review](knowledge/REVIEW_2026-10-29.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
 
 **Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
 
@@ -85,11 +85,11 @@ An eventual release requires: verified input provenance/rules; leakage clearance
 
 ## Site and refresh feed
 
-GitHub Pages uses the existing legacy `main` / root configuration, with root links into `docs/`. There is a landing page, executive-summary/how-to page, research/source page, and one executive page per focus site. These are local comparative pages; the nine upstream websites have not been edited. The evidence page automatically checks current public GitHub heads in the browser with a one-hour cache and explicit timeout/rate-limit failures; a scheduled workflow also preserves advisory snapshots as Actions artifacts. Neither changes scores, experiments, novelty clearance or promotion. The experimental snapshot remains pinned. The GitHub connection returned HTTP 403 when asked to switch Pages to Actions deployment; the existing legacy deployment is retained, not misreported as reconfigured.
+GitHub Pages uses the existing legacy `main` / root configuration, with root links into `docs/`. There is a landing page, executive-summary/how-to page, research/source page, and one executive page per focus site. These are local comparative pages; the nine upstream websites have not been edited. The evidence page automatically checks current public GitHub heads in the browser with a one-hour cache and explicit timeout/rate-limit failures. A scheduled workflow also preserves advisory snapshots as Actions artifacts. Neither changes scores, experiments, novelty clearance or promotion. The experimental snapshot remains pinned. The GitHub connection returned HTTP 403 when asked to switch Pages to Actions deployment; the existing legacy deployment is retained, not misreported as reconfigured.
 
 ## Limitations that matter
 
-- No verified DrivenData submission receipt, current leaderboard, weekly cap, rules PDF or current official data hashes. The provided high-score claims conflict. We cannot truthfully promise a higher leaderboard score.
+- No verified DrivenData submission receipt, current leaderboard, weekly cap, rules PDF or current official data hashes. The supplied high-score claims conflict. We cannot truthfully promise a higher leaderboard score.
 - Outbound access is limited to GitHub/npm/PyPI hosts; USGS, GDR, NLR, DrivenData and Dropbox are outside that allowlist. Official GitHub reference code was inspected; owner mirrors are explicitly weaker evidence.
 - The literal 70%/3 px rule is obstructed by a lattice covering 99.87% of the footprint within 3 px. No density exemption was applied. A policy decision outside this stopped run is needed before another method can realistically clear that registry.
 - No new competition TIFF was produced because the required gates failed. This is a verified negative deliverable, not a completed high-scoring submission.
