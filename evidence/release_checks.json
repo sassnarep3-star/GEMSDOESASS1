@@ -45,5 +45,10 @@
     "no_tiff_approved": true,
     "weekly_slots_used": 0,
     "review_record": "evidence/repo_review_2026-10-29.md"
-  }
+  },
+  "post_review_2026-10-30_implementation_sha256": {
+    "scripts/build_site.py": "7c1b550ef88984767d7946c61b2addd86261c8e69c7501979477cfcd52e94816",
+    "scripts/verify_release.py": "18a129fc3d277c9fa45b799a0947b65104646beeaec768acf1dff5468b88af39"
+  },
+  "post_review_2026-10-30_scope": "Adds the nine-site board section (data-driven from evidence/nine_site_board.json) to the executive summary. Frozen 2026-10-27 review hashes are retained unchanged; the new bytes are pinned here so any later edit still fails verification. Also pins scripts/verify_release.py, which gained the post-review hash allowance."
 }
