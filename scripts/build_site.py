@@ -95,6 +95,45 @@ def metric_strip_new(rel):
 <p class="small">All new numbers are HOLDOUT-DTI ({e(h['evaluator'])}, {h['n_withheld_positives']:,} withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p>'''
 
 
+def board_section(prefix=''):
+    """Data-driven nine-site board: every number is read from evidence/nine_site_board.json."""
+    b = load('evidence/nine_site_board.json')
+    inv = load('registry/focus_inventory.json')
+    refs = inv['refs']
+    sites = list(b['nine_site_best'])
+    pair = b['nine_site_pairwise_forward_overlap']
+    lb = b['lattice_gate_bound']
+    lat = b['lattice']
+    rows = ''
+    for site in sites:
+        v = b['nine_site_best'][site]
+        repo, path = v['registry_path'].split('/', 1)
+        url = f"https://github.com/buffedlizard55-lab/{repo}/blob/{refs[repo]}/{path}"
+        others = [t for t in sites if t != site and pair[f'{site}->{t}'] > 0.70]
+        scan = b['per_best_registry_scan'][site]
+        exact_other = [x for x in scan['exact_dot_set_matches'] if not x.startswith(f'{repo}/')]
+        rows += (f'<tr><td class="sitecell"><strong>{e(site)}</strong><br><span class="small">{v["dots"]:,} positive pixels</span></td>'
+                 f'<td><a class="file" href="{e(url)}">{e(path.rsplit("/", 1)[-1])}</a>'
+                 f'<span class="small">Review link only · sha256 <code>{e(v["sha256"][:16])}…</code></span></td>'
+                 f'<td><span class="reported">{v["owner_reported_score"]:.4f}</span><br><span class="badge">OWNER-REPORT</span></td>'
+                 f'<td><span class="muted">Not estimable</span><br><span class="small">No calibrated model; holdout cannot forecast live score</span></td>'
+                 f'<td><span class="bad">No</span><br><span class="small">{len(others)} of 8 other sites have ≥70% of dots within 3 px'
+                 f'{"; " + str(len(exact_other)) + " exact dot-set twin(s) in another site" if exact_other else ""}.</span></td>'
+                 f'<td><span class="bad">NO</span><br><span class="small">Already a prior submission; the literal rule also fails.</span></td></tr>')
+    max_pair = b['nine_site_max_pair']
+    return f'''<section class="section" id="board"><p class="eyebrow">Nine-site board · measured 2026-10-30 from pinned bytes</p>
+<h2>Best file per site, estimated score, uniqueness, and submit decision.</h2>
+<aside class="status" aria-label="Submit decision now"><span class="pill">Do not submit any file from this set</span>
+<h3>No file is cleared for download or submission.</h3>
+<p>The highest owner-reported file is GEMSDOE32 <strong>0.2778</strong>. It is already a previous submission, so resubmitting it is a duplicate. Every new file of competitive size also fails the literal uniqueness rule, which is arithmetic, not a judgement: a file with more than <strong>{lb["max_dots_satisfying_literal_70pct_rule"]:,}</strong> positive pixels cannot pass the 70%/3 px test against the GEMSDOE24 calibration lattice.</p>
+<p class="small">Automated decision. Competition slots used: none. Score labels: OWNER-REPORT only. No organizer receipt exists here.</p></aside>
+<div class="callout"><strong>Eligibility first.</strong> The official rules (§1.3) limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. The user’s listed location is Singapore. Confirm eligibility with the prize administrator before any upload. <a href="https://www.nlr.gov/docs/fy26osti/96647.pdf">Official rules ↗</a> · <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/blob/main/knowledge/sources_verified_20261030.md">Verified sources and irregularities ↗</a></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site board"><table><thead><tr><th scope="col">Site</th><th scope="col">File to download (review)</th><th scope="col">Score (owner-reported)</th><th scope="col">Estimated score</th><th scope="col">Unique vs the other 8 sites?</th><th scope="col">OK to submit?</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="table-note">Overlap measured by the shared 3 px rule (≥70% = duplicate). Forward overlap among the nine best files: {sum(v > 0.70 for v in pair.values())} of {len(pair)} ordered pairs exceed 70% (max {max_pair["overlap"]:.4f}). Random placement of the same dot count gives a mean overlap of {lat["null_random_same_count_overlap"]["mean"]:.4f} against the lattice, so the gate cannot tell a random file from a duplicate. Exact dot-set groups in the registry: {b["exact_duplicates"]["dot_set_groups"]} ({b["exact_duplicates"]["cross_site_dot_set_groups"]} across sites). Full evidence: <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/blob/main/evidence/nine_site_board.json">nine_site_board.json ↗</a>.</p>
+<div class="grid2"><article class="panel"><p class="kicker">Why 0.2778 scored highest</p><h3>A subset of the 0.2600 field, with catalogue-adjacent dots removed.</h3><p>Verified from bytes: the GEMSDOE32 raster is the 44,090-dot GEMSDOE25 raster minus 6,436 dots. Every removed dot lies 1–2 px from a mapped fault, and the file contains zero dots on mapped faults. Removing low-credit dots lowers false-positive mass under the 0.2 weight.</p></article>
+<article class="panel"><p class="kicker">Can we beat 0.2778 with an unrestricted new file?</p><h3>Not under the protocol, and no candidate is validated.</h3><p>SWGB beat the holdout bar in both variants (shipped 6 px prune HOLDOUT-DTI 0.1401, CI 0.1329–0.1452; 2 px E2 0.1586, CI 0.1519–0.1649; bar 0.1011), and both were withdrawn by the lattice gate. Holdout DTI does not rank the live family: Spearman −0.081 across 17 registry rasters (n=17). Leaderboard context: the official public page snapshot (2026-10-30) shows #1 at 0.4544 and #50 at 0.3169, so 0.2778 sits below the visible top 50. The user-cited 0.4413 and 0.3195 figures are not the top score on that page.</p></article></div>'''
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     audit = load('evidence/nine_site_audit.json')
@@ -126,6 +165,16 @@ def main():
 <div class="actions"><a class="button" href="downloads/{e(relcard['raster_name'])}" download>Download {e(relcard['raster_name'])}</a><a class="button secondary" href="how-to-submit.html">How to submit ↗</a></div></div>''' + release_card(rel) + '</section>' + metric_strip_new(rel) + legacy_banner() + '''<section class="section"><p class="eyebrow">File / estimated score / uniqueness / verdict</p><h2>The answer for each priority site.</h2><p class="lead">Top row = the generated submission (the only file to download). Historical rows are prior submissions with their OWNER-REPORT live scores.</p>''' + table(rows, rel) + f'''</section><section class="section" id="mechanism"><p class="eyebrow">Mechanism audit</p><h2>Why might GEMSDOE32 have improved?</h2><div class="grid2"><article class="panel"><h3>What is actually verified</h3><p>The H33-B2 mask is exactly <code>site31_base &amp; (distance_to_catalogue &gt; 2)</code>. The base has 40,199 dots, the result 37,654: 2,545 removed, none added. Its file SHA256 matches the pinned public mirror.</p><a href="{mechanism['code_source']}">Inspect original code ↗</a><p class="small">The arithmetic and mask identity are locally measured, not organizer scoring evidence.</p></article><article class="panel"><h3>What remains a hypothesis</h3><p>Removing predictions with little credit for hidden new faults could reduce weighted false-positive mass while retaining recall. But nearness to an existing fault does not make a dot automatically false: a new nearby splay could earn credit.</p><p>Without hidden truth or a submission-page receipt, the reported 0.2778 is not a verified causal result, and it does not calibrate a forecast for a new method.</p></article></div><div class="callout">Can we exceed the reported 0.2778? This session's answer: only with a better field at ~40k dots. The supervised family is the only local instrument above the 0.2600 base (HOLDOUT-DTI 0.14–0.16 vs 0.1011); whether that transfers live is unproven. Conflicting user-provided highs of 0.3195 and 0.4413 are OWNER-REPORT, not ORGANIZER-CONFIRMED.</div><p><a href="https://github.com/sassnarep3-star/GEMSDOESASS1/blob/main/knowledge/scientific_analysis.md">Full mathematical interpretation, confounders and authority boundaries ↗</a></p></section>
 <section class="section" id="how-to"><p class="eyebrow">How to submit / the generated file</p><h2>Five steps, no manual inspection.</h2><div class="grid2"><article class="panel"><ol class="steps"><li><div><strong>Check the verdict at the top of this page.</strong>Only download the file if it reads “OK TO DOWNLOAD AND SUBMIT”. SWGB, H-PBSC and BGAC-1 files are not approved.</div></li><li><div><strong>Download the exact TIF (or ZIP).</strong>File: <code>{e(relcard['raster_name'])}</code>. Verify sha256 <code class="mono">{e(relcard['raster_sha256'])}</code> against the <a href="evidence/thermal/run_card.json">run card</a>.</div></li><li><div><strong>Use the published name and note.</strong>Name: <code>{e(relcard['submission_name'])}</code>. Note ({relcard['note_length']}/140 chars): “{e(relcard['note'])}”.</div></li><li><div><strong>Upload on “New submission”.</strong>The form accepts a single-band GeoTIFF (.tif) or a ZIP containing exactly one GeoTIFF. This file is float32, EPSG:32611, 3730×3292, geotransform (100, 0, 243350, 0, −100, 4508550), values in [0,1] everywhere (zeros outside the footprint — the fix for “Predicted values must be in range [0, 1]”).</div></li><li><div><strong>Keep the organizer receipt.</strong>Record the submission id and returned score — only that makes a score ORGANIZER-CONFIRMED.</div></li></ol><p class="small"><a href="how-to-submit.html">Full step-by-step subpage →</a></p></article>
 <article class="panel"><h3>Prevent the [0,1] rejection</h3><p>The shared fail-closed writer refuses NaN, infinities, negative values and values above one; it reopens the written TIFF and the one-TIFF ZIP and validates them before exposing outputs. The earlier portal error “Predicted values must be in range [0, 1]” is what NaN-outside (“-nan”) files trigger — the shipped file writes explicit zeros everywhere outside the footprint and has no NaN on the whole grid.</p><p>Project checks are automatic; the weekly-slot decision and the official login are competition controls, not a human visual-inspection step of the file.</p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">Official competition ↗</a><div class="callout">Slots used by this workspace: 0. Promotion to a real slot is a separate selector step within the weekly cap.</div></article></div></section>'''
+    # preserved parallel-session sections (nine-site board + instrument irregularity)
+    execbody += ('<section class="section" id="board">' + board_section() + '</section>'
+                 '<section class="section" id="instrument"><p class="eyebrow">Instrument irregularity · parallel session 2026-10-30</p>'
+                 '<h2>Can the instruments tell?</h2><div class="callout"><strong>Verified by the parallel lane: some local instruments are dominated by catalogue-prune width, not field content.</strong> '
+                 'A 600 m catalogue prune scores HOLDOUT-DTI 0.0000 and a 200 m prune scores 0.0045 in their off-catalogue reading — exactly the champion figure — from completely different fields; '
+                 'SGMC off-catalogue DTI and Live Mirror fail to reproduce live orderings outside the champion family. '
+                 'The H-TVGB numbers above use the standard gems57-pooled-hide-v2 evaluator calibrated on the 0.2600 family (bar 0.1011), not the off-catalogue variant; '
+                 'treat every holdout number as an instrument reading, not a forecast. '
+                 'Full report: <a href="INSTRUMENT_IRREGULARITY.md">docs/INSTRUMENT_IRREGULARITY.md</a> · '
+                 'nine-site board data: <a href="evidence/nine_site_board.json">evidence/nine_site_board.json</a>.</div></section>')
     (OUT / 'executive-summary.html').write_text(page('Executive summary', execbody, active='executive'))
 
     howto = f'''<p class="eyebrow">How to submit / step by step</p><h1>From this site to<br>the submission form.</h1>

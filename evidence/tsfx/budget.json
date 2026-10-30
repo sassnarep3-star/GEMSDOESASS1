@@ -1,0 +1,29 @@
+{
+  "stages": {
+    "canary": {
+      "seconds": 99.2,
+      "utc": "2026-10-30T02:55:15.653002+00:00"
+    },
+    "e1_train_crashed_after_fields_saved": {
+      "seconds": 763.0,
+      "utc": "2026-10-30T03:12:00+00:00",
+      "note": "5 folds completed; fields saved to work/tsfx/tsfx_fields.npz; crashed on duplicate evaluator kwarg; experiment counted"
+    },
+    "e1_score": {
+      "seconds": 21.9,
+      "utc": "2026-10-30T03:13:51.725223+00:00"
+    },
+    "e2": {
+      "seconds": 348.1,
+      "utc": "2026-10-30T03:19:46.945635+00:00"
+    },
+    "package": {
+      "seconds": 426.8,
+      "utc": "2026-10-30T03:27:04.142317+00:00"
+    }
+  },
+  "cumulative_seconds": 1659.0,
+  "experiments_run": 2,
+  "seconds_budget": 7200,
+  "experiment_budget": 3
+}

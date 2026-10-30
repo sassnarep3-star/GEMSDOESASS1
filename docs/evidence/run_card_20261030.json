@@ -1,0 +1,38 @@
+{
+  "run_card": "GEMSDOESASS1 gate audit + download decision",
+  "date_utc": "2026-10-30",
+  "lane": "none (audit only; no new candidate generated)",
+  "hypothesis": "The 70%/3 px registry dot-overlap gate separates copied from original dense submissions.",
+  "mechanism": "Random uniform footprint dots (no model, no catalogue) are placed and tested against the 13gems 5 px lattice (206,895 dots) with the repo's 3 px disc definition.",
+  "verdict": "negative for the gate as written (saturated). Not a science promotion. ok_to_submit = false for every file in this repo.",
+  "gate_null": {
+    "random_frac_within_3px": 0.9988,
+    "random_frac_within_1px": 0.1991,
+    "random_frac_within_0px": 0.0408,
+    "lattice_self_coverage_3px": 0.9987,
+    "source": "evidence/gate_null_audit.json"
+  },
+  "candidates_vs_lattice": [
+    {"file": "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif", "sha256_measured": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729", "within_3px": 0.9987, "within_1px": 0.1995, "within_0px": 0.0415, "ok_to_submit": false},
+    {"file": "gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif", "sha256_measured": "2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9", "within_3px": 0.9948, "within_1px": 0.1989, "within_0px": 0.0400, "ok_to_submit": false}
+  ],
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI (carried from evidence, NOT re-run this session)",
+    "shipped_swgb": {"value": 0.1401, "ci95": [0.1329, 0.1452], "evaluator_version": "GEMSASS1-HR-v2-segment", "withheld_positives": 60988, "source": "evidence/swgb/release_decision.json"},
+    "pbsc_e2": {"value": 0.0650, "ci95": [0.0605, 0.0693], "source": "evidence/pbsc/run_card.json"},
+    "bar": {"value": 0.1011, "ci95": [0.0956, 0.1072]}
+  },
+  "projection_not_score": "live ~ 0.192 + 0.575 x holdout (n=17, Spearman -0.081); PROJECTION only",
+  "validator": "evidence/candidate_validator_20261030.json: 11/11 checks pass for both files",
+  "submission_name": "none",
+  "submission_note": "NONE - gate saturated; no file cleared",
+  "experiments_used": 0,
+  "slots_used": 0,
+  "irregularities": [
+    "labels.tif sha256 identical to existing_faults.tif",
+    "leaderboard #1 0.4544 on cached official page vs user-cited 0.4413 and 0.3195",
+    "SWGB run_card headline 0.1586 is the 2 px prune variant; shipped file is 6 px prune 0.1401",
+    "official text permits NaN outside bounds; portal error cause unverified",
+    "fetch_reference_assets.sh sparse clone fails"
+  ]
+}
