@@ -127,3 +127,27 @@ GitHub Pages uses the existing legacy `main` / root configuration, with root lin
 Another parallel session merged a separately negative synthetic research artifact into `main` while this branch ran. It is preserved, not deleted or treated as this lane's output: [parallel-main research archive](archive/parallel-main-f620a70/README.md). All 14 files are byte-hashed; old HTML is inert `.txt`, and TIFFs/ZIP remain learning-only in the archive, outside active downloads. Its limited uniqueness comparison and unvalidated projection are not adopted. The current BGAC-1 decision remains **negative / no approved TIFF**.
 
 A second concurrent audit (PR #4, main `2f67fac`) is also [fully preserved](archive/parallel-main-2f67fac/README.md), including its independent negative lattice-witness read-back, tooling and tests. Its [broader user-provided historical ledger](knowledge/user-provided-submission-ledger.md) is retained additively; unreceipted reports remain unverified. Only the current pipeline/site is active, and pytest scopes execution to tests/, not archived source snapshots.
+
+## Instrument irregularity and the H-GDR-CONDUIT-OFFCAT lane (2026-10-30)
+
+The decisive question for this workspace is not "which field is best" but "which instrument can tell".
+Both candidate local instruments that GEMSDOE32 built to track the live score are **refuted by the
+group's own live record** outside the champion family, and the shared hide-and-recover evaluator is
+**blind to catalogue proximity**:
+
+- SGMC off-catalogue DTI: GEMSDOE29 (0.5607) and GEMSDOE72 (0.6483) score far above the champion
+  (0.0954) yet scored ~0.05 live.
+- Live Mirror: 2/6 raw and 3/6 prevalence-calibrated reproductions of known live orderings.
+- The shared evaluator's truth is the hidden catalogue segments. A 600 m catalogue prune scores
+  HOLDOUT-DTI **0.0000**; a 200 m prune scores **0.0045** — exactly the champion's figure, from a
+  completely different field. The score is set by the prune, not by field content.
+
+New lane **H-GDR-CONDUIT-OFFCAT** (GDR geothermal wells/springs/vents x lidar scarp x competition
+band 17 cond_surf; leakage canary AUC 0.51-0.55, none > 0.90) reproduced the champion's
+shared-evaluator score while being flagged a novelty duplicate (3 px directed overlap 0.999). The
+lane is **negative**. A TIFF was produced through the shared fail-closed writer, carries the
+standard `[0,1]` validator receipt, and is **learning-only** — never uploaded, never a leaderboard
+score, never a promotion candidate.
+
+Full report: [docs/INSTRUMENT_IRREGULARITY.md](docs/INSTRUMENT_IRREGULARITY.md). Executive summary
+page: `docs/executive-summary.html` (new "Instrument irregularity" section).
