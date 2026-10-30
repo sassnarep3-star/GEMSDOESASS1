@@ -36,7 +36,7 @@ def test_refresh_refuses_to_overwrite_existing_manifest():
 
 
 def test_refreshed_manifest_is_complete_and_additive():
-    path = ROOT / 'registry/focus_inventory_20261030.json'
+    path = ROOT / 'registry/focus_inventory_20261030_api.json'
     if not path.exists():
         pytest.skip('refreshed manifest not present in this checkout')
     refreshed = json.loads(path.read_text())

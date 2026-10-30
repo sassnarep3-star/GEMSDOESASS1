@@ -1,0 +1,38 @@
+{
+  "checked_utc_day": "2026-10-30",
+  "method": "fetch_page tool on official DrivenData pages; quotes copied verbatim from the returned text",
+  "sources": [
+    {
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+      "claims": {
+        "metric": "distance-weighted Tversky index; 'alpha=0.2 and beta=0.8'; triangular kernel 'R is 300 meters (i.e., 3 pixels at 100m resolution)'",
+        "format_values": "'values between 0 and 1 indicating the confidence or probability of fault presence'",
+        "format_outside_bounds": "'Your submission has the same bounds as the training data, and data outside the bounds is null or nan.'",
+        "format_dtype": "'a single layer with datatype of 32-bit float (float32)'",
+        "format_crs_res": "EPSG 32611, 100 m resolution",
+        "rounds": "Initial Prize Round scored on a private set; Final Prize Round rescored on an expanded label set; 'Competitors must choose a single submission for scoring across both rounds before the deadline'",
+        "submissions": "'one GeoTIFF per user/team'"
+      },
+      "repo_consistency": "matches src/gems/metric.py and vendor/gems57/metric.py constants (ALPHA 0.2, BETA 0.8, RADIUS 300 m / 3 px)",
+      "irregularity": "Official text permits NaN outside bounds, while the repo's pbsc/swgb pages state NaN outside the footprint caused the portal error 'Predicted values must be in range [0, 1]'. The actual cause of that portal error is NOT verified by any organizer receipt."
+    },
+    {
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+      "claims": {
+        "rank1": "xiaofanhu, Best public DW-Tversky 0.4544, 34 submissions",
+        "rank2": "cfld__, 0.3916",
+        "rank3": "Batik Shirt Brothers, 0.3911"
+      },
+      "irregularity": "The user-supplied values 0.4413 (GEMSDOE leaderboard high) and 0.3195 (current high) do not match the cached leaderboard text. The page is a cached snapshot without a fetch timestamp; treat the table as UNVERIFIED-LIVE until re-read in a browser."
+    },
+    {
+      "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+      "claims": "reference solution; not fetched in this session"
+    },
+    {
+      "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "claims": "submission guidance PDF; not fetched in this session (not verified)"
+    }
+  ],
+  "blocked_in_this_sandbox": ["https://www.drivendata.org/competitions/306/competition-doe-gems/data/ (login)", "https://www.dropbox.com/ (no network)", "https://gdr.openei.org/ (no network)"]
+}

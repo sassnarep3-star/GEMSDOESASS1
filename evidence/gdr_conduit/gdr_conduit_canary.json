@@ -1,0 +1,12 @@
+{
+  "evidence_class": "LEAKAGE-CANARY, NOT A DTI SCORE",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "fold": 0,
+  "n_withheld_positives": 13289,
+  "auc": {
+    "scarp": 0.5408747488524344,
+    "geo": 0.5494091660395816,
+    "cond": 0.5130841440288961
+  },
+  "flagged_over_0p90": {}
+}

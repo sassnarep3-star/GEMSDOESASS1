@@ -1,0 +1,56 @@
+{
+  "run_id": "2026-10-30-nine-site-gate",
+  "evidence_class": "REGISTRY-MEASUREMENT + OFFICIAL-TEXT-READ + OWNER-REPORT (scores are not organizer receipts)",
+  "generated_utc": "2026-10-30T02:36:27+00:00",
+  "hypothesis": {
+    "status": "none_run",
+    "top_ranked": "H-BASEMENT-STEP-GRAD (knowledge/hypotheses_20261030.md)",
+    "reason_not_run": "Literal 70%/3 px lattice rule cannot pass any file above 22,163 positive pixels (measured). Holdout could not change the release decision."
+  },
+  "mechanism": "None tested. Documented: 0.2778 raster = GEMSDOE25 44,090-dot raster minus 6,436 dots, all within 1-2 px of mapped faults (verified from bytes).",
+  "mimicking_non_fault_process": "Not applicable (no candidate). For H-BASEMENT-STEP-GRAD: sedimentary basin margins and dike contacts.",
+  "holdout_dti": null,
+  "holdout_ci95": null,
+  "holdout_note": "Not run. No candidate. Reference bar from prior runs: 0.1011 [0.0956, 0.1072] for the 0.2600 family base (GEMSASS1-HR-v2-segment, 60,988 withheld positives). Not comparable to any live score.",
+  "overlap": {
+    "rule": "more than 70% of dots within 3 px of one registry raster = duplicate",
+    "nine_site_pairs_over_limit": "72/72",
+    "nine_site_max_pair_overlap": 1.0,
+    "lattice_random_same_count_mean": 0.9987,
+    "lattice_uncovered_footprint_cells": 6649,
+    "max_dots_satisfying_literal_rule": 22163,
+    "exact_dot_set_groups": 164,
+    "cross_site_dot_set_groups": 6
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "tool": "scripts/validate_format.py",
+    "standard": "DrivenData GEMS submission format (page 967) + NLR rules \u00a73.2",
+    "best_files_pass": "9/9",
+    "evidence": "evidence/format_validation_nine_best.json"
+  },
+  "submission_name": null,
+  "submission_note": null,
+  "verdict": "negative",
+  "ok_to_download_and_submit": false,
+  "approved_for_submission": false,
+  "promotion": "not_attempted",
+  "weekly_slots_used": 0,
+  "experiments_run": 0,
+  "blocking_items": [
+    "Eligibility: official rules s1.3 restrict eligibility to U.S. citizens/permanent residents or U.S.-incorporated entities; user location SG. Confirm before any upload.",
+    "Literal uniqueness rule: any file above 22,163 positive pixels fails against the GEMSDOE24 calibration lattice (measured bound).",
+    "Policy decision required: versioned amendment to the uniqueness test (see knowledge/NEXT_STEPS.md)."
+  ],
+  "official_links_for_review": [
+    "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+    "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+    "https://www.nlr.gov/docs/fy26osti/96647.pdf"
+  ],
+  "limitations": [
+    "Scores are OWNER-REPORT; no organizer receipt.",
+    "Leaderboard values are a single snapshot without a timestamp.",
+    "Rules chunk 6 (definitions and platform) was not read.",
+    "Holdout does not calibrate to live (Spearman -0.081, n=17)."
+  ]
+}

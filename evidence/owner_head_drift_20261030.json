@@ -1,12 +1,12 @@
 {
   "schema": "owner-head-drift-v1",
   "tag": "20261030",
-  "checked_utc": "2026-10-30T02:56:55+00:00",
+  "checked_utc": "2026-10-30T03:19:14+00:00",
   "frozen_manifest": {
     "path": "registry/focus_inventory.json",
     "snapshot_utc": "2026-10-27T11:33:22.453588+00:00"
   },
-  "refreshed_manifest": "registry/focus_inventory_20261030.json",
+  "refreshed_manifest": "registry/focus_inventory_20261030_api.json",
   "repos": {
     "GEMSDOE24": {
       "frozen_pin": "cf093c8c5e9fa77294ecf4c59b79cdade92cbc06",

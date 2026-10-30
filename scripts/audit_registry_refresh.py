@@ -60,7 +60,7 @@ def summarize(receipt, new_blob_shas):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--refreshed', default='registry/focus_inventory_20261030.json')
+    ap.add_argument('--refreshed', default='registry/focus_inventory_20261030_api.json')
     ap.add_argument('--frozen', default='registry/focus_inventory.json')
     ap.add_argument('--tag', default='20261030')
     ap.add_argument('--out', default=None)

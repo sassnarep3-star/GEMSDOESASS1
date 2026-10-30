@@ -20,7 +20,7 @@
     }
   },
   "refreshed_manifest": {
-    "path": "registry/focus_inventory_20261030.json",
+    "path": "registry/focus_inventory_20261030_api.json",
     "sha256": "7cbf708aad52b22c9a306811b98211335cb4c639b8a34a15a34d5c8cc3ff4994",
     "snapshot_utc": "2026-10-30T02:56:37.084954+00:00",
     "rasters": 489,
@@ -53,7 +53,7 @@
   "positive_control": {
     "path": "GEMSDOE24/docs/downloads/24GEMSDOE-ventrad-blind-geothermal-20261028-34b558b554fb-zero.tif",
     "self_match_directed_overlap_within_3px": 1.0,
-    "self_match_spearman": 1.0000000000000138,
+    "self_match_spearman": 1.00000000000001,
     "audit_duplicate_detected": true,
     "first_audit_hit": {
       "repo": "GEMSDOE24",
@@ -70,7 +70,7 @@
       "processed": 489,
       "unassessable": 1,
       "unique_value_arrays": 262,
-      "max_spearman": 0.07139541664886938,
+      "max_spearman": 0.07139541664886898,
       "max_directed_overlap_within_3px": 0.9948478249322781,
       "new_since_frozen_compared": 67,
       "max_overlap_vs_new_since_frozen": 0.6172518191958357,
@@ -83,35 +83,35 @@
         {
           "repo": "GEMSDOE24",
           "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
-          "spearman": -3.038388911598264e-05,
+          "spearman": -3.038388911598247e-05,
           "directed_overlap_within_3px": 0.9948478249322781,
           "duplicate": true
         },
         {
           "repo": "GEMSDOE24",
           "path": "docs/downloads/GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-nan.tif",
-          "spearman": 0.0300463215311489,
+          "spearman": 0.03004632153114873,
           "directed_overlap_within_3px": 0.6172518191958357,
           "duplicate": false
         },
         {
           "repo": "GEMSDOE24",
           "path": "docs/downloads/GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-zeros.tif",
-          "spearman": 0.0300463215311489,
+          "spearman": 0.03004632153114873,
           "directed_overlap_within_3px": 0.6172518191958357,
           "duplicate": false
         },
         {
           "repo": "GEMSDOE28",
           "path": "docs/downloads/gems28-s20-vesselness-lidarstep-20261026-7a7c5e449fe0-allfinite.tif",
-          "spearman": 0.05119449555675558,
+          "spearman": 0.051194495556755294,
           "directed_overlap_within_3px": 0.47498273755776277,
           "duplicate": false
         },
         {
           "repo": "GEMSDOE28",
           "path": "docs/downloads/gems28-s20-vesselness-lidarstep-20261026-7a7c5e449fe0-nan.tif",
-          "spearman": 0.05119449555675558,
+          "spearman": 0.051194495556755294,
           "directed_overlap_within_3px": 0.47498273755776277,
           "duplicate": false
         }
@@ -129,7 +129,7 @@
       "processed": 489,
       "unassessable": 1,
       "unique_value_arrays": 262,
-      "max_spearman": 0.04395341733053843,
+      "max_spearman": 0.043953417330526164,
       "max_directed_overlap_within_3px": 0.9987071898389658,
       "new_since_frozen_compared": 67,
       "max_overlap_vs_new_since_frozen": 0.54107507371286,
@@ -142,35 +142,35 @@
         {
           "repo": "GEMSDOE24",
           "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
-          "spearman": 0.000672832217276371,
+          "spearman": 0.0006728322172761832,
           "directed_overlap_within_3px": 0.9987071898389658,
           "duplicate": true
         },
         {
           "repo": "GEMSDOE25",
           "path": "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif",
-          "spearman": 0.03342074167747112,
+          "spearman": 0.033420741677461785,
           "directed_overlap_within_3px": 0.6217736448174189,
           "duplicate": false
         },
         {
           "repo": "GEMSDOE25",
           "path": "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-zeros.tif",
-          "spearman": 0.03342074167747112,
+          "spearman": 0.033420741677461785,
           "directed_overlap_within_3px": 0.6217736448174189,
           "duplicate": false
         },
         {
           "repo": "GEMSDOE25",
           "path": "docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-nan.tif",
-          "spearman": 0.03915576108695871,
+          "spearman": 0.03915576108694777,
           "directed_overlap_within_3px": 0.6205942390564754,
           "duplicate": false
         },
         {
           "repo": "GEMSDOE25",
           "path": "docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-zeros.tif",
-          "spearman": 0.03915576108695871,
+          "spearman": 0.03915576108694777,
           "directed_overlap_within_3px": 0.6205942390564754,
           "duplicate": false
         }
