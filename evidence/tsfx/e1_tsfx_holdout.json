@@ -1,0 +1,210 @@
+{
+  "experiment": "E1-H-TSFX",
+  "hypothesis": "tectonic-strain fusion learner: SWGB's 28 layers + 19 GeoDAWN/strain/seismicity/basement/conductivity/detrended bands + 4 polarity-coherence transforms + 4 visible-only catalogue-context features (55 total)",
+  "features": [
+    "geo_cond_surf",
+    "geo_depth_to_base_surf",
+    "geo_deq_n100a15",
+    "geo_det_elev",
+    "geo_det_elev_slope",
+    "geo_geod_2ndinv",
+    "geo_geod_dilaterate",
+    "geo_geod_shearrate",
+    "geo_ieq_n100a15",
+    "geo_iso_grav_anom",
+    "geo_iso_grav_anom_hg",
+    "geo_iso_grav_anom_slope",
+    "geo_iso_grav_anom_vg",
+    "geo_mag_anom",
+    "geo_rtp",
+    "geo_tc",
+    "geo_tmi",
+    "geo_tmi_hg",
+    "geo_tmi_vg",
+    "lidar_coh100",
+    "lidar_cross_max",
+    "lidar_dipole",
+    "lidar_downface_max",
+    "lidar_ex_max",
+    "lidar_ex_max_s3",
+    "lidar_ex_mean",
+    "lidar_face_asym",
+    "lidar_facing_instab",
+    "lidar_lapneg_max",
+    "lidar_lappos_max",
+    "lidar_pol_facing",
+    "lidar_relief",
+    "lidar_step_max",
+    "lidar_step_streak",
+    "lidar_strike",
+    "lidar_strike_conc",
+    "lidar_strike_cos2",
+    "lidar_strike_sin2",
+    "lidar_upface_max",
+    "mag_TMI_up150",
+    "mag_hgrad_s2",
+    "mag_hgrad_s5",
+    "rad_K",
+    "rad_K_grad_s3",
+    "rad_TC",
+    "rad_Th",
+    "rad_ThK",
+    "rad_ThK_grad_s3",
+    "rad_U",
+    "rad_UK",
+    "rad_UTh",
+    "cat_logdist",
+    "cat_logtip",
+    "cat_dens",
+    "cat_strike_agree"
+  ],
+  "provenance_note": "Trained in run_tsfx.py e1 (completed 5 folds, fields saved, result-dict crash). Scored here from float16 saved fields via run_e1score.",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "holdout_dti": 0.15870726100104657,
+  "ci95": [
+    0.1521938598298753,
+    0.1658330279172113
+  ],
+  "n_withheld_positives": 60988,
+  "tp": 14972.525793269788,
+  "fp": 212778.08248156693,
+  "fn": 46015.474206730214,
+  "per_fold": [
+    {
+      "fold": 0,
+      "n_test": 13289,
+      "tp": 3163.909804591939,
+      "fp": 42482.42295433146,
+      "fn": 10125.090195408062,
+      "dti": 0.16011311252700094,
+      "emitted": 44090
+    },
+    {
+      "fold": 1,
+      "n_test": 12209,
+      "tp": 3083.7404226198923,
+      "fp": 42525.708581555155,
+      "fn": 9125.259577380108,
+      "dti": 0.16325510943801924,
+      "emitted": 44090
+    },
+    {
+      "fold": 2,
+      "n_test": 11470,
+      "tp": 2675.5743497609765,
+      "fp": 42692.87002804251,
+      "fn": 8794.425650239024,
+      "dti": 0.14660931306856445,
+      "emitted": 44090
+    },
+    {
+      "fold": 3,
+      "n_test": 12776,
+      "tp": 3186.7521221678094,
+      "fp": 42426.2660864378,
+      "fn": 9589.24787783219,
+      "dti": 0.16474619364786525,
+      "emitted": 44090
+    },
+    {
+      "fold": 4,
+      "n_test": 11244,
+      "tp": 2862.54909412917,
+      "fp": 42650.81483120002,
+      "fn": 8381.45090587083,
+      "dti": 0.1581704727470133,
+      "emitted": 44090
+    }
+  ],
+  "farfield": {
+    "evaluator": "GEMSASS1-HR-v2-segment-farfield>5px",
+    "holdout_dti": 0.14235981921921195,
+    "ci95": [
+      0.13446131189585417,
+      0.1496557463246439
+    ],
+    "n_withheld_positives": 51094,
+    "tp": 10662.928125248007,
+    "fp": 159467.31189844705,
+    "fn": 40431.07187475199,
+    "per_fold": [
+      {
+        "fold": 0,
+        "n_test": 11092,
+        "tp": 2239.592978106458,
+        "fp": 32082.89649404056,
+        "fn": 8852.407021893541,
+        "dti": 0.14230391710164514,
+        "emitted": 33188
+      },
+      {
+        "fold": 1,
+        "n_test": 10281,
+        "tp": 2231.9276742148604,
+        "fp": 31533.2065453685,
+        "fn": 8049.07232578514,
+        "dti": 0.14901545447638617,
+        "emitted": 32632
+      },
+      {
+        "fold": 2,
+        "n_test": 9587,
+        "tp": 1816.1627661930074,
+        "fp": 31507.174092485053,
+        "fn": 7770.837233806993,
+        "dti": 0.12670077368405497,
+        "emitted": 32426
+      },
+      {
+        "fold": 3,
+        "n_test": 10693,
+        "tp": 2330.7932669972834,
+        "fp": 32764.742327808097,
+        "fn": 8362.206733002717,
+        "dti": 0.1496639934212052,
+        "emitted": 33975
+      },
+      {
+        "fold": 4,
+        "n_test": 9441,
+        "tp": 2044.4514397363964,
+        "fp": 31579.292438744815,
+        "fn": 7396.548560263603,
+        "dti": 0.1431934481090014,
+        "emitted": 32580
+      }
+    ]
+  },
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ],
+    "evidence": "evidence/swgb/holdout_calibration.json"
+  },
+  "repo_best": {
+    "name": "E2-SWGB field emission, prune 4 px, 44,090 dots",
+    "holdout_dti": 0.1591,
+    "ci95": [
+      0.1538,
+      0.1639
+    ],
+    "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+  },
+  "e2_as_evaluated": {
+    "name": "E2-SWGB as evaluated",
+    "holdout_dti": 0.1586,
+    "ci95": [
+      0.1519,
+      0.1649
+    ],
+    "evidence": "evidence/swgb/e2_swgb_holdout.json"
+  },
+  "beats_bar": true,
+  "beats_repo_best": false,
+  "n_dots": 44090,
+  "spacing_px": 2.8,
+  "elapsed_s": 21.9
+}

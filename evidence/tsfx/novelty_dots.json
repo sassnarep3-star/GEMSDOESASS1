@@ -1,0 +1,99 @@
+{
+  "stage": "dots",
+  "registry_size": 414,
+  "processed": 414,
+  "comparisons_complete": true,
+  "amended_n2_rows": 1,
+  "amendment": "AMEND-LATTICE-01 + AMEND-N2 (knowledge/hypotheses_20261030_tsfx.md)",
+  "competitive": {
+    "n": 412,
+    "max_spearman": 0.07724643469979621,
+    "max_frac_dots_within_3px": 0.7226808800181447,
+    "duplicates": [
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-apfl2-h35plus-apfl-b2-sapd2-4-k3p5-20261026-2e9e4189f554-nan.tif",
+        "spearman": 0.07452459975568913,
+        "overlap": 0.7019505556815604
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-apfl2-h35plus-apfl-b2-sapd2-4-k3p5-20261026-2e9e4189f554-zeros.tif",
+        "spearman": 0.07452459975568913,
+        "overlap": 0.7019505556815604
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-cf1-transverse-negative-20261025-22e2f9eddad9-zeros.tif",
+        "spearman": 0.07293278376669193,
+        "overlap": 0.7075073712860059
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-h31-1-flank-subscarp-sapd24-20261025-40bfe1d5b1c5-nan.tif",
+        "spearman": 0.07724643469979621,
+        "overlap": 0.7019732365615786
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-h31-1-flank-subscarp-sapd24-20261025-40bfe1d5b1c5-zeros.tif",
+        "spearman": 0.07724643469979621,
+        "overlap": 0.7019732365615786
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-nan.tif",
+        "spearman": 0.07479835262002821,
+        "overlap": 0.7086867770469494
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-zeros.tif",
+        "spearman": 0.07479835262002821,
+        "overlap": 0.7086867770469494
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif",
+        "spearman": 0.0692266758485858,
+        "overlap": 0.7226808800181447
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-zeros.tif",
+        "spearman": 0.0692266758485858,
+        "overlap": 0.7226808800181447
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-obj-bin-greedy-k3p5-20261026-3646faf70507-nan.tif",
+        "spearman": 0.0709562839209324,
+        "overlap": 0.7186663642549331
+      },
+      {
+        "repo": "GEMSDOE25",
+        "path": "docs/downloads/gems25-obj-bin-greedy-k3p5-20261026-3646faf70507-zeros.tif",
+        "spearman": 0.0709562839209324,
+        "overlap": 0.7186663642549331
+      }
+    ],
+    "duplicate": true,
+    "cleared": false
+  },
+  "ir_lattice_01": {
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "measured_overlap_within_3px": 0.9950782490360626,
+    "measured_spearman": 0.0007050288224845575,
+    "policy": "measured, reported, excluded from pass/fail per AMEND-LATTICE-01 \u2014 witness: the 0.2778 champion itself scores 99.915% against this 5 px grid",
+    "status": "FLAGGED-IRREGULARITY"
+  },
+  "raw_max_spearman": 0.07724643469979621,
+  "raw_max_overlap": 0.9950782490360626,
+  "candidate_values_sha256": "8815a7f0399e90029b43144b6554e861c2b9d1bedb01c16910da32f1e6e0fad2",
+  "thresholds": {
+    "spearman": 0.9,
+    "overlap": 0.7,
+    "px": 3
+  },
+  "comparison_method": "exact all-footprint ranks; positive support >0, no density exemptions"
+}

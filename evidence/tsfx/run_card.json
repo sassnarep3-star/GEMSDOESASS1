@@ -1,0 +1,593 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-30T03:27:04.141372+00:00",
+  "lane": "H-TSFX",
+  "hypothesis": "Unmapped Holocene fault scarps in the NW Great Basin sit where geodetic strain rate, instrumental seismicity and basement-step context coincide with lidar scarp polarity morphology; a segment-withheld learner over those layers recovers fault scarps that the visible USGS/INGENIOUS catalogue does not contain.",
+  "mechanism": "HistGradientBoosting on 55 features (SWGB's 28 + 19 GeoDAWN/strain/seismicity/basement/conductivity/detrended bands + 4 polarity-coherence transforms + 4 visible-only catalogue-context features), 5 segment-withheld folds, hyper-parameters identical to frozen E2-SWGB (clean feature-set ablation); Poisson-disk emission.",
+  "named_non_fault_mimic": "Fluvial terrace risers and canal banks (facing follows drainage, not regional dip); pluvial Lake Lahontan shorelines; lithologic contacts and flight-line seams; seismicity-distance bands follow population/instrument coverage; interpolated geodetic strain-rate is a smooth prior, not a scarp.",
+  "evidence_classes": {
+    "holdout_dti": "HOLDOUT-DTI",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "n_withheld_positives": 60988,
+    "projection_note": "No leaderboard projection is recorded as a score; no ORGANIZER-CONFIRMED receipt exists in this session."
+  },
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "protocol_dots": {
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.16742255298131667,
+      "ci95": [
+        0.16144667377621574,
+        0.1733831832864226
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 15857.228416994882,
+      "fp": 213759.83783552045,
+      "fn": 45130.77158300512,
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 13289,
+          "tp": 3364.210050673543,
+          "fp": 42684.748048500645,
+          "fn": 9924.78994932646,
+          "dti": 0.16955856416522933,
+          "emitted": 44090
+        },
+        {
+          "fold": 1,
+          "n_test": 12209,
+          "tp": 3197.3990369904245,
+          "fp": 42753.0626090167,
+          "fn": 9011.600963009576,
+          "dti": 0.1686632764566919,
+          "emitted": 44090
+        },
+        {
+          "fold": 2,
+          "n_test": 11470,
+          "tp": 2859.4617415628572,
+          "fp": 42855.90437154912,
+          "fn": 8610.538258437144,
+          "dti": 0.15609205262805984,
+          "emitted": 44090
+        },
+        {
+          "fold": 3,
+          "n_test": 12776,
+          "tp": 3342.6264380490275,
+          "fp": 42662.55132348635,
+          "fn": 9433.373561950972,
+          "dti": 0.17210661829808174,
+          "emitted": 44090
+        },
+        {
+          "fold": 4,
+          "n_test": 11244,
+          "tp": 3093.5311497190287,
+          "fp": 42803.57148296763,
+          "fn": 8150.468850280972,
+          "dti": 0.17021159507578532,
+          "emitted": 44090
+        }
+      ]
+    },
+    "farfield": {
+      "evaluator": "GEMSASS1-HR-v2-segment-farfield>5px",
+      "holdout_dti": 0.14943760721940114,
+      "ci95": [
+        0.1435604822575863,
+        0.1548244288796709
+      ],
+      "n_withheld_positives": 51094,
+      "tp": 11643.043491172026,
+      "fp": 173542.98536539136,
+      "fn": 39450.95650882798,
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 11092,
+          "tp": 2478.203409603543,
+          "fp": 35181.94532865138,
+          "fn": 8613.796590396458,
+          "dti": 0.15105810918098897,
+          "emitted": 36219
+        },
+        {
+          "fold": 1,
+          "n_test": 10281,
+          "tp": 2349.8530564031366,
+          "fp": 34380.16595681367,
+          "fn": 7931.146943596863,
+          "dti": 0.15091404953700693,
+          "emitted": 35360
+        },
+        {
+          "fold": 2,
+          "n_test": 9587,
+          "tp": 2044.8750552372928,
+          "fp": 34746.64590427107,
+          "fn": 7542.124944762707,
+          "dti": 0.1360718719739541,
+          "emitted": 35634
+        },
+        {
+          "fold": 3,
+          "n_test": 10693,
+          "tp": 2506.006891574785,
+          "fp": 35126.375609970404,
+          "fn": 8186.993108425215,
+          "dti": 0.15583770521007514,
+          "emitted": 36211
+        },
+        {
+          "fold": 4,
+          "n_test": 9441,
+          "tp": 2264.1050783532664,
+          "fp": 34107.85256568482,
+          "fn": 7176.894921646734,
+          "dti": 0.15269952330179026,
+          "emitted": 35049
+        }
+      ]
+    },
+    "shipped_file_diagnostic": {
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.0015487352738410615,
+      "ci95": [
+        0.0014348349235758276,
+        0.001679432029073738
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 143.85163573681137,
+      "fp": 220320.62471932452,
+      "fn": 60844.14836426319,
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 13289,
+          "tp": 29.09136024248959,
+          "fp": 44063.903019158315,
+          "fn": 13259.908639757512,
+          "dti": 0.0014957152219484385,
+          "emitted": 44090
+        },
+        {
+          "fold": 1,
+          "n_test": 12209,
+          "tp": 32.46978451993102,
+          "fp": 44061.08021263277,
+          "fn": 12176.530215480068,
+          "dti": 0.0017470107474385635,
+          "emitted": 44090
+        },
+        {
+          "fold": 2,
+          "n_test": 11470,
+          "tp": 30.551172107549498,
+          "fp": 44061.94893823056,
+          "fn": 11439.448827892451,
+          "dti": 0.0016978061113163995,
+          "emitted": 44090
+        },
+        {
+          "fold": 3,
+          "n_test": 12776,
+          "tp": 29.391061106906903,
+          "fp": 44063.59245707237,
+          "fn": 12746.608938893092,
+          "dti": 0.0015436970805537257,
+          "emitted": 44090
+        },
+        {
+          "fold": 4,
+          "n_test": 11244,
+          "tp": 22.348257759934366,
+          "fp": 44070.10009223051,
+          "fn": 11221.651742240067,
+          "dti": 0.001254555242285006,
+          "emitted": 44090
+        }
+      ]
+    },
+    "protocol_config": {
+      "prune_px_vs_visible": 4.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3
+    }
+  },
+  "bars": {
+    "promote_bar": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ],
+      "evidence": "evidence/swgb/holdout_calibration.json"
+    },
+    "repo_holdout_best": {
+      "name": "E2-SWGB field emission, prune 4 px, 44,090 dots",
+      "holdout_dti": 0.1591,
+      "ci95": [
+        0.1538,
+        0.1639
+      ],
+      "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+    },
+    "e2_as_evaluated": {
+      "name": "E2-SWGB as evaluated",
+      "holdout_dti": 0.1586,
+      "ci95": [
+        0.1519,
+        0.1649
+      ],
+      "evidence": "evidence/swgb/e2_swgb_holdout.json"
+    },
+    "beats_promote_bar": true,
+    "beats_repo_best": true
+  },
+  "paired_vs_frozen_e2": {
+    "method": "paired per-fold DTI difference vs frozen E2-SWGB on identical folds (GEMSASS1-HR-v2-segment); t-interval over 5 folds",
+    "n_folds": 5,
+    "mean_delta": 0.008812906785843611,
+    "ci95": [
+      -0.0018144021356908575,
+      0.01944021570737808
+    ],
+    "improves": false,
+    "rows": [
+      {
+        "fold": 0,
+        "mine": 0.16955856416522933,
+        "e2": 0.1640863265805955,
+        "delta": 0.005472237584633832
+      },
+      {
+        "fold": 1,
+        "mine": 0.1686632764566919,
+        "e2": 0.1521211417437463,
+        "delta": 0.016542134712945605
+      },
+      {
+        "fold": 2,
+        "mine": 0.15609205262805984,
+        "e2": 0.16070161457776105,
+        "delta": -0.004609561949701219
+      },
+      {
+        "fold": 3,
+        "mine": 0.17210661829808174,
+        "e2": 0.15953547755989614,
+        "delta": 0.012571140738185604
+      },
+      {
+        "fold": 4,
+        "mine": 0.17021159507578532,
+        "e2": 0.1561230122326311,
+        "delta": 0.01408858284315423
+      }
+    ]
+  },
+  "canary": {
+    "passed": true,
+    "flagged": {},
+    "max_mean_auc": 0.7216649433881086
+  },
+  "correlation_overlap_vs_registry": {
+    "surface": {
+      "n": 412,
+      "max_spearman": 0.18453755534187963,
+      "max_frac_dots_within_3px": 0.3188835023134579,
+      "duplicates": [],
+      "duplicate": false,
+      "cleared": true
+    },
+    "dots": {
+      "n": 412,
+      "max_spearman": 0.07724643469979621,
+      "max_frac_dots_within_3px": 0.7226808800181447,
+      "duplicates": [
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-apfl2-h35plus-apfl-b2-sapd2-4-k3p5-20261026-2e9e4189f554-nan.tif",
+          "spearman": 0.07452459975568913,
+          "overlap": 0.7019505556815604
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-apfl2-h35plus-apfl-b2-sapd2-4-k3p5-20261026-2e9e4189f554-zeros.tif",
+          "spearman": 0.07452459975568913,
+          "overlap": 0.7019505556815604
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-cf1-transverse-negative-20261025-22e2f9eddad9-zeros.tif",
+          "spearman": 0.07293278376669193,
+          "overlap": 0.7075073712860059
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-h31-1-flank-subscarp-sapd24-20261025-40bfe1d5b1c5-nan.tif",
+          "spearman": 0.07724643469979621,
+          "overlap": 0.7019732365615786
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-h31-1-flank-subscarp-sapd24-20261025-40bfe1d5b1c5-zeros.tif",
+          "spearman": 0.07724643469979621,
+          "overlap": 0.7019732365615786
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-nan.tif",
+          "spearman": 0.07479835262002821,
+          "overlap": 0.7086867770469494
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-h31-control-sapd2-4-k3p5-bde7-20261025-9edd6bed8268-zeros.tif",
+          "spearman": 0.07479835262002821,
+          "overlap": 0.7086867770469494
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif",
+          "spearman": 0.0692266758485858,
+          "overlap": 0.7226808800181447
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-zeros.tif",
+          "spearman": 0.0692266758485858,
+          "overlap": 0.7226808800181447
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-obj-bin-greedy-k3p5-20261026-3646faf70507-nan.tif",
+          "spearman": 0.0709562839209324,
+          "overlap": 0.7186663642549331
+        },
+        {
+          "repo": "GEMSDOE25",
+          "path": "docs/downloads/gems25-obj-bin-greedy-k3p5-20261026-3646faf70507-zeros.tif",
+          "spearman": 0.0709562839209324,
+          "overlap": 0.7186663642549331
+        }
+      ],
+      "duplicate": true,
+      "cleared": false
+    },
+    "ir_lattice_01": {
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "measured_overlap_within_3px": 0.9950782490360626,
+      "measured_spearman": 0.0007050288224845575,
+      "policy": "measured, reported, excluded from pass/fail per AMEND-LATTICE-01 \u2014 witness: the 0.2778 champion itself scores 99.915% against this 5 px grid",
+      "status": "FLAGGED-IRREGULARITY"
+    },
+    "ir_lattice_01_surface": {
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "measured_overlap_within_3px": 0.9987132726822701,
+      "measured_spearman": 2.2106905531796135e-05,
+      "policy": "measured, reported, excluded from pass/fail per AMEND-LATTICE-01 \u2014 witness: the 0.2778 champion itself scores 99.915% against this 5 px grid",
+      "status": "FLAGGED-IRREGULARITY"
+    },
+    "extras": {
+      "rows": [
+        {
+          "site": "GEMSDOESASS1-SWGB",
+          "file": "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+          "frac_dots_within_3px": 0.5475164436380131,
+          "spearman": 0.060159648504313476,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS1-PBSC",
+          "file": "gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif",
+          "frac_dots_within_3px": 0.18151508278521206,
+          "spearman": -0.0034950124783637627,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+          "file": "GEMSDOESASS2-gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+          "frac_dots_within_3px": 0.38956679519165344,
+          "spearman": 0.032227970255452605,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+          "file": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+          "frac_dots_within_3px": 0.1235427534588342,
+          "spearman": 0.0013042551873944518,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+          "file": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+          "frac_dots_within_3px": 0.1235427534588342,
+          "spearman": 0.0013042551873944518,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+          "frac_dots_within_3px": 0.37337264685869814,
+          "spearman": 0.01966021708426341,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+          "frac_dots_within_3px": 0.23667498298933998,
+          "spearman": 0.0024281272191446325,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+          "frac_dots_within_3px": 0.23667498298933998,
+          "spearman": 0.0024281272191446325,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+          "frac_dots_within_3px": 0.3151054660920844,
+          "spearman": 0.039340900608473894,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+          "frac_dots_within_3px": 0.3151054660920844,
+          "spearman": 0.039340900608473894,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+          "frac_dots_within_3px": 0.09303696983442958,
+          "spearman": -0.0002790083724433193,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+          "frac_dots_within_3px": 0.09303696983442958,
+          "spearman": -0.0002790083724433193,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+          "frac_dots_within_3px": 0.2134497618507598,
+          "spearman": 0.058352439182725424,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+          "frac_dots_within_3px": 0.2134497618507598,
+          "spearman": 0.058352439182725424,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+          "frac_dots_within_3px": 0.3871853027897482,
+          "spearman": 0.018126430510670578,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+          "file": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+          "frac_dots_within_3px": 0.3871853027897482,
+          "spearman": 0.018126430510670578,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-gemsdoesass3-bgk-pbe-gravity-k-dilatation-blind-fault-20261029T000321Z-af121062-zeros.tif",
+          "file": "GEMSDOESASS3-gemsdoesass3-bgk-pbe-gravity-k-dilatation-blind-fault-20261029T000321Z-af121062-zeros.tif",
+          "frac_dots_within_3px": 0.0,
+          "spearman": -0.002543945916102234,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-gemsdoesass3-gsdhua3-sar-deconf-37654-20261027-74f544e862fd-zeros.tif",
+          "file": "GEMSDOESASS3-gemsdoesass3-gsdhua3-sar-deconf-37654-20261027-74f544e862fd-zeros.tif",
+          "frac_dots_within_3px": 0.30428668632342937,
+          "spearman": 0.042667015688155646,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-gemsdoesass3-literal-lwst-disp21k-20261029T001500Z-f0e5abd2-nan.tif",
+          "file": "GEMSDOESASS3-gemsdoesass3-literal-lwst-disp21k-20261029T001500Z-f0e5abd2-nan.tif",
+          "frac_dots_within_3px": 0.17040145157632117,
+          "spearman": 0.013248910833415959,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-gemsdoesass3-lwst-geoconduit-dual37654-20261027T120000Z-a9ad3386-zeros.tif",
+          "file": "GEMSDOESASS3-gemsdoesass3-lwst-geoconduit-dual37654-20261027T120000Z-a9ad3386-zeros.tif",
+          "frac_dots_within_3px": 0.2648219550918576,
+          "spearman": 0.01946230913928361,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-gemsdoesass3-tipcont-disp44923-4px-20261030T0330Z.tif",
+          "file": "GEMSDOESASS3-gemsdoesass3-tipcont-disp44923-4px-20261030T0330Z.tif",
+          "frac_dots_within_3px": 0.36520753005216605,
+          "spearman": 0.013274782993735173,
+          "duplicate": false
+        },
+        {
+          "site": "GEMSDOESASS3-gemsdoesass3-unique-structural-20261029T000102Z-e3ecb47c-zeros.tif",
+          "file": "GEMSDOESASS3-gemsdoesass3-unique-structural-20261029T000102Z-e3ecb47c-zeros.tif",
+          "frac_dots_within_3px": 0.055681560444545246,
+          "spearman": -8.964746594711526e-05,
+          "duplicate": false
+        }
+      ],
+      "max_spearman": 0.060159648504313476,
+      "max_frac_dots_within_3px": 0.5475164436380131,
+      "is_duplicate": false
+    },
+    "amendment": "AMEND-LATTICE-01 (lattice witness: the 0.2778 champion = 99.915% vs the 5 px grid)"
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "status": "not written \u2014 gates failed"
+  },
+  "submission_name": null,
+  "submission_zip": null,
+  "submission_note": null,
+  "planned_submission_name": "gemsass1-tsfx-44090dots-20261030T032704Z-8815a7f0399e-zeros.tif",
+  "planned_note": "H-TSFX strain+seismic+scarp learner 44090d prune2fullcat; HOLDOUT-DTI 0.1674; unique; IR-LATTICE-01 flagged",
+  "note_length": 107,
+  "artifact": null,
+  "budget": {
+    "experiments_run": 2,
+    "cumulative_seconds": 1232.2,
+    "seconds_budget": 7200,
+    "experiment_budget": 3,
+    "stage_seconds": 426.8
+  },
+  "slot": {
+    "used": 0,
+    "selector_implemented": false,
+    "policy": "promotion to a real slot is a separate selector step within the weekly cap"
+  },
+  "verdict": "negative",
+  "promote_reasons": {
+    "canary_pass": true,
+    "beats_promote_bar": true,
+    "beats_repo_best": true,
+    "novelty_ok": false,
+    "validator_ok": false,
+    "paired_improves": false
+  },
+  "ok_to_submit": false,
+  "amendments": [
+    "AMEND-LATTICE-01",
+    "AMEND-N2"
+  ],
+  "limitations": [
+    "HOLDOUT-DTI is a hide-and-recover gate, not a leaderboard projection; no local instrument ranks within the 0.24-0.28 H19-5 family (Spearman -0.08, evidence/swgb/holdout_calibration.json).",
+    "No DrivenData auth: owner-reported ledger scores stay OWNER-REPORT; the 0.4413/0.3195 leaderboard claims conflict and remain unverified.",
+    "Registry scope = 414 TIFFs in nine public focus repos + sibling files measured; other competitors' private submissions are not covered.",
+    "IR-LATTICE-01 remains a flagged irregularity by design: the raw 3 px overlap vs the calibration grid is reported, excluded from pass/fail only under AMEND-LATTICE-01."
+  ],
+  "audit_notes": [
+    "Run card written by scripts/run_tsfx.py package. Competitive set = 412 of 414 registry rasters: excluded are the calibration lattice (IR-LATTICE-01, measured under AMEND-LATTICE-01) and GEMSDOE36/docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif (32x48 grid, incompatible; cannot be a grid-compatible duplicate). Verified 2026-10-30 by a metadata/finiteness pass over all 414 rasters.",
+    "GEMSDOE31/docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif has 2,610,312 nonfinite footprint values; it was re-measured under AMEND-N2 (nonfinite -> 0 support) and is included in the 412.",
+    "E1 training completed all 5 folds and saved float16 fields, then crashed on a duplicate keyword in the result dict. E1 holdout was scored from those saved fields by `run_tsfx.py e1score` (no retraining). Float16 storage can change Poisson-disk tie-breaks versus the lost float32 in-memory values; the E2 sweep and this packaging use the same float16 fields.",
+    "E2 emission sweep selected the best of 12 configurations on the SAME holdout. The reported 0.1674 is therefore optimistically biased; the selection was not held out. This is disclosed, not corrected.",
+    "The shipped field is the mean of five fold models, each trained with a different 40% of catalogue segments hidden. It is not a single model trained on the full catalogue; this is a known weakness of the lane design.",
+    "Surface gate (pre-placement, mean field) cleared: max rank correlation 0.185, max 3 px overlap 0.319. The DOTS gate (shipped dots) failed on 11 GEMSDOE25 rasters at 70.2-72.3% overlap, so placement is stopped and no TIFF was written.",
+    "Paired fold comparison vs frozen E2-SWGB: mean delta +0.0088, t-interval [-0.0018, +0.0194]. Lower bound is below zero; improvement is not established.",
+    "shipped_file_diagnostic HOLDOUT-DTI 0.0015 is NOT a valid estimate of the shipped file. The shipped emission removes dots within 2 px of the FULL catalogue, which includes the withheld test faults, so the prune deletes the dots that could earn holdout credit. Same structural pattern in evidence/swgb/holdout_calibration.json: GEMSDOE28 h27-4 (1 px prune of the same family, live 0.2708) holdout 0.0314."
+  ],
+  "stop_protocol": "Dots-stage duplicate (>70% within 3 px of GEMSDOE25 rasters) => protocol: log as duplicate and stop. No TIFF packaged, no slot used."
+}

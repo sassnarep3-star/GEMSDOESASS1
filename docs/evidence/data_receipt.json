@@ -22,6 +22,6 @@
     }
   ],
   "provenance": "Integrity-verified owner mirror; NOT organizer-authenticated.",
-  "cache_reused": true,
+  "cache_reused": false,
   "cache_builder": "vendor/gems57/prepare_data.py"
 }

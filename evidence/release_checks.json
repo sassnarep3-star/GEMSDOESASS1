@@ -58,7 +58,10 @@
   },
   "post_review_2026-10-30_implementation_sha256": {
     "scripts/build_site.py": "51342b28023c6fdcc19f54b863b58438923a0b60db2bf92d873840a901706e6e",
-    "scripts/verify_release.py": "18a129fc3d277c9fa45b799a0947b65104646beeaec768acf1dff5468b88af39"
+    "scripts/verify_release.py": "18a129fc3d277c9fa45b799a0947b65104646beeaec768acf1dff5468b88af39",
+    "requirements.txt": "5f5e5310972cc344301d3ca8c73f65641608c5e2c2127ec7d11ac911103ac93b",
+    "requirements-lock.txt": "0993e7e267807b390c1fd6ead4921396e39acb5eaeab16b0379553980463f264"
   },
-  "post_review_2026-10-30_scope": "Adds the nine-site board section (data-driven from evidence/nine_site_board.json) to the executive summary. Frozen 2026-10-27 review hashes are retained unchanged; the new bytes are pinned here so any later edit still fails verification. Also pins scripts/verify_release.py, which gained the post-review hash allowance."
+  "post_review_2026-10-30_scope": "Adds the nine-site board section (data-driven from evidence/nine_site_board.json) to the executive summary. Frozen 2026-10-27 review hashes are retained unchanged; the new bytes are pinned here so any later edit still fails verification. Also pins scripts/verify_release.py, which gained the post-review hash allowance.",
+  "post_review_2026-10-30_tsfx_note": "Branch arena/5ab44a21-gemsdoesass1 (H-TSFX, 2026-10-30) pins scikit-image==0.26.0 and its runtime deps in requirements.txt / requirements-lock.txt because src/gems/holdout.py imports skimage. No evaluator, metric, holdout, or writer code changed. scripts/fetch_reference_assets.sh changed too but is not in the frozen map. Pytest 54 passed after the change."
 }

@@ -18,3 +18,10 @@
 7. **Use `SWGB` run card's shipped-variant number** (0.1401) in any new page. The headline 0.1586 is the 2 px prune variant.
 8. **Only then** run a new lane: 3–5 hypotheses ranked in `knowledge/hypotheses_20261029.md` or newer, single-feature canaries (AUC > 0.90 = leakage), HOLDOUT-DTI with CI, the repaired gate, validator, run card. Budget: 3 experiments or 2 hours.
 9. Limitation to keep in view: holdout→live calibration is Spearman −0.081 over 17 rasters. A better holdout number does not guarantee a better leaderboard score.
+
+## Added on branch arena/5ab44a21-gemsdoesass1 (H-TSFX, 2026-10-30)
+
+- **H-TSFX holdout passed but the shipped dots are a duplicate.** HOLDOUT-DTI 0.1587 [0.1522, 0.1658]; sweep best 0.1674 is selected on the same holdout. Shipped dots are 70.2–72.3 % within 3 px of 11 GEMSDOE25 rasters, so the protocol stops placement. No TIFF written. Record: [`RESULTS_20261030.md`](RESULTS_20261030.md), [`../evidence/tsfx/run_card.json`](../evidence/tsfx/run_card.json), pre-registration [`hypotheses_20261030_tsfx.md`](hypotheses_20261030_tsfx.md).
+- **Shipped-file diagnostic (0.0015) is structural**, not a live estimate: the full-catalogue 2 px prune removes dots near withheld faults. Any future holdout of a full-catalogue-pruned file must be scored that way explicitly.
+- **`scripts/fetch_reference_assets.sh` is fixed** (item 6 above): sparse patterns and checksum paths corrected; verified 23/23 assets.
+- **Eligibility (§1.3) stays a blocking item** as listed above; this branch does not resolve it.
