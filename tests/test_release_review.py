@@ -64,13 +64,41 @@ def test_current_pages_revoke_promotion():
 
 def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
     """A revoked candidate must never be called a selector-cleared submission."""
-    pages = [ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html']
+    pages = [ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html', ROOT / 'docs/how-to-submit.html']
     pages += sorted((ROOT / 'docs/sites').glob('GEMSDOE*.html'))
     for page in pages:
         text = page.read_text()
-        assert 'No file is approved for submission.' in text
+        assert 'No SWGB, H-PBSC or BGAC-1 file is approved for submission.' in text
         assert 'selector-cleared file' not in text
         assert 'red / green banners' not in text
     download_index = (ROOT / 'docs/downloads/README.md').read_text()
-    assert 'No TIFF in this repository is approved' in download_index
     assert 'OK TO SUBMIT' not in download_index
+    # SWGB/PBSC must stay revoked in the download index.
+    assert 'withdrawn' in download_index and 'ok_to_submit = false' in download_index
+    # Any approval in the download index must match the thermal run card exactly.
+    card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
+    if card['ok_to_download_and_submit']:
+        assert 'OK TO DOWNLOAD AND SUBMIT' in download_index
+        assert card['raster_name'] in download_index
+    else:
+        assert 'OK TO DOWNLOAD AND SUBMIT' not in download_index
+
+
+def test_generated_verdict_matches_run_card_gates():
+    """The verdict shown on every generated page must equal the machine gate table."""
+    card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
+    release = json.loads((ROOT / 'evidence/thermal/release.json').read_text())
+    assert card['ok_to_download_and_submit'] == all(p for _, p in release['gates'])
+    verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit'] else 'NOT OK TO SUBMIT'
+    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html'):
+        text = page.read_text()
+        assert verdict_word in text
+        assert 'HOLDOUT-DTI' in text  # every new number stays labelled
+    assert card['submission_slots_used'] == 0
+    assert len(card['note']) <= 140 and len(card['submission_name']) <= 140
+    # validator invariants the portal enforces
+    v = release['validator']
+    assert v['all_checks_passed']
+    assert v['checks']['values_in_0_1_everywhere'] and v['checks']['no_nan_anywhere']
+    assert v['checks']['crs_matches_template'] and v['checks']['shape_matches_template']
+    assert v['checks']['transform_matches_template']

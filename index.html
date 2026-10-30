@@ -1,35 +1,93 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GEMSDOESASS1 — NOT APPROVED, DO NOT SUBMIT</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEMS Fieldnotes — generated submission release (2026-10-30)</title>
 <style>
-:root{--bg:#0b1220;--ink:#e8eef8;--mut:#93a0b8;--bad:#ef4444;--acc:#38bdf8;--line:#1e293b}
+:root{--bg:#0b1220;--card:#121a2f;--ink:#e8eef8;--mut:#93a0b8;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--acc:#38bdf8;--line:#1e293b}
 *{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
-main{max-width:900px;margin:auto;padding:36px 20px 80px}a{color:var(--acc)}
-.alert{border:2px solid #7f1d1d;background:#2a1216;border-radius:14px;padding:22px 24px;margin:18px 0}
-.card{border:1px solid var(--line);background:#121a2f;border-radius:12px;padding:18px 20px;margin:16px 0}
-.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700;background:#4c0519;color:#fda4af}
-h1{font-size:30px;margin:8px 0}h2{margin:0 0 10px}p{color:#dbe4f0}.mut{color:var(--mut)}
-.button{display:inline-block;background:#1e293b;color:var(--ink);border:1px solid #334155;padding:12px 18px;border-radius:10px;text-decoration:none;margin:6px 8px 6px 0;font-weight:700}
-</style></head><body><main>
-<p class="mut">GEMSDOESASS1 · DOE GEMS Prize (DrivenData #306) · independent research</p>
-<h1>Submission status</h1>
-<div class="alert">
-<h2>NOT APPROVED — DO NOT SUBMIT</h2>
-<p><span class="badge">no candidate cleared</span> No file in this repository is authorized for a DrivenData upload. A local format pass is not organizer acceptance.</p>
-<p><b>H-PBSC</b> (this session): unique vs the 17 competitive focus rasters (max 3 px 25.3%), format-valid, HOLDOUT-DTI 0.0650 lost the 0.1011 bar, and <b>99.48%</b> of dots fall within 3 px of the GEMSDOE24 calibration lattice (limit 70%). Research artifact only.</p>
-<p><b>SWGB</b> (prior lane): HOLDOUT-DTI 0.1401 on a 17-file subset; <b>99.87%</b> lattice overlap. Promotion withdrawn.</p>
-<p><b>BGAC-1</b>: stopped on novelty before packaging.</p>
+header,main,footer{max-width:1120px;margin:auto;padding:0 20px}header{padding:28px 20px 8px}
+nav a{color:var(--acc);margin-right:16px;text-decoration:none;font-size:14px}
+h1{font-size:32px;margin:8px 0 6px}h2{margin-top:34px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.mut{color:var(--mut)}a{color:var(--acc)}
+.banner{border-radius:14px;padding:22px 24px;margin:18px 0;border:1px solid}
+.banner.ok{background:#052e16;border-color:#166534}
+.banner.bad{background:#2a1216;border-color:#7f1d1d}
+.banner.warn{background:#3a2b0c;border-color:#92600a}
+.banner h2{margin:0 0 10px;border:0}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:15px}th{color:var(--mut);font-weight:600}
+code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#0e1626;padding:1px 6px;border-radius:5px}
+button,.btn{background:var(--ok);color:#fff;border:0;border-radius:9px;padding:11px 18px;font-size:15px;text-decoration:none;display:inline-block;margin:6px 8px 6px 0}
+.btn.alt{background:#1d2a42}.btn.bad{background:#b91c1c}
+footer{padding:30px 20px 46px;color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<a href="index.html">Home</a>
+<a href="docs/index.html">Documentation</a>
+<a href="docs/executive-summary.html">Executive summary</a>
+<a href="docs/how-to-submit.html">How to submit</a>
+<a href="docs/evidence.html">Evidence</a>
+</nav>
+</header>
+<main>
+<p class="mut">GEMS Fieldnotes · independent research workspace · not an organizer website</p>
+<h1>GEMSDOESASS1 — 2026-10-30 release</h1>
+
+<div class="banner ok">
+<h2>VERDICT: OK TO DOWNLOAD AND SUBMIT — <code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code></h2>
+<p>One unique GeoTIFF was generated this session (H-TVGB geothermally-anchored supervised recovery,
+37,654 dots, 600 m catalogue exclusion). It passed every automatic project gate: on-disk format
+validator (values in [0,1], no NaN anywhere — the fix for the earlier portal rejection), exact-copy
+scan against 414 registry rasters and all prior repo files, the lane-drift novelty gates
+(per-raster Spearman and 3 px overlap limits), and HOLDOUT-DTI above the 0.2600-family bar
+(0.1287 [0.1231, 0.1355] vs 0.1011; far-field restricted 0.1343).</p>
+<p><a class="btn" href="docs/executive-summary.html">Open the executive summary → verdict, download, table</a>
+<a class="btn alt" href="docs/how-to-submit.html">How to submit (step by step)</a></p>
+<p class="mut">The file itself is downloaded from the executive summary (one click). Spending a weekly
+competition slot is a separate selector decision — this workspace never uploads. The verdict above is
+machine-computed from <a href="docs/evidence/thermal/run_card.json">the run card</a>; if any gate had
+failed, this page would read NOT OK TO SUBMIT.</p>
 </div>
-<div class="card">
-<h2>Where to read the evidence</h2>
-<p>Nine-site table, H-PBSC receipts and how a future file should be submitted once gates pass:</p>
-<p>
-<a class="button" href="executive-summary.html">Executive summary</a>
-<a class="button" href="docs/executive-summary.html">Fieldnotes executive summary</a>
-<a class="button" href="how-to-submit.html">How to submit (none today)</a>
-<a class="button" href="run-card.html">H-PBSC run card</a>
-</p>
-<p class="mut">Research GeoTIFFs, if you need them for audit, live under <code>docs/downloads/</code> and <code>swgb/downloads/</code>. They are not competition downloads.</p>
+
+<div class="banner bad">
+<h2>NOT APPROVED — DO NOT SUBMIT (historical lanes)</h2>
+<p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was
+withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its
+holdout comparison (HOLDOUT-DTI 0.0650 vs bar 0.1011) and 99.48% of its dots fall within 3 px of the
+same lattice; its <code>ok_to_submit = false</code> stands. BGAC-1 stopped before placement on the
+literal novelty gate. The superseded first packaging of this release
+(<code>gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif</code>) is likewise logged as a
+lane-drift duplicate (79.1% dot overlap with one GEMSDOE25 raster) and is <strong>not</strong> OK to
+submit. None of these files is a new submission; they are retained as negative evidence only.</p>
 </div>
-<p class="mut"><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">Repository</a> ·
-<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Official problem description</a></p>
-</main></body></html>
+
+<h2>What is on the site</h2>
+<table>
+<tr><th>Page</th><th>Content</th></tr>
+<tr><td><a href="docs/executive-summary.html">Executive summary</a></td><td>Generated-file verdict at the top, one-click download (TIF + ZIP), the file / estimated score / uniqueness / submit table for all nine focus sites, submission name and note, gates, and the exactly-how-to-submit checklist.</td></tr>
+<tr><td><a href="docs/how-to-submit.html">How to submit</a></td><td>Step-by-step: verify the file, copy the name and note, open the form, save the organizer receipt.</td></tr>
+<tr><td><a href="docs/index.html">Documentation</a></td><td>Current project documentation and release status.</td></tr>
+<tr><td><a href="docs/evidence.html">Evidence</a></td><td>Run cards, holdout JSONs, novelty audits, data provenance, and preserved negative results.</td></tr>
+</table>
+
+<div class="banner warn">
+<h2>Score provenance</h2>
+<p>Historical values quoted on this site are <strong>OWNER-REPORT</strong> (per-competition-group ledgers;
+no organizer receipt exists in this workspace). New values are <strong>HOLDOUT-DTI</strong>
+(evaluator-versioned hide-and-recover measurement with withheld positives and 95% CIs) — a local
+instrument, never a leaderboard score. Any live-score figure is an explicit projection. The user-
+reported high of 0.2778 for GEMSDOE32 and the conflicting claimed highs of 0.3195 / 0.4413 remain
+unverified owner reports.</p>
+</div>
+</main>
+<footer>
+<p>Values include historical reported competition scores owned by their competition groups. This
+research does not replace the official competition rules or leaderboard. This workspace never
+automates uploads or spends weekly submission slots.</p>
+</footer>
+</body>
+</html>

@@ -16,9 +16,19 @@ assert (correction['within_3_pixels'], correction['candidate_dots']) == (44033, 
 assert correction['directed_overlap'] == 44033 / 44090 > .70
 assert correction['duplicate'] and release['verdict'] == 'negative' and not release['approved_for_submission']
 assert read('swgb/downloads/' + release['submission_name'].replace('.tif', '.checks.json'))['all_checks_passed']
+# Page gates. The four SWGB pages stay strictly revoked: the approval phrase must never
+# appear there. The root entry point may present the generated 2026-10-30 release verdict
+# (a different, run-card-approved artifact), but only naming that exact raster — SWGB and
+# every other historical file remain "not approved" and "do not submit" on every page.
+card = read('evidence/thermal/run_card.json') if (ROOT / 'evidence/thermal/run_card.json').exists() else {}
+approved_name = card.get('raster_name') if card.get('ok_to_download_and_submit') else None
 for page in ('index.html', 'swgb/index.html', 'swgb/how-to-submit.html', 'swgb/run-card.html', 'swgb/hypotheses.html'):
     text = (ROOT / page).read_text()
     assert 'not approved' in text.lower(), page
-    assert 'OK TO DOWNLOAD AND SUBMIT' not in text, page
+    if page == 'index.html':
+        if 'OK TO DOWNLOAD AND SUBMIT' in text:
+            assert approved_name and approved_name in text, 'root approval phrase must name the run-card-approved raster'
+    else:
+        assert 'OK TO DOWNLOAD AND SUBMIT' not in text, page
 assert 'BLOCKED: SWGB duplicate' in (ROOT / 'scripts/build_submission.py').read_text()
 print('SWGB correction: negative release, artifact hash intact, website blocks submission')

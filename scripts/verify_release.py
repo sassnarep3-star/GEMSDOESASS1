@@ -41,7 +41,7 @@ class Links(HTMLParser):
 def check_links():
     docs = ROOT / 'docs'
     pages = list(docs.rglob('*.html'))
-    require(len(pages) == 13, 'expected four main Fieldnotes pages and nine site summaries')
+    require(len(pages) == 14, 'expected five main Fieldnotes pages and nine site summaries')
     parsed = {}
     for page in pages:
         parser = Links(); parser.feed(page.read_text()); parsed[page.resolve()] = parser
@@ -82,9 +82,34 @@ def main():
     require(len(pbsc['submission_note']) <= 140, 'H-PBSC note length')
     tifs = list((ROOT / 'docs/downloads').glob('*.tif'))
     zips = list((ROOT / 'docs/downloads').glob('*.zip'))
-    require(all(p.name == pbsc['submission_name'] for p in tifs), 'docs/downloads may only hold the named H-PBSC research TIF')
-    require(all(p.name.startswith(pbsc['submission_name'].replace('.tif', '')) for p in zips), 'docs/downloads zip must match H-PBSC')
+    thermal = strict_json(ROOT / 'evidence/thermal/run_card.json')
+    allowed_prefixes = [pbsc['submission_name'].replace('.tif', '')]
+    if thermal.get('raster_name'):
+        allowed_prefixes.append(thermal['raster_name'].replace('.tif', ''))
+        allowed_prefixes.append('gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in tifs),
+            'docs/downloads may only hold the named H-PBSC research TIF and the thermal-lane release')
+    require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in zips),
+            'docs/downloads zip must match an allowed artifact')
     require(card['raster_sha256'] is None, 'BGAC still must not claim a TIFF')
+    # --- 2026-10-30 thermal-lane release checks (additive; negatives above unchanged) ---
+    if thermal:
+        require(thermal['submission_slots_used'] == 0, 'the thermal run must not use slots')
+        require(len(thermal['note']) <= 140 and len(thermal['submission_name']) <= 140, 'thermal name/note length')
+        require(thermal['holdout_dti']['label'] == 'HOLDOUT-DTI', 'thermal score class')
+        require(thermal['experiments_run'] <= thermal['experiment_budget'] == 3, 'thermal experiment budget')
+        release = strict_json(ROOT / 'evidence/thermal/release.json')
+        require(release['card']['raster_sha256'] == thermal['raster_sha256'], 'release/card hash drift')
+        ok = release['card']['ok_to_download_and_submit']
+        require(ok == all(passed for _, passed in release['gates']), 'verdict must equal the gate table')
+        if ok:
+            tif_path = ROOT / 'docs/downloads' / thermal['raster_name']
+            require(tif_path.is_file(), 'approved release TIFF missing')
+            require(hashlib.sha256(tif_path.read_bytes()).hexdigest() == thermal['raster_sha256'],
+                    'approved release TIFF hash mismatch')
+        require(thermal['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'live score labeling')
+        canary = strict_json(ROOT / 'evidence/thermal/leakage_canary.json')
+        require(canary['canary_pass'] and not canary['flagged_over_0p90'], 'thermal canary unresolved')
     correction = strict_json(ROOT / 'evidence/corrected_surface_novelty.json')
     require(correction['duplicate'] and not correction['cleared'], 'pre-placement stop missing')
     require(correction['candidate_values_sha256'] == card['canonical_surface_sha256'], 'corrective audit changed candidate')
@@ -108,7 +133,11 @@ def main():
     local_links = check_links()
     for path in (ROOT / 'evidence').glob('*.json'):
         require(path.read_bytes() == (ROOT / 'docs/evidence' / path.name).read_bytes(), 'site evidence stale: ' + path.name)
-    print(f'PASS: frozen negative release; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; no submission TIFF; no slots.')
+    for path in (ROOT / 'evidence/thermal').glob('*'):
+        if path.suffix in ('.json', '.md'):
+            require(path.read_bytes() == (ROOT / 'docs/evidence/thermal' / path.name).read_bytes(),
+                    'site thermal evidence stale: ' + path.name)
+    print(f'PASS: frozen negative release preserved; thermal-lane release verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
 
 
 if __name__ == '__main__':

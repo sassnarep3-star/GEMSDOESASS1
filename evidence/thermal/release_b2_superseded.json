@@ -1,0 +1,525 @@
+{
+  "card": {
+    "schema": "gemsass1.run_card.v2",
+    "generated_utc": "2026-10-30T03:20:20Z",
+    "hypothesis": "H-TVGB: uncatalogued Holocene faults carry geothermal surface expression (warm/hot springs, geothermometer-positive wells, paleo sinter/tufa/travertine vents, 2 m heat-flow anomalies); a segment-withheld learner conditioned on a label-free thermal-anchor family recovers hidden fault segments better than morphology alone.",
+    "mechanism": "5 x HistGradientBoosting (250 it) on 28 GeoDAWN/lidar layers + visible-only catalogue context + 10 thermal-anchor features; fold models averaged with full-catalogue context; Poisson-disk 2.8 px, n=37,654, >2 px catalogue exclusion at emission (live-evidenced champion operating point).",
+    "named_non_fault_mimic": "Pluvial shoreline benches and fluvial terrace risers around thermal basins (coherent, low-relief, contour-parallel); road/canal embankments; basaltic vent rims.",
+    "holdout_dti": {
+      "label": "HOLDOUT-DTI",
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "value": 0.14621776586543866,
+      "ci95": [
+        0.13939649610317975,
+        0.15396433094650447
+      ],
+      "n_withheld_positives": 60988,
+      "paired_delta_vs_swgb_repro": -0.012379592197781925,
+      "paired_delta_ci95": [
+        -0.016984848430040823,
+        -0.007937612109963485
+      ],
+      "bar": {
+        "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+        "holdout_dti": 0.1011,
+        "ci95": [
+          0.0956,
+          0.1072
+        ]
+      },
+      "repo_best": {
+        "name": "SWGB emitted (repo incumbent, withdrawn for lattice overlap)",
+        "holdout_dti": 0.1401,
+        "ci95": [
+          0.1329,
+          0.1452
+        ]
+      }
+    },
+    "correlation_overlap_vs_registry": {
+      "surface_competitive": {
+        "max_spearman": 0.13340998370850898,
+        "max_overlap": 0.3188835023134579,
+        "worst": [
+          "docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+          0.3188835023134579,
+          0.04254100105816922
+        ]
+      },
+      "dots_competitive": {
+        "max_spearman": 0.07982933063453021,
+        "max_overlap": 0.7906995272746588,
+        "worst": [
+          "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif",
+          0.7906995272746588,
+          0.07240853175392692
+        ]
+      },
+      "dots_full_registry": {
+        "max_spearman": 0.07982933063453021,
+        "max_overlap": 0.9983268709831625,
+        "worst": [
+          "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+          0.9983268709831625,
+          0.0004570660197670395
+        ]
+      },
+      "thresholds": {
+        "spearman": 0.9,
+        "overlap": 0.7,
+        "px": 3
+      },
+      "lane_drift_duplicate": true,
+      "lattice_rows": [
+        {
+          "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+          "spearman": 0.0004570660197670395,
+          "overlap": 0.9983268709831625
+        },
+        {
+          "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+          "spearman": 0.0009943853803997603,
+          "overlap": 0.0024432995166516172
+        }
+      ],
+      "ir_lattice_01": "evidence/thermal/lattice_amendment.md"
+    },
+    "raster_sha256": "bf38ca56ffc4501689088e0eded7bb56d07087574fb6ff1ead97dd7ee47838e9",
+    "raster_name": "gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif",
+    "validator_output": {
+      "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif",
+      "checks": {
+        "single_band": true,
+        "dtype_float32": true,
+        "crs_matches_template": true,
+        "shape_matches_template": true,
+        "transform_matches_template": true,
+        "no_nan_inside_footprint": true,
+        "no_nan_anywhere": true,
+        "values_in_0_1_everywhere": true,
+        "values_in_0_1_inside_footprint": true,
+        "no_positive_outside_footprint": true,
+        "zero_mass_on_known_catalogue_pixels": true
+      },
+      "all_checks_passed": true,
+      "positive_pixels": 37654,
+      "footprint_pixels": 5167373,
+      "min": 0.0,
+      "max": 1.0,
+      "sha256": "bf38ca56ffc4501689088e0eded7bb56d07087574fb6ff1ead97dd7ee47838e9",
+      "size_bytes": 136195,
+      "profile": {
+        "crs": "EPSG:32611",
+        "shape": [
+          3730,
+          3292
+        ],
+        "transform": [
+          100.0,
+          0.0,
+          243350.0,
+          0.0,
+          -100.0,
+          4508550.0
+        ],
+        "dtype": "float32",
+        "count": 1,
+        "nodata": null
+      }
+    },
+    "submission_name": "gemsass1-hvtgb-thermal-anchored-37654-20261030",
+    "note": "GEMSASS1 H-TVGB thermal-anchored supervised 37654d B2 2.8px; see evidence/thermal/run_card.json",
+    "note_length": 95,
+    "verdict": "negative",
+    "ok_to_download_and_submit": false,
+    "submission_slots_used": 0,
+    "evidence_class": {
+      "holdout": "HOLDOUT-DTI",
+      "live_scores": "OWNER-REPORT (no organizer receipt in this group)"
+    },
+    "experiments_run": 3,
+    "experiment_budget": 3,
+    "elapsed_s": 539.7,
+    "limitations": [
+      "No organizer receipt: every historical score is OWNER-REPORT, never ORGANIZER-CONFIRMED.",
+      "HOLDOUT-DTI is not a leaderboard forecast (proxy-live Spearman -0.08 over the 17-file family).",
+      "IR-LATTICE-01: the 13gems calibration lattice covers >=99% of any dotted file at 3 px; both readings are reported.",
+      "Registry scope = nine public focus repos (414 TIFF blobs) + this repo prior files; global novelty unverified."
+    ]
+  },
+  "gates": [
+    [
+      "Validator: values in [0,1], no NaN anywhere, exact competition grid",
+      true
+    ],
+    [
+      "Not an exact duplicate of any registry raster or prior repo file",
+      true
+    ],
+    [
+      "Lane-drift gate vs competitive registry (Spearman \u2264 0.90, 3 px overlap \u2264 70%)",
+      false
+    ],
+    [
+      "HOLDOUT-DTI beats the 0.2600-family bar (0.1011): 0.14621776586543866",
+      true
+    ],
+    [
+      "Zero positive mass on mapped catalogue faults",
+      true
+    ],
+    [
+      "No weekly submission slot used by this workspace",
+      true
+    ]
+  ],
+  "estimate_text": "ESTIMATE (low confidence, projection \u2014 NOT a score): live score may land near <strong>0.22\u20130.32</strong>. Family anchor: the 0.2600 live champion family scores 0.1011 on this holdout; this file scores 0.1462 (up to 0.1516 in the E3 sweep), ~39% more kernel credit. No local instrument is calibrated to the live task (holdout\u2194live Spearman \u22120.08 over 17 rasters), so this range is advisory only.",
+  "e2": {
+    "experiment": "E2-paired-H-TVGB",
+    "hypothesis": "geothermal family inside segment-withheld learner",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "n_withheld_positives": 60988,
+    "arms": {
+      "A_hvtgb": {
+        "holdout_dti": 0.14621776586543866,
+        "ci95": [
+          0.13939649610317975,
+          0.15396433094650447
+        ],
+        "farfield": 0.12616916260331212,
+        "farfield_ci95": [
+          0.12025244497794556,
+          0.13228764620239541
+        ],
+        "per_fold": [
+          {
+            "fold": 0,
+            "n_test": 13289,
+            "tp": 2867.689076336304,
+            "fp": 42627.310432350016,
+            "fn": 10421.310923663696,
+            "dti": 0.1453451607494256,
+            "emitted": 44090
+          },
+          {
+            "fold": 1,
+            "n_test": 12209,
+            "tp": 2782.213983956699,
+            "fp": 42726.897705544994,
+            "fn": 9426.786016043301,
+            "dti": 0.147448762004396,
+            "emitted": 44090
+          },
+          {
+            "fold": 2,
+            "n_test": 11470,
+            "tp": 2559.650944877532,
+            "fp": 42754.846052089524,
+            "fn": 8910.349055122468,
+            "dti": 0.14034020851952617,
+            "emitted": 44090
+          },
+          {
+            "fold": 3,
+            "n_test": 12776,
+            "tp": 2899.1182986527256,
+            "fp": 42620.00727110183,
+            "fn": 9876.881701347276,
+            "dti": 0.15002196842410062,
+            "emitted": 44090
+          },
+          {
+            "fold": 4,
+            "n_test": 11244,
+            "tp": 2672.220149401088,
+            "fp": 42783.53296813256,
+            "fn": 8571.779850598912,
+            "dti": 0.14774789038580388,
+            "emitted": 44090
+          }
+        ]
+      },
+      "B_swgb_repro": {
+        "holdout_dti": 0.1585973580632206,
+        "ci95": [
+          0.1533564089407051,
+          0.16503354538400772
+        ],
+        "farfield": 0.1350349098275092,
+        "farfield_ci95": [
+          0.1277768010204633,
+          0.1399298791765473
+        ],
+        "per_fold": [
+          {
+            "fold": 0,
+            "n_test": 13289,
+            "tp": 3240.541948147814,
+            "fp": 42502.68854265674,
+            "fn": 10048.458051852187,
+            "dti": 0.16383049352689924,
+            "emitted": 44090
+          },
+          {
+            "fold": 1,
+            "n_test": 12209,
+            "tp": 2871.0001833604324,
+            "fp": 42708.9454048558,
+            "fn": 9337.999816639567,
+            "dti": 0.1520400058207304,
+            "emitted": 44090
+          },
+          {
+            "fold": 2,
+            "n_test": 11470,
+            "tp": 2940.703884903656,
+            "fp": 42623.272966319295,
+            "fn": 8529.296115096344,
+            "dti": 0.1607926506569212,
+            "emitted": 44090
+          },
+          {
+            "fold": 3,
+            "n_test": 12776,
+            "tp": 3094.369195687092,
+            "fp": 42582.72372788916,
+            "fn": 9681.630804312908,
+            "dti": 0.15986434448154965,
+            "emitted": 44090
+          },
+          {
+            "fold": 4,
+            "n_test": 11244,
+            "tp": 2827.9567316755038,
+            "fp": 42749.78834357427,
+            "fn": 8416.043268324494,
+            "dti": 0.1561479720869349,
+            "emitted": 44090
+          }
+        ]
+      }
+    },
+    "paired_delta_A_minus_B": -0.012379592197781925,
+    "paired_delta_ci95": [
+      -0.016984848430040823,
+      -0.007937612109963485
+    ],
+    "thermal_features": [
+      "th_align_cos2",
+      "th_anchor_dens",
+      "th_anchor_logdist",
+      "th_geotherm_logdist",
+      "th_hot_logdist",
+      "th_paleo_logdist",
+      "th_probe_z",
+      "th_sinter_logdist",
+      "th_vent_logdist"
+    ],
+    "thermal_meta": {
+      "n_sites": 12975,
+      "n_anchor": 2169,
+      "n_hot": 1043,
+      "n_geotherm": 366,
+      "n_paleo": 402,
+      "n_vent": 21,
+      "n_probe": 3439
+    },
+    "bar": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ]
+    },
+    "repo_best": {
+      "name": "SWGB emitted (repo incumbent, withdrawn for lattice overlap)",
+      "holdout_dti": 0.1401,
+      "ci95": [
+        0.1329,
+        0.1452
+      ]
+    },
+    "beats_bar": true,
+    "beats_repo_best": true,
+    "n_dots": 44090,
+    "spacing_px": 2.8,
+    "elapsed_s": 500.9
+  },
+  "e3": {
+    "experiment": "E3-emission-sweep",
+    "field": "A_hvtgb",
+    "grid": [
+      {
+        "n_dots": 37654,
+        "prune_px": 2.0,
+        "holdout_dti": 0.14070022265615528,
+        "ci95": [
+          0.1353506887361049,
+          0.14642098924535418
+        ],
+        "farfield": 0.11915399076681793
+      },
+      {
+        "n_dots": 37654,
+        "prune_px": 6.0,
+        "holdout_dti": 0.12871408632909964,
+        "ci95": [
+          0.12314242017202875,
+          0.13549018375093902
+        ],
+        "farfield": 0.13426565343128563
+      },
+      {
+        "n_dots": 44090,
+        "prune_px": 2.0,
+        "holdout_dti": 0.14621776586543866,
+        "ci95": [
+          0.13963199781974803,
+          0.15492529072015843
+        ],
+        "farfield": 0.12616916260331212
+      },
+      {
+        "n_dots": 44090,
+        "prune_px": 6.0,
+        "holdout_dti": 0.1333768022569796,
+        "ci95": [
+          0.12797830777573455,
+          0.13933208022852955
+        ],
+        "farfield": 0.13841029877143352
+      },
+      {
+        "n_dots": 52000,
+        "prune_px": 2.0,
+        "holdout_dti": 0.1516064674379003,
+        "ci95": [
+          0.14445710746395057,
+          0.1573717739055208
+        ],
+        "farfield": 0.13299697090558224
+      },
+      {
+        "n_dots": 52000,
+        "prune_px": 6.0,
+        "holdout_dti": 0.1365105635404968,
+        "ci95": [
+          0.12947599506462362,
+          0.14299135665248916
+        ],
+        "farfield": 0.1407852751601292
+      }
+    ],
+    "shipped_config": {
+      "n_dots": 37654,
+      "prune_px": 2.0,
+      "holdout_dti": 0.14070022265615528,
+      "ci95": [
+        0.1353506887361049,
+        0.14642098924535418
+      ],
+      "farfield": 0.11915399076681793
+    },
+    "selection_rule": "shipped config fixed at champion operating point (37,654 / 2.8 px / >2 px) per preregistration amendment; sweep = sensitivity",
+    "bar": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ]
+    },
+    "repo_best": {
+      "name": "SWGB emitted (repo incumbent, withdrawn for lattice overlap)",
+      "holdout_dti": 0.1401,
+      "ci95": [
+        0.1329,
+        0.1452
+      ]
+    },
+    "elapsed_s": 153.5
+  },
+  "validator": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif",
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "crs_matches_template": true,
+      "shape_matches_template": true,
+      "transform_matches_template": true,
+      "no_nan_inside_footprint": true,
+      "no_nan_anywhere": true,
+      "values_in_0_1_everywhere": true,
+      "values_in_0_1_inside_footprint": true,
+      "no_positive_outside_footprint": true,
+      "zero_mass_on_known_catalogue_pixels": true
+    },
+    "all_checks_passed": true,
+    "positive_pixels": 37654,
+    "footprint_pixels": 5167373,
+    "min": 0.0,
+    "max": 1.0,
+    "sha256": "bf38ca56ffc4501689088e0eded7bb56d07087574fb6ff1ead97dd7ee47838e9",
+    "size_bytes": 136195,
+    "profile": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null
+    }
+  },
+  "novelty": {
+    "surface": {
+      "max_spearman": 0.13340998370850898,
+      "max_overlap": 0.3188835023134579,
+      "worst": [
+        "docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+        0.3188835023134579,
+        0.04254100105816922
+      ]
+    },
+    "dots": {
+      "max_spearman": 0.07982933063453021,
+      "max_overlap": 0.7906995272746588,
+      "worst": [
+        "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif",
+        0.7906995272746588,
+        0.07240853175392692
+      ]
+    },
+    "dots_full_registry": {
+      "max_spearman": 0.07982933063453021,
+      "max_overlap": 0.9983268709831625,
+      "worst": [
+        "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        0.9983268709831625,
+        0.0004570660197670395
+      ]
+    },
+    "lattice_rows": [
+      {
+        "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "spearman": 0.0004570660197670395,
+        "overlap": 0.9983268709831625
+      },
+      {
+        "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+        "spearman": 0.0009943853803997603,
+        "overlap": 0.0024432995166516172
+      }
+    ]
+  }
+}
