@@ -1,5 +1,8 @@
 # Next session — ordered actions
 
+**Latest (2026-10-30): read [`RESULTS_20261030.md`](RESULTS_20261030.md) first.** H-TSFX holdout passed (0.1587; sweep 0.1674, selected on holdout) but the shipped dots are a duplicate of GEMSDOE25 (70–72 % within 3 px). **Nothing is approved for upload.** Next: design a registry-distinct emission geometry and a single full-catalogue model, pre-register them, and run held-out emission selection before any packaging.
+
+
 **No file in this repository is authorized for upload.** H-PBSC, SWGB and BGAC are all negative under the literal 70%/3 px rule once the GEMSDOE24 calibration lattice is included.
 
 1. **Do not upload H-PBSC.** HOLDOUT-DTI 0.0650 [0.0605, 0.0693] lost the 0.1011 bar. Versus 17 competitive rasters it is unique (max 3 px 25.3%). Versus the 13gems lattice it is **99.48%** within 3 px (37,460 / 37,654). Research TIF retained for audit only.

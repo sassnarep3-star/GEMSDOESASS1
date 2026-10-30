@@ -15,8 +15,8 @@
     "knowledge/PROJECT_BRIEF.md": "d8b7c67bab02d56566479791e58d97641af6cc68a45bf4ef0e9340c059aebd05",
     "knowledge/hypotheses.md": "629550e464ed287e52a8c6934b4d371803cf64c545ab1fed614eed4d42179421",
     "knowledge/scientific_analysis.md": "ce5b64c64f221ed5396b75d2f7df062d025d739d4a564bf8a3ef98df00c522eb",
-    "requirements-lock.txt": "601e6cc9b6ed4c63f2b98f27edb385629c62d5da1d7a4d560b16c020a895d1c8",
-    "requirements.txt": "c47bfe940d6e9d35ab56c5a2ea471ab7a5f1e260e709d9e514794d65414c4f12",
+    "requirements-lock.txt": "0993e7e267807b390c1fd6ead4921396e39acb5eaeab16b0379553980463f264",
+    "requirements.txt": "5f5e5310972cc344301d3ca8c73f65641608c5e2c2127ec7d11ac911103ac93b",
     "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
     "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
     "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
@@ -45,5 +45,11 @@
     "no_tiff_approved": true,
     "weekly_slots_used": 0,
     "review_record": "evidence/repo_review_2026-10-29.md"
+  },
+  "post_review_2026-10-30": {
+    "change": "requirements.txt and requirements-lock.txt now pin scikit-image==0.26.0 (+ ImageIO, lazy-loader, networkx, tifffile at the installed versions).",
+    "reason": "src/gems/holdout.py imports skimage.morphology; the pinned environment previously could not import the shared evaluator.",
+    "verified": "pytest 54 passed after the change; pip install -r requirements-lock.txt in a fresh venv.",
+    "not_changed": "No evaluator, metric, holdout, or submission-writer code was altered."
   }
 }

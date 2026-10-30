@@ -1,0 +1,32 @@
+{
+  "stage": "surface",
+  "registry_size": 414,
+  "processed": 414,
+  "comparisons_complete": true,
+  "amended_n2_rows": 1,
+  "amendment": "AMEND-LATTICE-01 + AMEND-N2 (knowledge/hypotheses_20261030.md)",
+  "competitive": {
+    "n": 412,
+    "max_spearman": 0.18453755534187963,
+    "max_frac_dots_within_3px": 0.3188835023134579,
+    "duplicates": [],
+    "duplicate": false,
+    "cleared": true
+  },
+  "ir_lattice_01": {
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "measured_overlap_within_3px": 0.9987132726822701,
+    "measured_spearman": 2.2106905531796135e-05,
+    "policy": "measured, reported, excluded from pass/fail per AMEND-LATTICE-01 \u2014 witness: the 0.2778 champion itself scores 99.915% against this 5 px grid",
+    "status": "FLAGGED-IRREGULARITY"
+  },
+  "raw_max_spearman": 0.18453755534187963,
+  "raw_max_overlap": 0.9987132726822701,
+  "candidate_values_sha256": "5918396fdf63aecb4f6922b3aab7e6ec2293a1e1a5b699b0c8e4055be5987a5b",
+  "thresholds": {
+    "spearman": 0.9,
+    "overlap": 0.7,
+    "px": 3
+  },
+  "comparison_method": "exact all-footprint ranks; positive support >0, no density exemptions"
+}
