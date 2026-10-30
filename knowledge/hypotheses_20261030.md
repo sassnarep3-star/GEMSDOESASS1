@@ -10,6 +10,8 @@
 
 Running a holdout experiment now would produce a result that cannot change the release decision, so the experiment budget (3 experiments, 2 hours) was not spent. No submission slot was spent.
 
+**A parallel session's proposal, not adopted here.** `knowledge/REVIEW_2026-10-30.md` (option A) proposes a null-calibrated amendment, under which SWGB (6 px prune, HOLDOUT-DTI 0.1401) would become eligible for one selector slot after a receipt-verified check of the rules. This record does not adopt it. Eligibility under §1.3 (see above) blocks any selector slot until it is resolved, whichever uniqueness test is chosen.
+
 ## Ranking
 
 Rank order is a qualitative priority: expected usefulness for recovering withheld surface-scarp labels per implementation cost. It is **not a score, and it is not a projection.**

@@ -17,7 +17,7 @@
     "knowledge/scientific_analysis.md": "ce5b64c64f221ed5396b75d2f7df062d025d739d4a564bf8a3ef98df00c522eb",
     "requirements-lock.txt": "601e6cc9b6ed4c63f2b98f27edb385629c62d5da1d7a4d560b16c020a895d1c8",
     "requirements.txt": "c47bfe940d6e9d35ab56c5a2ea471ab7a5f1e260e709d9e514794d65414c4f12",
-    "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
+    "scripts/audit_history.py": "09dbe92f1bec28438ca43d8ecfdfcdc1721e74d269f03c5d96ae98f4972abb12",
     "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
     "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
     "scripts/build_site.py": "0eb881af1d018f495297e2c9fcc3ac90285b9ecdbfe439c46f28018797bc557a",
@@ -26,7 +26,8 @@
     "scripts/prepare_data.py": "3f9fe8bf4cde7a98764769ac559b115b9f1256ff2e5ca4cd4f5d6282f9814606",
     "scripts/refresh_sources.py": "95ef64b6c47fb2c6bb87327d2d0bd507bbf56093afedf829d18a54f6362bdb27",
     "scripts/registry_snapshot.py": "48127b253f8d093dedb4d802ab45f60394992b401861745d0aacefb9ddcf716f",
-    "scripts/verify_release.py": "ef28b0832be4ca0b544faff4958755217421affd9b1b9d287a2f28d0b2bf0aba"
+    "scripts/verify_release.py": "ef28b0832be4ca0b544faff4958755217421affd9b1b9d287a2f28d0b2bf0aba",
+    "tests/test_audit_history.py": "40d7b1da4f4091fad391a0dc05ee16df22fc66fba50f2e9086f972293d13662e"
   },
   "limitations": [
     "Pages reconfiguration denied HTTP 403; existing legacy deployment retained.",
@@ -46,8 +47,17 @@
     "weekly_slots_used": 0,
     "review_record": "evidence/repo_review_2026-10-29.md"
   },
+  "post_review_2026-10-30": {
+    "scope": "Repository review and historical-audit startup reliability; no geological experiment, submission raster, score claim, or slot action.",
+    "python_tests_passed": 56,
+    "release_verifier_passed": true,
+    "documented_site_build_passed": true,
+    "audit_input_fallback": "Hash/size-verified checked-in bridge sample_submission and existing_faults rasters; full feature stack is unnecessary for historical raster comparison.",
+    "submission_status": "No TIFF approved; prior negative decision unchanged.",
+    "review_record": "docs/REPO_REVIEW_2026-10-30.md"
+  },
   "post_review_2026-10-30_implementation_sha256": {
-    "scripts/build_site.py": "7c1b550ef88984767d7946c61b2addd86261c8e69c7501979477cfcd52e94816",
+    "scripts/build_site.py": "51342b28023c6fdcc19f54b863b58438923a0b60db2bf92d873840a901706e6e",
     "scripts/verify_release.py": "18a129fc3d277c9fa45b799a0947b65104646beeaec768acf1dff5468b88af39"
   },
   "post_review_2026-10-30_scope": "Adds the nine-site board section (data-driven from evidence/nine_site_board.json) to the executive summary. Frozen 2026-10-27 review hashes are retained unchanged; the new bytes are pinned here so any later edit still fails verification. Also pins scripts/verify_release.py, which gained the post-review hash allowance."
