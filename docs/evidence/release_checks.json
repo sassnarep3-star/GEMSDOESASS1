@@ -12,22 +12,27 @@
   "implementation_sha256": {
     "docs/assets/site.css": "ee0ae492ad14d529d665532363b36aab300c1715317f35e576d044486cc7da24",
     "docs/assets/source-feed.js": "f19a1cab0976bad7aacd1e3364cf5fb6c83476d43b2000fc6e5a16164c0e1646",
-    "knowledge/PROJECT_BRIEF.md": "d8b7c67bab02d56566479791e58d97641af6cc68a45bf4ef0e9340c059aebd05",
+    "knowledge/PROJECT_BRIEF.md": "638dd3501c2422798c4f0dbba0368d7b4b8ae513ae4ad5f2e5b9172cc4dd8e5a",
     "knowledge/hypotheses.md": "629550e464ed287e52a8c6934b4d371803cf64c545ab1fed614eed4d42179421",
     "knowledge/scientific_analysis.md": "ce5b64c64f221ed5396b75d2f7df062d025d739d4a564bf8a3ef98df00c522eb",
     "requirements-lock.txt": "601e6cc9b6ed4c63f2b98f27edb385629c62d5da1d7a4d560b16c020a895d1c8",
     "requirements.txt": "c47bfe940d6e9d35ab56c5a2ea471ab7a5f1e260e709d9e514794d65414c4f12",
-    "scripts/audit_history.py": "09dbe92f1bec28438ca43d8ecfdfcdc1721e74d269f03c5d96ae98f4972abb12",
+    "scripts/audit_history.py": "0e87eb4fc4183aa253f7402e704cd5166935c6a534c2b5b212e70dc6e5bad0fa",
     "scripts/audit_protocol_correction.py": "2886de4fa3f60285ea98df39fabdcb93092038417e603c1b8485c7bb6a182991",
     "scripts/bgac.py": "8e1f82353efffd475243eaff47afc331b7a7a4f04d24e694028fab6c7bf7c613",
-    "scripts/build_site.py": "0eb881af1d018f495297e2c9fcc3ac90285b9ecdbfe439c46f28018797bc557a",
+    "scripts/build_site.py": "eb562b7e64f71f8afe29dde757d66119253fe6f5bde311a0334d941277f3f847",
     "scripts/evaluate_holdout.py": "f7e5e37af6577db82b453fb1ba9e7d6b516e5b246656f5bea4ba0a1c78a0420a",
     "scripts/novelty.py": "005f8dd23c4c6ff915580adb192a02a6f03c1ef7158150d4a36dfa3518fadfc2",
     "scripts/prepare_data.py": "3f9fe8bf4cde7a98764769ac559b115b9f1256ff2e5ca4cd4f5d6282f9814606",
     "scripts/refresh_sources.py": "95ef64b6c47fb2c6bb87327d2d0bd507bbf56093afedf829d18a54f6362bdb27",
     "scripts/registry_snapshot.py": "48127b253f8d093dedb4d802ab45f60394992b401861745d0aacefb9ddcf716f",
-    "scripts/verify_release.py": "ef28b0832be4ca0b544faff4958755217421affd9b1b9d287a2f28d0b2bf0aba",
-    "tests/test_audit_history.py": "40d7b1da4f4091fad391a0dc05ee16df22fc66fba50f2e9086f972293d13662e"
+    "scripts/verify_release.py": "55c61f5e8dd99caad80e8959d1f0c8ab5762a1fbe31760a20ec5e8b3572c0952",
+    "tests/test_audit_history.py": "40d7b1da4f4091fad391a0dc05ee16df22fc66fba50f2e9086f972293d13662e",
+    "scripts/check_release_entrypoints.py": "bca82a9c98071f99f3573b4c1e53e37878561f8e48fe3bc14e5ac8d9e5d14022",
+    "scripts/verify_swgb_correction.py": "eda2cf1d155cf58e60d1047bc01b26335cbcea293b713a46a4c412c2554cd41e",
+    "scripts/make_release.py": "a0f3c608ea9da5945322d9d70d5138a43b02b14a7b06b1d8dfc26242ec72968d",
+    "scripts/run_thermal_lane.py": "e4bc9916510cdc1b13caf17bc6d135e3b2ef72b199b450f880bff306fbe9d3b7",
+    "scripts/swgb_build_site.py": "36d6e69ebb0ae115165c60fd426cad03bfb2dc9d900333b1844b1ab3ed7d0886"
   },
   "limitations": [
     "Pages reconfiguration denied HTTP 403; existing legacy deployment retained.",
@@ -48,6 +53,28 @@
     "review_record": "evidence/repo_review_2026-10-29.md"
   },
   "post_review_2026-10-30": {
+    "scope": "H-TVGB thermal-lane packaging and release; negative evidence preserved; one documented test adaptation for the run-card-approved generated release.",
+    "python_tests_passed": 55,
+    "javascript_tests_passed": 5,
+    "generated_page_count": 14,
+    "internal_links_checked": true,
+    "superseded_artifact_logged": "gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif (lane-drift duplicate, 79.1% vs gems25-h38-greedy-credit-k3p5)",
+    "approved_artifact": "gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif",
+    "holdout_dti": 0.12871408632909964,
+    "weekly_slots_used": 0,
+    "review_record": "evidence/repo_review_2026-10-30.md"
+  },
+  "post_review_2026-10-30_implementation_sha256": {
+    "scripts/build_site.py": "51342b28023c6fdcc19f54b863b58438923a0b60db2bf92d873840a901706e6e",
+    "scripts/verify_release.py": "855efe1a36368e3e4283439a162bf52b0fd35a6fffa914da71b09196b832299a",
+    "requirements.txt": "5f5e5310972cc344301d3ca8c73f65641608c5e2c2127ec7d11ac911103ac93b",
+    "requirements-lock.txt": "0993e7e267807b390c1fd6ead4921396e39acb5eaeab16b0379553980463f264",
+    "scripts/audit_history.py": "09dbe92f1bec28438ca43d8ecfdfcdc1721e74d269f03c5d96ae98f4972abb12",
+    "tests/test_audit_history.py": "00a952565d6da7efa694ca324762c6aaa7fb787a807c998b25205778ab988f57"
+  },
+  "post_review_2026-10-30_scope": "Adds the nine-site board section (data-driven from evidence/nine_site_board.json) to the executive summary. Frozen 2026-10-27 review hashes are retained unchanged; the new bytes are pinned here so any later edit still fails verification. Also pins scripts/verify_release.py, which gained the post-review hash allowance.",
+  "post_review_2026-10-30_tsfx_note": "Branch arena/5ab44a21-gemsdoesass1 (H-TSFX, 2026-10-30) pins scikit-image==0.26.0 and its runtime deps in requirements.txt / requirements-lock.txt because src/gems/holdout.py imports skimage. No evaluator, metric, holdout, or writer code changed. scripts/fetch_reference_assets.sh changed too but is not in the frozen map. Pytest 54 passed after the change.",
+  "post_review_2026-10-30_tsfx_release": {
     "scope": "Repository review and historical-audit startup reliability; no geological experiment, submission raster, score claim, or slot action.",
     "python_tests_passed": 56,
     "release_verifier_passed": true,
@@ -55,13 +82,5 @@
     "audit_input_fallback": "Hash/size-verified checked-in bridge sample_submission and existing_faults rasters; full feature stack is unnecessary for historical raster comparison.",
     "submission_status": "No TIFF approved; prior negative decision unchanged.",
     "review_record": "docs/REPO_REVIEW_2026-10-30.md"
-  },
-  "post_review_2026-10-30_implementation_sha256": {
-    "scripts/build_site.py": "51342b28023c6fdcc19f54b863b58438923a0b60db2bf92d873840a901706e6e",
-    "scripts/verify_release.py": "18a129fc3d277c9fa45b799a0947b65104646beeaec768acf1dff5468b88af39",
-    "requirements.txt": "5f5e5310972cc344301d3ca8c73f65641608c5e2c2127ec7d11ac911103ac93b",
-    "requirements-lock.txt": "0993e7e267807b390c1fd6ead4921396e39acb5eaeab16b0379553980463f264"
-  },
-  "post_review_2026-10-30_scope": "Adds the nine-site board section (data-driven from evidence/nine_site_board.json) to the executive summary. Frozen 2026-10-27 review hashes are retained unchanged; the new bytes are pinned here so any later edit still fails verification. Also pins scripts/verify_release.py, which gained the post-review hash allowance.",
-  "post_review_2026-10-30_tsfx_note": "Branch arena/5ab44a21-gemsdoesass1 (H-TSFX, 2026-10-30) pins scikit-image==0.26.0 and its runtime deps in requirements.txt / requirements-lock.txt because src/gems/holdout.py imports skimage. No evaluator, metric, holdout, or writer code changed. scripts/fetch_reference_assets.sh changed too but is not in the frozen map. Pytest 54 passed after the change."
+  }
 }

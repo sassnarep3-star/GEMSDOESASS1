@@ -1,0 +1,94 @@
+{
+  "experiment": "E3-emission-sweep",
+  "field": "A_hvtgb",
+  "grid": [
+    {
+      "n_dots": 37654,
+      "prune_px": 2.0,
+      "holdout_dti": 0.14070022265615528,
+      "ci95": [
+        0.1353506887361049,
+        0.14642098924535418
+      ],
+      "farfield": 0.11915399076681793
+    },
+    {
+      "n_dots": 37654,
+      "prune_px": 6.0,
+      "holdout_dti": 0.12871408632909964,
+      "ci95": [
+        0.12314242017202875,
+        0.13549018375093902
+      ],
+      "farfield": 0.13426565343128563
+    },
+    {
+      "n_dots": 44090,
+      "prune_px": 2.0,
+      "holdout_dti": 0.14621776586543866,
+      "ci95": [
+        0.13963199781974803,
+        0.15492529072015843
+      ],
+      "farfield": 0.12616916260331212
+    },
+    {
+      "n_dots": 44090,
+      "prune_px": 6.0,
+      "holdout_dti": 0.1333768022569796,
+      "ci95": [
+        0.12797830777573455,
+        0.13933208022852955
+      ],
+      "farfield": 0.13841029877143352
+    },
+    {
+      "n_dots": 52000,
+      "prune_px": 2.0,
+      "holdout_dti": 0.1516064674379003,
+      "ci95": [
+        0.14445710746395057,
+        0.1573717739055208
+      ],
+      "farfield": 0.13299697090558224
+    },
+    {
+      "n_dots": 52000,
+      "prune_px": 6.0,
+      "holdout_dti": 0.1365105635404968,
+      "ci95": [
+        0.12947599506462362,
+        0.14299135665248916
+      ],
+      "farfield": 0.1407852751601292
+    }
+  ],
+  "shipped_config": {
+    "n_dots": 37654,
+    "prune_px": 2.0,
+    "holdout_dti": 0.14070022265615528,
+    "ci95": [
+      0.1353506887361049,
+      0.14642098924535418
+    ],
+    "farfield": 0.11915399076681793
+  },
+  "selection_rule": "shipped config fixed at champion operating point (37,654 / 2.8 px / >2 px) per preregistration amendment; sweep = sensitivity",
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ]
+  },
+  "repo_best": {
+    "name": "SWGB emitted (repo incumbent, withdrawn for lattice overlap)",
+    "holdout_dti": 0.1401,
+    "ci95": [
+      0.1329,
+      0.1452
+    ]
+  },
+  "elapsed_s": 153.5
+}

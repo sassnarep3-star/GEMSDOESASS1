@@ -12,8 +12,10 @@ from audit_history import core_data_path
 def test_core_audit_inputs_resolve_to_hash_verified_bridge_mirror():
     sample = core_data_path(ROOT, 'sample_submission')
     faults = core_data_path(ROOT, 'existing_faults')
-    assert sample == ROOT / 'data/bridge/sample_submission.tif'
-    assert faults == ROOT / 'data/bridge/existing_faults.tif'
+    # data/official is preferred once prepare_data has run; the checked-in bridge
+    # mirror is the fallback. Both are hash-verified against the pinned manifest.
+    assert sample in (ROOT / 'data/official/sample_submission.tif', ROOT / 'data/bridge/sample_submission.tif')
+    assert faults in (ROOT / 'data/official/existing_faults.tif', ROOT / 'data/bridge/existing_faults.tif')
     assert sample.is_file() and faults.is_file()
 
 

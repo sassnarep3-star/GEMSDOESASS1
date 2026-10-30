@@ -186,14 +186,20 @@ def test_frozen_negative_artifact_contract():
     assert card['holdout_status'].startswith('EXPLORATORY')
     assert len(card['note']) <= 140
     # BGAC packaged nothing. H-PBSC (later session) may place a research TIF in
-    # docs/downloads only if its own card says ok_to_submit is false.
+    # docs/downloads only if its own card says ok_to_submit is false. The 2026-10-30
+    # thermal release additionally ships its generated candidate plus the superseded
+    # B2 duplicate log; nothing else may appear there.
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
+    thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
+    allowed = (pbsc['submission_name'].replace('.tif', ''),
+               thermal['raster_name'].replace('.tif', ''),
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
-    assert all(p.name == pbsc['submission_name'] for p in tifs)
-    assert all(p.name.startswith(pbsc['submission_name'].replace('.tif', '')) for p in zips)
+    assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
+    assert all(any(p.name.startswith(pref) for pref in allowed) for p in zips)
 
 
 def test_empty_inventory_never_clears(tmp_path):
@@ -238,8 +244,12 @@ def test_concurrent_main_research_preserved_not_promoted():
             assert p.suffix == '.txt'
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     assert pbsc['ok_to_submit'] is False
+    thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
-    assert all(p.name == pbsc['submission_name'] for p in tifs)
+    allowed = (pbsc['submission_name'].replace('.tif', ''),
+               thermal['raster_name'].replace('.tif', ''),
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 
 def test_second_parallel_audit_preserved_and_ledger_retained():

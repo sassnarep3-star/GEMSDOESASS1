@@ -72,10 +72,16 @@ def test_homepage_makes_submit_decision_obvious():
     home = (ROOT / "index.html").read_text()
     assert "DO NOT SUBMIT" in home
     assert "NOT APPROVED" in home
-    assert "ok to download and submit" not in home.lower()
     assert ".tif\"" not in home
     assert "H-PBSC" in home
     assert "99.48%" in home
+    # The generated release verdict must appear exactly when the run card approves it.
+    card = json.loads((ROOT / "evidence/thermal/run_card.json").read_text())
+    if card["ok_to_download_and_submit"]:
+        assert "ok to download and submit" in home.lower()
+        assert card["raster_name"] in home
+    else:
+        assert "ok to download and submit" not in home.lower()
     summary = (ROOT / "executive-summary.html").read_text()
     assert CARD["submission_name"] in summary
     assert "DO NOT SUBMIT" in summary
