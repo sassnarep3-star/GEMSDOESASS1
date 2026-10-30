@@ -1,0 +1,89 @@
+{
+  "schema": "run-card-v1-review",
+  "date_utc": "2026-10-30",
+  "session": "repository review, registry refresh, literal re-audit; no experiment",
+  "experiments_run": 0,
+  "experiment_budget": "3 experiments / 2 hours: 0 used",
+  "hypothesis": null,
+  "hypothesis_reason": "No new hypothesis was tested. Ranked slate is in knowledge/hypotheses_20261029.md; gated by the registry policy decisions.",
+  "mechanism": null,
+  "named_non_fault_mimic": null,
+  "holdout_dti": null,
+  "holdout_dti_reason": "No holdout run in this session. No HOLDOUT-DTI figure is reported.",
+  "leakage_canary": null,
+  "leakage_canary_reason": "No feature was tested.",
+  "registry_overlap": {
+    "registry": "registry/focus_inventory_20261030.json (489 TIFF blobs, all blob-verified)",
+    "footprint": "np.isfinite(data/bridge/sample_submission.tif), 5,167,373 cells",
+    "rules": "rank corr > 0.90 or > 70% of dots within 3 px = duplicate; no exemptions",
+    "candidates": {
+      "H-PBSC research TIF (negative)": {
+        "sha256": "2f3bd24e7be6edb58df011482622075a72e08beb5eab772d50c4d6aa80247fd9",
+        "duplicate": true,
+        "max_directed_overlap_within_3px": 0.9948478249322781,
+        "max_spearman": 0.07139541664886938,
+        "closest_lattice": "GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "cleared": false
+      },
+      "SWGB research TIF (withdrawn)": {
+        "sha256": "f98c20df5bc67a482de6debd4abef9d3d104498bda0aacf464d693e271287729",
+        "duplicate": true,
+        "max_directed_overlap_within_3px": 0.9987071898389658,
+        "max_spearman": 0.04395341733053843,
+        "closest_lattice": "GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "cleared": false
+      }
+    },
+    "comparison_complete": false,
+    "comparison_incomplete_reason": "GEMSDOE31 docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif has 2,610,312 non-finite footprint cells (unassessable; fail-closed)",
+    "positive_control": "self-match overlap 1.0, rank correlation 1.0",
+    "receipt": "evidence/registry_refresh_20261030.json"
+  },
+  "new_raster_sha256": null,
+  "new_raster_reason": "No new raster was generated; the policy gate blocks any competitive-size dot raster.",
+  "validator": {
+    "method": "rasterio read of the two negative research TIFFs (not candidates)",
+    "H-PBSC": {
+      "dtype": "float32",
+      "bands": 1,
+      "shape_match": true,
+      "crs_match": true,
+      "transform_match": true,
+      "nan_anywhere": 0,
+      "in_0_1_inside_footprint": true,
+      "nonzero_outside_footprint": 0,
+      "positive_cells": 37654
+    },
+    "SWGB": {
+      "dtype": "float32",
+      "bands": 1,
+      "shape_match": true,
+      "crs_match": true,
+      "transform_match": true,
+      "nan_anywhere": 0,
+      "in_0_1_inside_footprint": true,
+      "nonzero_outside_footprint": 0,
+      "positive_cells": 44090
+    }
+  },
+  "submission_name": null,
+  "submission_note": null,
+  "submission_reason": "No submission name or note is issued: no candidate cleared.",
+  "scores": {
+    "HOLDOUT-DTI": null,
+    "ORGANIZER-CONFIRMED": null,
+    "OWNER-REPORT (not verified)": {
+      "GEMSDOE32 h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros": 0.2778
+    },
+    "OFFICIAL-SNAPSHOT (as labelled by owner; not re-read here)": {
+      "leaderboard_top_2026-10-25 xiaofanhu": 0.4413
+    },
+    "OWNER-CITED LEADERBOARD ROW (owner labels ORGANIZER-CONFIRMED; NOT adopted; not re-read here)": {
+      "leaderboard_top_2026-10-28 xiaofanhu": 0.4544
+    }
+  },
+  "uploads": 0,
+  "weekly_slots_used": 0,
+  "verdict": "negative",
+  "verdict_reason": "No candidate is cleared; the two existing research TIFFs are duplicates; a registry policy decision is required before any candidate can clear."
+}
