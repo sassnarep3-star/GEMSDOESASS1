@@ -28,6 +28,35 @@ footer{padding:28px 20px 50px;color:var(--mut);font-size:13px}
 <body><header><nav><a href="index.html">Home</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="run-card.html">Run card</a><a href="swgb/index.html">Prior SWGB lane</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">Repo</a></nav><h1>Executive summary — nine sites + this session</h1>
 <p class="mut">GEMSDOESASS1 · DOE GEMS Prize (DrivenData #306) · session 2026-10-28 H-PBSC · numbers from evidence/*.json</p>
 </header><main>
+
+<div class="banner bad"><h2>Download decision: NO FILE IN THIS REPO IS CLEARED TO SUBMIT</h2>
+<p><b>Why:</b> the uniqueness gate (&gt;70% of dots within 3 px of any registry raster → duplicate) is saturated by one dense lattice.
+The 13gems 5 px calibration lattice (206,895 dots, scored 0.0904 on another site) covers
+<b>99.87%</b> of the footprint within 3 px. Uniform-random dots with no model at all score
+<b>99.88%</b>. The gate therefore cannot tell a copy from an original dense file.
+<a href="evidence/gate_null_audit.json">Null audit JSON</a>.</p>
+<p><b>Decision needed (policy, not a science result):</b> approve an amended uniqueness test before any slot is used. Options are in
+<a href="knowledge/REVIEW_2026-10-30.md">the 2026-10-30 review</a>. Until then nothing is submitted.</p></div>
+<h2>Submission candidates — estimates (labelled)</h2>
+<table>
+<tr><th>File</th><th>Evidence (HOLDOUT-DTI = holdout proxy; PROJECTION = calibration fit, not a score)</th><th>Projected live (not a score)</th><th>Unique? (3 px literal / 0 px &amp; 1 px null)</th><th>Validator</th><th>Submit?</th></tr>
+<tr><td><code>gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif</code></td>
+<td>HOLDOUT-DTI <b>0.1401</b> [0.1329, 0.1452] (GEMSASS1-HR-v2-segment, 60,988 withheld positives; prune 6 px = shipped file)<br>
+PROJECTION only (n=17, Spearman -0.08, RMSE 0.077): live ≈ 0.273 — not a score</td>
+<td>Literal 3 px rule: <b>99.87%</b> → FAILS (random placement gives 99.88%).<br>
+0 px match: 4.15% (random 4.08%); 1 px: 19.95% (random 19.91%)</td>
+<td>Validator 11/11 PASS (from bytes)</td>
+<td><b>NO — not cleared.</b> Blocked by the literal rule only.</td></tr>
+<tr><td><code>gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif</code></td>
+<td>HOLDOUT-DTI <b>0.0650</b> [0.0605, 0.0693] — <b>lost</b> bar 0.1011</td>
+<td>PROJECTION 0.230 — not a score</td>
+<td>Literal 3 px rule: <b>99.48%</b> → FAILS (random 99.88%).<br>0 px: 4.00%; 1 px: 19.89%</td>
+<td>Validator 11/11 PASS (from bytes)</td>
+<td><b>NO.</b> Lost holdout and fails the literal rule.</td></tr>
+</table>
+<p>Leaderboard context (fetched 2026-10-30, cached page, unverified-live): #1 0.4544 — the user-supplied 0.4413 and 0.3195 do not match this page. <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">official leaderboard</a>.
+The metric is confirmed from the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">official problem page</a>: DTI α=0.2, β=0.8, 300 m triangular kernel.</p>
+
 <p>Every live number in the nine-site table is <b>OWNER-REPORT</b> (copied from sibling ledgers; no submission-page receipt in this sandbox).
 Every holdout number is <b>HOLDOUT-DTI</b> on evaluator <code>GEMSASS1-HR-v2-segment</code>, 60,988 withheld positives.
 A projection is never a score. DrivenData / USGS / Dropbox are not on this sandbox allowlist.</p>

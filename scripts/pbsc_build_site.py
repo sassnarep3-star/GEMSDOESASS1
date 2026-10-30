@@ -115,9 +115,61 @@ def home_body():
     raise RuntimeError("root index.html is fail-closed by hand; do not regenerate it from this builder")
 
 
+GATE = json.loads((ROOT / "evidence/gate_null_audit.json").read_text())
+VAL = json.loads((ROOT / "evidence/candidate_validator_20261030.json").read_text())
+OFF = json.loads((ROOT / "evidence/official_source_check_20261030.json").read_text())
+RD = json.loads((ROOT / "evidence/swgb/release_decision.json").read_text())
+
+
+def decision_banner():
+    """Download decision, rendered from evidence JSON. A projection is labelled as one, never as a score."""
+    cal = CAL["calibration"]
+    rs = GATE["radius_sensitivity"]["by_radius"]
+    cands = {c["candidate"]: c for c in GATE["repo_candidates_vs_lattice"]}
+    sw = cands[SWGB_FILE]
+    pb = cands[PBSC_FILE]
+    sw_h = RD["holdout_dti"]
+    pb_h = PBSC["holdout_dti"]
+    def proj(h):
+        return cal["intercept"] + cal["slope"] * h
+    v_sw = VAL[SWGB_FILE]["all_checks_passed"]
+    v_pb = VAL[PBSC_FILE]["all_checks_passed"]
+    rows = f"""
+<tr><td><code>{html.escape(SWGB_FILE)}</code></td>
+<td>HOLDOUT-DTI <b>{sw_h['value']:.4f}</b> {fmt_ci(sw_h['ci95'])} ({sw_h['evaluator_version']}, {sw_h['withheld_positives']:,} withheld positives; prune 6 px = shipped file)<br>
+PROJECTION only (n={cal['n']}, Spearman {cal['spearman']:.2f}, RMSE {cal['rmse']:.3f}): live ≈ {proj(sw_h['value']):.3f} — not a score</td>
+<td>Literal 3 px rule: <b>{sw['vs_lattice']['3px']*100:.2f}%</b> → FAILS (random placement gives {rs['3']['random']*100:.2f}%).<br>
+0 px match: {sw['vs_lattice']['0px']*100:.2f}% (random {rs['0']['random']*100:.2f}%); 1 px: {sw['vs_lattice']['1px']*100:.2f}% (random {rs['1']['random']*100:.2f}%)</td>
+<td>Validator {'11/11 PASS' if v_sw else 'FAIL'} (from bytes)</td>
+<td><b>NO — not cleared.</b> Blocked by the literal rule only.</td></tr>
+<tr><td><code>{html.escape(PBSC_FILE)}</code></td>
+<td>HOLDOUT-DTI <b>{pb_h['value']:.4f}</b> {fmt_ci(pb_h['ci95'])} — <b>lost</b> bar 0.1011</td>
+<td>PROJECTION {proj(pb_h['value']):.3f} — not a score</td>
+<td>Literal 3 px rule: <b>{pb['vs_lattice']['3px']*100:.2f}%</b> → FAILS (random {rs['3']['random']*100:.2f}%).<br>0 px: {pb['vs_lattice']['0px']*100:.2f}%; 1 px: {pb['vs_lattice']['1px']*100:.2f}%</td>
+<td>Validator {'11/11 PASS' if v_pb else 'FAIL'} (from bytes)</td>
+<td><b>NO.</b> Lost holdout and fails the literal rule.</td></tr>"""
+    return f"""
+<div class="banner bad"><h2>Download decision: NO FILE IN THIS REPO IS CLEARED TO SUBMIT</h2>
+<p><b>Why:</b> the uniqueness gate (&gt;70% of dots within 3 px of any registry raster → duplicate) is saturated by one dense lattice.
+The 13gems 5 px calibration lattice ({GATE['rows'][-1]['registry_dots']:,} dots, scored 0.0904 on another site) covers
+<b>{rs['3']['lattice_self_coverage']*100:.2f}%</b> of the footprint within 3 px. Uniform-random dots with no model at all score
+<b>{rs['3']['random']*100:.2f}%</b>. The gate therefore cannot tell a copy from an original dense file.
+<a href="evidence/gate_null_audit.json">Null audit JSON</a>.</p>
+<p><b>Decision needed (policy, not a science result):</b> approve an amended uniqueness test before any slot is used. Options are in
+<a href="knowledge/REVIEW_2026-10-30.md">the 2026-10-30 review</a>. Until then nothing is submitted.</p></div>
+<h2>Submission candidates — estimates (labelled)</h2>
+<table>
+<tr><th>File</th><th>Evidence (HOLDOUT-DTI = holdout proxy; PROJECTION = calibration fit, not a score)</th><th>Projected live (not a score)</th><th>Unique? (3 px literal / 0 px &amp; 1 px null)</th><th>Validator</th><th>Submit?</th></tr>{rows}
+</table>
+<p>Leaderboard context (fetched {OFF['checked_utc_day']}, cached page, unverified-live): #1 0.4544 — the user-supplied 0.4413 and 0.3195 do not match this page. <a href="{OFF['sources'][1]['url']}">official leaderboard</a>.
+The metric is confirmed from the <a href="{OFF['sources'][0]['url']}">official problem page</a>: DTI α=0.2, β=0.8, 300 m triangular kernel.</p>
+"""
+
+
 def exec_body():
     hd = PBSC["holdout_dti"]
     return f"""
+{decision_banner()}
 <p>Every live number in the nine-site table is <b>OWNER-REPORT</b> (copied from sibling ledgers; no submission-page receipt in this sandbox).
 Every holdout number is <b>HOLDOUT-DTI</b> on evaluator <code>{CAL['evaluator']}</code>, {CAL['n_withheld_positives']:,} withheld positives.
 A projection is never a score. DrivenData / USGS / Dropbox are not on this sandbox allowlist.</p>
@@ -212,21 +264,6 @@ def main():
     write_root_pages()
     note = ROOT / "docs/downloads" / f"note-{PBSC_FILE.replace('.tif','')}.txt"
     note.write_text(PBSC["submission_note"] + "\n")
-    (ROOT / "docs/downloads/README.md").write_text(
-        f"""# Downloads
-
-## ⛔ DO NOT SUBMIT
-
-`{PBSC_FILE}`
-
-H-PBSC research GeoTIFF. Unique and format-valid. **HOLDOUT-DTI {PBSC['holdout_dti']['value']:.4f}** lost the 0.1011 bar.
-`ok_to_submit = false`. Download for audit only.
-
-## ✅ OK TO SUBMIT (selector) — prior SWGB lane
-
-See `../../swgb/downloads/{SWGB_FILE}`.
-"""
-    )
     # keep docs/evidence in sync
     dest = ROOT / "docs/evidence"
     dest.mkdir(parents=True, exist_ok=True)
