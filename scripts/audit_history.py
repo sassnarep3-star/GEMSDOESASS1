@@ -30,13 +30,38 @@ SPECS = [
 ]
 
 
+def core_data_path(root, dataset_id):
+    """Resolve a pinned core raster without requiring the unused feature stack.
+
+    `data/official` is preferred after the shared prepare_data step. A checked-in
+    bridge mirror is an adequate fallback for these two metadata/catalogue inputs;
+    its bytes are checked against the same pinned manifest receipt. This avoids
+    forcing a 419 MB feature download just to audit historical raster submissions.
+    """
+    manifest = json.loads((root / 'registry/upstream_data_manifest.json').read_text())
+    rows = [row for row in manifest['files'] if row['id'] == dataset_id]
+    if len(rows) != 1:
+        raise ValueError(f'expected one pinned core-data manifest row for {dataset_id}')
+    row = rows[0]
+    candidates = [root / 'data/official' / row['dest'], root / 'data/bridge' / Path(row['dest']).name]
+    path = next((candidate for candidate in candidates if candidate.is_file()), None)
+    if path is None:
+        raise FileNotFoundError(
+            f'missing {dataset_id}; expected {candidates[0]} or checked-in bridge {candidates[1]}'
+        )
+    actual_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
+    if actual_sha256 != row['sha256'] or path.stat().st_size != row['bytes']:
+        raise ValueError(f'{dataset_id} bytes do not match pinned owner-mirror receipt: {path}')
+    return path
+
+
 def main():
     inventory = json.loads((ROOT / 'registry/focus_inventory.json').read_text())
-    sample = ROOT / 'data/official/sample_submission.tif'
+    sample = core_data_path(ROOT, 'sample_submission')
     with rasterio.open(sample) as src:
         fp = np.isfinite(src.read(1))
         shape, crs, transform = src.shape, src.crs, src.transform
-    with rasterio.open(ROOT / 'data/official/existing_faults.tif') as src:
+    with rasterio.open(core_data_path(ROOT, 'existing_faults')) as src:
         cat = src.read(1) == 1
     aliases = {}
     for r in inventory['rasters']:

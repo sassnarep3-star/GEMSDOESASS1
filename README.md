@@ -1,12 +1,40 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
-**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Latest reviews: [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md) and [technical evidence/validation review](knowledge/REVIEW_2026-10-29.md). The [ranked 2026-10-29 hypotheses](knowledge/hypotheses_20261029.md) are untested research ideas only. The prior lane’s negative result and novelty stop remain in force; no experiment, submission TIFF, score estimate, or slot approval was produced. Core values: **Maximize P(Win)** · **Own the Outcome**.
+## Mission prompt (read at the start of every session)
+
+Condensed from the user's prompt. The fuller persistent transcription is [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md).
+
+- **Goal.** Review the nine GEMSDOE focus sites (24, 25, 27, 28, 30, 31, 32, 33, 36). For each, identify the best file to download, with file, estimated score and uniqueness against the other eight sites. Produce a unique GeoTIFF that beats the user's stated bar, 0.3195, only if it is genuinely new. Do not copy a previous submission except for learning.
+- **Submission rules.** Values in [0, 1]. CRS, shape and geotransform must match the competition grid. Single-band GeoTIFF or zip. Unique name and a note of at most 140 characters. Validation gates run without human intervention: no NaN in the footprint, range, CRS/shape/transform, novelty.
+- **Hypotheses.** Generate 3–5 untested geological hypotheses ranked by expected DTI gain and cost. Validate the top one on the spatially blocked holdout before spending any submission slot. Use only free official sources, and check obtainability.
+- **Protocol.** Label every number HOLDOUT-DTI (evaluator version, withheld positives, 95% CI) or ORGANIZER-CONFIRMED. Projections are never scores. Leakage canary: a single-feature holdout AUC above 0.90 means leakage. Lane limits: rank correlation above 0.90, or more than 70% of dots within 3 px of a registry raster, means duplicate. Budget: stop after 3 experiments or 2 hours.
+- **Final output.** A JSON run card: hypothesis, mechanism, mimicking non-fault process, holdout DTI and CI, overlap, raster SHA-256, validator output, name, note (at most 140 characters), verdict (promote or negative).
+- **Constraints.** No manual input. Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`; fix shared tools once in the template and report it. Do not treat DrivenData as accessible without login. The user-supplied Dropbox, GDR and NLR links are outside the outbound allowlist. Flag irregularities. No hallucinated facts; cite official links. Negative results are deliverables. Do not pick submissions: promotion to a slot is a separate selector step within the weekly cap of three. Open a pull request, merge it to `main`, and list remaining work and limitations.
+- **Core values.** Maximize P(Win). Own the outcome.
+
+## Status — 2026-10-30
+
+**Is any new file OK to download and submit? NO.** No TIFF was generated this session, and no file in this repository is approved.
+
+| Blocker | Evidence |
+|---|---|
+| **Eligibility.** The official rules (§1.3) limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. The user's location is Singapore. Confirm with the administrator before any upload. | [NLR rules PDF](https://www.nlr.gov/docs/fy26osti/96647.pdf) |
+| **Literal uniqueness rule.** A file with more than 22,163 positive pixels cannot pass the 70%/3 px test against the GEMSDOE24 calibration lattice. Random placement overlaps at 0.9987, so the test cannot separate duplicates from noise. | [`evidence/nine_site_board.json`](evidence/nine_site_board.json) |
+| **No validated candidate.** SWGB beat the holdout bar in both variants: the shipped 6 px prune at 0.1401 [0.1329, 0.1452], and the 2 px E2 variant at 0.1586. Both are withdrawn by the lattice gate. Bar 0.1011 [0.0956, 0.1072]. The holdout does not rank live scores (Spearman −0.081). | [`evidence/swgb/`](evidence/swgb/) |
+
+**Nine-site board.** Every site's best file is a previous submission, and none is unique among the nine. Highest owner-reported: GEMSDOE32 0.2778, which is a 37,654-dot subset of the GEMSDOE25 family. Score column: owner-reported only. Estimated live score: not estimable. [Executive summary](docs/executive-summary.html) · [How to submit](how-to-submit.html) · [Run card](evidence/run_card_20261030_nine_site.json) · [Verified sources and irregularities](knowledge/sources_verified_20261030.md) · [Ranked hypotheses](knowledge/hypotheses_20261030.md).
+
+**Leaderboard (official snapshot, 2026-10-30).** #1 0.4544; #49 0.3195; #50 0.3169. The user's 0.4413 and 0.3195 "highest" figures do not match the top score on that page. 0.2778 is below rank 50.
+
+
+
+**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Latest review: [2026-10-30 download decision and gate audit](knowledge/REVIEW_2026-10-30.md) — **no file is cleared to submit**; the 70%/3 px uniqueness rule is saturated by a dense lattice (uniform-random dots: 99.88%). Also: [repository review (2026-10-30, verified commands and irregularities)](docs/REPO_REVIEW_2026-10-30.md) · [historical-audit fix addendum](docs/REPO_REVIEW_2026-10-30_AUDIT_FIX.md) · [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md) and [technical evidence/validation review](knowledge/REVIEW_2026-10-29.md). The [ranked 2026-10-29 hypotheses](knowledge/hypotheses_20261029.md) are untested research ideas only. The prior lane’s negative result and novelty stop remain in force; no experiment, submission TIFF, score estimate, or slot approval was produced. Core values: **Maximize P(Win)** · **Own the Outcome**.
 
 **Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
 
 # Session 2026-10-30 — H-TSFX lane (latest)
 
-**Is a new GeoTIFF OK to submit?** **NO.** Holdout passed (HOLDOUT-DTI 0.1587 [0.1522, 0.1658]; a sweep reached 0.1674, selected on the same holdout), but the shipped dots are a literal duplicate of 11 GEMSDOE25 rasters (70.2–72.3 % within 3 px), so the protocol stops placement. Full record: [`knowledge/RESULTS_20261030.md`](knowledge/RESULTS_20261030.md) · [`evidence/tsfx/run_card.json`](evidence/tsfx/run_card.json) · AMEND-LATTICE-01: [`knowledge/hypotheses_20261030.md`](knowledge/hypotheses_20261030.md).
+**Is a new GeoTIFF OK to submit?** **NO.** Holdout passed (HOLDOUT-DTI 0.1587 [0.1522, 0.1658]; a sweep reached 0.1674, selected on the same holdout), but the shipped dots are a literal duplicate of 11 GEMSDOE25 rasters (70.2–72.3 % within 3 px), so the protocol stops placement. Full record: [`knowledge/RESULTS_20261030.md`](knowledge/RESULTS_20261030.md) · [`evidence/tsfx/run_card.json`](evidence/tsfx/run_card.json) · AMEND-LATTICE-01: [`knowledge/hypotheses_20261030_tsfx.md`](knowledge/hypotheses_20261030.md).
 
 # Part 0 — H-PBSC lane (session 2026-10-28)
 
@@ -103,3 +131,27 @@ GitHub Pages uses the existing legacy `main` / root configuration, with root lin
 Another parallel session merged a separately negative synthetic research artifact into `main` while this branch ran. It is preserved, not deleted or treated as this lane's output: [parallel-main research archive](archive/parallel-main-f620a70/README.md). All 14 files are byte-hashed; old HTML is inert `.txt`, and TIFFs/ZIP remain learning-only in the archive, outside active downloads. Its limited uniqueness comparison and unvalidated projection are not adopted. The current BGAC-1 decision remains **negative / no approved TIFF**.
 
 A second concurrent audit (PR #4, main `2f67fac`) is also [fully preserved](archive/parallel-main-2f67fac/README.md), including its independent negative lattice-witness read-back, tooling and tests. Its [broader user-provided historical ledger](knowledge/user-provided-submission-ledger.md) is retained additively; unreceipted reports remain unverified. Only the current pipeline/site is active, and pytest scopes execution to tests/, not archived source snapshots.
+
+## Instrument irregularity and the H-GDR-CONDUIT-OFFCAT lane (2026-10-30)
+
+The decisive question for this workspace is not "which field is best" but "which instrument can tell".
+Both candidate local instruments that GEMSDOE32 built to track the live score are **refuted by the
+group's own live record** outside the champion family, and the shared hide-and-recover evaluator is
+**blind to catalogue proximity**:
+
+- SGMC off-catalogue DTI: GEMSDOE29 (0.5607) and GEMSDOE72 (0.6483) score far above the champion
+  (0.0954) yet scored ~0.05 live.
+- Live Mirror: 2/6 raw and 3/6 prevalence-calibrated reproductions of known live orderings.
+- The shared evaluator's truth is the hidden catalogue segments. A 600 m catalogue prune scores
+  HOLDOUT-DTI **0.0000**; a 200 m prune scores **0.0045** — exactly the champion's figure, from a
+  completely different field. The score is set by the prune, not by field content.
+
+New lane **H-GDR-CONDUIT-OFFCAT** (GDR geothermal wells/springs/vents x lidar scarp x competition
+band 17 cond_surf; leakage canary AUC 0.51-0.55, none > 0.90) reproduced the champion's
+shared-evaluator score while being flagged a novelty duplicate (3 px directed overlap 0.999). The
+lane is **negative**. A TIFF was produced through the shared fail-closed writer, carries the
+standard `[0,1]` validator receipt, and is **learning-only** — never uploaded, never a leaderboard
+score, never a promotion candidate.
+
+Full report: [docs/INSTRUMENT_IRREGULARITY.md](docs/INSTRUMENT_IRREGULARITY.md). Executive summary
+page: `docs/executive-summary.html` (new "Instrument irregularity" section).

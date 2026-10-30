@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""H-TSFX lane — session 2026-10-30. Preregistration: knowledge/hypotheses_20261030.md.
+"""H-TSFX lane — session 2026-10-30. Preregistration: knowledge/hypotheses_20261030_tsfx.md.
 
 Memory-lean flat-vector architecture (footprint-only feature vectors; full grids only inside
 band-by-band transforms) because the build sandbox has 3 GB RAM / 2 CPUs.
@@ -13,7 +13,7 @@ Stages (run in order; budget: 3 experiments / 2 hours, tracked in evidence/tsfx/
   e2       : emission sweep on the E1 fields (n x spacing x visible-prune), overlap vs the 17
              focus rasters per config; winner must keep max overlap <= 0.70.
   package  : full-registry novelty scan (414 + sibling/prior files; AMEND-LATTICE-01 / AMEND-N2
-             in knowledge/hypotheses_20261030.md), fail-closed writer, run card.
+             in knowledge/hypotheses_20261030_tsfx.md), fail-closed writer, run card.
 
 Shared tools reused from src/gems and scripts/novelty.py. No private forks; no slot; no upload.
 """
@@ -467,7 +467,7 @@ def _scan_full(candidate: np.ndarray, footprint: np.ndarray, inventory: dict, st
         stage=stage, registry_size=len(inventory["rasters"]),
         processed=len(receipt["comparisons"]), comparisons_complete=comparisons_complete,
         amended_n2_rows=len(unassessable_rows),
-        amendment="AMEND-LATTICE-01 + AMEND-N2 (knowledge/hypotheses_20261030.md)",
+        amendment="AMEND-LATTICE-01 + AMEND-N2 (knowledge/hypotheses_20261030_tsfx.md)",
         competitive=dict(
             n=len(competitive), max_spearman=max_rho, max_frac_dots_within_3px=max_ov,
             duplicates=[dict(repo=r["repo"], path=r["path"], spearman=r.get("spearman"),

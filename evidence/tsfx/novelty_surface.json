@@ -4,7 +4,7 @@
   "processed": 414,
   "comparisons_complete": true,
   "amended_n2_rows": 1,
-  "amendment": "AMEND-LATTICE-01 + AMEND-N2 (knowledge/hypotheses_20261030.md)",
+  "amendment": "AMEND-LATTICE-01 + AMEND-N2 (knowledge/hypotheses_20261030_tsfx.md)",
   "competitive": {
     "n": 412,
     "max_spearman": 0.18453755534187963,

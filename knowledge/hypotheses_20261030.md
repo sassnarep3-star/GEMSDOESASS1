@@ -1,118 +1,49 @@
-# Session 2026-10-30 — preregistered hypotheses, slate, and novelty-policy amendment
+# Ranked hypotheses — 2026-10-30 (not run)
 
-Written **before** any experiment was run in this session. Read together with
-[`NEXT_STEPS.md`](NEXT_STEPS.md), [`hypotheses_20261029.md`](hypotheses_20261029.md) and
-[`01_why_0p2778_and_what_beats_it.md`](01_why_0p2778_and_what_beats_it.md).
+## Decision first
 
-## 0. Policy decision taken first — AMEND-LATTICE-01 (the item NEXT_STEPS #4 demands)
+**No candidate was run, and no TIFF was generated.** Three reasons, each verified:
 
-NEXT_STEPS #4 required "an explicit, versioned amendment" for the calibration-lattice novelty
-question **outside a stopped run**. This is that amendment. It does not relax either threshold
-(ρ > 0.90, overlap > 0.70 at 3 px) and it does not silently omit any raster.
+1. **The literal uniqueness rule cannot be satisfied by a competitive-size file.** A pass needs at least 30% of a candidate's dots more than 3 px from every dot of the GEMSDOE13 calibration lattice. Only dots on the 6,649 uncovered footprint cells can be outside that halo. So a file with more than **22,163** positive pixels fails no matter what it predicts. Competitive files have 37,654–61,328 (`evidence/nine_site_board.json`, `lattice_gate_bound`).
+2. **The gate cannot tell duplicates from noise.** Random placement of 37,654 dots on allowed cells overlaps the lattice at a mean of 0.9987 (seeds 1–5: 0.9985–0.9990).
+3. **Eligibility is unresolved.** The user's location is Singapore. The official rules restrict eligibility to U.S. citizens and permanent residents, or U.S.-incorporated entities (§1.3). See `knowledge/sources_verified_20261030.md`.
 
-**Witness, re-measured from bytes in this checkout (2026-10-30):**
+Running a holdout experiment now would produce a result that cannot change the release decision, so the experiment budget (3 experiments, 2 hours) was not spent. No submission slot was spent.
 
-| raster | dots | dots within 3 px of the 13gems lattice | evidence class |
-|---|---|---|---|
-| `gemsdoe32-h33-h33-2-b2…-zeros.tif` (0.2778 OWNER-REPORT, the file this session analyses) | 37,654 | **37,622 / 37,654 = 99.915 %** | MEASURED-HERE |
-| `gems25-dotted-h19-5-d2-8…-nan.tif` (0.2600 OWNER-REPORT) | 44,090 | 44,053 / 44,090 = 99.916 % | MEASURED-HERE |
-| `gems28-h27-4-r1-solo-d2-8…-nan.tif` (0.2708 OWNER-REPORT) | 40,199 | 40,166 / 40,199 = 99.918 % | MEASURED-HERE |
-| `13gems_20261001_r13-lattice-s5_v2_nan-outside.tif` itself | 206,895 | regular grid, dy = dx = **5 px exactly** | MEASURED-HERE |
+**A parallel session's proposal, not adopted here.** `knowledge/REVIEW_2026-10-30.md` (option A) proposes a null-calibrated amendment, under which SWGB (6 px prune, HOLDOUT-DTI 0.1401) would become eligible for one selector slot after a receipt-verified check of the rules. This record does not adopt it. Eligibility under §1.3 (see above) blocks any selector slot until it is resolved, whichever uniqueness test is chosen.
 
-**Finding.** The lattice is a synthetic full-footprint 5 px calibration grid (path
-`inputs/calibration/` in GEMSDOE24; itself OWNER-REPORT 0.0904). For any square grid of spacing
-5 px, essentially every point in the plane lies within 3 px of a grid point (measured ≥ 99.9 %
-for three independent real submissions, including the 0.2778 champion). The literal
-"more than 70 % of your dots within 3 px of one registry raster's dots" rule, when applied to
-this lattice, is therefore **vacuous: it flags every possible submission as a duplicate,
-including the very file this project was asked to analyse and beat**. The rule's stated purpose
-is lane-drift (copying another lane's emission); a regular-grid fixture cannot detect that.
+## Ranking
 
-**AMEND-LATTICE-01 (versioned, explicit):**
+Rank order is a qualitative priority: expected usefulness for recovering withheld surface-scarp labels per implementation cost. It is **not a score, and it is not a projection.**
 
-1. The rank-correlation gate (ρ ≤ 0.90 vs **every** of the 414 registry rasters, including the
-   lattice) applies literally and is reported.
-2. The 3 px / 70 % overlap gate applies literally to every registry raster **except** synthetic
-   calibration fixtures that are regular grids covering the footprint (identified here:
-   `GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif`, dy = dx = 5 px,
-   206,895 dots). Such fixtures are still measured, and the raw number is printed in the run card
-   as `IR-LATTICE-01` alongside this witness, never omitted.
-3. Any registry raster that is a real published submission (including its mirrors across focus
-   sites) is subject to the full gate unchanged.
-4. This amendment is required for the gate to be satisfiable at all; retracting it would classify
-   the 0.2778 champion, the 0.2600 base, and every dotted submission in the group as duplicates
-   of a 0.0904 grid.
+| Rank | Hypothesis | Layers (cached 19-band stack, band number) | Physical signature | Non-fault process that could mimic it | Difference from prior work | Expected DTI potential / cost | Canary and gate status |
+|---|---|---|---|---|---|---|---|
+| 1 | **H-BASEMENT-STEP-GRAD**: a sharp basement-depth discontinuity that coincides with horizontal gradient maxima in both gravity and magnetics | `depth_to_base_surf` (15) gradient; `iso_grav_anom_hg` (18); `tmi_hg` (3); optional `det_elev_slope` (19) | Basement offset along a structure appears as a depth step, with a gravity and magnetic gradient maximum on the same line | Sedimentary basin margins and dike or intrusive contacts, which give gradient maxima without displacement | Prior work used magnetic edges and basin-bounding steps. This one requires three independent cached layers to co-locate (depth step × gravity gradient × magnetic gradient). | Unquantified. Medium uncertainty. Low cost (cached bands only, CPU). | Not implemented. Requires a per-feature leakage canary (AUC > 0.90 means leakage). Not gated by data, but gated by the literal lattice rule for any competitive-size output. |
+| 2 | **H-CONDUCTIVE-STEP**: lateral conductivity contrast co-located with a basement-depth step | `cond_surf` (17) gradient; `depth_to_base_surf` (15) gradient | Fluid-saturated fault gouge or alteration can raise conductivity along a structure | Conductive sediments and clay-rich margins along basin edges | Combines electrical conductivity with depth step. Not used together in prior work. | Unquantified. Low to medium. Low cost. | Not implemented. Same canary and gate status as rank 1. |
+| 3 | **H-STRAIN-EDGE**: a sign change in geodetic dilatation co-located with a slope-break lineament | `geod_dilaterate` (8) sign change; `geod_shearrate` (7); `det_elev_slope` (19) | Extensional strain sign and shear concentrate along active structures | Regional strain fields from geodetic model smoothing, which lack local structure | Geodetic strain bands are coarse. This tests whether local slope-break lines align with strain-sign boundaries. | Unquantified. Low, because the strain fields are smooth. Low cost. | Not implemented. Canary required. |
+| 4 | **H-QUAKE-LINEAMENT**: earthquake density ridges aligned with slope-break lineaments | `ieq_n100a15` (16); `deq_n100a15` (10); `det_elev_slope` (19) | Microseismicity clusters along active faults | Seismicity clusters at fault intersections, geothermal fields, or mining, not at new scarps | Uses earthquake catalogue density, which is not used in the prior lanes. | Unquantified. Uncertain. Low cost. | **High leakage risk**: earthquake catalogues may correlate with the withheld labels. Canary must pass before any holdout claim. |
 
-Also under this amendment: **AMEND-N2** — a registry raster with nonfinite values inside the
-footprint cannot be rank-compared as published; it is evaluated with nonfinite treated as 0
-support (the same reduction `binary_dots` applies), instead of blocking clearance. Thresholds
-unchanged.
+## Candidates from the 2026-10-29 slate, status verified this session
 
-## 1. What the 0.2778 champion is (verified line-by-line from bytes this session)
+The 2026-10-29 slate depends on layers that are **not in the cached 19-band stack**. Here is what each needs and where it comes from. Nothing was fetched this session.
 
-| claim | measurement (MEASURED-HERE) |
-|---|---|
-| champion == `d2.8 ∩ {EDT(existing_faults) > 2 px}` | symdiff = **0** |
-| `h27-4` == `d2.8 ∩ {EDT > 1 px}` | symdiff = **0**; 3,891 dots removed at 1 px, 6,436 at 2 px |
-| champion ⊆ d2.8, counts 44,090 − 6,436 = 37,654 | exact |
-| champion values | float32, 0/1, no NaN anywhere |
+| Slate item | Layers required | Restored locally? | Source in pinned mirror (`registry/upstream_data_manifest.json`) | Obtainable here? |
+|---|---|---|---|---|
+| H-SCARP-ASYM | lidar `step_max`, `coh100`, `relief` | No | `external/lidar_scarp_features_u8.tif` (group `external`, 36.9 MB) | Yes, through the pinned GitHub mirror, with the hash checked. Mirror is not organizer-authenticated. |
+| H-RAD-CONTACT-SCARP | `rad_K`, `rad_ThK` | No | `external/geodawn_rad_u8.tif` (26.6 MB) | Yes, mirror. |
+| H-MAG-EDGE-TERMINATION | `TMI_up150` | No | `external/geodawn_extensions_u8.tif` (27.1 MB) | Yes, mirror. |
+| H-STRIKE-CONTINUITY-GAP, H-RAD-QUIET-SCARP | lidar and radiometric layers above | No | as above | Yes, mirror. |
 
-Why it scores (labelled): DTI = TP / (TP + 0.2·FP + 0.8·FN) with 300 m triangular credit and
-**known catalogue pixels excluded from scoring** (official: staff forum thread 11516) ⇒
-(a) mass is taxed at 0.2 but coverage is credited once per truth pixel ⇒ thin dots beat lines;
-(b) dots on/near the catalogue are ignored or pure FP risk ⇒ deleting them raised 0.2600 →
-0.2708 → 0.2778 live (OWNER-REPORT ladder); (c) every remaining dot must earn
-k > 0.2·DTI ≈ 0.056. All nine focus sites' ≥0.2449 files are one H19-5 family
-(≥ 97.5 % within 3 px of the 0.2600 base, `evidence/swgb/registry_family_overlap.json`).
+The original USGS and ScienceBase sources are **not** on this sandbox's outbound allowlist (only GitHub, npm and PyPI hosts are). The mirror is the only route.
 
-**Beating 0.2778 requires a better far-field lidar-scarp field at ~38–44k dots, not another
-H19-5 prune.** Holdout (hide-and-recover of catalogue segments) is the only local instrument;
-it does not rank within-family emission edits (Spearman −0.08, `evidence/swgb/holdout_calibration.json`),
-so every holdout number below is a gate, never a leaderboard projection.
+## Top hypothesis: holdout validation status
 
-## 2. Five candidate hypotheses (none has been run in this checkout)
+**H-BASEMENT-STEP-GRAD has not been validated on the spatially blocked holdout.** The protocol needs (a) a pre-registered feature transform, (b) the leakage canary, and (c) the shared evaluator run against an incumbent on identical folds. None of these was done. The reason is in the decision section above, not a technical blocker. No submission slot was spent.
 
-Layers named below all exist in this checkout (u8 stacks in `data/features/`, 19-band stack via
-`data/official/training_features.tif`, sidecars in `data/features/*.json`) — no external data is
-required, so every candidate is runnable now. Ranking = expected HOLDOUT-DTI improvement over the
-current repo holdout best × implementation cost (qualitative, not a score projection).
+## Next step, if the user decides the policy
 
-| rank | id | specific layer(s) | physical signature targeted | why it can catch a fault missing from USGS/INGENIOUS | how it differs from everything already in this repo | expected gain / cost |
-|---|---|---|---|---|---|---|
-| **1 (LANE)** | **H-TSFX tectonic-strain fusion learner** | SWGB's 32 layers **plus** unused 19-band stack: `geod_shearrate`, `geod_2ndinv`, `geod_dilaterate` (GPS/InSAR strain), `deq_n100a15` / `ieq_n100a15` (seismicity), `depth_to_base_surf` (+gradient), `cond_surf`, `det_elev(_slope)`, `rtp`, `tmi_hg`, `iso_grav_anom_hg`, **plus new** label-free polarity-coherence features (below) | joint segment-withheld learner over scarp morphology × geodetic strain-rate loci × microseismicity × basement-step/conductivity context | unmapped Holocene strands concentrate where strain rate and seismicity accumulate but mapped traces stop; the learner recovers withheld scarps from morphology conditioned on those tectonic priors — the priors themselves never touch the catalogue | no lane here has ever fed the geodetic-strain, seismicity, depth-to-basement, conductivity or detrended-elevation bands to any learner (BGAC used gravity/basement as a label-free signed anti-gradient and scored 0.039–0.073 HOLDOUT-DTI; SWGB used only lidar/rad/mag + catalogue context) | **high / medium** |
-| 2 | **H-POLCOH scarp polarity coherence** | lidar `step_max`, `downface_max`/`upface_max` signed into `face_asym`, `strike`, `coh100` | a fresh normal-fault scarp steps down in the **same** direction along strike for kilometres: circular concentration of doubled strike × sign-consistent facing over connected high-step ridges, rejecting symmetric ridges, flows and terrace risers whose facing flips | the hidden labels are unmapped surface scarps; polarity persistence is a young-dip-slip property that canyon walls/roads fail (their facing follows drainage) | not the 2026-10-29 abstract "asymmetry" note (never implemented, and it used local asymmetry magnitude only); not RFPD (no visible-catalogue strike gate, no dipole couple); not PBSC (no playa/relief conjunction); label-free | medium / low |
-| 3 | **H-BSTEP basement-step scarp coincidence** | `depth_to_base_surf` horizontal gradient (σ 3–8 px), lidar `step_max` × `coh100`, weak `mag_hgrad_s5` | **positive coincidence** of a buried basement step edge with a surface scarp (upward fault propagates from a basement ramp and breaks the cover) | range-front scarps in alluvium sit above basement steps that are invisible in surface geology maps | BGAC tested *signed opposition between gravity and basement gradients with weak surface expression*; this is *edge–scarp coincidence* and veto-weights topographic-quiet sites — opposite regime to H-CXSE (which vetoes scarps) | low–medium / low |
-| 4 | **H-SEISKG seismicity-weighted lineaments** | `deq_n100a15`, `ieq_n100a15` × lidar `step_max`/`coh100` lineaments | instrumental earthquake density is highest on the still-active strands; a scarp where instrumental seismicity clusters is more likely a Holocene fault than a relict one | Qfaults omits uninstrumented Holocene scarps, while the earthquake catalogue is an independent, non-geologic observation of where slip is accumulating | the distance-to-earthquake bands have never been used by any lane or by any public focus-site file we measured | low / low |
-| 5 | **H-RELAYPOL polarity-flip relay bridge** | lidar `face_asym`, `strike`, `step_max`, `coh100` | at a releasing relay/stepover, the down-facing polarity of two en echelon scarps flips across a short connecting anticlinal/oblique hinge — bridging them finds the un-mapped connector segment | connectors between mapped strands are exactly the segments Qfaults under-maps in alluvium, and they carry the same scarp morphology | the H19-5 family takes relay/tip geometry from the **visible catalogue**; this derives relay geometry purely from label-free polarity fields; siblings' dual-horizon/conduit lanes used different physics (do-not-copy list) | medium / medium |
-
-## 3. Frozen experiment plan (≤ 3 experiments, ≤ 2 hours, this session)
-
-- **Bars (both stated):** protocol promote bar = 0.1011 [0.0956, 0.1072] (un-pruned 0.2600 family
-  base); **current repo holdout best = 0.1591** (E2-field, prune 4 px, 44,090 dots,
-  `evidence/swgb/e3_prune_sweep_e2.json`; as-evaluated E2 = 0.1586). Promotion to a selector slot
-  requires beating **0.1591** with a paired-compatible evaluator, not merely 0.1011.
-- **E1 = H-TSFX.** Same splits (`GEMSASS1-HR-v2-segment`, seed 20261027), same model class and
-  hyper-parameters as frozen E2-SWGB (clean feature ablation), emission 44,090 dots / 2.8 px on
-  `fd.active` only. Every input feature alone must pass the leakage canary (AUC ≤ 0.90) on
-  withheld truth before results are read.
-- **E2 = emission sweep on the E1 fields** (n ∈ {37,654, 44,090} × spacing ∈ {2.8, 3.3} ×
-  visible-prune ∈ {2, 4, 6} px) — only if E1 beats 0.1011; the winner must keep ≤ 0.70 overlap
-  vs the h66 flank raster and beat 0.1591.
-- **E3 = packaging or backup.** If E1/E2 beat 0.1591: full-registry novelty scan (414 + sibling
-  files), fail-closed writer, run card. If not: run H-POLCOH as the label-free backup within
-  budget, or stop with a negative card — negatives remain deliverables.
-- **Shipped emission (only after all gates):** the protocol dots are the measured artifact; the
-  shipped TIFF additionally applies the champion's own proven live edit — exclusion > 2 px from
-  the **full published** catalogue (public competition input, legal for live scoring per staff
-  forum 11516) — disclosed as a separate emission with its own holdout number printed.
-- **No projection is written as a score.** Any forward number is labelled PROJECTED with its
-  method and band; owner-reported ledger values stay OWNER-REPORT; ORGANIZER-CONFIRMED appears
-  only from submission-page receipts (none exist here).
-
-## 4. Non-fault mimics named in advance
-
-- Fluvial terrace risers and canal banks (same crest–toe dipole, facing follows drainage).
-- Pluvial Lake Lahontan shorelines (contour-parallel, low-relief, playa-bounding).
-- Lithologic contacts and flight-line seams (mag/rad edges without faulting).
-- Seismicity-distance bands are smooth population/instrument-coverage fields, not structure.
-- Geodetic strain-rate grids are interpolated from GPS/InSAR networks — a smooth prior, not a scarp.
+1. Pre-register rank-1 with the exact transform and the non-fault mimic.
+2. Restore `data/official` and `.cache/features` from the pinned mirror (`scripts/prepare_data.py`, about 421 MB).
+3. Run the single-feature canary on each of the three layers.
+4. Run the holdout against the 0.2600 family incumbent on the same folds, using `vendor/gems57/evaluate_holdout.py`.
+5. Only a candidate that passes the canary and beats the incumbent, and that clears the uniqueness policy and the eligibility check, goes to the separate slot selector.
