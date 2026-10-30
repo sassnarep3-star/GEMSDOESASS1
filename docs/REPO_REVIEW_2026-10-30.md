@@ -1,67 +1,69 @@
-# Repository review — 2026-10-30
+# Repository review — 2026-10-30 (branch `arena/0fa98dd2-gemsdoesass1`)
 
-## Decision
+Scope: verify the repo's claims line by line, run the checks, check the nine focus sites and the shipped TIFF, and flag irregularities. No experiment was run, no raster was generated, and no competition slot was used.
 
-**No TIFF is approved to download or submit.** This review made no geological experiment, did not generate or edit a prediction raster, did not request a competition slot, and did not infer a leaderboard score. The active negative decision is unchanged.
+## Executive decision
 
-The README's historical 0.2778 for GEMSDOE32 and the supplied 0.3195 / 0.4413 leaderboard claims remain unverified reports in this checkout: there is no submission-page receipt or organizer-confirmed score snapshot. The checkout's raster audit supports a narrower statement: the GEMSDOE32 prediction is exactly reproduced as the GEMSDOE25 D2.8 dots with dots within two pixels of the known-catalogue raster removed. That is a verified byte-derived transformation, not proof that the mask caused a higher official score. The current official metric/rules and exact score records could not be independently checked here.
+**No TIFF is approved for submission. Do not download or submit any file from this repository.** The repo's own gates say so, and this review confirms it. Requests for a "unique, downloadable, scoring-ready TIFF" cannot be met honestly in this session, for the reasons below. A TIFF that fails the novelty gate would be a duplicate, and the user has explicitly ruled that out.
 
-## Review passes
+## What was verified (commands run, results)
 
-### Pass 1 — repository and evidence inventory
+| Check | Command | Result |
+|---|---|---|
+| Pinned environment | `pip install -r requirements-lock.txt` (venv `.venv`, git-ignored) | installed, exit 0 |
+| Test suite | `.venv/bin/pytest -q` | **56 passed**, 19 warnings after the audit-input regression tests were added (the prior review recorded 53) |
+| Release verifier | `.venv/bin/python scripts/verify_release.py` | PASS: frozen negative release, 9 site summaries, 182 local links, strict JSON, vendor/code hashes, no submission TIFF, no slots |
+| Shipped TIFF, independent read | rasterio on `docs/downloads/gemsass1-pbsc-playa-…-zeros.tif` | EPSG:32611, shape (3730, 3292), float32, single band, no nodata, transform (243350, 100, 0, 4508550, 0, −100), all finite, values {0, 1}, 37,654 positives. sha256 `2f3bd24e…47fd9` matches `docs/downloads/…checks.json`. |
+| Focus repos reachable | `gh api repos/buffedlizard55-lab/GEMSDOE{24,25,27,28,30,31,32,33,36}` | all 9 reachable, default branch `main` |
+| Historical 0.2778 file exists | `gh api …/GEMSDOE32/git/trees/HEAD?recursive=1` | `docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` present (plus `-nan.tif`, `-audit.json`). **File existence is verified; the score is not.** |
+| GEMSDOE32 score label | fetched `docs/index.html` of GEMSDOE32 | its own page labels 0.2778 as **"OWNER-REPORT (owner-provided submission-log claim; no submission-page receipt)"**. Treat it as unverified. |
 
-- Confirmed the session branch is `arena/f9a8b377-gemsdoesass1` and the starting tree was clean.
-- Read the project brief, README, next steps, prior reviews, run cards, registry inventory, and existing candidate slate.
-- Confirmed nine focus-site summaries are built into the local site. They correctly withhold score estimates and upload approval when there is no receipt/validated estimate.
-- Confirmed the stopped BGAC record is `negative`, has no raster SHA/name, reports zero slot usage, and was stopped by a pre-placement duplicate gate. H-PBSC and SWGB are separately documented as negative/withdrawn; their older positive language is superseded.
-- Reviewed the already-preregistered 2026-10-29 slate; no candidate was newly invented or tested in this review. Its five candidates and relative rank remain qualitative research priorities, not score predictions.
+Not verified, because the sandbox allowlist excludes these hosts: the DrivenData competition page, leaderboard, rules, weekly cap, and data downloads (USGS, GDR/OpenEI, NLR, Dropbox). Official scores and rules in this review are therefore **not** ORGANIZER-CONFIRMED.
 
-### Pass 2 — reproduce checks and edge review
+## Nine focus sites (GitHub API, 2026-10-30)
 
-- Installed the pinned Python requirements in an ignored virtual environment.
-- The complete suite passed: **56 tests**. Rasterio emitted 19 non-failing fixture/deprecation warnings.
-- `python scripts/build_site.py` succeeded. `python scripts/verify_release.py` succeeded after updating the release manifest for this review.
-- `git diff --check` succeeded.
-- Found that `scripts/audit_history.py` unnecessarily required `data/official/sample_submission.tif` and `existing_faults.tif`, even though checksum-pinned copies already exist in `data/bridge/`. This blocked the documented lightweight history audit when the 419 MB official-feature mirror had not been restored. Added a fail-closed resolver: prefer `data/official`, otherwise use bridge files only after matching the upstream manifest's SHA256 and byte count. Added regression tests for the fallback and corrupted-input rejection.
-- The full historical-raster audit was not rerun: the 414-raster `.cache/registry` payload is not present in this checkout. Its earlier recorded JSON is preserved; it was not represented as freshly recomputed.
+| Site | Default branch | Last push (UTC) | Notes |
+|---|---|---|---|
+| GEMSDOE24 | main | 2026-10-29 17:52:55 | |
+| GEMSDOE25 | main | 2026-10-29 22:50:10 | |
+| GEMSDOE27 | main | 2026-10-29 16:54:16 | |
+| GEMSDOE28 | main | 2026-10-29 17:22:38 | |
+| GEMSDOE30 | main | 2026-10-29 17:22:39 | |
+| GEMSDOE31 | main | 2026-10-29 18:43:29 | |
+| GEMSDOE32 | main | 2026-10-29 18:23:11 | contains the 0.2778 owner-report file |
+| GEMSDOE33 | main | 2026-10-29 18:38:47 | |
+| GEMSDOE36 | main | 2026-10-29 18:44:33 | |
 
-### Pass 3 — requirements and scientific status
+The repos were last pushed on 2026-10-29, so the registry snapshot that this repo audits may be stale. The 2026-10-29 review already flagged this.
 
-- Rechecked submission claims: no approved download is linked; all historical values are distinguished from organizer-confirmed scores; no “estimated score” is claimed; the no-NaN/range/grid requirements are documented as local export validation, not proof of portal acceptance.
-- Rechecked the mandatory novelty rule: the documented calibration-lattice overlap obstruction is unresolved. No lattice exemption, jitter, alternate registry definition, dot placement, or packaging workaround was attempted.
-- Rechecked the candidate slate: it does not validate without the shared holdout/cache and a resolved novelty policy. No candidate can properly be described as viable or higher scoring today.
-- Rechecked source availability: the sandbox allows GitHub and Python package hosts, but not the named DrivenData/USGS/NLR/GDR/Dropbox domains. Official rules, current leaderboard receipts, and official raw data therefore remain unverified in this session; owner-hosted mirrors are not organizer authentication.
+## Irregularities for review (flagged, not fixed)
 
-## Existing ranked hypotheses (not run in this review)
+1. **Bridge "sample_submission.tif" contains the answer.** `data/bridge/sample_submission.tif` (sha256 `2176d08e…35cbc`) has 60,988 pixels equal to 1. Those pixels are *identical* to the positives of `data/bridge/existing_faults.tif` (overlap 60,988 / 60,988). Its NaN pattern equals the faults-outside-footprint pattern. Its origin is not documented. If it is a derived product rather than an organizer sample, any code that treats it as neutral template or as a non-leaking reference is leaking catalogue information. `src/gems/grid.py` describes it as a mirror of the organizer template, and the grid constants (CRS, shape, transform, footprint) are taken from it. That mirror claim is unverified: the organizer template was not available here, and the file's positives are the catalogue. The file is used as the grid reference in `scripts/audit_swgb_witness.py`, `scripts/audit_swgb_lattice_witness.py`, and `vendor/gems57/evaluator_provenance.py`. **Needs owner decision: confirm provenance; if it is derived, use only its grid and footprint, never its positives.**
+8. **`scripts/audit_history.py` required the full prepared official-data directory on a clean checkout.** The first direct run failed with `RasterioIOError` because `data/official/` was absent, despite checksum-pinned lightweight inputs being tracked in `data/bridge/`. Fixed in PR #19: it now prefers official paths, otherwise accepts bridge files only after SHA256 and byte-count checks against the upstream manifest. Regression tests cover fallback and corruption rejection. The full historical raster audit still needs the 414-file registry cache restored.
+2. **`data/` is git-ignored but tracked.** `.gitignore` lists `data/`, yet five `data/` files are committed (`git ls-files data`). Intentional or not, the ignore rule does not protect them.
+3. **Stale branch name in the prior review.** `docs/REPO_REVIEW_2026-10-29.md` says the review ran on `arena/bdfce0a1-gemsdoesass1`. This branch is `arena/0fa98dd2-gemsdoesass1`.
+4. **Stale test count.** The 2026-10-29 review says 53 tests passed; 56 pass after the two new historical-audit regression tests.
+5. **Contradictory leaderboard figures in the user's prompt.** The prompt cites 0.2778 as the highest GEMSDOE score, 0.3195 as "the highest score right now", 0.4413 as the "current competition leaderboard GEMSDOE high score", and 0.2778 as "highest". These cannot all be correct. None is ORGANIZER-CONFIRMED in this repo. The leaderboard URL (drivendata.org) could not be reached from the sandbox to resolve this.
+6. **Conflicting instructions about downloads.** The user asks for "an easy to download submission tif". The repo's README and `docs/downloads/README.md` say "Do not submit any TIFF from this repository", and the site labels the only TIFF "DO NOT SUBMIT". The repo's position is the safer one and is kept. The user needs to know the gate is the reason, not a missing download link.
+7. **Lattice policy is unresolved.** The calibration lattice in the registry covers ~99.5–99.9% of the footprint within 3 px. Under the literal 70%/3 px rule, competitive-size dotted rasters fail. This is the single biggest blocker and the repo correctly does not relax it.
 
-The following order is already recorded in [`knowledge/hypotheses_20261029.md`](../knowledge/hypotheses_20261029.md). “Potential” is qualitative and must not be read as a projected score.
+## Why no new TIFF was generated
 
-| Rank | Candidate | Layers/signature | Why it might find an uncatalogued surface scarp | Main confounder / cost |
-|---|---|---|---|---|
-| 1 | H-SCARP-ASYM | Cached lidar step, coherence, relief, directional slope/curvature; one-sided cross-strike step plus along-strike coherence | Targets small, asymmetric piedmont scarps rather than generic openness ridges or mapped-trace proximity | Erosion, shorelines, terraces; low–medium cost |
-| 2 | H-RAD-CONTACT-SCARP | K/Th radiometric gradients co-oriented with lidar step/coherence | A subtle scarp at an unmapped lithologic/cover boundary | Lithologic contacts and flight-line artifacts mimic faults; low cost |
-| 3 | H-MAG-EDGE-TERMINATION | TMI-up150 edge topology/termination jointly with lidar scarp evidence | Short concealed structures may offset/terminate magnetic domains while creating a small surface break | Unrelated basement edges; low–medium cost |
-| 4 | H-STRIKE-CONTINUITY-GAP | Fold-local visible-catalogue strike plus lidar step/coherence, with no simple trace continuation | Could recover isolated basin-interior segments not in the catalogue | Catalogue-derived leakage risk; medium cost |
-| 5 | H-RAD-QUIET-SCARP | Radiometric texture/ratios as cover context plus lidar scarp evidence | Could prioritize subtle fault scarps under cover without relying on magnetic contrast | Background/survey texture confounding; low cost |
+- Every existing candidate has failed a gate: H-PBSC lost its holdout (0.0650 vs bar 0.1011) and overlaps the lattice 99.48%; SWGB overlaps 99.87%; BGAC stopped on novelty.
+- A new candidate would need the lattice policy resolved first, and that is a policy decision outside an automated run. Repeating the experiment without it would produce another duplicate.
+- Without the official data (login-walled) the holdout cannot be checked against the organizer's features, so any new holdout DTI would be a proxy.
+- Leaderboard score estimates remain **unavailable**. Holdout DTI is not calibrated to leaderboard DTI.
 
-These are candidates from the existing repository slate, not newly verified geological discoveries. They use described cached layers and do not require proposing inaccessible new data. The ranking is a resource-allocation order, not a measured ranking. Do not start one until the explicit lattice-registry policy is resolved and an incumbent can be compared on the same holdout/evaluator.
+## Recommended next steps (in order)
 
-## Open blockers and next actions
+1. Owner decision on the lattice/novelty policy, written as a versioned, prospective amendment. Do not change the threshold to clear an existing file.
+2. Confirm the provenance of `data/bridge/sample_submission.tif` and mark it template-only or remove the positives (irregularity 1).
+3. Obtain the organizer data and rules from an authorized environment (DrivenData login), and record hashes and receipts.
+4. Refresh the nine focus-site registries at current heads and rerun the surface and dot novelty checks.
+5. Only after 1–4: generate a candidate with the shared writer, validate its bytes, and keep selection and upload as a separate authorized step.
 
-1. **Novelty-policy obstruction:** determine prospectively whether calibration/reference rasters count as registry submissions. Keep the literal current gate until a versioned, authorized policy decision; do not silently relax it.
-2. **Fresh registry:** restore and refresh the complete nine-repository inventory at pinned commits before any future uniqueness claim. Other sites/private rasters remain outside that inventory.
-3. **Official competition evidence:** obtain official data/rules/current leaderboard receipt in an authorized environment and record source URLs, timestamps, and hashes. Do not present user-provided numbers as confirmed.
-4. **Comparable holdout incumbent:** once the policy allows a real test, preregister one of the listed hypotheses, reuse shared cached features/evaluator/writer, run per-feature leakage canaries, preserve all negatives, and compare with paired uncertainty before any selector decision.
-5. **Current score tracking:** the GitHub source-head feed is not a competition leaderboard feed. Add an official receipt-driven score source only if it can be authenticated without exposing credentials.
+## Limitations
 
-## Trusted-source links for manual review
-
-- [DrivenData competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/)
-- [DrivenData problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
-- [DrivenData official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
-- [DrivenData reference solution source](https://github.com/drivendataorg/gems-prize-reference-solution)
-- [USGS GeoDAWN data release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
-- [DOE GDR / INGENIOUS submission 1391](https://gdr.openei.org/submissions/1391)
-- [Competition technical report PDF](https://docs.nlr.gov/docs/fy26osti/96647.pdf)
-
-Links above are references for review, not claims those sites were reached or re-verified during this sandbox session.
+- The sandbox allowlist excludes DrivenData, USGS, GDR, NLR and Dropbox, so official inputs and the leaderboard cannot be verified here.
+- The repo's historical scores are owner reports unless a submission-page receipt is recorded.
+- This review found no scientific reason to expect a new candidate to beat 0.2778, 0.3195, or 0.4413. It also did not test one.
