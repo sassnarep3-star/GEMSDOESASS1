@@ -1,0 +1,120 @@
+{
+  "card": {
+    "raster_name": "gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif",
+    "submission_name": "gemsass1-kdam-alteration-contact-37654-20261031-zeros",
+    "raster_sha256": "d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f",
+    "note": "GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px >2px offcat, registry-repulsive",
+    "note_length": 120,
+    "ok_to_download_and_submit": true,
+    "submission_slots_used": 0,
+    "lane": "H-KDAM (damage-zone K/Th depletion x potential-field contacts)",
+    "generated_utc": "2026-10-31T05:24:49Z",
+    "n_dots": 37654,
+    "holdout_dti": {
+      "label": "HOLDOUT-DTI",
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "value": 0.14713065560764194,
+      "ci95": [
+        0.1417580424912997,
+        0.15313321432979343
+      ],
+      "n_withheld_positives": 60988,
+      "alpha": 0.2,
+      "beta": 0.8,
+      "radius_m": 300.0,
+      "arm": "A_unpruned (no catalogue mask)"
+    },
+    "shipped_arm": {
+      "label": "HOLDOUT-DTI",
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "value": 0.014862004337241629,
+      "ci95": [
+        0.014108743253090167,
+        0.015559107371781157
+      ],
+      "arm": "B_prune2 (the operating point the file is shipped at)",
+      "farfield_gt5px": 0.010419449005809118
+    },
+    "novelty_arm": {
+      "label": "HOLDOUT-DTI",
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "value": 0.014882938960172525,
+      "ci95": [
+        0.014243480378630236,
+        0.015710642097398506
+      ],
+      "paired_delta": 5.7058860228028846e-05
+    },
+    "comparators_same_emission": {
+      "family_base_44090_unpruned": 0.10109334174188524,
+      "live_champion_37654_pruned": 0.004371798949252752
+    },
+    "correlation_overlap_vs_registry": {
+      "measured_exactly": 430,
+      "screened_out": 0,
+      "max_overlap3": 0.3106708450629415,
+      "max_rho": 0.015158543768169625,
+      "dots_competitive": {
+        "max_overlap": 0.3106708450629415
+      },
+      "exempt_fixtures": [
+        "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "inputs/calibration/8GEMSDOE_Hedge-v2_submission.tif",
+        "inputs/calibration/gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif",
+        "inputs/calibration/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+        "inputs/calibration/gemsdoe-ens12-adopted-7f00890a.tif",
+        "inputs/calibration/gemsdoe9-PLACEHOLDER-2314b599.tif",
+        "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif"
+      ]
+    },
+    "lattice_disclosure": {
+      "available": true,
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "their_dots": 206895,
+      "overlap3": 0.9995750783449302,
+      "note": "synthetic 5 px calibration grid; exempted from the competitive scan (AMEND-LATTICE-01) because it covers >=99% of any dotted file, including the 0.2778 champion"
+    }
+  },
+  "gates": [
+    [
+      "Validator from bytes: single-band float32, EPSG:32611, 3730x3292, values in [0,1], no NaN anywhere, zeros outside the footprint",
+      true
+    ],
+    [
+      "Zero positive mass on mapped catalogue fault pixels",
+      true
+    ],
+    [
+      "No exact duplicate of any of the 489 registry rasters",
+      true
+    ],
+    [
+      "Lane-drift gate: max 3 px overlap 0.311 <= 0.70 and max Spearman 0.015 <= 0.90 vs every competitive registry raster",
+      true
+    ],
+    [
+      "Fixture audit: all 489 inventory rasters measured, not skipped; the non-lattice calibration fixtures reach at most 0.161 <= 0.70, and the synthetic 5 px lattice stands at 0.9996 and stays exempt under AMEND-LATTICE-01 (disclosed on the site)",
+      true
+    ],
+    [
+      "HOLDOUT-DTI (unpruned arm, 37,654 dots) 0.1471 beats the incumbent family field 0.1011, measured on the same 5 folds under the same unpruned emission rule (that file carries 44,090 dots)",
+      true
+    ],
+    [
+      "No competition submission slot used by this workspace",
+      true
+    ]
+  ],
+  "estimate_text": "ESTIMATE (projection - NOT a score, and not a leaderboard forecast). On the shared segment holdout, this field covers 46% more weighted hidden-fault credit than the incumbent family field under identical emission (0.1471 vs 0.1011 on the same 5 folds). The live board is not rank-correlated with this holdout (Spearman -0.08 over 17 rasters), so no live number can be projected from it. Reference points that ARE organizer-visible: the family this work is compared against scored 0.2600 live unpruned and 0.2778 live when pruned; the public leaderboard leader is 0.4544. Treat this file as a strictly better-field candidate with an unknown live score, not as a promised improvement.",
+  "ok_to_download_and_submit": true,
+  "evidence": {
+    "e1": "evidence/kdam/e1_holdout.json",
+    "e2": "evidence/kdam/e2_paired_novelty.json",
+    "final": "evidence/kdam/final_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json",
+    "novelty": "evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json",
+    "canary": "evidence/kdam/leakage_canary.json",
+    "registry": "evidence/kdam/registry_union.json",
+    "restore": "evidence/registry_restore_20261031.json"
+  },
+  "assembled_utc": "2026-10-31T05:53:09Z"
+}

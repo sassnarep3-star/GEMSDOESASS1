@@ -1,0 +1,118 @@
+{
+  "evidence_class": "CANDIDATE-AUDIT",
+  "generated_utc": "2026-10-31T05:57:12.700320+00:00",
+  "name": "gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros",
+  "note": "GEMSASS1: rank-mean fusion of H19-5/H19-4/H16-1, 2.8px dots, >2.0px off catalogue",
+  "file": "docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif",
+  "sha256": "72e92ed1fdc9bb67f6f9578b7e7293fd92f5e090316cbe638a23f399141550c8",
+  "bytes": 139628,
+  "dots": 35587,
+  "support_px": 121131,
+  "spacing_px": 2.8,
+  "catalogue_prune_px": 2.0,
+  "members": [
+    "H19-5",
+    "H19-4",
+    "H16-1"
+  ],
+  "grid": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ]
+  },
+  "values": {
+    "min": 0.0,
+    "max": 1.0,
+    "finite_inside_footprint": true,
+    "nonfinite_outside": 0,
+    "in_0_1": true
+  },
+  "dots_on_catalogue": 0,
+  "min_catalogue_distance_px": 2.23606797749979,
+  "validator": {
+    "file": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif",
+    "bytes": 139628,
+    "sha256": "72e92ed1fdc9bb67f6f9578b7e7293fd92f5e090316cbe638a23f399141550c8",
+    "meta": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null,
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "profile_compress": "deflate"
+    },
+    "band_description": [
+      null
+    ],
+    "n_finite": 12279160,
+    "n_nan": 0,
+    "n_infinite": 0,
+    "min": 0.0,
+    "max": 1.0,
+    "mean": 0.0028981624636799097,
+    "emitted_positive_pixels": 35587,
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "transform_matches_sample_submission": true,
+      "no_nan_anywhere": true,
+      "no_inf_anywhere": true,
+      "no_sentinel_values": true,
+      "range_0_1_guaranteed": true,
+      "min_ge_0": true,
+      "max_le_1": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_zero": true,
+      "zero_dots_on_mapped_catalogue": true
+    },
+    "all_checks_passed": true,
+    "validation_class": "local format/range preflight; not organizer acceptance or uniqueness clearance",
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_positive_pixels": 35587,
+    "footprint_fraction": 0.006886864950527086
+  },
+  "holdout": [
+    {
+      "label": "FUSION",
+      "emitted": 37701,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.1003502077942329,
+      "ci95": [
+        0.09473483967502588,
+        0.10516392810866167
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 8781.234933167772,
+      "fp": 184796.24936912715,
+      "fn": 52206.76506683223,
+      "coverage": 0.14398299555925384,
+      "farfield_gt5px_dti": 0.09788284876943194,
+      "evidence_class": "HOLDOUT-DTI"
+    }
+  ],
+  "elapsed_seconds": 32.4
+}

@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-31T06:33:19.793Z",
+  "checked_utc": "2026-10-31T06:47:29.711Z",
   "browser": "153.0.8010.0",
   "desktop_viewport": [
     1440,
@@ -91,8 +91,9 @@
   ],
   "mobile_pages_checked": 4,
   "page_errors": [],
-  "disabled_submission_button": true,
-  "total_executive_rows": 11,
+  "disabled_submission_button": false,
+  "regavoid_download_links": 0,
+  "total_executive_rows": 10,
   "historical_rows": 9,
   "screenshot_paths": [
     ".cache/desktop-preview.png",

@@ -10,6 +10,8 @@ from rasterio.transform import from_origin
 from scipy.stats import spearmanr
 
 ROOT = Path(__file__).resolve().parents[1]
+# 2026-10-31 H-FUSION3 lane: the one new downloadable candidate this session shipped.
+NEW_CANDIDATE = 'gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros'
 sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
 from bgac import emit
 from novelty import audit, canonical_hash, centered_ranks, exact_spearman
@@ -191,22 +193,37 @@ def test_frozen_negative_artifact_contract():
     # B2 duplicate log; nothing else may appear there.
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    tip_path = ROOT/'evidence/tiprelay/run_card.json'
+    tip = json.loads(tip_path.read_text()) if tip_path.exists() else None
+    sparse = json.loads((ROOT/'evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
-    allowed = (pbsc['submission_name'].replace('.tif', ''),
+    allowed = [pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               NEW_CANDIDATE,                     # 2026-10-31 H-FUSION3 lane, own run card
+               sparse['submission_name'].replace('.tif', ''),  # 2026-10-31 sparse placeholder (not submit-cleared)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992']  # 2026-10-31 H-STEP-OVER lane
+    if tip:
+        allowed.append(tip['raster_name'].replace('.tif', ''))
+    kdam_path = ROOT/'evidence/kdam/release.json'
+    if kdam_path.exists():
+        # 2026-10-31: the current release may ship its own candidate, but only while its own
+        # machine gate table says the file is approved.
+        kdam = json.loads(kdam_path.read_text())
+        assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
+        if kdam['ok_to_download_and_submit']:
+            allowed.append(kdam['card']['submission_name'].replace('.tif', ''))
+    # 2026-10-31 H-REGAVOID: negative verdict by AMEND-2; its run-card-named artifact is
     reg_path = ROOT / 'evidence/regavoid/run_card.json'
     if reg_path.exists():
         reg = json.loads(reg_path.read_text())
-        # 2026-10-31 H-REGAVOID: negative verdict by AMEND-2; its named artifact is the only
-        # additional allowed file, and it must never claim approval.
-        assert reg['ok_to_submit'] is False
-        assert reg['verdict'] == 'negative'
+        assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
         if reg.get('submission_name'):
-            allowed = allowed + (reg['submission_name'].replace('.tif', ''),)
+            allowed.append(reg['submission_name'].replace('.tif', ''))
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
+    assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in zips)
 
@@ -254,16 +271,33 @@ def test_concurrent_main_research_preserved_not_promoted():
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     assert pbsc['ok_to_submit'] is False
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    tip_path = ROOT/'evidence/tiprelay/run_card.json'
+    tip = json.loads(tip_path.read_text()) if tip_path.exists() else None
+    sparse = json.loads((ROOT/'evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
-    allowed = (pbsc['submission_name'].replace('.tif', ''),
+    allowed = [pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               NEW_CANDIDATE,                     # 2026-10-31 H-FUSION3 lane, own run card
+               sparse['submission_name'].replace('.tif', ''),  # 2026-10-31 sparse placeholder (not submit-cleared)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992']  # 2026-10-31 H-STEP-OVER lane
+    assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
+    if tip:
+        allowed.append(tip['raster_name'].replace('.tif', ''))
+    kdam_path = ROOT/'evidence/kdam/release.json'
+    if kdam_path.exists():
+        # 2026-10-31: the current release may ship its own candidate, but only while its own
+        # machine gate table says the file is approved.
+        kdam = json.loads(kdam_path.read_text())
+        assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
+        if kdam['ok_to_download_and_submit']:
+            allowed.append(kdam['card']['submission_name'].replace('.tif', ''))
     reg_path = ROOT / 'evidence/regavoid/run_card.json'
     if reg_path.exists():
         reg = json.loads(reg_path.read_text())
         assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
         if reg.get('submission_name'):
-            allowed = allowed + (reg['submission_name'].replace('.tif', ''),)
+            allowed.append(reg['submission_name'].replace('.tif', ''))
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 
@@ -274,3 +308,37 @@ def test_second_parallel_audit_preserved_and_ledger_retained():
         assert hashlib.sha256((ROOT/row['archived_path']).read_bytes()).hexdigest() == row['sha256']
     assert (ROOT/'knowledge/user-provided-submission-ledger.md').is_file()
     assert 'testpaths = tests' in (ROOT/'pytest.ini').read_text()
+
+
+def test_20261031_fusion_candidate_gates():
+    """The 2026-10-31 candidate may only ship if its own run card clears the format
+    and uniqueness gates, and it must not claim a score improvement it did not measure."""
+    card = json.loads((ROOT / 'evidence/offset_step_v2/run_card.json').read_text())
+    name = card['submission_name']
+    tif = ROOT / 'docs/downloads' / f"{name}.tif"
+    assert tif.is_file()
+    assert hashlib.sha256(tif.read_bytes()).hexdigest() == card['raster_sha256']
+    assert len(card['note']) <= 140
+    assert card['submission_slots_used'] == 0
+    # it is NOT promoted as a better scorer: the holdout did not beat the control
+    assert card['approved_as_expected_score_improvement'] is False
+    assert card['holdout_dti'] <= card['champion_control']['holdout_dti']
+    # it IS format-clear and not an exact duplicate
+    validator = card['validator_output']
+    assert validator['all_checks_passed'] is True
+    assert validator['on_catalogue_positive_pixels'] == 0
+    assert validator['in_footprint_positive_pixels'] == validator['emitted_positive_pixels']
+    assert validator['n_nan'] == 0 and validator['min'] >= 0.0 and validator['max'] <= 1.0
+    nov = json.loads((ROOT / 'evidence/offset_step_v2/novelty_focus9.json').read_text())
+    assert nov['any_exact_duplicate'] is False
+    assert max(r['spearman'] for r in nov['per_site']) <= 0.90
+
+
+def test_metric_certification_is_frozen_and_passed():
+    cert = json.loads((ROOT / 'evidence/metric_certification.json').read_text())
+    assert cert['all_checks_passed'] is True
+    assert cert['alpha'] == 0.2 and cert['beta'] == 0.8 and cert['radius_px'] == 3.0
+    # the oracle ceiling and the denominator identity are the two load-bearing facts
+    names = {c['name'] for c in cert['checks']}
+    assert 'I4 oracle DTI (P == T)' in names
+    assert any(n.startswith('I1 denominator') for n in names)

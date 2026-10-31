@@ -1,4 +1,5 @@
 """Regression tests for the revoked SWGB release and literal overlap audit."""
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -85,35 +86,84 @@ def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
 
 
 def test_generated_verdict_matches_run_card_gates():
-    """The verdict shown on every generated page must equal the machine gate table.
+    """The verdict and the linked file on every generated page must equal the current release card.
 
-    2026-10-31: both releases are checked — the standing H-TVGB release (OK) and, when
-    present, the H-REGAVOID release (negative under AMEND-2). Every verdict phrase must
-    appear on the rendered pages."""
-    pairs = []
-    thermal_release = json.loads((ROOT / 'evidence/thermal/release.json').read_text())
-    pairs.append((thermal_release['card'], thermal_release))
-    reg_path = ROOT / 'evidence/regavoid/release.json'
-    if reg_path.exists():
-        reg_release = json.loads(reg_path.read_text())
-        pairs.append((reg_release['card'], reg_release))
-    pages_text = {p: p.read_text()
-                  for p in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html')}
-    for card, release in pairs:
-        assert card['ok_to_download_and_submit'] == all(p for _, p in release['gates'])
-        verdict_word = ('OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit']
-                        else 'NOT OK TO SUBMIT')
-        for page, text in pages_text.items():
-            assert verdict_word in text, f'{verdict_word} missing from {page}'
-            assert 'HOLDOUT-DTI' in text  # every new number stays labelled
-        assert card['submission_slots_used'] == 0
-        assert len(card['note']) <= 140 and len(card['submission_name']) <= 140
-    card, release = pairs[0]
+    The pages are generated from `evidence/kdam/release.json` when that card exists (2026-10-31 H-KDAM),
+    otherwise from the 2026-10-30 thermal card. Every card in evidence/ must satisfy the same
+    format/validator invariants regardless of which one the site promotes.
+    """
+    kdam = ROOT / 'evidence' / 'kdam' / 'release.json'
+    if kdam.exists():
+        card = json.loads(kdam.read_text())['card']
+        gates = json.loads(kdam.read_text())['gates']
+        validator = json.loads((ROOT / 'evidence/kdam' /
+                                f"final_{card['submission_name']}.json").read_text())['validator']
+    else:
+        card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
+        gates = json.loads((ROOT / 'evidence/thermal/release.json').read_text())['gates']
+        validator = json.loads((ROOT / 'evidence/thermal/release.json').read_text())['validator']
+    assert card['ok_to_download_and_submit'] == all(passed for _, passed in gates)
+    verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit'] else 'NOT OK TO SUBMIT'
     assert card['submission_slots_used'] == 0
     assert len(card['note']) <= 140 and len(card['submission_name']) <= 140
-    # validator invariants the portal enforces
-    v = release['validator']
+    v = validator
     assert v['all_checks_passed']
     assert v['checks']['values_in_0_1_everywhere'] and v['checks']['no_nan_anywhere']
     assert v['checks']['crs_matches_template'] and v['checks']['shape_matches_template']
     assert v['checks']['transform_matches_template']
+    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html', ROOT / 'docs/how-to-submit.html'):
+        text = page.read_text()
+        assert verdict_word in text
+        assert card['submission_name'].replace('.tif', '') in text
+        assert card['raster_sha256'][:16] in text
+    # score pages must label every number
+    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html'):
+        text = page.read_text()
+        assert 'HOLDOUT-DTI' in text
+        assert 'OWNER-REPORT' in text
+
+
+def test_regavoid_negative_release_is_disclosed_and_locked():
+    """2026-10-31 H-REGAVOID: the negative release must stay disclosed, byte-locked and
+    never rendered as an active download (AMEND-2 shipped-bytes gate)."""
+    release = json.loads((ROOT / 'evidence/regavoid/release.json').read_text())
+    card = release['card']
+    assert card['ok_to_download_and_submit'] is False
+    assert card['ok_to_download_and_submit'] == all(passed for _, passed in release['gates'])
+    failed = [label for label, passed in release['gates'] if not passed]
+    assert failed, 'a negative release must name its failing gates'
+    run = json.loads((ROOT / 'evidence/regavoid/run_card.json').read_text())
+    assert run['ok_to_submit'] is False and run['verdict'] == 'negative'
+    assert run['slot']['used'] == 0
+    assert run['budget']['experiments_run'] <= 3
+    assert run['budget']['cumulative_seconds'] <= run['budget']['seconds_budget']
+    canary = json.loads((ROOT / 'evidence/regavoid/leakage_canary.json').read_text())
+    assert not canary['flagged_over_0p90']
+    tif = ROOT / 'docs/downloads' / run['submission_name']
+    assert tif.is_file()
+    assert hashlib.sha256(tif.read_bytes()).hexdigest() == run['raster_sha256']
+    # AMEND-2 structural record: TVGB shipped bytes measure 0.0000 while its release claimed 0.1287
+    diag = json.loads((ROOT / 'evidence/regavoid/tvgb_shipped_diagnostic.json').read_text())
+    assert diag['holdout_dti'] == 0.0 and diag['release_claimed_value'] > 0.1
+    # rendered site: the panel discloses the negative verdict, the file is never an active link
+    index = (ROOT / 'docs/index.html').read_text()
+    assert 'NOT OK TO SUBMIT' in index
+    assert 'H-REGAVOID' in index
+    assert f'downloads/{run["submission_name"]}' not in index
+    assert f'downloads/{run["submission_name"]}' not in (ROOT / 'docs/how-to-submit.html').read_text()
+
+
+def test_parallel_sparse_card_is_self_consistent_and_not_submit_cleared():
+    """The parallel lane's sparse placeholder must keep its own (negative) verdict."""
+    card = json.loads((ROOT / 'evidence' /
+                       'gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
+    assert card['ok_to_download_and_submit'] is False
+    assert card['ok_to_download'] is True
+    v = card['validator_output']
+    assert v['all_checks_passed']
+    assert v['checks']['values_in_0_1_everywhere'] and v['checks']['no_nan_anywhere']
+    assert v['checks']['crs_matches_template'] and v['checks']['shape_matches_template']
+    assert v['checks']['transform_matches_template']
+    assert v['checks']['zero_mass_on_known_catalogue_pixels']
+    assert card['submission_slots_used'] == 0
+    assert len(card['note']) <= 140 and len(card['submission_name']) <= 140

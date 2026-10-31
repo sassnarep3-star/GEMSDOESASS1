@@ -1,0 +1,28 @@
+{
+  "evidence_class": "LEAKAGE-CANARY, NOT A DTI SCORE",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "fold": 0,
+  "n_withheld_positives": 13289,
+  "features": {
+    "lidar_ex_max": 0.7557584594401384,
+    "lidar_step_max": 0.7568381492211603,
+    "lidar_lapneg_max": 0.7576155171570472,
+    "lidar_relief": 0.7563005451877493,
+    "lidar_coh100": 0.729809729475506,
+    "lidar_strike_cos2": 0.7744405645646776,
+    "lidar_strike_sin2": 0.7809894297915569,
+    "rad_K": 0.7638710345022199,
+    "rad_Th": 0.7741630337120927,
+    "rad_ThK": 0.7884093684626383,
+    "kdep_halo": 0.7851054861163368,
+    "kdep_deplete": 0.6608083023553315,
+    "mag_TMI": 0.781624344382572,
+    "mag_tdr": 0.788329464030401,
+    "mag_theta": 0.7889933475054557,
+    "mag_hgm500": 0.80252739634284,
+    "lineament_persist": 0.7901934790051922,
+    "mcontact_dist": 0.760037922529912,
+    "xcal_agree": 0.7869876303709835
+  },
+  "flagged_over_0p90": {}
+}

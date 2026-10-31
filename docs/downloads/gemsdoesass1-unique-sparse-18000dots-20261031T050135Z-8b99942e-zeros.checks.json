@@ -1,0 +1,59 @@
+{
+  "path": "docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif",
+  "sha256": "e1fea78319fa45a1499f0d647ed9ebca4fdbf81ee619a653eecec055691833be",
+  "zip_sha256": "b95315b863ed55ae466ce66173d24d2a8cf3fd89225670b9bde83f7e970d3d8b",
+  "size_bytes": 105670,
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "all_checks_passed": true,
+  "positive_pixels": 18000,
+  "footprint_pixels": 5167373,
+  "min": 0.0,
+  "max": 1.0,
+  "n_dots": 18000,
+  "min_spacing_px": 3.0,
+  "champion_forward_overlap": {
+    "buffedlizard55-lab/GEMSDOE24": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE25": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE27": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE28": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE30": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE31": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE32": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE33": {
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "buffedlizard55-lab/GEMSDOE36": {
+      "error": "HTTP Error 403: Forbidden"
+    }
+  },
+  "generated_utc": "2026-10-31T05:01:35.123745+00:00",
+  "submission_name": "gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e",
+  "submission_note": "GEMSDOESASS1 unique sparse dot field 18000d 3.0px off-catalogue; format-valid [0,1] zeros-outside-footprint; not a score forecast",
+  "note_length": 129
+}
