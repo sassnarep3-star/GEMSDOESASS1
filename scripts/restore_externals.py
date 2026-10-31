@@ -36,16 +36,40 @@ def sha256(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
 
 
+def _git_blob(repo: str, ref: str, path: str) -> bytes:
+    """Exact blob bytes from a pinned commit via the git protocol (2026-10-31 template fix,
+    reported per protocol item 2): identical bytes to the REST path, but not subject to the
+    GitHub REST quota that stranded long sessions."""
+    import os
+    import threading
+    mirror = ROOT / '.cache' / 'gitmirror' / repo
+    env = dict(os.environ, GIT_TERMINAL_PROMPT='0')
+    if not (mirror / '.git').exists():
+        mirror.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run(['git', 'clone', '--quiet', '--filter=blob:none', '--no-checkout',
+                        f'https://github.com/{repo}.git', str(mirror)], check=True, timeout=900, env=env)
+    if subprocess.run(['git', '-C', str(mirror), 'cat-file', '-e', f'{ref}^{{commit}}'],
+                      capture_output=True).returncode != 0:
+        subprocess.run(['git', '-C', str(mirror), 'fetch', '--quiet', '--filter=blob:none',
+                        'origin', ref], check=True, timeout=900, env=env)
+    result = subprocess.run(['git', '-C', str(mirror), 'cat-file', 'blob', f'{ref}:{path}'],
+                            capture_output=True, check=True, timeout=600, env=env)
+    return result.stdout
+
+
 def fetch(item: dict, dest: Path) -> None:
     if dest.exists() and sha256(dest.read_bytes()) == item['sha256'] and dest.stat().st_size == item['bytes']:
         print('cached', dest.name, flush=True)
         return
     dest.parent.mkdir(parents=True, exist_ok=True)
-    result = subprocess.run(
-        ['gh', 'api', f"repos/{item['repo']}/contents/{item['path']}?ref={item['ref']}",
-         '-H', 'Accept: application/vnd.github.raw'],
-        capture_output=True, check=True, timeout=600)
-    b = result.stdout
+    try:
+        result = subprocess.run(
+            ['gh', 'api', f"repos/{item['repo']}/contents/{item['path']}?ref={item['ref']}",
+             '-H', 'Accept: application/vnd.github.raw'],
+            capture_output=True, check=True, timeout=600)
+        b = result.stdout
+    except Exception:
+        b = _git_blob(item['repo'], item['ref'], item['path'])
     if len(b) != item['bytes'] or sha256(b) != item['sha256']:
         raise ValueError(f"integrity failure for {item['id']}: bytes={len(b)} sha={sha256(b)[:16]}")
     tmp = dest.with_suffix(dest.suffix + '.partial')

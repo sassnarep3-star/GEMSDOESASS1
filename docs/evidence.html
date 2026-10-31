@@ -3,15 +3,11 @@
 <meta name="description" content="GEMS fault-detection research: nine-site comparison, strict submission gates and auditable negative results.">
 <meta name="color-scheme" content="light"><title>Evidence and source feed · GEMS Fieldnotes</title><link rel="stylesheet" href="assets/site.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="research.html">Research & sources</a><a href="evidence.html" aria-current="page">Evidence</a></nav></div></header>
-<main id="main"><p class="eyebrow">Evidence / immutable experiment record</p><h1>Negative results.<br>Fully accounted for.</h1><p class="lead">Every gate, every negative and every packaged candidate is listed here with the file it came from. Earlier negative lanes are preserved unchanged.</p><div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (unpruned protocol arm)</span><span class="value">0.1471</span><p>95% CI 0.1418–0.1531 · 60,988 withheld positives</p></div>
-<div class="metric"><span class="label">Same-emission incumbent comparator</span><span class="value">0.1011</span><p>the 0.2600-family field, same folds, same 37,654 dots</p></div>
-<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">31.1%</span><p>limit 70% · lane-drift gate</p></div>
-<div class="metric"><span class="label">Submission slots used</span><span class="value">0</span><p>Selector step is separate</p></div></div>
-<p class="small">All new numbers are HOLDOUT-DTI (GEMSASS1-HR-v2-segment, 60,988 withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p><aside class="status" aria-label="Historical negative decisions"><span class="pill">Negative · preserved evidence</span><h2>Earlier lanes stay blocked: SWGB, H-PBSC, BGAC-1.</h2>
+<main id="main"><p class="eyebrow">Evidence / immutable experiment record</p><h1>Negative results.<br>Fully accounted for.</h1><p class="lead">Three experiments this session (E1 rule field negative, E2 paired thermal-family negative, E3 emission sweep), one packaged candidate. Earlier negative lanes are preserved unchanged.</p><div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (shipped b6 cell, 37,654 dots)</span><span class="value">0.1384</span><p>95% CI 0.1322–0.1458 · bar 0.1011 · far-field 0.1445</p></div><div class="metric"><span class="label">HOLDOUT-DTI (E1 ablation cell, 44,090 dots)</span><span class="value">0.1573</span><p>95% CI 0.1511–0.1650 · winner arm B_tiprelay</p></div><div class="metric"><span class="label">E1 paired Δ relay features (B−A)</span><span class="value">+0.0110</span><p>95% CI +0.0081–+0.0141</p></div><div class="metric"><span class="label">E2 paired Δ geothermal emission prior</span><span class="value">-0.0152</span><p>95% CI -0.0191–-0.0113 · negative</p></div><div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">65.2%</span><p>limit 70% · lane-drift gate</p></div><div class="metric"><span class="label">Submission slots used</span><span class="value">0</span><p>Selector step is separate</p></div></div><p class="small">All new numbers are HOLDOUT-DTI (GEMSASS1-HR-v2-segment, 60,988 withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p><aside class="status" aria-label="Historical negative decisions"><span class="pill">Negative · preserved evidence</span><h2>Earlier lanes stay blocked: SWGB, H-PBSC, BGAC-1.</h2>
 <p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its holdout (0.0650 vs 0.1011) and overlaps the same lattice at 99.48%. BGAC-1 failed the literal novelty gate before placement. This negative evidence is retained, never erased.</p>
 <p class="small"><a href="evidence.html#correction">Review the superseding release decision and evidence ↗</a> · <a href="evidence/thermal/lattice_amendment.md">IR-LATTICE-01 scope amendment ↗</a></p></aside><section class="section" id="correction"><h2>The protocol error we found and fixed.</h2><div class="callout"><strong>Do not treat the BGAC-1 first-pass holdout as promotion-qualified.</strong> The original pre-placement audit checked Spearman ranks but omitted positive-support overlap; it also continued despite an unassessable registry file. Review corrected both. The identical surface fails the pre-placement overlap gate. No new experiment, dot placement or TIFF followed the correction.</div><p>The original run card and rank scan remain in the evidence directory. The current card explicitly records the error and disqualifies the execution for promotion. The runner now applies both literal tests at both phases and stops before placement on any incomplete clearance. Shared geometry is reused without a private metric change.</p></section>
-<section class="section"><div class="grid2"><article class="panel"><p class="kicker">E2 paired ablation (2026-10-30 thermal lane)</p><h3>Thermal features: measured negative.</h3><p>Arm A (28 layers + context + thermal family): HOLDOUT-DTI 0.1462. Arm B (identical learner, no thermal family): 0.1586 — an exact reproduction of the withdrawn SWGB field. Paired Δ -0.0124, 95% CI [-0.0170, -0.0079]. The honest conclusion: the gain over the 0.1011 bar comes from the supervised learner, not from the geothermal anchors as learner features.</p><a href="evidence/thermal/e2_paired_holdout.json">Paired evidence JSON →</a></article><article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3><div class="barrow"><span>gravity_gradient_s2</span><div class="track"><div class="bar " style="width:60.9%"></div></div><strong>0.0730</strong></div><div class="barrow"><span>gravity_gradient_s5</span><div class="track"><div class="bar " style="width:59.8%"></div></div><strong>0.0718</strong></div><div class="barrow"><span>signed_opposition_s2</span><div class="track"><div class="bar " style="width:57.4%"></div></div><strong>0.0689</strong></div><div class="barrow"><span>signed_opposition_s5</span><div class="track"><div class="bar " style="width:55.1%"></div></div><strong>0.0662</strong></div><div class="barrow"><span>basement_gradient_s2</span><div class="track"><div class="bar " style="width:39.2%"></div></div><strong>0.0471</strong></div><div class="barrow"><span>basement_gradient_s5</span><div class="track"><div class="bar " style="width:37.3%"></div></div><strong>0.0447</strong></div><div class="barrow"><span>low_surface_expression</span><div class="track"><div class="bar " style="width:33.2%"></div></div><strong>0.0398</strong></div><div class="barrow"><span>BGAC-1</span><div class="track"><div class="bar candidate" style="width:32.5%"></div></div><strong>0.0390</strong></div><p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article></div></section>
-<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list"><li><a href="evidence/thermal/run_card.json">2026-10-30 run card (H-TVGB)</a><span>JSON ↗</span></li><li><a href="evidence/thermal/release.json">Release gates and verdict</a><span>JSON ↗</span></li><li><a href="evidence/thermal/e2_paired_holdout.json">E2 paired thermal-family ablation</a><span>JSON ↗</span></li><li><a href="evidence/thermal/e3_emission_sweep.json">E3 emission sweep</a><span>JSON ↗</span></li><li><a href="evidence/thermal/leakage_canary.json">Per-feature leakage canaries (all clear)</a><span>JSON ↗</span></li><li><a href="evidence/run_card.json">BGAC-1 run card (frozen negative)</a><span>JSON ↗</span></li><li><a href="evidence/first_pass_run_card.json">Preserved first-pass card</a><span>JSON ↗</span></li><li><a href="evidence/corrected_surface_novelty.json">Corrected pre-placement stop</a><span>JSON ↗</span></li><li><a href="evidence/nine_site_audit.json">Nine-site byte / duplicate / H33 mechanism audit</a><span>JSON ↗</span></li><li><a href="evidence/holdout.json">Exploratory holdout and paired confidence intervals</a><span>JSON ↗</span></li><li><a href="evidence/focus_inventory.json">Complete frozen nine-site TIFF inventory</a><span>JSON ↗</span></li><li><a href="evidence/release_checks.json">Frozen implementation hashes and verification checks</a><span>JSON ↗</span></li></ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2><p class="small">Static snapshot checked: 2026-10-27T11:58:40.093528+00:00. GitHub heads only—not a current competition leaderboard. Changed heads require a new registry audit; they never update the frozen experiment.</p><p class="small" id="feed-live-status" role="status">Current GitHub freshness will be checked automatically if browser access is available.</p><div class="table-wrap"><table class="feed-grid"><thead><tr><th>Source</th><th>Experiment pin</th><th>Current head</th><th>Advisory</th></tr></thead><tbody><tr data-source-repo="GEMSDOE24" data-frozen-ref="cf093c8c5e9fa77294ecf4c59b79cdade92cbc06"><td>GEMSDOE24</td><td><code>cf093c8c5e9f</code></td><td><code data-current-head>a1ecb683a9fd</code></td><td data-advisory>Changed — audit required</td></tr><tr data-source-repo="GEMSDOE25" data-frozen-ref="227347d0f1beb420c0dd2a7dd4079ddc6389f5ab"><td>GEMSDOE25</td><td><code>227347d0f1be</code></td><td><code data-current-head>227347d0f1be</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE27" data-frozen-ref="6c34f5b7cb7756d23c258df051318b7b11cd9ab4"><td>GEMSDOE27</td><td><code>6c34f5b7cb77</code></td><td><code data-current-head>6c34f5b7cb77</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE28" data-frozen-ref="f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309"><td>GEMSDOE28</td><td><code>f78c1e8fdc2f</code></td><td><code data-current-head>f78c1e8fdc2f</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE30" data-frozen-ref="3c3d7255fdbb3a94375eff086522463a8eaca449"><td>GEMSDOE30</td><td><code>3c3d7255fdbb</code></td><td><code data-current-head>3c3d7255fdbb</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE31" data-frozen-ref="abd9a45cc7adf046d7d3829eb6e8c980943f462d"><td>GEMSDOE31</td><td><code>abd9a45cc7ad</code></td><td><code data-current-head>abd9a45cc7ad</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE32" data-frozen-ref="1398109a23f04a2ace71c1bd2f527cfba87860b5"><td>GEMSDOE32</td><td><code>1398109a23f0</code></td><td><code data-current-head>1398109a23f0</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE33" data-frozen-ref="122e2240a835c9c84831943ee3489dbb48fd6e85"><td>GEMSDOE33</td><td><code>122e2240a835</code></td><td><code data-current-head>122e2240a835</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE36" data-frozen-ref="61783525af4aa6dcf8da0bc68b06fa38b89ed27a"><td>GEMSDOE36</td><td><code>61783525af4a</code></td><td><code data-current-head>61783525af4a</code></td><td data-advisory>Matches snapshot</td></tr></tbody></table></div></section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{
+<section class="section"><div class="grid2"><p class="kicker">E1/E2 paired ablations (this session)</p><h3>Relay features: measured positive; far-field ×3 and the geothermal emission prior: measured negative.</h3><p>Arm A (H-TVGB reproduction): HOLDOUT-DTI 0.1462 — an exact reproduction of the 2026-10-30 arm (instrument check). Arm B (+5 relay-geometry features): 0.1573 (paired Δ +0.0110, 95% CI [+0.0081, +0.0141]). Arm C (far-field positives ×3): 0.1517 (paired Δ vs B -0.0055, 95% CI [-0.0084, -0.0028]). E2 emission prior (anchor-modulated vs plain at the shipped cell): -0.0152 [95% CI -0.0191, -0.0113] — the geothermal family hurts as an emission prior too. The shipped file is arm B, plain emission.</p><a href="evidence/tiprelay/e1_paired_ablation.json">E1 paired evidence JSON →</a> · <a href="evidence/tiprelay/e2_emission_ablation.json">E2 →</a><article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3><div class="barrow"><span>gravity_gradient_s2</span><div class="track"><div class="bar " style="width:60.9%"></div></div><strong>0.0730</strong></div><div class="barrow"><span>gravity_gradient_s5</span><div class="track"><div class="bar " style="width:59.8%"></div></div><strong>0.0718</strong></div><div class="barrow"><span>signed_opposition_s2</span><div class="track"><div class="bar " style="width:57.4%"></div></div><strong>0.0689</strong></div><div class="barrow"><span>signed_opposition_s5</span><div class="track"><div class="bar " style="width:55.1%"></div></div><strong>0.0662</strong></div><div class="barrow"><span>basement_gradient_s2</span><div class="track"><div class="bar " style="width:39.2%"></div></div><strong>0.0471</strong></div><div class="barrow"><span>basement_gradient_s5</span><div class="track"><div class="bar " style="width:37.3%"></div></div><strong>0.0447</strong></div><div class="barrow"><span>low_surface_expression</span><div class="track"><div class="bar " style="width:33.2%"></div></div><strong>0.0398</strong></div><div class="barrow"><span>BGAC-1</span><div class="track"><div class="bar candidate" style="width:32.5%"></div></div><strong>0.0390</strong></div><p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article></div></section>
+<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list"><li><a href="evidence/tiprelay/run_card.json">2026-10-31 run card (H-TIPRELAY)</a><span>JSON ↗</span></li><li><a href="evidence/tiprelay/release.json">2026-10-31 release gates and verdict</a><span>JSON ↗</span></li><li><a href="evidence/tiprelay/e1_paired_ablation.json">E1 paired continuation-geometry ablation</a><span>JSON ↗</span></li><li><a href="evidence/tiprelay/e2_emission_ablation.json">E2 paired emission-prior ablation</a><span>JSON ↗</span></li><li><a href="evidence/tiprelay/leakage_canary.json">2026-10-31 per-feature leakage canaries</a><span>JSON ↗</span></li><li><a href="evidence/tiprelay/cross_lane_kdam_check.json">2026-10-31 cross-lane duplicate check (tiprelay vs kdam)</a><span>JSON ↗</span></li><li><a href="evidence/kdam/release.json">2026-10-31 release gates and verdict (parallel H-KDAM lane)</a><span>JSON ↗</span></li><li><a href="evidence/kdam/e1_holdout.json">H-KDAM E1 holdout with same-emission comparators</a><span>JSON ↗</span></li><li><a href="evidence/kdam/e2_paired_novelty.json">H-KDAM E2 novelty-constrained paired ablation</a><span>JSON ↗</span></li><li><a href="evidence/kdam/leakage_canary.json">H-KDAM per-feature leakage canaries</a><span>JSON ↗</span></li><li><a href="evidence/thermal/run_card.json">2026-10-30 run card (H-TVGB)</a><span>JSON ↗</span></li><li><a href="evidence/thermal/release.json">Release gates and verdict</a><span>JSON ↗</span></li><li><a href="evidence/thermal/e2_paired_holdout.json">E2 paired thermal-family ablation</a><span>JSON ↗</span></li><li><a href="evidence/thermal/e3_emission_sweep.json">E3 emission sweep</a><span>JSON ↗</span></li><li><a href="evidence/thermal/leakage_canary.json">Per-feature leakage canaries (all clear)</a><span>JSON ↗</span></li><li><a href="evidence/run_card.json">BGAC-1 run card (frozen negative)</a><span>JSON ↗</span></li><li><a href="evidence/first_pass_run_card.json">Preserved first-pass card</a><span>JSON ↗</span></li><li><a href="evidence/corrected_surface_novelty.json">Corrected pre-placement stop</a><span>JSON ↗</span></li><li><a href="evidence/nine_site_audit.json">Nine-site byte / duplicate / H33 mechanism audit</a><span>JSON ↗</span></li><li><a href="evidence/holdout.json">Exploratory holdout and paired confidence intervals</a><span>JSON ↗</span></li><li><a href="evidence/focus_inventory.json">Complete frozen nine-site TIFF inventory</a><span>JSON ↗</span></li><li><a href="evidence/release_checks.json">Frozen implementation hashes and verification checks</a><span>JSON ↗</span></li></ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2><p class="small">Static snapshot checked: 2026-10-27T11:58:40.093528+00:00. GitHub heads only—not a current competition leaderboard. Changed heads require a new registry audit; they never update the frozen experiment.</p><p class="small" id="feed-live-status" role="status">Current GitHub freshness will be checked automatically if browser access is available.</p><div class="table-wrap"><table class="feed-grid"><thead><tr><th>Source</th><th>Experiment pin</th><th>Current head</th><th>Advisory</th></tr></thead><tbody><tr data-source-repo="GEMSDOE24" data-frozen-ref="cf093c8c5e9fa77294ecf4c59b79cdade92cbc06"><td>GEMSDOE24</td><td><code>cf093c8c5e9f</code></td><td><code data-current-head>a1ecb683a9fd</code></td><td data-advisory>Changed — audit required</td></tr><tr data-source-repo="GEMSDOE25" data-frozen-ref="227347d0f1beb420c0dd2a7dd4079ddc6389f5ab"><td>GEMSDOE25</td><td><code>227347d0f1be</code></td><td><code data-current-head>227347d0f1be</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE27" data-frozen-ref="6c34f5b7cb7756d23c258df051318b7b11cd9ab4"><td>GEMSDOE27</td><td><code>6c34f5b7cb77</code></td><td><code data-current-head>6c34f5b7cb77</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE28" data-frozen-ref="f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309"><td>GEMSDOE28</td><td><code>f78c1e8fdc2f</code></td><td><code data-current-head>f78c1e8fdc2f</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE30" data-frozen-ref="3c3d7255fdbb3a94375eff086522463a8eaca449"><td>GEMSDOE30</td><td><code>3c3d7255fdbb</code></td><td><code data-current-head>3c3d7255fdbb</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE31" data-frozen-ref="abd9a45cc7adf046d7d3829eb6e8c980943f462d"><td>GEMSDOE31</td><td><code>abd9a45cc7ad</code></td><td><code data-current-head>abd9a45cc7ad</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE32" data-frozen-ref="1398109a23f04a2ace71c1bd2f527cfba87860b5"><td>GEMSDOE32</td><td><code>1398109a23f0</code></td><td><code data-current-head>1398109a23f0</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE33" data-frozen-ref="122e2240a835c9c84831943ee3489dbb48fd6e85"><td>GEMSDOE33</td><td><code>122e2240a835</code></td><td><code data-current-head>122e2240a835</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE36" data-frozen-ref="61783525af4aa6dcf8da0bc68b06fa38b89ed27a"><td>GEMSDOE36</td><td><code>61783525af4a</code></td><td><code data-current-head>61783525af4a</code></td><td data-advisory>Matches snapshot</td></tr></tbody></table></div></section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{
   &quot;schema_version&quot;: 1,
   &quot;generated_utc&quot;: &quot;2026-10-27T11:37:33.643679+00:00&quot;,
   &quot;hypothesis&quot;: &quot;BGAC-1: buried basin-edge anti-gradient consistency&quot;,
@@ -91,79 +87,191 @@
   &quot;first_pass_record&quot;: &quot;first_pass_run_card.json&quot;,
   &quot;surface_audit&quot;: &quot;corrected_surface_novelty.json&quot;,
   &quot;planned_submission_name&quot;: &quot;gems-sass1-bgac1-20261027-d510a8033961&quot;
-}</pre><h2>The H-TVGB run card (this session).</h2><pre>{
-  &quot;raster_name&quot;: &quot;gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif&quot;,
-  &quot;submission_name&quot;: &quot;gemsass1-kdam-alteration-contact-37654-20261031-zeros&quot;,
-  &quot;raster_sha256&quot;: &quot;d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f&quot;,
-  &quot;note&quot;: &quot;GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px &gt;2px offcat, registry-repulsive&quot;,
-  &quot;note_length&quot;: 120,
-  &quot;ok_to_download_and_submit&quot;: true,
-  &quot;submission_slots_used&quot;: 0,
-  &quot;lane&quot;: &quot;H-KDAM (damage-zone K/Th depletion x potential-field contacts)&quot;,
-  &quot;generated_utc&quot;: &quot;2026-10-31T05:24:49Z&quot;,
-  &quot;n_dots&quot;: 37654,
+}</pre><h2>The active run card (this session).</h2><pre>{
+  &quot;schema&quot;: &quot;gemsass1.run_card.v3&quot;,
+  &quot;generated_utc&quot;: &quot;2026-10-31T06:07:17Z&quot;,
+  &quot;hypothesis&quot;: &quot;H-TIPRELAY: uncatalogued fault continuations concentrate where visible traces end in mutually facing tips (relay corridors), between offset parallel strands (step-over gaps), and beyond straight (persistent) traces; a segment-withheld learner carrying these VISIBLE-only continuation-geometry families recovers hidden segments better than the thermal-anchored baseline.&quot;,
+  &quot;mechanism&quot;: &quot;5 x HistGradientBoosting (250 it) on 28 GeoDAWN/lidar layers + visible-only catalogue context + 10 thermal-anchor features + 5 relay-geometry features (relay_corridor,relay_logdist,stepover_band,strike_persist,tip_align); fold models averaged with full-catalogue context; Poisson-disk 2.8 px, n=37654, &gt;600 m catalogue exclusion at emission (registered b6 cell).&quot;,
+  &quot;named_non_fault_mimic&quot;: &quot;Pluvial shoreline benches and fluvial terrace risers (straight, coherent, can bridge between real scarps); road/canal embankments; magma-dike margins (persistent strike, step-over-like offsets).&quot;,
+  &quot;arm&quot;: &quot;B_tiprelay&quot;,
   &quot;holdout_dti&quot;: {
     &quot;label&quot;: &quot;HOLDOUT-DTI&quot;,
     &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment&quot;,
-    &quot;value&quot;: 0.14713065560764194,
+    &quot;value&quot;: 0.15725768851342797,
     &quot;ci95&quot;: [
-      0.1417580424912997,
-      0.15313321432979343
+      0.15111431949731974,
+      0.16496284467325495
     ],
+    &quot;farfield_true_gt500m_from_visible&quot;: 0.13905551465845958,
     &quot;n_withheld_positives&quot;: 60988,
-    &quot;alpha&quot;: 0.2,
-    &quot;beta&quot;: 0.8,
-    &quot;radius_m&quot;: 300.0,
-    &quot;arm&quot;: &quot;A_unpruned (no catalogue mask)&quot;
-  },
-  &quot;shipped_arm&quot;: {
-    &quot;label&quot;: &quot;HOLDOUT-DTI&quot;,
-    &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment&quot;,
-    &quot;value&quot;: 0.014862004337241629,
-    &quot;ci95&quot;: [
-      0.014108743253090167,
-      0.015559107371781157
-    ],
-    &quot;arm&quot;: &quot;B_prune2 (the operating point the file is shipped at)&quot;,
-    &quot;farfield_gt5px&quot;: 0.010419449005809118
-  },
-  &quot;novelty_arm&quot;: {
-    &quot;label&quot;: &quot;HOLDOUT-DTI&quot;,
-    &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment&quot;,
-    &quot;value&quot;: 0.014882938960172525,
-    &quot;ci95&quot;: [
-      0.014243480378630236,
-      0.015710642097398506
-    ],
-    &quot;paired_delta&quot;: 5.7058860228028846e-05
-  },
-  &quot;comparators_same_emission&quot;: {
-    &quot;family_base_44090_unpruned&quot;: 0.10109334174188524,
-    &quot;live_champion_37654_pruned&quot;: 0.004371798949252752
+    &quot;delta_B_minus_A&quot;: {
+      &quot;value&quot;: 0.011029842763380815,
+      &quot;ci95&quot;: [
+        0.008109928906022372,
+        0.014108381144100929
+      ]
+    },
+    &quot;delta_C_minus_B&quot;: {
+      &quot;value&quot;: -0.005526970860870922,
+      &quot;ci95&quot;: [
+        -0.008419370805056201,
+        -0.002791680317711784
+      ]
+    },
+    &quot;shipped_cell_emission&quot;: {
+      &quot;holdout_dti&quot;: 0.1383706275021848,
+      &quot;ci95&quot;: [
+        0.13216926206204996,
+        0.1457577172171357
+      ],
+      &quot;farfield&quot;: 0.1445113335018527,
+      &quot;farfield_ci95&quot;: [
+        0.13668104848300794,
+        0.1505038097308499
+      ]
+    },
+    &quot;e2_emission&quot;: {
+      &quot;value&quot;: -0.015234982300494262,
+      &quot;ci95&quot;: [
+        -0.019081752760325848,
+        -0.011253082958120117
+      ]
+    },
+    &quot;bar&quot;: {
+      &quot;name&quot;: &quot;gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)&quot;,
+      &quot;holdout_dti&quot;: 0.1011,
+      &quot;ci95&quot;: [
+        0.0956,
+        0.1072
+      ]
+    },
+    &quot;repo_best&quot;: {
+      &quot;name&quot;: &quot;H-TVGB b6 shipped 2026-10-30 (repo incumbent at the registered b6 cell)&quot;,
+      &quot;holdout_dti&quot;: 0.1287,
+      &quot;ci95&quot;: [
+        0.1231,
+        0.1355
+      ]
+    },
+    &quot;value_definition&quot;: &quot;value = E1 paired-ablation cell (44,090 dots, no prune, winner arm B_tiprelay); the shipped b6 cell (37,654 dots, &gt;600 m catalogue exclusion) is holdout_dti.shipped_cell_emission = 0.1384 [0.1322, 0.1458].&quot;
   },
   &quot;correlation_overlap_vs_registry&quot;: {
-    &quot;measured_exactly&quot;: 430,
-    &quot;screened_out&quot;: 0,
-    &quot;max_overlap3&quot;: 0.3106708450629415,
-    &quot;max_rho&quot;: 0.015158543768169625,
-    &quot;dots_competitive&quot;: {
-      &quot;max_overlap&quot;: 0.3106708450629415
+    &quot;surface_competitive&quot;: {
+      &quot;max_spearman&quot;: 0.1321348231985267,
+      &quot;max_overlap&quot;: 0.3188835023134579,
+      &quot;worst&quot;: [
+        &quot;docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif&quot;,
+        0.3188835023134579,
+        0.04470948071044986
+      ]
     },
-    &quot;exempt_fixtures&quot;: [
-      &quot;inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
-      &quot;inputs/calibration/8GEMSDOE_Hedge-v2_submission.tif&quot;,
-      &quot;inputs/calibration/gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif&quot;,
-      &quot;inputs/calibration/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif&quot;,
-      &quot;inputs/calibration/gemsdoe-ens12-adopted-7f00890a.tif&quot;,
-      &quot;inputs/calibration/gemsdoe9-PLACEHOLDER-2314b599.tif&quot;,
-      &quot;docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif&quot;
-    ]
+    &quot;dots_competitive&quot;: {
+      &quot;max_spearman&quot;: 0.03487515433242654,
+      &quot;max_overlap&quot;: 0.6518032612737027,
+      &quot;worst&quot;: [
+        &quot;docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif&quot;,
+        0.6518032612737027,
+        0.028674711879910452
+      ]
+    },
+    &quot;dots_full_registry&quot;: {
+      &quot;max_spearman&quot;: 0.03487515433242654,
+      &quot;max_overlap&quot;: 0.99843310139693,
+      &quot;worst&quot;: [
+        &quot;inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
+        0.99843310139693,
+        0.0002481589159600301
+      ]
+    },
+    &quot;thresholds&quot;: {
+      &quot;spearman&quot;: 0.9,
+      &quot;overlap&quot;: 0.7,
+      &quot;px&quot;: 3
+    },
+    &quot;lane_drift_duplicate&quot;: false,
+    &quot;lattice_rows&quot;: [
+      {
+        &quot;path&quot;: &quot;inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
+        &quot;spearman&quot;: 0.0002481589159600301,
+        &quot;overlap&quot;: 0.99843310139693
+      },
+      {
+        &quot;path&quot;: &quot;docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif&quot;,
+        &quot;spearman&quot;: 0.000534035443442814,
+        &quot;overlap&quot;: 0.0016731290168375205
+      }
+    ],
+    &quot;prior_repo_release_overlap&quot;: {
+      &quot;path&quot;: &quot;gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif&quot;,
+      &quot;directed_overlap_within_3px&quot;: 0.8394061719870399
+    },
+    &quot;ir_lattice_01&quot;: &quot;evidence/thermal/lattice_amendment.md&quot;
   },
-  &quot;lattice_disclosure&quot;: {
-    &quot;available&quot;: true,
-    &quot;path&quot;: &quot;inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
-    &quot;their_dots&quot;: 206895,
-    &quot;overlap3&quot;: 0.9995750783449302,
-    &quot;note&quot;: &quot;synthetic 5 px calibration grid; exempted from the competitive scan (AMEND-LATTICE-01) because it covers &gt;=99% of any dotted file, including the 0.2778 champion&quot;
-  }
+  &quot;raster_sha256&quot;: &quot;43017aa480526acf2789dbffb32202da830966b9dadc40cb4d84b995b651f5eb&quot;,
+  &quot;raster_name&quot;: &quot;gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif&quot;,
+  &quot;validator_output&quot;: {
+    &quot;path&quot;: &quot;/home/user/GEMSDOESASS1/docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif&quot;,
+    &quot;checks&quot;: {
+      &quot;single_band&quot;: true,
+      &quot;dtype_float32&quot;: true,
+      &quot;crs_matches_template&quot;: true,
+      &quot;shape_matches_template&quot;: true,
+      &quot;transform_matches_template&quot;: true,
+      &quot;no_nan_inside_footprint&quot;: true,
+      &quot;no_nan_anywhere&quot;: true,
+      &quot;values_in_0_1_everywhere&quot;: true,
+      &quot;values_in_0_1_inside_footprint&quot;: true,
+      &quot;no_positive_outside_footprint&quot;: true,
+      &quot;zero_mass_on_known_catalogue_pixels&quot;: true
+    },
+    &quot;all_checks_passed&quot;: true,
+    &quot;positive_pixels&quot;: 37654,
+    &quot;footprint_pixels&quot;: 5167373,
+    &quot;min&quot;: 0.0,
+    &quot;max&quot;: 1.0,
+    &quot;sha256&quot;: &quot;43017aa480526acf2789dbffb32202da830966b9dadc40cb4d84b995b651f5eb&quot;,
+    &quot;size_bytes&quot;: 136856,
+    &quot;profile&quot;: {
+      &quot;crs&quot;: &quot;EPSG:32611&quot;,
+      &quot;shape&quot;: [
+        3730,
+        3292
+      ],
+      &quot;transform&quot;: [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      &quot;dtype&quot;: &quot;float32&quot;,
+      &quot;count&quot;: 1,
+      &quot;nodata&quot;: null
+    }
+  },
+  &quot;submission_name&quot;: &quot;gemsass1-tiprelay-continuation-37654-b6-20261031&quot;,
+  &quot;note&quot;: &quot;GEMSASS1 H-TIPRELAY tip-relay/stepover/persistence 37654d &gt;600m-offcat 2.8px; HOLDOUT-DTI 0.1384 vs bar 0.101&quot;,
+  &quot;note_length&quot;: 109,
+  &quot;verdict&quot;: &quot;promote&quot;,
+  &quot;ok_to_download_and_submit&quot;: true,
+  &quot;submission_slots_used&quot;: 0,
+  &quot;evidence_class&quot;: {
+    &quot;holdout&quot;: &quot;HOLDOUT-DTI&quot;,
+    &quot;live_scores&quot;: &quot;OWNER-REPORT (no organizer receipt in this group)&quot;
+  },
+  &quot;experiments_run&quot;: 3,
+  &quot;experiment_budget&quot;: 3,
+  &quot;elapsed_s&quot;: 773.6,
+  &quot;relay_meta_full_catalogue&quot;: {
+    &quot;n_tips&quot;: 6938,
+    &quot;n_relay_pairs&quot;: 272,
+    &quot;n_stepover_px&quot;: 5702
+  },
+  &quot;limitations&quot;: [
+    &quot;No organizer receipt: every historical score is OWNER-REPORT, never ORGANIZER-CONFIRMED.&quot;,
+    &quot;HOLDOUT-DTI is not a leaderboard forecast (proxy-live Spearman -0.08 over the 17-file family).&quot;,
+    &quot;IR-LATTICE-01: the 13gems calibration lattice covers &gt;=99% of any dotted file at 3 px; both readings are reported.&quot;,
+    &quot;Registry scope = nine public focus repos (414 TIFF blobs, frozen 2026-10-27 pins) + this repo prior release; global novelty unverified.&quot;
+  ]
 }</pre></section></main><footer><span>Independent research workspace · not an organizer website</span><span>Evidence before submission. No competition uploads automated.</span><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">View repository ↗</a></footer><script src="assets/source-feed.js" defer></script></body></html>

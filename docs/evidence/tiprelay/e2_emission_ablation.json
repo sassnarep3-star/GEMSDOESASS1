@@ -1,0 +1,54 @@
+{
+  "experiment": "E2-emission-prior",
+  "hypothesis": "geothermal anchor density as emission prior (NEXT_STEPS 4c)",
+  "winner_arm": "B_tiprelay",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "n_withheld_positives": 60988,
+  "variants": {
+    "plain": {
+      "holdout_dti": 0.1383706275021848,
+      "ci95": [
+        0.13216926206204996,
+        0.1457577172171357
+      ],
+      "farfield": 0.1445113335018527,
+      "farfield_ci95": [
+        0.13668104848300794,
+        0.1505038097308499
+      ]
+    },
+    "anchor_modulated": {
+      "holdout_dti": 0.12313564520169053,
+      "ci95": [
+        0.11678469695739316,
+        0.12869671683439468
+      ],
+      "farfield": 0.12839137034670725,
+      "farfield_ci95": [
+        0.12067745068424454,
+        0.13555742533864998
+      ]
+    }
+  },
+  "delta_modulated_minus_plain": {
+    "value": -0.015234982300494262,
+    "ci95": [
+      -0.019081752760325848,
+      -0.011253082958120117
+    ]
+  },
+  "shipped_cell": {
+    "n_dots": 37654,
+    "spacing_px": 2.8,
+    "prune_px": 6.0
+  },
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ]
+  },
+  "elapsed_s": 66.8
+}
