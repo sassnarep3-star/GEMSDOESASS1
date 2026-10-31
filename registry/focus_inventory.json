@@ -3322,7 +3322,8 @@
       "bytes": 799095,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gems32-probe-S2-SCALE-lambda-0.5.tif",
       "sha256": "d6462b76bce1a54920bd4e9d61700f3a1cc2f8dedf89d93651f74d10144c0243",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gems32-probe-S2-SCALE-lambda-0.5.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3333,7 +3334,8 @@
       "bytes": 810344,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gems32-probe-S3-NULLADD-2000px.tif",
       "sha256": "da4193e3a2e0470908b5bd1e28de97f25ee1ce15c57c959d0b623414d200692a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gems32-probe-S3-NULLADD-2000px.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3344,7 +3346,8 @@
       "bytes": 277724,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena41-pfonly-blindbasin-37654-20261025T202725Z-530d08d1-zeros.tif",
       "sha256": "f042f48e76d8ee2552838456a2e53f1a642e2fad2c2eee8123f0ff6d48f1a3b9",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena41-pfonly-blindbasin-37654-20261025T202725Z-530d08d1-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3355,7 +3358,8 @@
       "bytes": 328367,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-nan.tif",
       "sha256": "53bb039334fb6f2eed11cf66436ada834ce05214c6c1d23ff31d1480397e0291",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3366,7 +3370,8 @@
       "bytes": 192561,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-zeros.tif",
       "sha256": "f2c238b48468e3626f00ddf2378d863285850d11507c470c962676bf7715992a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3377,7 +3382,8 @@
       "bytes": 351636,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena48-jxstep-37654-20261026T215839Z-6a28221e-nan.tif",
       "sha256": "c23fb32e7cae5d18fc4e7516dbb45a1bae431ecda6b8836dacb373bd6ef18996",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena48-jxstep-37654-20261026T215839Z-6a28221e-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3388,7 +3394,8 @@
       "bytes": 215180,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena48-jxstep-37654-20261026T215839Z-6a28221e-zeros.tif",
       "sha256": "4aa4d8f2f5fb39af64af69d575a13c14f146204e5147e9ee10cbb267895c43a6",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena48-jxstep-37654-20261026T215839Z-6a28221e-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3399,7 +3406,8 @@
       "bytes": 345294,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena49-pcg-dualconcord-37654-20261026T220056Z-54e97629-nan.tif",
       "sha256": "faf39fdec0bc115b3fb4b9a94512d4ea6d28433dc078a2340244071cdd5effa4",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena49-pcg-dualconcord-37654-20261026T220056Z-54e97629-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3410,7 +3418,8 @@
       "bytes": 209001,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena49-pcg-dualconcord-37654-20261026T220056Z-54e97629-zeros.tif",
       "sha256": "93c21c4cc18735aaeea44626b0697d72b96f9048ab817d9f0c5fb27381ef5f0f",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena49-pcg-dualconcord-37654-20261026T220056Z-54e97629-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3421,7 +3430,8 @@
       "bytes": 366368,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena8a-mdrc-crestbar-b2-44090-20261026T011955Z-ce1abd39-nan.tif",
       "sha256": "c0bb0fe390fb58bdd6ceee93664350d5714841c8cc0e49c1752283d16e8c0ac2",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena8a-mdrc-crestbar-b2-44090-20261026T011955Z-ce1abd39-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3432,7 +3442,8 @@
       "bytes": 230921,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena8a-mdrc-crestbar-b2-44090-20261026T011955Z-ce1abd39-zeros.tif",
       "sha256": "0bbb3128c0e91a5f10003b1f92f2ef6030822a27b231299f7ce3c22d2d4d13e5",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena8a-mdrc-crestbar-b2-44090-20261026T011955Z-ce1abd39-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3443,7 +3454,8 @@
       "bytes": 345698,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena9-pgrn-pu37654-20261026T053246Z-4f7aba9b-nan.tif",
       "sha256": "03eee6fb55ad98040a8887dec10767558b26d6cb10461defc46bc9f3c4bb5c02",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena9-pgrn-pu37654-20261026T053246Z-4f7aba9b-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3454,7 +3466,8 @@
       "bytes": 210920,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-arena9-pgrn-pu37654-20261026T053246Z-4f7aba9b-zeros.tif",
       "sha256": "8eee6e1a85708c9188c7b9d7f436deab621657aab22c3d9d48da9dd64c84e609",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-arena9-pgrn-pu37654-20261026T053246Z-4f7aba9b-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3465,7 +3478,8 @@
       "bytes": 379333,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-d28-ref02600-repro-44090-20261004T183200Z-426073b6-nan.tif",
       "sha256": "fe01ebd3961d6911bfa731111d4d3de75923e642c2276e1d7f6109de9236fd85",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-d28-ref02600-repro-44090-20261004T183200Z-426073b6-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3476,7 +3490,8 @@
       "bytes": 243828,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-d28-ref02600-repro-44090-20261004T183200Z-426073b6-zeros.tif",
       "sha256": "e4985b78c4d99e185686de639dffb16084a71cf5b673b1e7474f7c898493c2c3",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-d28-ref02600-repro-44090-20261004T183200Z-426073b6-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3487,7 +3502,8 @@
       "bytes": 332712,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h-geo-conduit-37654-20261025T235617Z-2d0d0c5e-nan.tif",
       "sha256": "2ba153e5d86e32745aa0014757d44cc829def41ce8b4a3b3be86b953cc23fee4",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h-geo-conduit-37654-20261025T235617Z-2d0d0c5e-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3498,7 +3514,8 @@
       "bytes": 279680,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h-geo-conduit-37654-20261025T235617Z-2d0d0c5e-zeros.tif",
       "sha256": "fc4e0e58fbc6e89b671d3a7e30d2e5d4379792de892d8ed53a936dc7576d3669",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h-geo-conduit-37654-20261025T235617Z-2d0d0c5e-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3509,7 +3526,8 @@
       "bytes": 377371,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32-newvariant-43200-20261025T202557Z-2cf1447f-nan.tif",
       "sha256": "d4a4496f12b0f29f3d9f43c700cbd5a30a229b75a6ecc005be59fed0e7a3797c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32-newvariant-43200-20261025T202557Z-2cf1447f-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3520,7 +3538,8 @@
       "bytes": 241911,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32-newvariant-43200-20261025T202557Z-2cf1447f-zeros.tif",
       "sha256": "e077da38c88075e4c2d3dcd15e734fd37ebdf14911fff5057d4a735c4e594a3c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32-newvariant-43200-20261025T202557Z-2cf1447f-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3531,7 +3550,8 @@
       "bytes": 385181,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32-winning-46090-prune400-20261025T203017Z-c3459dcd-nan.tif",
       "sha256": "c3339375ccb4075f63fec017ceaec89426ac5a9bb316f8626e88f3a6de10c600",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32-winning-46090-prune400-20261025T203017Z-c3459dcd-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3542,7 +3562,8 @@
       "bytes": 250142,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32-winning-46090-prune400-20261025T203017Z-c3459dcd-zeros.tif",
       "sha256": "04fd8a73eb584dd1f64ffcbb608acec30eff21b695f27f6b684cd1698c90d525",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32-winning-46090-prune400-20261025T203017Z-c3459dcd-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3553,7 +3574,8 @@
       "bytes": 385762,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32a-dip-projected-step-46090-20261004T183200Z-838fcd84-nan.tif",
       "sha256": "564d569b8500e3c615457d0325f063c25f827ebb0703f249d7a043b2b25cdba9",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32a-dip-projected-step-46090-20261004T183200Z-838fcd84-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3564,7 +3586,8 @@
       "bytes": 250381,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32a-dip-projected-step-46090-20261004T183200Z-838fcd84-zeros.tif",
       "sha256": "dee5c5c6bc390ed39638f1638819c10d4e1ae52537c4a900930651dfd19754b7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32a-dip-projected-step-46090-20261004T183200Z-838fcd84-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3575,7 +3598,8 @@
       "bytes": 384916,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32b-transtensional-swarm-45890-20261004T183200Z-27b7c9e6-nan.tif",
       "sha256": "1a3b1d63e1759ac71b7a187b893bad93abe09273178c8e64dcbb327c37f2a035",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32b-transtensional-swarm-45890-20261004T183200Z-27b7c9e6-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3586,7 +3610,8 @@
       "bytes": 249551,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32b-transtensional-swarm-45890-20261004T183200Z-27b7c9e6-zeros.tif",
       "sha256": "fe0b511435cf80eb55a78b36555a0650fa9d626822f08a3d3221615a9bf12a68",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32b-transtensional-swarm-45890-20261004T183200Z-27b7c9e6-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3597,7 +3622,8 @@
       "bytes": 385772,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32c-mt-claycap-breach-45890-20261004T183200Z-a5963d0a-nan.tif",
       "sha256": "c09ebb73c49ef8553bf4834ef93856c870cdea72551e4268769299c2a4d31d4d",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32c-mt-claycap-breach-45890-20261004T183200Z-a5963d0a-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3608,7 +3634,8 @@
       "bytes": 250718,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32c-mt-claycap-breach-45890-20261004T183200Z-a5963d0a-zeros.tif",
       "sha256": "fe96521c3ef3b9cb728792ebe943717976680d9511239aac601f632946bdce9a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32c-mt-claycap-breach-45890-20261004T183200Z-a5963d0a-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3619,7 +3646,8 @@
       "bytes": 379319,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32d-equalbudget-44090-20261004T183200Z-350cdc3f-nan.tif",
       "sha256": "cc03eb8472e3c08dc7eea3e67a1d943191be78561fa850e7a0fd4225843f77be",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32d-equalbudget-44090-20261004T183200Z-350cdc3f-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3630,7 +3658,8 @@
       "bytes": 243967,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32d-equalbudget-44090-20261004T183200Z-350cdc3f-zeros.tif",
       "sha256": "133bacd0031f865a9df2888de71abeba863118458d37d61ab08c388f415b3b96",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32d-equalbudget-44090-20261004T183200Z-350cdc3f-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3641,7 +3670,8 @@
       "bytes": 385688,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32d-submodular-multipysics-46090-20261004T183200Z-4de30601-nan.tif",
       "sha256": "c3a0cbb14ca60f66934223e4455b970481d0229d2b8095afb3f023233e607621",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32d-submodular-multipysics-46090-20261004T183200Z-4de30601-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3652,7 +3682,8 @@
       "bytes": 250577,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h32d-submodular-multipysics-46090-20261004T183200Z-4de30601-zeros.tif",
       "sha256": "f81e26d7712d1a4a9d3d5393037b09849400c3976d1ebd40e2760a586f2adc2f",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h32d-submodular-multipysics-46090-20261004T183200Z-4de30601-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3663,7 +3694,8 @@
       "bytes": 355443,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif",
       "sha256": "baeae3219bba6a19bc8cfe79224e28555c50184b7c1ca65c2a822f54807c77dd",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3674,7 +3706,8 @@
       "bytes": 219065,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
       "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3685,7 +3718,8 @@
       "bytes": 358154,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2b2-plus-h33-1-20261004T220000Z-31588dc7-nan.tif",
       "sha256": "a99f68ea3de6a8e464a73a819429486ac619d9b94d725a393d2e0e5d911ab60d",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h33-h33-2b2-plus-h33-1-20261004T220000Z-31588dc7-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3696,7 +3730,8 @@
       "bytes": 221921,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2b2-plus-h33-1-20261004T220000Z-31588dc7-zeros.tif",
       "sha256": "91c2e7764beada782e1f2d8f0d5c940f078d0e328de6f5868e6d552dbc50832e",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h33-h33-2b2-plus-h33-1-20261004T220000Z-31588dc7-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3707,7 +3742,8 @@
       "bytes": 351697,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h35-cv-altfusion-b2-42600-20261025T202439Z-35887fc3-nan.tif",
       "sha256": "8fa6b4cd1622359e18fb3cce1555fd2e722faa5a68ce2a3bfd386a5755c8f1cf",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h35-cv-altfusion-b2-42600-20261025T202439Z-35887fc3-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3718,7 +3754,8 @@
       "bytes": 215651,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h35-cv-altfusion-b2-42600-20261025T202439Z-35887fc3-zeros.tif",
       "sha256": "6e048db2dc1b39995c8024cd7492f2f4e5acaa83acece4717cbc525765394c68",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h35-cv-altfusion-b2-42600-20261025T202439Z-35887fc3-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3729,7 +3766,8 @@
       "bytes": 340598,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h36-1c-tdr-pds-steger-37654-20261026T012000Z-9ff9d6e2-nan.tif",
       "sha256": "fae334455ae2eabe8d26f80168420105cb2f8f253c2c2c755f2ac47cf167123d",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h36-1c-tdr-pds-steger-37654-20261026T012000Z-9ff9d6e2-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3740,7 +3778,8 @@
       "bytes": 206761,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h36-1c-tdr-pds-steger-37654-20261026T012000Z-9ff9d6e2-zeros.tif",
       "sha256": "f75ac7ae172eed0840b948beaa6587a532c0a44453c3ad90874f02967e0a887c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h36-1c-tdr-pds-steger-37654-20261026T012000Z-9ff9d6e2-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3751,7 +3790,8 @@
       "bytes": 345412,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h38g1-lidar-geodawn-gdr-celf37654-20261026T013500Z-35859e28-nan.tif",
       "sha256": "6dd6e37b617181c14948297c58f80b29a91de846c04441add0614d4e51b9b836",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h38g1-lidar-geodawn-gdr-celf37654-20261026T013500Z-35859e28-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3762,7 +3802,8 @@
       "bytes": 209987,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h38g1-lidar-geodawn-gdr-celf37654-20261026T013500Z-35859e28-zeros.tif",
       "sha256": "6efe140229c46b274ab7431bab0b9c1318ade642096ca8a1ff8c36317d2d68ff",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h38g1-lidar-geodawn-gdr-celf37654-20261026T013500Z-35859e28-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3773,7 +3814,8 @@
       "bytes": 121893,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h42-hwci-37654-20261026T001226Z-b91008fa-zeros.tif",
       "sha256": "c8e8d10dc55c3164c3f777a0f74764f408bb132e8b0a3e4ac5b5fa8fe914e515",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h42-hwci-37654-20261026T001226Z-b91008fa-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3784,7 +3826,8 @@
       "bytes": 352599,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h44-spcp-sarpu-curvconduit-37654-20261026T053000Z-38f7995a-nan.tif",
       "sha256": "7402a847f37e6687acc2a7dd9b5c6f6ece6344fe133854bf844daba1427171eb",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h44-spcp-sarpu-curvconduit-37654-20261026T053000Z-38f7995a-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3795,7 +3838,8 @@
       "bytes": 216377,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h44-spcp-sarpu-curvconduit-37654-20261026T053000Z-38f7995a-zeros.tif",
       "sha256": "386a4aad59a5c742b28541835892f9f6e0cb306cbbe4e296741bbad8e4bff235",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h44-spcp-sarpu-curvconduit-37654-20261026T053000Z-38f7995a-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3806,7 +3850,8 @@
       "bytes": 283346,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h45-kernelspacing-37654dots-20261026T163401Z-2fe5944c-zeros.tif",
       "sha256": "b14bba00d6053e75e5c72d9e68fac52f607fe40de1c356111baea85e1ceee538",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h45-kernelspacing-37654dots-20261026T163401Z-2fe5944c-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3817,7 +3862,8 @@
       "bytes": 351759,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h45-tworegime-split-37654-20261026T161610Z-35245379-nan.tif",
       "sha256": "c370bf4fcca3d7846db600b4dbcca71c71374196e1f3a778faebf50acc846c0e",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h45-tworegime-split-37654-20261026T161610Z-35245379-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3828,7 +3874,8 @@
       "bytes": 215744,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h45-tworegime-split-37654-20261026T161610Z-35245379-zeros.tif",
       "sha256": "968949a92aeb6f46f880a07d8eee03c674bb85d03672f45b3b4c8a95df21feee",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h45-tworegime-split-37654-20261026T161610Z-35245379-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3839,7 +3886,8 @@
       "bytes": 346077,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h46-trhv-tworegime-ventconduit-37654-20261026T173000Z-6437b275-nan.tif",
       "sha256": "44db5c6a7bff333fa8b5c9c3e0186f7bc6992c72f8994d4bb41540b20e686b97",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h46-trhv-tworegime-ventconduit-37654-20261026T173000Z-6437b275-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3850,7 +3898,8 @@
       "bytes": 212436,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h46-trhv-tworegime-ventconduit-37654-20261026T173000Z-6437b275-zeros.tif",
       "sha256": "9f42346d3acecb8d873fb35c70d988ae0afeb99781c6104c644d8cf9f85e0dc3",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h46-trhv-tworegime-ventconduit-37654-20261026T173000Z-6437b275-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3861,7 +3910,8 @@
       "bytes": 345305,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-nan.tif",
       "sha256": "95106d7c280ddd898dbb76ff637d8bc077fae70296e500b396cfcbbde2b14888",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3872,7 +3922,8 @@
       "bytes": 211243,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif",
       "sha256": "d82d63ab9c935b4eb6d8886129a7820da4642d20c3304c57364c55380438f27a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3883,7 +3934,8 @@
       "bytes": 270332,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h47-lli-unique-coupling-49231-20261026T230000Z-33464ce2-zeros.tif",
       "sha256": "d8da7e947db3ed03a3d7064c02b523c254bcb3ae1c5115b7e59b4b436f80fea1",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h47-lli-unique-coupling-49231-20261026T230000Z-33464ce2-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3894,7 +3946,8 @@
       "bytes": 281530,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h50-tmspi-dualconcord-37654-20261026T214025Z-f0e385b9-nan.tif",
       "sha256": "ba2e1723c7ed05763af33dd5e62ea2c7a1f66257553a51c739152be27fd0fa7c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h50-tmspi-dualconcord-37654-20261026T214025Z-f0e385b9-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3905,7 +3958,8 @@
       "bytes": 146967,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h50-tmspi-dualconcord-37654-20261026T214025Z-f0e385b9-zeros.tif",
       "sha256": "c534effe023f2876b08239384d075be313d489a8dc3bf8dbf22f7d6509872112",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-h50-tmspi-dualconcord-37654-20261026T214025Z-f0e385b9-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3916,7 +3970,8 @@
       "bytes": 339092,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-hcvf2-cvgbm35-b2-greedy37654-20261025T202730Z-f9b36c7e-nan.tif",
       "sha256": "7a588bbe44c51c865790f010f0c2883d05aa2373d5983093850020d6c0ec5946",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-hcvf2-cvgbm35-b2-greedy37654-20261025T202730Z-f9b36c7e-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3927,7 +3982,8 @@
       "bytes": 202608,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-hcvf2-cvgbm35-b2-greedy37654-20261025T202730Z-f9b36c7e-zeros.tif",
       "sha256": "5d65591a23df0f46e61a5cf429d85811891a602ad5f5abb4a66059a93205d5f3",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-hcvf2-cvgbm35-b2-greedy37654-20261025T202730Z-f9b36c7e-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3938,7 +3994,8 @@
       "bytes": 334389,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-hsupsgmc-cvgbm35-b2-greedy37654-20261025T203327Z-6abcd2b5-nan.tif",
       "sha256": "55beb48c40c76cecd72211739573d79983994da7d9b929721a34cf4277b6e6bb",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-hsupsgmc-cvgbm35-b2-greedy37654-20261025T203327Z-6abcd2b5-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3949,7 +4006,8 @@
       "bytes": 199067,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-hsupsgmc-cvgbm35-b2-greedy37654-20261025T203327Z-6abcd2b5-zeros.tif",
       "sha256": "e20d00b8d600db7c5a16cabf1ec8df07e4b473abcec0462dc624a2787a554aee",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-hsupsgmc-cvgbm35-b2-greedy37654-20261025T203327Z-6abcd2b5-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3960,7 +4018,8 @@
       "bytes": 335167,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-nan.tif",
       "sha256": "20318b52084a60be13040bcce5b8099208fc75b8e85640bf61e7d0c3309693e4",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-nan.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3971,7 +4030,8 @@
       "bytes": 201127,
       "local": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif",
       "sha256": "c7f094c1f4d00f2dd9a056dc80fecc94bf1d636363acd020c9da3659eae56547",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/downloads/gemsdoe32-r6-stepprofile-b2-37654-20261026T002502Z-23fbbb51-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3982,7 +4042,8 @@
       "bytes": 154757,
       "local": ".cache/registry/GEMSDOE32/docs/research/quarantine/QUARANTINED-gems32-h19-5-smoothmaxcov-44090-zeros.tif",
       "sha256": "5d881c82d9f66dc5593e2aa0a073d055c38b7a97802af71b737dcec2a7b5ee2e",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/research/quarantine/QUARANTINED-gems32-h19-5-smoothmaxcov-44090-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -3993,7 +4054,8 @@
       "bytes": 199257,
       "local": ".cache/registry/GEMSDOE32/docs/research/quarantine/QUARANTINED-gems32-h19-5-smoothmaxcov-44090.tif",
       "sha256": "2dc67f4bdb8d1bf200f8307946d100c8e51ebd55cc6c7229d1220f83156b6935",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/research/quarantine/QUARANTINED-gems32-h19-5-smoothmaxcov-44090.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4004,7 +4066,8 @@
       "bytes": 780107,
       "local": ".cache/registry/GEMSDOE32/docs/research/quarantine/QUARANTINED-gems32-heatfield-44090-cv-supconfined-zeros.tif",
       "sha256": "a84734ab532fffde07e8ecd5ee55a702f776ee6a96c31a01e00f2c8509897210",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE32/contents/docs/research/quarantine/QUARANTINED-gems32-heatfield-44090-cv-supconfined-zeros.tif?ref=1398109a23f04a2ace71c1bd2f527cfba87860b5', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4015,7 +4078,8 @@
       "bytes": 881376,
       "local": ".cache/registry/GEMSDOE33/archive/legacy_candidates/gems33-c0-scored-reference-20261004-89bf5b9a2fea.tif",
       "sha256": "b64e198f99108b7678c2d0a78864d9677299206cf5b642388c831435c8272f33",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/archive/legacy_candidates/gems33-c0-scored-reference-20261004-89bf5b9a2fea.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4026,7 +4090,8 @@
       "bytes": 884296,
       "local": ".cache/registry/GEMSDOE33/archive/legacy_candidates/gems33-c2-stepover-relay-20261004-01f660dd8656.tif",
       "sha256": "7272633447365d7ec8a9c07972b48df92b071a1ecc5765cf14199c14dea4f0f7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/archive/legacy_candidates/gems33-c2-stepover-relay-20261004-01f660dd8656.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4037,7 +4102,8 @@
       "bytes": 966684,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif",
       "sha256": "bc3af2a5fcb4b49bc5845a2d7dc3da23daf41ce75e4c64da3337c0c8c93cc12c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e-nanoutside.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4048,7 +4114,8 @@
       "bytes": 917544,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
       "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4059,7 +4126,8 @@
       "bytes": 1590900,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-nan.tif",
       "sha256": "06b926a77820df27ce2a8f1c94323169ff1bf606ca52fce45808ce7f13dc31cb",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4070,7 +4138,8 @@
       "bytes": 825920,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif",
       "sha256": "2bbbf7e381720f2242959e3efd6f2437f273afe6e7c48540d769524d2b4e8759",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-l1-analog-transfer-research-37654-20261025-85c94a805a34-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4081,7 +4150,8 @@
       "bytes": 1591192,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r2-csht-transfer-37654-20261026-0b78c04d5fad-nan.tif",
       "sha256": "c1173e63bec4f2f673074e6951218ac3d269f25994b322e9eff39905b9e64af5",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r2-csht-transfer-37654-20261026-0b78c04d5fad-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4092,7 +4162,8 @@
       "bytes": 826756,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r2-csht-transfer-37654-20261026-0b78c04d5fad-zeros.tif",
       "sha256": "14ab452c22aaf07444cd02e589fce4627d682e99f44c63e78dc1383955e0c602",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r2-csht-transfer-37654-20261026-0b78c04d5fad-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4103,7 +4174,8 @@
       "bytes": 773354,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r2-hmdt-20261026-hmdt-unique-zeros.tif",
       "sha256": "8d1443028a92bd9e7a925d1b382566049d17502a0dadec024b622ed7da5060b7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r2-hmdt-20261026-hmdt-unique-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4114,7 +4186,8 @@
       "bytes": 1546458,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-nan.tif",
       "sha256": "101b389eed40b7e2e7ecb84f56ddf0b4e11c5b8d78799e99f802747d9b437d6c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4125,7 +4198,8 @@
       "bytes": 786876,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-zeros.tif",
       "sha256": "a58219e1cc9f15f0ede99863b0e5a619dbfa6946c7fdd4fb61f7050ddd5070ac",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4136,7 +4210,8 @@
       "bytes": 1591488,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r3-llc-37654-20261026-7f91f9f3ced9-nan.tif",
       "sha256": "08710c7abd2ef9f39199e3e3106437ca315e31a114f2e3db2c53abb892d2e6ba",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r3-llc-37654-20261026-7f91f9f3ced9-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4147,7 +4222,8 @@
       "bytes": 826370,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-a33-r3-llc-37654-20261026-7f91f9f3ced9-zeros.tif",
       "sha256": "76f9e157d01bb9bec2d98c3c5941b6114e06e0f439272d5f140af6e3584c8825",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-a33-r3-llc-37654-20261026-7f91f9f3ced9-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4158,7 +4234,8 @@
       "bytes": 499842,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-d28-reference-20261004-426073b6b4ab-nan.tif",
       "sha256": "c5e07fad5672879562ea43805cf71c7ba7512fd1a37ca460de83971bc6d8abdc",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-d28-reference-20261004-426073b6b4ab-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4169,7 +4246,8 @@
       "bytes": 423456,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-d28-reference-20261004-426073b6b4ab-zeros.tif",
       "sha256": "29ca0bc2cf249f96f1504b8c0ec5e775e78668f6d0f54f5c1c33c580cce74f73",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-d28-reference-20261004-426073b6b4ab-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4180,7 +4258,8 @@
       "bytes": 1591522,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-dpps-dipproj-persistence-37654-20261026-111ae96bb235-nan.tif",
       "sha256": "6b7f39d2b6689f67e33e858c2fb98f0a8cd562d5a400e60ceff9bfef195ba7a5",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-dpps-dipproj-persistence-37654-20261026-111ae96bb235-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4191,7 +4270,8 @@
       "bytes": 826930,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-dpps-dipproj-persistence-37654-20261026-111ae96bb235-zeros.tif",
       "sha256": "449ad2a4a3c746ef960f8e788b01e0b0cedef794a5dab5f22b0ae993b322f62d",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-dpps-dipproj-persistence-37654-20261026-111ae96bb235-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4202,7 +4282,8 @@
       "bytes": 1591632,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-fsml2-cc-37654-20261026-6fd4410bbaee-nan.tif",
       "sha256": "b1f14de2de92f9b8a1be4cfef4aea76017cda46ba9203264c324fa83ff6e9aa7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-fsml2-cc-37654-20261026-6fd4410bbaee-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4213,7 +4294,8 @@
       "bytes": 826738,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-fsml2-cc-37654-20261026-6fd4410bbaee-zeros.tif",
       "sha256": "be5013aad085c23a9317959f85c7d494e28eac5875f61addce8ec81b5bb51de3",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-fsml2-cc-37654-20261026-6fd4410bbaee-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4224,7 +4306,8 @@
       "bytes": 312838,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-g33-tilt-gravity-lidar-coherence-20261026-171b8b87dbf7-nan.tif",
       "sha256": "403e6925a5b32a1ad79084636336c60dd4a4ce56aacacb66910542ace6683d44",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-g33-tilt-gravity-lidar-coherence-20261026-171b8b87dbf7-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4235,7 +4318,8 @@
       "bytes": 237594,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-g33-tilt-gravity-lidar-coherence-20261026-171b8b87dbf7-zeros.tif",
       "sha256": "f20c547f20a022863a4ba56e3a165a95fb819ecdadb4c04c89fe0db6630ced96",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-g33-tilt-gravity-lidar-coherence-20261026-171b8b87dbf7-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4246,7 +4330,8 @@
       "bytes": 477936,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-h33f-analog-xfer-20261004-d042874b26ef-nan.tif",
       "sha256": "59a68dcd752fc31d774b856e46fddbb9b0e3a9e9c7ab4abb06f77e99b218b10d",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-h33f-analog-xfer-20261004-d042874b26ef-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4257,7 +4342,8 @@
       "bytes": 403314,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-h33f-analog-xfer-20261004-d042874b26ef-zeros.tif",
       "sha256": "05d656cf3f24047d440fe24d42f28d4c64b1da29261c235cca3954953d5d3e27",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-h33f-analog-xfer-20261004-d042874b26ef-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4268,7 +4354,8 @@
       "bytes": 448718,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-h33r3-invariant-analog-20261025-40f15a687381-nan.tif",
       "sha256": "5f818e716b0df0ffa6921db2012b9c723ec19189b660fe5f034335019c6bb353",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-h33r3-invariant-analog-20261025-40f15a687381-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4279,7 +4366,8 @@
       "bytes": 373304,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-h33r3-invariant-analog-20261025-40f15a687381-zeros.tif",
       "sha256": "a6b9dc58c9ab74e9886937e7f700bcdc9e464f4c0d4961aa2d13fc8496ebf8da",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-h33r3-invariant-analog-20261025-40f15a687381-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4290,7 +4378,8 @@
       "bytes": 1589812,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-s33-seisdil-strain-seismicity-37654-20261026-3463540a7e02-nan.tif",
       "sha256": "06c79fe4d07f45ccd9674973456dafff42a9b792b22cf41afe74e01c3388321e",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-s33-seisdil-strain-seismicity-37654-20261026-3463540a7e02-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4301,7 +4390,8 @@
       "bytes": 825868,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/gemsdoe33-s33-seisdil-strain-seismicity-37654-20261026-3463540a7e02-zeros.tif",
       "sha256": "5eb9572946fa62356ebc0cbfef22bb54aa2ef094cb8b4a84b52e6b80e120db96",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/gemsdoe33-s33-seisdil-strain-seismicity-37654-20261026-3463540a7e02-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4312,7 +4402,8 @@
       "bytes": 482682,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/research/GEMSDOE33-H33-6-edge-consensus-research-20261004-6c888d2ce0f7-nan.tif",
       "sha256": "18604d71f11db269a3f70007433d1dd74e4f09eb195861dc2aeda4d98aa8efe7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/research/GEMSDOE33-H33-6-edge-consensus-research-20261004-6c888d2ce0f7-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4323,7 +4414,8 @@
       "bytes": 405850,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/research/GEMSDOE33-H33-6-edge-consensus-research-20261004-6c888d2ce0f7-zeros.tif",
       "sha256": "dadd32169f9d31c024dc8ada98e93a6a36c25f802820fc0871781c6c8644a33a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/research/GEMSDOE33-H33-6-edge-consensus-research-20261004-6c888d2ce0f7-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4334,7 +4426,8 @@
       "bytes": 773378,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/research/gemsdoe33-a33-r2-hmdt-20261026-hmdt-unique-nan.tif",
       "sha256": "11d981cde479a12996b4b45387d4dca9113f5267980eb0ea0b6b5e1cbb356e54",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/research/gemsdoe33-a33-r2-hmdt-20261026-hmdt-unique-nan.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4345,7 +4438,8 @@
       "bytes": 773354,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/research/gemsdoe33-a33-r2-hmdt-20261026-hmdt-unique-zeros.tif",
       "sha256": "8d1443028a92bd9e7a925d1b382566049d17502a0dadec024b622ed7da5060b7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/research/gemsdoe33-a33-r2-hmdt-20261026-hmdt-unique-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4356,7 +4450,8 @@
       "bytes": 148375,
       "local": ".cache/registry/GEMSDOE33/docs/downloads/round3/gemsdoe33-r3-da-hgcm-submod-37654-20261025-a6a8552e-zeros.tif",
       "sha256": "2c1b648364d976bb29a52ab9045f5e2233920870f7a9670533283f00a0b1e2a8",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE33/contents/docs/downloads/round3/gemsdoe33-r3-da-hgcm-submod-37654-20261025-a6a8552e-zeros.tif?ref=122e2240a835c9c84831943ee3489dbb48fd6e85', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4367,7 +4462,8 @@
       "bytes": 1129,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
       "sha256": "60543f8ea9d4ee432b018832337c3cf1fe0db4f71b87d15fea71869fe4f23638",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4378,7 +4474,8 @@
       "bytes": 307100,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/GEMS36_h6_offcatalog_network_prior_20261004T193432.021282Z_3276c04090_3c064db2.tif",
       "sha256": "c88237daa47c4f4f8bf9061677c1f05a52239c4d7a7c677f7329861de27af836",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/GEMS36_h6_offcatalog_network_prior_20261004T193432.021282Z_3276c04090_3c064db2.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4389,7 +4486,8 @@
       "bytes": 371126,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif",
       "sha256": "96d451d5ffc819fc3834052f22ab66190621f206c0bf8990446082a3363dc2ef",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-nan.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4400,7 +4498,8 @@
       "bytes": 318190,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
       "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4411,7 +4510,8 @@
       "bytes": 292540,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-atvr36-20261026.tif",
       "sha256": "54f493f4fa5c74ed3a02f88ca6d47272b0c3cee0cc0bd9bbd9cb94eaf997204a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-atvr36-20261026.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4422,7 +4522,8 @@
       "bytes": 775838,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-bdc36-exp-2-20261026-18000dots-zeros.tif",
       "sha256": "4c1b7bdd5868679bcc2f3a3f81682b6074723bbd5cac00deaced070df59a296a",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-bdc36-exp-2-20261026-18000dots-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4433,7 +4534,8 @@
       "bytes": 826742,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-csdl36-exp2-20261026-12962cc72ae1-zeros.tif",
       "sha256": "d840ce6aa03c8fc6c44d6ab761b7be1590859a00c711d623e4c9eb5479cfc778",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-csdl36-exp2-20261026-12962cc72ae1-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4444,7 +4546,8 @@
       "bytes": 825574,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-gvsc36-exp3-20261026-5fb822bdfb60-zeros.tif",
       "sha256": "ad809c2b0919d4b71afee80f0b4827aa9ad4ecd8c66507109a3d3f7292cac1a1",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-gvsc36-exp3-20261026-5fb822bdfb60-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4455,7 +4558,8 @@
       "bytes": 363862,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-h36-ctrb-submod-36800-20261025T000000Z-a1d85443-nan.tif",
       "sha256": "d30c767aed69c8fcfdefd0ffc07b9d09bd261573b18525c7c3122f99409caf1c",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-h36-ctrb-submod-36800-20261025T000000Z-a1d85443-nan.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4466,7 +4570,8 @@
       "bytes": 310972,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-h36-ctrb-submod-36800-20261025T000000Z-a1d85443-zeros.tif",
       "sha256": "2bb4513d6307e2394d5de7e7e7649e28eff067b602b805a0215e82aa5ff89907",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-h36-ctrb-submod-36800-20261025T000000Z-a1d85443-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4477,7 +4582,8 @@
       "bytes": 1590514,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-h36-gps-graben-pair-20261026-bb29ce2a4bb4-nan.tif",
       "sha256": "fce12bd37ac6a9fb53df676be8090eafffa6a2188594faa720b492562fc983f0",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-h36-gps-graben-pair-20261026-bb29ce2a4bb4-nan.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4488,7 +4594,8 @@
       "bytes": 825954,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-h36-gps-graben-pair-20261026-bb29ce2a4bb4-zeros.tif",
       "sha256": "e3800971b44116bca8ef8f996c3b2796b4d316962f797975f17d643abfac379b",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-h36-gps-graben-pair-20261026-bb29ce2a4bb4-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4499,7 +4606,8 @@
       "bytes": 826000,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-hvg36-vent-dipole-20261026-b3ee97873192-zeros.tif",
       "sha256": "85d56b03aff18f72d85de9c1e1ca02a2274263fffcd95aa0a6edac7bc9a08596",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-hvg36-vent-dipole-20261026-b3ee97873192-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4510,7 +4618,8 @@
       "bytes": 827142,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif",
       "sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4521,7 +4630,8 @@
       "bytes": 362204,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif",
       "sha256": "45e626c01f9dc6e8aed59875d2758467c39f008c87543f566b3ae9d26a2234e7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-lane36-supgbm-68302-20261026T002651Z-f35cb3e4-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4532,7 +4642,8 @@
       "bytes": 59248,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
       "sha256": "9ce3f0d2987e8f73a1cf980cbe5ac0c0e82482b9cad5e102733ed0cf1b71f585",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4543,7 +4654,8 @@
       "bytes": 314654,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-moe36-exp1-20261026-zeros.tif",
       "sha256": "9209d76bab1c4a6d6f64fb794e881a85d70b1a48fdc6288a0e390cfea64aabb7",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-moe36-exp1-20261026-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4554,7 +4666,8 @@
       "bytes": 826484,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-mto36-ortho-contact-20261026-c41282e9da7a-zeros.tif",
       "sha256": "3e6594fe39facbffd433dc4500a7e8766fab2dd0d5089d2f591ed47713261607",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-mto36-ortho-contact-20261026-c41282e9da7a-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     },
     {
       "owner": "buffedlizard55-lab",
@@ -4565,9 +4678,10 @@
       "bytes": 826840,
       "local": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-wdp36-exp1-20261026-zeros.tif",
       "sha256": "ae9da29e45c67d03b7a7fd438a3cf0686f0678111181cd960b86dffb56f0f698",
-      "status": "verified"
+      "status": "failed",
+      "error": "Command '['gh', 'api', 'repos/buffedlizard55-lab/GEMSDOE36/contents/docs/downloads/gemsdoe36-wdp36-exp1-20261026-zeros.tif?ref=61783525af4aa6dcf8da0bc68b06fa38b89ed27a', '-H', 'Accept: application/vnd.github.raw']' returned non-zero exit status 1."
     }
   ],
-  "failed": 0,
-  "complete_within_scope": true
+  "failed": 114,
+  "complete_within_scope": false
 }

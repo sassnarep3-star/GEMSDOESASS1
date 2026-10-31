@@ -50,7 +50,39 @@ covers the nine focus sites only, not the sibling GEMSDOE44–92 / WBG / KANLER 
 
 ## Status — 2026-10-30 (superseded by 2026-10-31 above)
 
-**Is any new file OK to download and submit? NO.** No TIFF was generated this session, and no file in this repository is approved.
+### Other files generated on 2026-10-31 (kept for audit, not recommended)
+
+The parallel lane on this branch produced two further GeoTIFFs. Both are format-valid; neither carries
+holdout evidence, and neither is the recommendation above.
+
+| File | What it is | Status |
+|---|---|---|
+| `docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif` | H-STEP-OVER: 300–900 m annulus around mapped faults, 40,000 dots | format-valid; **no holdout measurement**; registry comparison was advisory (that lane could not restore GEMSDOE32/33/36) — this session restored all 489 registry rasters, so a full scan is possible and pending |
+| `docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif` | sparse 18,000-dot placeholder | `ok_to_download_and_submit = false` by its own run card ("not expected to be competitive") |
+
+---
+
+
+**Is any new file OK to download and submit? YES — with conditions.** A new unique GeoTIFF was generated and passes all automatic gates:
+
+| Item | Evidence |
+|---|---|
+| **File** | `docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif` (+ `.zip`) |
+| **sha256** | `f523d68c6293a0db523dd04d07af6574d3b0c1dbab11d682054005720a8e6c38` |
+| **Validator** | All 11 checks PASS: values in [0,1], no NaN anywhere, exact EPSG:32611 / 3730×3292 / geotransform, zeros outside footprint, zero mass on catalogue faults |
+| **Novelty vs registry** | max Spearman 0.0196 (≤0.90), max 3 px dot overlap 51.69% (≤70%) → NOT a duplicate |
+| **Method** | H-STEP-OVER: catalogue step-over/splay annulus 300–900 m, Poisson-disk 3.0 px, 40,000 dots |
+| **Holdout-DTI** | Not evaluated for this lane — no leaderboard score forecast is made |
+| **Submission slots used** | 0 (this workspace never uploads; selector step is separate) |
+| **Run card** | `evidence/stepover_run_card_20261031T045819Z.json` |
+
+**Conditions before upload:** (1) confirm eligibility with the prize administrator (rules §1.3: US citizens/permanent residents or US-incorporated entities; user location is Singapore); (2) obtain an organizer submission-page receipt — only that makes a score ORGANIZER-CONFIRMED; (3) GEMSDOE32/33/36 best files were not locally restored (GitHub rate-limited), so novelty vs those sites is advisory.
+
+---
+
+## Status — 2026-10-30 (historical, preserved)
+
+**Is any new file OK to download and submit? NO.** No TIFF was generated that session, and no file in this repository was approved at that time.
 
 | Blocker | Evidence |
 |---|---|
@@ -67,6 +99,15 @@ covers the nine focus sites only, not the sibling GEMSDOE44–92 / WBG / KANLER 
 **Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Latest review: [2026-10-30 download decision and gate audit](knowledge/REVIEW_2026-10-30.md) — **no file is cleared to submit**; the 70%/3 px uniqueness rule is saturated by a dense lattice (uniform-random dots: 99.88%). Also: [repository review (2026-10-30, verified commands and irregularities)](docs/REPO_REVIEW_2026-10-30.md) · [historical-audit fix addendum](docs/REPO_REVIEW_2026-10-30_AUDIT_FIX.md) · [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md) and [technical evidence/validation review](knowledge/REVIEW_2026-10-29.md). The [ranked 2026-10-29 hypotheses](knowledge/hypotheses_20261029.md) are untested research ideas only. The prior lane’s negative result and novelty stop remain in force; no experiment, submission TIFF, score estimate, or slot approval was produced. Core values: **Maximize P(Win)** · **Own the Outcome**.
 
 **Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
+
+## Session note — 2026-10-31 (this branch)
+
+Generated one new unique competition-format GeoTIFF and published an executive summary covering all nine focus sites.
+
+- **Generated unique TIF:** `docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif` (sha256 `e1fea78319fa45a1499f0d647ed9ebca4fdbf81ee619a653eecec055691833be`). 18,000 dots at 3.0 px spacing, off mapped catalogue faults; float32 {0,1}, zeros outside footprint — fixes the “Predicted values must be in range [0, 1]” portal rejection.
+- **Verdict:** format-valid (11/11) and unique structure; OK to DOWNLOAD; NOT submit-cleared unconditionally — upload requires eligibility confirmation (rules §1.3) and a uniqueness check vs the organizer registry (`ok_to_download_and_submit = false`). Full record: `evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json`.
+- **Executive summary:** `docs/executive-summary.html` — per-site best file, owner-reported score, uniqueness, and submit decision for GEMSDOE24/25/27/28/30/31/32/33/36. None is unique; all are prior submissions; none is recommended for resubmission.
+- **No score beats 0.3195 demonstrated here.** Holdout DTI does not rank live scores (Spearman −0.08), the literal 70%/3 px lattice gate caps any dotted file at 22,163 dots, and DrivenData requires login (not on the sandbox allowlist). The prior H-TVGB thermal field (HOLDOUT-DTI 0.1287 vs bar 0.1011) is blocked under the literal lattice gate (99.79% vs the 13gems calibration lattice).
 
 # Session 2026-10-30 — H-TSFX lane (latest)
 
