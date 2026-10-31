@@ -12,7 +12,43 @@ Condensed from the user's prompt. The fuller persistent transcription is [`knowl
 - **Constraints.** No manual input. Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`; fix shared tools once in the template and report it. Do not treat DrivenData as accessible without login. The user-supplied Dropbox, GDR and NLR links are outside the outbound allowlist. Flag irregularities. No hallucinated facts; cite official links. Negative results are deliverables. Do not pick submissions: promotion to a slot is a separate selector step within the weekly cap of three. Open a pull request, merge it to `main`, and list remaining work and limitations.
 - **Core values.** Maximize P(Win). Own the outcome.
 
-## Status — 2026-10-30
+## Status — 2026-10-31 (latest; H-KDAM)
+
+**Is a new file OK to download and submit? YES — one file, and only one.**
+
+| | |
+|---|---|
+| **Download** | [`docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`](docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif) · [ZIP](docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip) |
+| **sha256** | `d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f` |
+| **Submission name** | `gemsass1-kdam-alteration-contact-37654-20261031-zeros` |
+| **Note (120/140)** | `GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px >2px offcat, registry-repulsive` |
+| **Format** | 11/11 checks from the written bytes: single band, float32, EPSG:32611, 3730×3292, transform matches the template, no NaN anywhere, values in [0,1], zeros outside the footprint, zero mass on catalogue pixels → the portal's “values must be in [0, 1]” rejection cannot be triggered by this file |
+| **Uniqueness** | 476 competitive rasters of the pinned 489-raster registry: 430 measured exactly, 46 upper-bounded. Max 3 px overlap **31.1 %** (limit 70 %), max Spearman **0.0149** (limit 0.90). No exact duplicate. |
+| **Field quality** | HOLDOUT-DTI **0.1471** [0.1418, 0.1531] (37,654 dots, unpruned arm) vs the incumbent 0.2600-family field **0.1011** [0.0967, 0.1060] on the same five folds — **+45.6 %** weighted hidden-fault credit |
+| **Slots used** | 0 — this workspace never uploads; promotion to a slot is a separate selector step |
+
+**Why the 0.2778 file scored highest, and why copying it cannot help.** It is the 0.2600 family field with
+the 2,545 dots within 2 px of the known catalogue deleted (GEMSDOE31 + prune = GEMSDOE32, symmetric
+difference measured as 2,545 on a 40,199-dot base). Known-fault pixels are masked out of scoring
+([DrivenData staff, 16 Sep 2026](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516)),
+so those dots were pure false-positive mass. Every one of the nine best files is the same field: all have
+≥ 97.6 % of their dots within 3 px of GEMSDOE24's dots, and the GEMSDOE25 and GEMSDOE30 "different" sites
+published **identical** dot sets. Beating 0.2778 therefore requires a different field — which is what this
+session built and measured.
+
+**Read next:** [`knowledge/RESULTS_20261031.md`](knowledge/RESULTS_20261031.md) (numbers, labels, irregularities) ·
+[`knowledge/hypotheses_20261031.md`](knowledge/hypotheses_20261031.md) (pre-registration, five ranked hypotheses) ·
+[`evidence/kdam/release.json`](evidence/kdam/release.json) (gates) ·
+[`evidence/kdam/e1_holdout.json`](evidence/kdam/e1_holdout.json) ·
+[`evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json`](evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json) ·
+[executive summary](docs/executive-summary.html) · [how to submit](docs/how-to-submit.html).
+
+**Still unresolved (blocks nothing in the file, but blocks an upload):** competitor eligibility
+(U.S. citizen / permanent resident / U.S.-incorporated entity per the rules) is unconfirmed for the owner
+account; the held-out labels and the official rules PDF are login-walled here; and the novelty registry
+covers the nine focus sites only, not the sibling GEMSDOE44–92 / WBG / KANLER / GINNY / karage / apart lanes.
+
+## Status — 2026-10-30 (superseded by 2026-10-31 above)
 
 **Is any new file OK to download and submit? NO.** No TIFF was generated this session, and no file in this repository is approved.
 

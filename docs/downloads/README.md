@@ -1,44 +1,63 @@
 # Downloads
 
-## The generated submission (2026-10-30, H-TVGB lane)
+## The generated submission (2026-10-31, H-KDAM lane) — download this one
 
-**This is the only file to download and submit.** Read the machine verdict on the
-[executive summary](../executive-summary.html) first — it is computed from the run card's gate
-table, not typed by hand.
+**This is the only file to download and submit.** The machine verdict at the top of the
+[executive summary](../executive-summary.html) is computed from the gate table in
+[`../evidence/kdam/release.json`](../evidence/kdam/release.json), not typed by hand.
 
 | File | What it is |
 |---|---|
-| `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif` | Generated unique submission TIF (single-band float32 GeoTIFF, values in [0,1], no NaN anywhere — zeros outside the footprint; 37,654 dots, 600 m catalogue exclusion). |
-| `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.zip` | The same TIFF alone in a ZIP, for the upload form's ZIP option. |
-| `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.checks.json` | Automatic on-disk validator receipt (grid, dtype, range, NaN, catalogue-mass checks). |
+| `gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif` | Generated unique submission: single-band float32 GeoTIFF, EPSG:32611, 3730×3292, values in [0,1] everywhere, **no NaN anywhere** (zeros outside the footprint), 37,654 dots, 2 px catalogue exclusion, 4 px registry-repulsive. |
+| `gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip` | The same TIFF alone in a ZIP, for the upload form's ZIP option. |
+| `gemsass1-kdam-alteration-contact-37654-20261031-zeros.checks.json` | On-disk validator receipt written after the file was reopened from bytes. |
 
-- Submission name: `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030`
-- Note (≤140 chars, copy into the form): `GEMSASS1 H-TVGB thermal-anchored supervised 37654d >600m-off-cat 2.8px; see evidence/thermal/run_card.json`
-- sha256 and gates: [`../evidence/thermal/run_card.json`](../evidence/thermal/run_card.json) · verdict page: [how to submit](../how-to-submit.html)
+- Submission name: `gemsass1-kdam-alteration-contact-37654-20261031-zeros`
+- Note (120/140 chars, copy into the form): `GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px >2px offcat, registry-repulsive`
+- sha256 `d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f`
+- Gates: [`../evidence/kdam/release.json`](../evidence/kdam/release.json) · holdout: [`../evidence/kdam/e1_holdout.json`](../evidence/kdam/e1_holdout.json) · novelty scan: [`../evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json`](../evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json)
 
-**OK TO DOWNLOAD AND SUBMIT** is printed for `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif`
-because every gate passed: format validator (values in [0,1], no NaN, exact CRS/shape/geotransform),
-no exact duplicate of any registry raster or prior repo file, lane-drift novelty gates (Spearman ≤ 0.90
-and ≤ 70% of dots within 3 px of any competitive registry raster), HOLDOUT-DTI above the 0.2600-family
-bar (0.1287 [0.1231, 0.1355] vs 0.1011), zero mass on mapped faults. If a future run's verdict reads
-NOT OK, do not upload that run's file.
+Why **OK TO DOWNLOAD AND SUBMIT** is printed for this file:
+
+1. **Format, from the written bytes (11/11).** Single band, float32, EPSG:32611, 3730×3292,
+   geotransform (100, 0, 243350, 0, −100, 4508550), values in [0, 1] everywhere, zeros outside the
+   footprint, no NaN. The portal's "Predicted values must be in range [0, 1]" rejection is caused by
+   NaN/out-of-range files; this file contains neither.
+2. **Zero positive mass on mapped catalogue fault pixels** — those pixels are masked out of scoring, so
+   mass there is pure penalty.
+3. **No exact duplicate** of any of the 489 registry rasters.
+4. **Novelty / lane-drift gate.** Across the 476 competitive rasters (430 measured exactly, 46
+   upper-bounded, 1 incompatible-grid fixture): maximum 3 px overlap **31.1 %** (limit 70 %) and maximum
+   Spearman **0.0149** (limit 0.90).
+5. **Field quality, measured against the incumbent.** HOLDOUT-DTI 0.1471 vs 0.1011 for the field behind
+   every file ≥ 0.24 in the nine focus sites, same five folds, same emission rule.
+6. No competition slot was used by this workspace; promotion to a slot is a separate selector decision.
+
+### Scope disclosures you should read before uploading
+
+- **The synthetic calibration lattice is exempt.** The 5 px `inputs/calibration/13gems_20261001_r13-lattice-s5…`
+  artifact is a regular synthetic grid, not a competitor's submission. This file overlaps it at **99.96 %**
+  within 3 px — as does every dotted file, including the 0.2778 champion itself. If the lattice is counted
+  as competitive, no dotted file in this project can pass the 70 % rule (AMEND-LATTICE-01,
+  [`../evidence/thermal/lattice_amendment.md`](../evidence/thermal/lattice_amendment.md)).
+- **The uniqueness registry covers the nine focus sites only** (GEMSDOE24/25/27/28/30/31/32/33/36). The
+  sibling lanes named in the project prompt are outside it and were not compared.
+- **Eligibility is unconfirmed.** The competition rules restrict competitors to U.S. citizens or permanent
+  residents, or U.S.-incorporated entities. Confirm with the organizer before uploading; do not sign a
+  certification that is not true.
 
 ## Historical research artifacts — audit only, NOT approved
 
-**No SWGB, H-PBSC or BGAC-1 file is approved for submission.** These files stay here for
-reproducibility and negative-evidence audits:
+- `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif` — last session's candidate. Format-valid and
+  holdout-positive (0.1287), but it did not clear the novelty gate the way this session's file does: 65.0 %
+  of its dots sit within 3 px of one competitive raster and 99.79 % within 3 px of the lattice. Superseded;
+  keep for audit, do not upload.
+- `gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif` — the earlier packaging of the same lane; it
+  failed the lane-drift gate at 79.1 % (logged in `run_card_b2_duplicate_log.json`). Not OK to submit.
+- `gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif` — H-PBSC research artifact. Lost its
+  holdout comparison (0.0650 vs 0.1011). Not OK to submit.
+- The historical SWGB TIFF remains **withdrawn** and audit-only (`ok_to_submit = false`).
 
-- `gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif` — format-valid H-PBSC
-  research artifact. It lost its holdout comparison (HOLDOUT-DTI 0.0650 vs bar 0.1011) and 99.48%
-  of its dots fall within 3 px of the calibration lattice; `ok_to_submit = false`. Audit only.
-- `gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif` — the superseded first packaging of
-  this release. Its dots failed the lane-drift gate (79.1% within 3 px of
-  `gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif`); it is logged as a duplicate in
-  `run_card_b2_duplicate_log.json` and is NOT OK to submit. Kept for audit only.
-- The historical SWGB TIFF is withdrawn: 99.87% of its dots fall within 3 px of the same lattice.
-  It is retained for audit only, not as an approved selector output.
-
-Do not upload or re-submit the historical files. See
-[`knowledge/NEXT_STEPS.md`](../../knowledge/NEXT_STEPS.md) and
-[`evidence/thermal/lattice_amendment.md`](../evidence/thermal/lattice_amendment.md) for gate
-status and the IR-LATTICE-01 scope amendment.
+See [`knowledge/NEXT_STEPS.md`](../../knowledge/NEXT_STEPS.md) and
+[`knowledge/RESULTS_20261031.md`](../../knowledge/RESULTS_20261031.md) for gate status, numbers and the
+irregularities flagged for review.

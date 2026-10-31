@@ -1,3 +1,31 @@
+# Next session — ordered actions (2026-10-31 H-KDAM release on top)
+
+1. **Download and submit(selector's decision)** `docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`
+   (`gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip` also works). Every automatic gate passes;
+   the disclosures to read first are on the executive summary (lattice exemption, nine-site registry scope,
+   eligibility).
+2. **Close the eligibility question before uploading** (rules: U.S. citizen / permanent resident / U.S.-
+   incorporated entity). Confirm with the organizer; never sign a certification that is not true.
+3. **Extend the novelty registry beyond the nine focus sites.** The sibling lanes named in the prompt
+   (GEMSDOE44–92, WBG, KANLER, GINNY, karage, apart) publish their files in public repos and can be added to
+   `registry/focus_inventory_*.json` with the same byte-verified fetch (`scripts/fetch_registry_current.py`,
+   git sparse checkout — the REST contents API exhausts its 5,000/h quota).
+4. **The one experiment worth running next: H-SOFTEMIT.** The official metric scores fractional values
+   fractionally (`TP_w = Σ_g max_x p(x)k(d)`, `FP_w = Σ_x p(x)[1−max k]`), and every registry file is binary.
+   Emit the same field as graded probabilities inside a support and measure the paired holdout difference at
+   equal support. It is cheap (cached fields exist in `work/kdam/fields/`), it cannot copy anyone, and it is
+   the only remaining degree of freedom the official text explicitly permits.
+5. **Build the full-catalogue, single-model field for the live task.** The shipped file uses one full-catalogue
+   model (good); the holdout arms average five fold models (irregularity #3 in `RESULTS_20261031.md`). Re-run
+   E1 with a single model trained on all catalogue segments and a *held-out* emission sweep so the shipping
+   configuration is not chosen on the same holdout that scores it.
+6. **Do not select on this holdout.** It inverts the live prune effect (the 0.2778 file scores 0.0044 here;
+   the same field unpruned scores 0.1011). Use it to compare fields only, as this session did.
+7. **Keep the frozen negatives** (BGAC-1, H-PBSC, SWGB, H-TVGB, the lattice audits). New evidence goes in new
+   directories (`evidence/kdam/`).
+
+---
+
 # Next session — ordered actions (updated 2026-10-30 after the H-TVGB release)
 
 > Two parallel sessions wrote this file on 2026-10-30. Part 1 is the H-TVGB thermal-lane release

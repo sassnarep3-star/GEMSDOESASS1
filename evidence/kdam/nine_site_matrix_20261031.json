@@ -1,0 +1,195 @@
+{
+  "scope": "best owner-reported file per focus site; measured 2026-10-31 from the restored rasters",
+  "method": "3 px dot overlap both directions (shared vendor.gems57.uniqueness.dot_overlap); symmetric difference of binary dot sets",
+  "rows": [
+    {
+      "site": "GEMSDOE24",
+      "reported": 0.2477,
+      "dots": 60069,
+      "max_overlap_to_other_site": 1.0,
+      "overlap": {
+        "GEMSDOE25": 1.0,
+        "GEMSDOE27": 1.0,
+        "GEMSDOE28": 0.935,
+        "GEMSDOE30": 1.0,
+        "GEMSDOE31": 0.941,
+        "GEMSDOE32": 0.885,
+        "GEMSDOE33": 0.962,
+        "GEMSDOE36": 0.886
+      },
+      "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE27",
+        "symmetric_difference": 1259
+      }
+    },
+    {
+      "site": "GEMSDOE25",
+      "reported": 0.26,
+      "dots": 44090,
+      "max_overlap_to_other_site": 1.0,
+      "overlap": {
+        "GEMSDOE24": 1.0,
+        "GEMSDOE27": 1.0,
+        "GEMSDOE28": 0.932,
+        "GEMSDOE30": 1.0,
+        "GEMSDOE31": 0.937,
+        "GEMSDOE32": 0.882,
+        "GEMSDOE33": 0.961,
+        "GEMSDOE36": 0.883
+      },
+      "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE30",
+        "symmetric_difference": 0
+      }
+    },
+    {
+      "site": "GEMSDOE27",
+      "reported": 0.2449,
+      "dots": 61328,
+      "max_overlap_to_other_site": 0.98,
+      "overlap": {
+        "GEMSDOE24": 0.98,
+        "GEMSDOE25": 0.98,
+        "GEMSDOE28": 0.916,
+        "GEMSDOE30": 0.98,
+        "GEMSDOE31": 0.922,
+        "GEMSDOE32": 0.867,
+        "GEMSDOE33": 0.943,
+        "GEMSDOE36": 0.868
+      },
+      "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE24",
+        "symmetric_difference": 1259
+      }
+    },
+    {
+      "site": "GEMSDOE28",
+      "reported": 0.271,
+      "dots": 37660,
+      "max_overlap_to_other_site": 1.0,
+      "overlap": {
+        "GEMSDOE24": 1.0,
+        "GEMSDOE25": 1.0,
+        "GEMSDOE27": 1.0,
+        "GEMSDOE30": 1.0,
+        "GEMSDOE31": 0.998,
+        "GEMSDOE32": 0.955,
+        "GEMSDOE33": 0.998,
+        "GEMSDOE36": 0.955
+      },
+      "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE31",
+        "symmetric_difference": 22153
+      }
+    },
+    {
+      "site": "GEMSDOE30",
+      "reported": 0.26,
+      "dots": 44090,
+      "max_overlap_to_other_site": 1.0,
+      "overlap": {
+        "GEMSDOE24": 1.0,
+        "GEMSDOE25": 1.0,
+        "GEMSDOE27": 1.0,
+        "GEMSDOE28": 0.932,
+        "GEMSDOE31": 0.937,
+        "GEMSDOE32": 0.882,
+        "GEMSDOE33": 0.961,
+        "GEMSDOE36": 0.883
+      },
+      "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE25",
+        "symmetric_difference": 0
+      }
+    },
+    {
+      "site": "GEMSDOE31",
+      "reported": 0.2708,
+      "dots": 40199,
+      "max_overlap_to_other_site": 1.0,
+      "overlap": {
+        "GEMSDOE24": 1.0,
+        "GEMSDOE25": 1.0,
+        "GEMSDOE27": 1.0,
+        "GEMSDOE28": 0.996,
+        "GEMSDOE30": 1.0,
+        "GEMSDOE32": 0.954,
+        "GEMSDOE33": 0.999,
+        "GEMSDOE36": 0.954
+      },
+      "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE32",
+        "symmetric_difference": 2545
+      }
+    },
+    {
+      "site": "GEMSDOE32",
+      "reported": 0.2778,
+      "dots": 37654,
+      "max_overlap_to_other_site": 1.0,
+      "overlap": {
+        "GEMSDOE24": 1.0,
+        "GEMSDOE25": 1.0,
+        "GEMSDOE27": 1.0,
+        "GEMSDOE28": 0.999,
+        "GEMSDOE30": 1.0,
+        "GEMSDOE31": 1.0,
+        "GEMSDOE33": 1.0,
+        "GEMSDOE36": 1.0
+      },
+      "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE36",
+        "symmetric_difference": 1200
+      }
+    },
+    {
+      "site": "GEMSDOE33",
+      "reported": 0.2632,
+      "dots": 41865,
+      "max_overlap_to_other_site": 0.997,
+      "overlap": {
+        "GEMSDOE24": 0.997,
+        "GEMSDOE25": 0.997,
+        "GEMSDOE27": 0.997,
+        "GEMSDOE28": 0.971,
+        "GEMSDOE30": 0.997,
+        "GEMSDOE31": 0.975,
+        "GEMSDOE32": 0.926,
+        "GEMSDOE36": 0.927
+      },
+      "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE31",
+        "symmetric_difference": 14724
+      }
+    },
+    {
+      "site": "GEMSDOE36",
+      "reported": 0.275,
+      "dots": 38854,
+      "max_overlap_to_other_site": 0.976,
+      "overlap": {
+        "GEMSDOE24": 0.976,
+        "GEMSDOE25": 0.975,
+        "GEMSDOE27": 0.976,
+        "GEMSDOE28": 0.973,
+        "GEMSDOE30": 0.975,
+        "GEMSDOE31": 0.975,
+        "GEMSDOE32": 0.974,
+        "GEMSDOE33": 0.975
+      },
+      "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "closest_site_symdiff": {
+        "site": "GEMSDOE32",
+        "symmetric_difference": 1200
+      }
+    }
+  ]
+}
