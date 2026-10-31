@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-31T04:58:49.291784+00:00",
+  "hypothesis": "H-STEP-OVER: uncatalogued geothermal faults concentrate in the step-over/splay annulus 300-900 m from mapped catalogue faults",
+  "mechanism": "Euclidean distance annulus (3-9 px / 300-900 m) from known catalogue faults; Poisson-disk dots at 3.0 px spacing within the annulus; zeros outside footprint.",
+  "named_non_fault_mimic": "Pluvial shoreline benches, fluvial terrace risers, road/canal embankments, basaltic vent rims -- linear features that parallel mapped faults without being faults.",
+  "holdout_dti": null,
+  "ci95": null,
+  "withheld_positive_pixels": null,
+  "evaluator_version": "GEMSASS1-HR-v2-segment",
+  "correlation_overlap_vs_registry": {
+    "max_spearman": 0.01963089474548296,
+    "max_frac_dots_within_3px": 0.5169,
+    "is_duplicate": false,
+    "thresholds": {
+      "spearman": 0.9,
+      "overlap": 0.7,
+      "px": 3
+    },
+    "rows": [
+      {
+        "site": "GEMSDOE24",
+        "file": "docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+        "owner_reported_score": 0.0859,
+        "spearman": 0.008966055804092654,
+        "frac_dots_within_3px": 0.316475,
+        "registry_dots": 37654,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE24",
+        "file": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+        "owner_reported_score": 0.2477,
+        "spearman": 0.009357810949314834,
+        "frac_dots_within_3px": 0.275225,
+        "registry_dots": 60069,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE25",
+        "file": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "owner_reported_score": 0.26,
+        "spearman": 0.006205930753939238,
+        "frac_dots_within_3px": 0.2629,
+        "registry_dots": 44090,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE25",
+        "file": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "owner_reported_score": 0.0742,
+        "spearman": 0.01963089474548296,
+        "frac_dots_within_3px": 0.5169,
+        "registry_dots": 44832,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE27",
+        "file": "docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+        "owner_reported_score": 0.219,
+        "spearman": 0.011003560881156773,
+        "frac_dots_within_3px": 0.219075,
+        "registry_dots": 37654,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE27",
+        "file": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+        "owner_reported_score": 0.2449,
+        "spearman": 0.010154103282198785,
+        "frac_dots_within_3px": 0.2889,
+        "registry_dots": 61328,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+        "owner_reported_score": 0.2708,
+        "spearman": 0.007233528465235441,
+        "frac_dots_within_3px": 0.2465,
+        "registry_dots": 40199,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+        "owner_reported_score": 0.2649,
+        "spearman": 0.006387939720416954,
+        "frac_dots_within_3px": 0.25755,
+        "registry_dots": 42294,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+        "owner_reported_score": 0.271,
+        "spearman": 0.008186495183832035,
+        "frac_dots_within_3px": 0.2421,
+        "registry_dots": 37660,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+        "owner_reported_score": 0.2707,
+        "spearman": 0.008111704931865232,
+        "frac_dots_within_3px": 0.245425,
+        "registry_dots": 37860,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE28",
+        "file": "docs/downloads/gems28-s18-mxtp-20261025-3e95505c011a-allfinite.tif",
+        "owner_reported_score": 0.0217,
+        "spearman": 0.0018043438781790017,
+        "frac_dots_within_3px": 0.051025,
+        "registry_dots": 11082,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE30",
+        "file": "docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "owner_reported_score": 0.1462,
+        "spearman": 0.00506792572786087,
+        "frac_dots_within_3px": 0.31785,
+        "registry_dots": 44090,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE30",
+        "file": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+        "owner_reported_score": 0.26,
+        "spearman": 0.006205930753939238,
+        "frac_dots_within_3px": 0.2629,
+        "registry_dots": 44090,
+        "duplicate": false
+      },
+      {
+        "site": "GEMSDOE31",
+        "file": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+        "owner_reported_score": 0.2708,
+        "spearman": 0.007233528465235441,
+        "frac_dots_within_3px": 0.2465,
+        "registry_dots": 40199,
+        "duplicate": false
+      }
+    ]
+  },
+  "raster_sha256": "f523d68c6293a0db523dd04d07af6574d3b0c1dbab11d682054005720a8e6c38",
+  "raster_name": "gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif",
+  "validator_output": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif",
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "crs_matches_template": true,
+      "shape_matches_template": true,
+      "transform_matches_template": true,
+      "no_nan_inside_footprint": true,
+      "no_nan_anywhere": true,
+      "values_in_0_1_everywhere": true,
+      "values_in_0_1_inside_footprint": true,
+      "no_positive_outside_footprint": true,
+      "zero_mass_on_known_catalogue_pixels": true
+    },
+    "all_checks_passed": true,
+    "positive_pixels": 40000,
+    "footprint_pixels": 5167373,
+    "min": 0.0,
+    "max": 1.0,
+    "sha256": "f523d68c6293a0db523dd04d07af6574d3b0c1dbab11d682054005720a8e6c38",
+    "size_bytes": 110437,
+    "profile": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null
+    },
+    "zip": {
+      "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.zip",
+      "sha256": "5f0c1d9da69a87acf11d2f3c1fbac05b9156cd89d3ac812353c73bdabe12eb54",
+      "size_bytes": 65493
+    },
+    "submission_note": "GEMSASS1 H-STEP-OVER catalogue-stepover-annulus 300-900m 40000d 3.0px off-cat; HOLDOUT proxy; see run card",
+    "meta": {
+      "hypothesis": "H-STEP-OVER",
+      "annulus_inner_px": 3.0,
+      "annulus_outer_px": 9.0,
+      "n_dots": 40000,
+      "min_dist_px": 3.0,
+      "annulus_cells": 781026
+    }
+  },
+  "submission_name": "gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif",
+  "note": "GEMSASS1 H-STEP-OVER catalogue-stepover-annulus 300-900m 40000d 3.0px off-cat; HOLDOUT proxy; see run card",
+  "note_length": 106,
+  "n_dots": 40000,
+  "annulus_cells": 781026,
+  "verdict": "promote",
+  "approved_for_submission": false,
+  "submission_slots_used": 0,
+  "data_provenance": "Local competition grid (sample_submission.tif) + catalogue (existing_faults.tif); not organizer authenticated.",
+  "limitations": [
+    "No organizer submission-page receipt; all historical scores are OWNER-REPORT.",
+    "HOLDOUT-DTI not evaluated for this lane; no leaderboard score forecast is made.",
+    "Registry coverage partial (300/414 rasters restored; GitHub rate-limited).",
+    "Eligibility: official rules limit competitors to US citizens/permanent residents or US-incorporated entities; confirm with administrator before upload."
+  ],
+  "experiments_run": 1,
+  "experiment_budget": 3,
+  "max_runtime_seconds": 7200,
+  "elapsed_seconds": 32.067857242
+}

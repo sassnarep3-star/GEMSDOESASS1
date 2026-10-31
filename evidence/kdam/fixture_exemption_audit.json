@@ -1,0 +1,133 @@
+{
+  "candidate": "docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif",
+  "candidate_dots": 37654,
+  "fixture_rasters": 7,
+  "thresholds": {
+    "overlap_limit": 0.7,
+    "rho_limit": 0.9,
+    "radius_px": 3.0
+  },
+  "rows": [
+    {
+      "repo": "GEMSDOE24",
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "sha256_matches_inventory": true,
+      "shape": [
+        3730,
+        3292
+      ],
+      "their_dots": 206895,
+      "overlap3": 0.999575,
+      "on_dot_fraction": 0.039411,
+      "jaccard": 0.006105,
+      "rho": 5.6e-05,
+      "status": "measured"
+    },
+    {
+      "repo": "GEMSDOE24",
+      "path": "inputs/calibration/8GEMSDOE_Hedge-v2_submission.tif",
+      "sha256": "052688eafbc7a55d90caab72252a50304fe5caa8ecf973f8e791b4ae910f0792",
+      "sha256_matches_inventory": true,
+      "shape": [
+        3730,
+        3292
+      ],
+      "their_dots": 227507,
+      "overlap3": 0.160647,
+      "on_dot_fraction": 0.0162,
+      "jaccard": 0.002306,
+      "rho": -0.013054,
+      "status": "measured"
+    },
+    {
+      "repo": "GEMSDOE24",
+      "path": "inputs/calibration/gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif",
+      "sha256": "1381e784fb8b8340beffd0e735ac9eea89ad35d1a807f8a9bab5506e3fc8275e",
+      "sha256_matches_inventory": true,
+      "shape": [
+        3730,
+        3292
+      ],
+      "their_dots": 174232,
+      "overlap3": 0.140782,
+      "on_dot_fraction": 0.014155,
+      "jaccard": 0.002522,
+      "rho": -0.010332,
+      "status": "measured"
+    },
+    {
+      "repo": "GEMSDOE24",
+      "path": "inputs/calibration/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "sha256": "7637b72d4c6c3e10226bf46bd72a20272d62ccbe29743062632d10b158b49c58",
+      "sha256_matches_inventory": true,
+      "shape": [
+        3730,
+        3292
+      ],
+      "their_dots": 69281,
+      "overlap3": 0.139932,
+      "on_dot_fraction": 0.0064,
+      "jaccard": 0.002259,
+      "rho": -0.004815,
+      "status": "measured"
+    },
+    {
+      "repo": "GEMSDOE24",
+      "path": "inputs/calibration/gemsdoe-ens12-adopted-7f00890a.tif",
+      "sha256": "7f00890a62878d612fb5eef67a9a364a2df819433dde74b6762ce4fc0fc4fe15",
+      "sha256_matches_inventory": true,
+      "shape": [
+        3730,
+        3292
+      ],
+      "their_dots": 172974,
+      "overlap3": 0.132788,
+      "on_dot_fraction": 0.0162,
+      "jaccard": 0.002905,
+      "rho": -0.007337,
+      "status": "measured"
+    },
+    {
+      "repo": "GEMSDOE24",
+      "path": "inputs/calibration/gemsdoe9-PLACEHOLDER-2314b599.tif",
+      "sha256": "2314b59920bfeeaf6a592d4868b25eca62212825620f9945723c2f6d0a2e5b22",
+      "sha256_matches_inventory": true,
+      "shape": [
+        3730,
+        3292
+      ],
+      "their_dots": 343816,
+      "overlap3": 0.063446,
+      "on_dot_fraction": 0.029505,
+      "jaccard": 0.002921,
+      "rho": 0.005069,
+      "status": "measured"
+    },
+    {
+      "repo": "GEMSDOE36",
+      "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+      "sha256": "60543f8ea9d4ee432b018832337c3cf1fe0db4f71b87d15fea71869fe4f23638",
+      "sha256_matches_inventory": true,
+      "shape": [
+        32,
+        48
+      ],
+      "their_dots": 70,
+      "status": "incompatible-grid",
+      "overlap3": null,
+      "rho": null,
+      "note": "different grid; cannot be compared pixel-for-pixel"
+    }
+  ],
+  "max_fixture_overlap3": 0.999575,
+  "max_fixture_rho": 0.013054,
+  "worst_fixture": {
+    "repo": "GEMSDOE24",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "overlap3": 0.999575
+  },
+  "method": "shared vendor.gems57.uniqueness.dot_overlap (radius 3 px, both directions on the candidate's dots); Spearman sampled to 500000 footprint pixels",
+  "runtime_s": 3.7,
+  "generated_utc": "2026-10-31T05:52:59Z"
+}
