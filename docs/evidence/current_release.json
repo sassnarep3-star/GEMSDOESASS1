@@ -1,0 +1,10 @@
+{
+  "label": "H-BSTEP basement-step concordance learner (session 2026-10-31)",
+  "run_card": "evidence/bstep/run_card.json",
+  "release": "evidence/bstep/release.json",
+  "downloads_dir": "docs/downloads",
+  "history": [
+    "evidence/thermal/run_card.json (H-TVGB 2026-10-30, superseded as the presented candidate; record kept)",
+    "evidence/run_card.json (BGAC-1, frozen negative)"
+  ]
+}

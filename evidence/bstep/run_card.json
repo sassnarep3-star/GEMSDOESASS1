@@ -1,0 +1,280 @@
+{
+  "schema": "gemsass1.run_card.v2",
+  "generated_utc": "2026-10-31T05:55:29Z",
+  "lane_label": "H-BSTEP basement-step concordance learner",
+  "run_card_href": "evidence/bstep/run_card.json",
+  "hypothesis": "H-BSTEP: basement-rooted faults under basin fill co-locate gradient ridges of depth-to-basement, gravity and magnetics; a segment-withheld learner augmented with edge-concordance transforms (plus relay-polarity, gouge-conductivity, strain-boundary and quake-curvature transforms) recovers hidden fault segments that the lidar-openness family misses (knowledge/hypotheses_20261031.md).",
+  "mechanism": "single HistGradientBoosting (250 it, lr 0.08, 31 leaves) trained on ALL catalogue segments with full-catalogue context; features = 28 static lidar/GeoDAWN layers + 19 derived bands + 10 concordance transforms + 4 visible-catalogue context; Poisson-disk emission 37654 dots at 2.8 px, >600 m catalogue exclusion, variant=anti_collision.",
+  "named_non_fault_mimic": "Pluvial shoreline benches and fluvial terrace risers around thermal basins (coherent, low-relief, contour-parallel); road/canal embankments; basaltic vent rims; dike and intrusive contacts give magnetic-gradient maxima without displacement.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "value": 0.1412590858726133,
+    "ci95": [
+      0.13481934845360496,
+      0.14864261150201674
+    ],
+    "farfield_true_gt500m_from_visible": 0.14809257179769297,
+    "n_withheld_positives": 60988,
+    "e1_comparable_cell": {
+      "value": 0.15189130805600623,
+      "ci95": [
+        0.1445539883613929,
+        0.15871070157417574
+      ],
+      "farfield": 0.13411171722185278,
+      "cell": "37,654 / 2.8 px / >2 px"
+    },
+    "e2_sweep": [
+      {
+        "n_dots": 37654,
+        "prune_px": 2.0,
+        "holdout_dti": 0.15194933187195245,
+        "ci95": [
+          0.14339205065154464,
+          0.1566533736380795
+        ],
+        "farfield": 0.13408394524939085,
+        "quick_max_overlap": 0.6326286715886759,
+        "quick_max_rho": 0.04199489562598189,
+        "quick_over_limit": []
+      },
+      {
+        "n_dots": 37654,
+        "prune_px": 6.0,
+        "holdout_dti": 0.1412590858726133,
+        "ci95": [
+          0.13492574915000047,
+          0.14771044581378348
+        ],
+        "farfield": 0.14809257179769297,
+        "quick_max_overlap": 0.5667392574494078,
+        "quick_max_rho": 0.02676962048843596,
+        "quick_over_limit": []
+      },
+      {
+        "n_dots": 44090,
+        "prune_px": 2.0,
+        "holdout_dti": 0.15827141480629034,
+        "ci95": [
+          0.15255089498431207,
+          0.16469516715499227
+        ],
+        "farfield": 0.1413555839175578,
+        "quick_max_overlap": 0.6257654797006124,
+        "quick_max_rho": 0.04428438512296201,
+        "quick_over_limit": []
+      },
+      {
+        "n_dots": 44090,
+        "prune_px": 6.0,
+        "holdout_dti": 0.146133613301112,
+        "ci95": [
+          0.1405607394926478,
+          0.15353439434420824
+        ],
+        "farfield": 0.15228605001870218,
+        "quick_max_overlap": 0.5543660694034929,
+        "quick_max_rho": 0.028196827196065186,
+        "quick_over_limit": []
+      }
+    ],
+    "e2_anti_collision_cell": {
+      "n_dots": 37654,
+      "prune_px": 6.0,
+      "variant": "anti_collision",
+      "holdout_dti": 0.1412590858726133,
+      "ci95": [
+        0.13492574915000047,
+        0.14771044581378348
+      ],
+      "farfield": 0.14809257179769297,
+      "quick_max_overlap": 0.5667392574494078,
+      "quick_max_rho": 0.02676962048843596,
+      "quick_over_limit": [],
+      "offenders_union": [],
+      "dots_per_fold": [
+        37654,
+        37654,
+        37654,
+        37654,
+        37654
+      ]
+    },
+    "bar": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ],
+      "evidence": "evidence/swgb/holdout_calibration.json"
+    },
+    "repo_best": {
+      "name": "E2-SWGB emitted, prune 4 px, 44,090 dots (repo holdout best)",
+      "holdout_dti": 0.1591,
+      "ci95": [
+        0.1538,
+        0.1639
+      ],
+      "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+    },
+    "e2_swgb": {
+      "name": "E2-SWGB as evaluated",
+      "holdout_dti": 0.1586,
+      "ci95": [
+        0.1519,
+        0.1649
+      ],
+      "evidence": "evidence/swgb/e2_swgb_holdout.json"
+    },
+    "label_note": "HOLDOUT-DTI is hide-and-recover evidence, never a leaderboard score.",
+    "shipped_variant_diagnostic": {
+      "label": "HOLDOUT-DTI",
+      "measurement": "shipped anti-collision emission variant on the fold fields",
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "value": 0.1432591290408537,
+      "ci95": [
+        0.1365828558961601,
+        0.15068563556455097
+      ],
+      "farfield": 0.15020060866351367,
+      "farfield_ci95": [
+        0.14263419472259525,
+        0.15748578896213913
+      ],
+      "n_withheld_positives": 60988,
+      "dots_per_fold": [
+        37654,
+        37654,
+        37654,
+        37654,
+        37654
+      ],
+      "offenders": [
+        "docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-zeros.tif"
+      ],
+      "elapsed_s": 28.7
+    }
+  },
+  "correlation_overlap_vs_registry": {
+    "surface": {
+      "max_spearman": 0.5092436476480899,
+      "max_overlap": 0.3188835023134579,
+      "worst": [
+        "docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+        0.3188835023134579,
+        -0.014177632201039585
+      ]
+    },
+    "dots_competitive": {
+      "max_spearman": 0.01539307589900206,
+      "max_overlap": 0.25407659212832634,
+      "worst": [
+        "docs/downloads/gems25-h71-hgpc-blind-b2-sapd3-k3p5-20261026-9eb0c31e5149-nan.tif",
+        0.25407659212832634,
+        -0.00011444875160000044
+      ]
+    },
+    "dots_full_registry_including_lattice_fixture": {
+      "max_spearman": 0.01539307589900206,
+      "max_overlap": 0.9995485207414883,
+      "worst": [
+        "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        0.9995485207414883,
+        0.0003410065176520362
+      ]
+    },
+    "lattice_amendment": "AMEND-LATTICE-01 (IR-LATTICE-01): the 5 px calibration-lattice fixture is measured and reported here but exempted from the 70%/3 px gate; without the exemption the 0.2778 champion itself is classified a duplicate of a 0.0904 grid. AMEND-N2: nonfinite published priors compared with nonfinite = 0 support.",
+    "lattice_rows": [
+      {
+        "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "spearman": 0.0003410065176520362,
+        "overlap": 0.9995485207414883
+      },
+      {
+        "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+        "spearman": -0.0008470143674280299,
+        "overlap": 0.0
+      }
+    ],
+    "unassessable_rows": [
+      "docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif",
+      "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif"
+    ],
+    "exact_duplicate_scan": {
+      "candidate_values_sha256": "405fda7ca39d36755710f70fcbc223e1febc29afe8ba13d673cdb792523cdfa5",
+      "exact_duplicate_paths": [],
+      "repo_priors_scanned": 8
+    },
+    "anti_collision": {
+      "offenders": [
+        "docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-zeros.tif"
+      ],
+      "dots_before": 37654,
+      "dots_after": 37654
+    },
+    "emission_variant": "anti_collision"
+  },
+  "raster_sha256": "e3268762e77c4f2db6aa1c0d1754009f4ec577b6c67cb2ecfa95f8fa8158f0ed",
+  "raster_name": "gemsass1-bstep-concord-37654-b6-20261031-zeros.tif",
+  "validator_output": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif",
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "crs_matches_template": true,
+      "shape_matches_template": true,
+      "transform_matches_template": true,
+      "no_nan_inside_footprint": true,
+      "no_nan_anywhere": true,
+      "values_in_0_1_everywhere": true,
+      "values_in_0_1_inside_footprint": true,
+      "no_positive_outside_footprint": true,
+      "zero_mass_on_known_catalogue_pixels": true
+    },
+    "all_checks_passed": true,
+    "positive_pixels": 37654,
+    "footprint_pixels": 5167373,
+    "min": 0.0,
+    "max": 1.0,
+    "sha256": "e3268762e77c4f2db6aa1c0d1754009f4ec577b6c67cb2ecfa95f8fa8158f0ed",
+    "size_bytes": 89912,
+    "profile": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null
+    }
+  },
+  "submission_name": "gemsass1-bstep-concord-37654-b6-20261031",
+  "note": "GEMSASS1 H-BSTEP basement-edge concordance learner 37654d >600m off-cat 2.8px anti_collision; HOLDOUT-DTI evidence/bstep/run_card.json",
+  "note_length": 134,
+  "verdict": "promote",
+  "ok_to_download_and_submit": true,
+  "submission_slots_used": 0,
+  "evidence_class": "HOLDOUT-DTI (GEMSASS1-HR-v2-segment) + REGISTRY-MEASUREMENT; owner-reported sibling scores are OWNER-REPORT, not receipts",
+  "experiments_run": 3,
+  "experiment_budget": 3,
+  "elapsed_s": 558.4,
+  "limitations": [
+    "Holdout truth is catalogue-derived (labels.tif is byte-identical to existing_faults.tif in the owner mirror); holdout-live Spearman is -0.081 across 17 registry rasters, so no holdout number forecasts a leaderboard score.",
+    "Owner-mirror data provenance: integrity-verified against pinned hashes, NOT organizer-authenticated.",
+    "Eligibility (rules \u00a71.3, U.S. persons/entities) is a user decision before any upload; this workspace never uploads and spends no competition slot.",
+    "IR-LATTICE-01 policy item remains open; both the literal and AMEND-LATTICE-01 readings are printed above."
+  ]
+}

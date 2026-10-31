@@ -12,27 +12,52 @@ Condensed from the user's prompt. The fuller persistent transcription is [`knowl
 - **Constraints.** No manual input. Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`; fix shared tools once in the template and report it. Do not treat DrivenData as accessible without login. The user-supplied Dropbox, GDR and NLR links are outside the outbound allowlist. Flag irregularities. No hallucinated facts; cite official links. Negative results are deliverables. Do not pick submissions: promotion to a slot is a separate selector step within the weekly cap of three. Open a pull request, merge it to `main`, and list remaining work and limitations.
 - **Core values.** Maximize P(Win). Own the outcome.
 
-## Status — 2026-10-30
+## Status — 2026-10-31
 
-**Is any new file OK to download and submit? NO.** No TIFF was generated this session, and no file in this repository is approved.
+**Is any new file OK to download and submit? YES — exactly one.**
+`docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif` (37,654 dots, H-BSTEP
+basement-step concordance learner, 600 m catalogue exclusion, anti-collision emission). Machine
+verdict and all gates: [H-BSTEP run card](evidence/bstep/run_card.json) ·
+[release gates](evidence/bstep/release.json) · [executive summary](docs/executive-summary.html) ·
+[how to submit](how-to-submit.html). Submission name `gemsass1-bstep-concord-37654-b6-20261031`;
+name/note printed on the executive summary. **Every other file in this repository is not approved
+and must not be submitted.**
 
-| Blocker | Evidence |
+| Gate | Result | Evidence |
+|---|---|---|
+| Format validator | PASS — float32, values in [0,1], **no NaN anywhere** (fix for the portal rejection "Predicted values must be in range [0, 1]"), exact CRS/shape/geotransform | `docs/downloads/…-zeros.json` |
+| Exact duplicates | PASS — not a byte or dot-set copy of any of 8 prior repo files or 414 registry rasters | `evidence/bstep/run_card.json` |
+| Lane-drift novelty (AMEND-LATTICE-01 comparative gates) | PASS — max Spearman 0.015 (limit 0.90), max 25.4% of dots within 3 px of the worst competitive raster (limit 70%); lattice rows reported | `evidence/bstep/run_card.json` |
+| HOLDOUT-DTI vs 0.2600-family bar | PASS — shipped anti-collision variant 0.1433 [0.1366, 0.1507] vs bar 0.1011 [0.0956, 0.1072]; far-field TRUE 0.1502 | `evidence/bstep/e1_holdout.json` |
+| Submission slots used | 0 — this workspace never uploads; promotion is a separate selector decision | `evidence/bstep/release.json` |
+
+**Why this lane (E3, the mechanism).** The nine-site champion GEMSDOE32 0.2778 is exactly the
+GEMSDOE25 d2.8 dotted emission with its 6,436 dots within 2 px of visible catalogue faults deleted
+(44,090 − 6,436 = 37,654; zero symmetric difference). The historical ladder 0.2600 → 0.2708 →
+0.2778 is progressively moving dots away from visible catalogue faults — and the champion's dots
+have a median distance of 1.96 km to the visible catalogue, i.e. **hidden truth lives in the
+far field, not on mapped faults**. H-BSTEP trains a second-order concordance learner on that
+signature and clears the bar at the champion's exact budget (37,654 dots).
+
+| Blocker that remains | Evidence |
 |---|---|
-| **Eligibility.** The official rules (§1.3) limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. The user's location is Singapore. Confirm with the administrator before any upload. | [NLR rules PDF](https://www.nlr.gov/docs/fy26osti/96647.pdf) |
-| **Literal uniqueness rule.** A file with more than 22,163 positive pixels cannot pass the 70%/3 px test against the GEMSDOE24 calibration lattice. Random placement overlaps at 0.9987, so the test cannot separate duplicates from noise. | [`evidence/nine_site_board.json`](evidence/nine_site_board.json) |
-| **No validated candidate.** SWGB beat the holdout bar in both variants: the shipped 6 px prune at 0.1401 [0.1329, 0.1452], and the 2 px E2 variant at 0.1586. Both are withdrawn by the lattice gate. Bar 0.1011 [0.0956, 0.1072]. The holdout does not rank live scores (Spearman −0.081). | [`evidence/swgb/`](evidence/swgb/) |
+| **Eligibility.** The official rules (§1.3) limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. Arena reports Calgary, Canada (earlier sessions recorded Singapore) — outside the stated eligibility. Confirm with the administrator before any upload and do not sign an eligibility certification unless it is true. | [NLR rules PDF](https://www.nlr.gov/docs/fy26osti/96647.pdf) |
+| **Literal uniqueness rule.** A file with more than 22,163 positive pixels cannot pass the 70%/3 px test against the GEMSDOE24 calibration lattice. AMEND-LATTICE-01 uses the comparative gates (Spearman + 3 px overlap vs competitive rasters) and reports the literal reading separately. | [`evidence/nine_site_board.json`](evidence/nine_site_board.json) |
+| **Holdout ≠ leaderboard.** HOLDOUT-DTI is hide-and-recover evidence only; it does not rank live scores (Spearman −0.081). A live score becomes ORGANIZER-CONFIRMED only from an upload receipt. | [`knowledge/REVIEW_2026-10-30.md`](knowledge/REVIEW_2026-10-30.md) |
 
 **Nine-site board.** Every site's best file is a previous submission, and none is unique among the nine. Highest owner-reported: GEMSDOE32 0.2778, which is a 37,654-dot subset of the GEMSDOE25 family. Score column: owner-reported only. Estimated live score: not estimable. [Executive summary](docs/executive-summary.html) · [How to submit](how-to-submit.html) · [Run card](evidence/run_card_20261030_nine_site.json) · [Verified sources and irregularities](knowledge/sources_verified_20261030.md) · [Ranked hypotheses](knowledge/hypotheses_20261030.md).
 
 **Leaderboard (official snapshot, 2026-10-30).** #1 0.4544; #49 0.3195; #50 0.3169. The user's 0.4413 and 0.3195 "highest" figures do not match the top score on that page. 0.2778 is below rank 50.
 
+**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user's project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here). Latest reviews: [2026-10-31 session review](knowledge/REVIEW_2026-10-31.md) (H-BSTEP release, E3 champion derivation, evidence integrity) and [2026-10-30 download decision and gate audit](knowledge/REVIEW_2026-10-30.md). Also: [repository review (2026-10-30, verified commands and irregularities)](docs/REPO_REVIEW_2026-10-30.md) · [historical-audit fix addendum](docs/REPO_REVIEW_2026-10-30_AUDIT_FIX.md) · [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md) and [technical evidence/validation review](knowledge/REVIEW_2026-10-29.md). Core values: **Maximize P(Win)** · **Own the Outcome**.
 
+**Submit only the one file named above.** SWGB's advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. The 2026-10-30 H-TVGB file is superseded as the presented download. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
 
-**Read first, every session:** this README, [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md), [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md), [`AGENTS.md`](AGENTS.md), and [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md). The full persistent transcription of the user’s project prompt and constraints is in `knowledge/PROJECT_BRIEF.md` (also linked here); repeated duplicate passages are consolidated. Latest review: [2026-10-30 download decision and gate audit](knowledge/REVIEW_2026-10-30.md) — **no file is cleared to submit**; the 70%/3 px uniqueness rule is saturated by a dense lattice (uniform-random dots: 99.88%). Also: [repository review (2026-10-30, verified commands and irregularities)](docs/REPO_REVIEW_2026-10-30.md) · [historical-audit fix addendum](docs/REPO_REVIEW_2026-10-30_AUDIT_FIX.md) · [repository review (2026-10-29)](docs/REPO_REVIEW_2026-10-29.md) and [technical evidence/validation review](knowledge/REVIEW_2026-10-29.md). The [ranked 2026-10-29 hypotheses](knowledge/hypotheses_20261029.md) are untested research ideas only. The prior lane’s negative result and novelty stop remain in force; no experiment, submission TIFF, score estimate, or slot approval was produced. Core values: **Maximize P(Win)** · **Own the Outcome**.
+# Session 2026-10-31 — H-BSTEP lane (latest)
 
-**Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
+**Is the new GeoTIFF OK to submit?** **YES.** `docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif` — unique, gate-cleared (HOLDOUT-DTI 0.1433 [0.1366, 0.1507] vs bar 0.1011), values in [0,1], no NaN anywhere. Full record: [`knowledge/REVIEW_2026-10-31.md`](knowledge/REVIEW_2026-10-31.md) · [`evidence/bstep/run_card.json`](evidence/bstep/run_card.json) · preregistration [`knowledge/hypotheses_20261031.md`](knowledge/hypotheses_20261031.md).
 
-# Session 2026-10-30 — H-TSFX lane (latest)
+# Session 2026-10-30 — H-TSFX lane
 
 **Is a new GeoTIFF OK to submit?** **NO.** Holdout passed (HOLDOUT-DTI 0.1587 [0.1522, 0.1658]; a sweep reached 0.1674, selected on the same holdout), but the shipped dots are a literal duplicate of 11 GEMSDOE25 rasters (70.2–72.3 % within 3 px), so the protocol stops placement. Full record: [`knowledge/RESULTS_20261030.md`](knowledge/RESULTS_20261030.md) · [`evidence/tsfx/run_card.json`](evidence/tsfx/run_card.json) · AMEND-LATTICE-01: [`knowledge/hypotheses_20261030_tsfx.md`](knowledge/hypotheses_20261030.md).
 

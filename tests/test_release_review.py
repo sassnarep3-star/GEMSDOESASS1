@@ -14,6 +14,11 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from audit_swgb_lattice import compare
 
 
+def current_release_paths():
+    pointer = json.loads((ROOT / 'evidence/current_release.json').read_text())
+    return ROOT / pointer['run_card'], ROOT / pointer['release']
+
+
 def write_tif(path, values, transform=None):
     with rasterio.open(path, 'w', driver='GTiff', height=values.shape[0], width=values.shape[1],
                        count=1, dtype='float32', crs='EPSG:32611',
@@ -75,8 +80,8 @@ def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
     assert 'OK TO SUBMIT' not in download_index
     # SWGB/PBSC must stay revoked in the download index.
     assert 'withdrawn' in download_index and 'ok_to_submit = false' in download_index
-    # Any approval in the download index must match the thermal run card exactly.
-    card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
+    # Any approval in the download index must match the current run card exactly.
+    card = json.loads(current_release_paths()[0].read_text())
     if card['ok_to_download_and_submit']:
         assert 'OK TO DOWNLOAD AND SUBMIT' in download_index
         assert card['raster_name'] in download_index
@@ -86,8 +91,8 @@ def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
 
 def test_generated_verdict_matches_run_card_gates():
     """The verdict shown on every generated page must equal the machine gate table."""
-    card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
-    release = json.loads((ROOT / 'evidence/thermal/release.json').read_text())
+    card = json.loads(current_release_paths()[0].read_text())
+    release = json.loads(current_release_paths()[1].read_text())
     assert card['ok_to_download_and_submit'] == all(p for _, p in release['gates'])
     verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit'] else 'NOT OK TO SUBMIT'
     for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html'):

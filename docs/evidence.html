@@ -3,15 +3,15 @@
 <meta name="description" content="GEMS fault-detection research: nine-site comparison, strict submission gates and auditable negative results.">
 <meta name="color-scheme" content="light"><title>Evidence and source feed · GEMS Fieldnotes</title><link rel="stylesheet" href="assets/site.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="research.html">Research & sources</a><a href="evidence.html" aria-current="page">Evidence</a></nav></div></header>
-<main id="main"><p class="eyebrow">Evidence / immutable experiment record</p><h1>Negative results.<br>Fully accounted for.</h1><p class="lead">Three experiments this session (E1 rule field negative, E2 paired thermal-family negative, E3 emission sweep), one packaged candidate. Earlier negative lanes are preserved unchanged.</p><div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (shipped config)</span><span class="value">0.1287</span><p>95% CI 0.1231–0.1355 · bar 0.1011</p></div>
-<div class="metric"><span class="label">E2 paired Δ (thermal family)</span><span class="value">-0.0124</span><p>95% CI -0.0170–-0.0079 · negative</p></div>
-<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">65.0%</span><p>limit 70% · lane-drift gate</p></div>
+<main id="main"><p class="eyebrow">Evidence / immutable experiment record</p><h1>Negative results.<br>Fully accounted for.</h1><p class="lead">Three experiments this session (E1 concordance-learner holdout, E2 emission sensitivity, E3 full-catalogue build + novelty + packaging), one packaged candidate. Earlier negative lanes are preserved unchanged.</p><div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (shipped config)</span><span class="value">0.1413</span><p>95% CI 0.1348–0.1486 · bar 0.1011</p></div>
+<div class="metric"><span class="label">Δ vs E2-SWGB incumbent (0.1586)</span><span class="value">-0.0173</span><p>HOLDOUT-DTI difference on the same evaluator; not a paired measurement</p></div>
+<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">25.4%</span><p>limit 70% · lane-drift gate · AMEND-LATTICE-01</p></div>
 <div class="metric"><span class="label">Submission slots used</span><span class="value">0</span><p>Selector step is separate</p></div></div>
 <p class="small">All new numbers are HOLDOUT-DTI (GEMSASS1-HR-v2-segment, 60,988 withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p><aside class="status" aria-label="Historical negative decisions"><span class="pill">Negative · preserved evidence</span><h2>Earlier lanes stay blocked: SWGB, H-PBSC, BGAC-1.</h2>
 <p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its holdout (0.0650 vs 0.1011) and overlaps the same lattice at 99.48%. BGAC-1 failed the literal novelty gate before placement. This negative evidence is retained, never erased.</p>
 <p class="small"><a href="evidence.html#correction">Review the superseding release decision and evidence ↗</a> · <a href="evidence/thermal/lattice_amendment.md">IR-LATTICE-01 scope amendment ↗</a></p></aside><section class="section" id="correction"><h2>The protocol error we found and fixed.</h2><div class="callout"><strong>Do not treat the BGAC-1 first-pass holdout as promotion-qualified.</strong> The original pre-placement audit checked Spearman ranks but omitted positive-support overlap; it also continued despite an unassessable registry file. Review corrected both. The identical surface fails the pre-placement overlap gate. No new experiment, dot placement or TIFF followed the correction.</div><p>The original run card and rank scan remain in the evidence directory. The current card explicitly records the error and disqualifies the execution for promotion. The runner now applies both literal tests at both phases and stops before placement on any incomplete clearance. Shared geometry is reused without a private metric change.</p></section>
-<section class="section"><div class="grid2"><article class="panel"><p class="kicker">E2 paired ablation (this session)</p><h3>Thermal features: measured negative.</h3><p>Arm A (28 layers + context + thermal family): HOLDOUT-DTI 0.1462. Arm B (identical learner, no thermal family): 0.1586 — an exact reproduction of the withdrawn SWGB field. Paired Δ -0.0124, 95% CI [-0.0170, -0.0079]. The honest conclusion: the gain over the 0.1011 bar comes from the supervised learner, not from the geothermal anchors as learner features.</p><a href="evidence/thermal/e2_paired_holdout.json">Paired evidence JSON →</a></article><article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3><div class="barrow"><span>gravity_gradient_s2</span><div class="track"><div class="bar " style="width:60.9%"></div></div><strong>0.0730</strong></div><div class="barrow"><span>gravity_gradient_s5</span><div class="track"><div class="bar " style="width:59.8%"></div></div><strong>0.0718</strong></div><div class="barrow"><span>signed_opposition_s2</span><div class="track"><div class="bar " style="width:57.4%"></div></div><strong>0.0689</strong></div><div class="barrow"><span>signed_opposition_s5</span><div class="track"><div class="bar " style="width:55.1%"></div></div><strong>0.0662</strong></div><div class="barrow"><span>basement_gradient_s2</span><div class="track"><div class="bar " style="width:39.2%"></div></div><strong>0.0471</strong></div><div class="barrow"><span>basement_gradient_s5</span><div class="track"><div class="bar " style="width:37.3%"></div></div><strong>0.0447</strong></div><div class="barrow"><span>low_surface_expression</span><div class="track"><div class="bar " style="width:33.2%"></div></div><strong>0.0398</strong></div><div class="barrow"><span>BGAC-1</span><div class="track"><div class="bar candidate" style="width:32.5%"></div></div><strong>0.0390</strong></div><p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article></div></section>
-<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list"><li><a href="evidence/thermal/run_card.json">2026-10-30 run card (H-TVGB)</a><span>JSON ↗</span></li><li><a href="evidence/thermal/release.json">Release gates and verdict</a><span>JSON ↗</span></li><li><a href="evidence/thermal/e2_paired_holdout.json">E2 paired thermal-family ablation</a><span>JSON ↗</span></li><li><a href="evidence/thermal/e3_emission_sweep.json">E3 emission sweep</a><span>JSON ↗</span></li><li><a href="evidence/thermal/leakage_canary.json">Per-feature leakage canaries (all clear)</a><span>JSON ↗</span></li><li><a href="evidence/run_card.json">BGAC-1 run card (frozen negative)</a><span>JSON ↗</span></li><li><a href="evidence/first_pass_run_card.json">Preserved first-pass card</a><span>JSON ↗</span></li><li><a href="evidence/corrected_surface_novelty.json">Corrected pre-placement stop</a><span>JSON ↗</span></li><li><a href="evidence/nine_site_audit.json">Nine-site byte / duplicate / H33 mechanism audit</a><span>JSON ↗</span></li><li><a href="evidence/holdout.json">Exploratory holdout and paired confidence intervals</a><span>JSON ↗</span></li><li><a href="evidence/focus_inventory.json">Complete frozen nine-site TIFF inventory</a><span>JSON ↗</span></li><li><a href="evidence/release_checks.json">Frozen implementation hashes and verification checks</a><span>JSON ↗</span></li></ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2><p class="small">Static snapshot checked: 2026-10-27T11:58:40.093528+00:00. GitHub heads only—not a current competition leaderboard. Changed heads require a new registry audit; they never update the frozen experiment.</p><p class="small" id="feed-live-status" role="status">Current GitHub freshness will be checked automatically if browser access is available.</p><div class="table-wrap"><table class="feed-grid"><thead><tr><th>Source</th><th>Experiment pin</th><th>Current head</th><th>Advisory</th></tr></thead><tbody><tr data-source-repo="GEMSDOE24" data-frozen-ref="cf093c8c5e9fa77294ecf4c59b79cdade92cbc06"><td>GEMSDOE24</td><td><code>cf093c8c5e9f</code></td><td><code data-current-head>a1ecb683a9fd</code></td><td data-advisory>Changed — audit required</td></tr><tr data-source-repo="GEMSDOE25" data-frozen-ref="227347d0f1beb420c0dd2a7dd4079ddc6389f5ab"><td>GEMSDOE25</td><td><code>227347d0f1be</code></td><td><code data-current-head>227347d0f1be</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE27" data-frozen-ref="6c34f5b7cb7756d23c258df051318b7b11cd9ab4"><td>GEMSDOE27</td><td><code>6c34f5b7cb77</code></td><td><code data-current-head>6c34f5b7cb77</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE28" data-frozen-ref="f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309"><td>GEMSDOE28</td><td><code>f78c1e8fdc2f</code></td><td><code data-current-head>f78c1e8fdc2f</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE30" data-frozen-ref="3c3d7255fdbb3a94375eff086522463a8eaca449"><td>GEMSDOE30</td><td><code>3c3d7255fdbb</code></td><td><code data-current-head>3c3d7255fdbb</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE31" data-frozen-ref="abd9a45cc7adf046d7d3829eb6e8c980943f462d"><td>GEMSDOE31</td><td><code>abd9a45cc7ad</code></td><td><code data-current-head>abd9a45cc7ad</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE32" data-frozen-ref="1398109a23f04a2ace71c1bd2f527cfba87860b5"><td>GEMSDOE32</td><td><code>1398109a23f0</code></td><td><code data-current-head>1398109a23f0</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE33" data-frozen-ref="122e2240a835c9c84831943ee3489dbb48fd6e85"><td>GEMSDOE33</td><td><code>122e2240a835</code></td><td><code data-current-head>122e2240a835</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE36" data-frozen-ref="61783525af4aa6dcf8da0bc68b06fa38b89ed27a"><td>GEMSDOE36</td><td><code>61783525af4a</code></td><td><code data-current-head>61783525af4a</code></td><td data-advisory>Matches snapshot</td></tr></tbody></table></div></section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{
+<section class="section"><div class="grid2"><article class="panel"><p class="kicker">E2 emission sensitivity (this session)</p><h3>Where the dots are placed matters.</h3><p>Shipped cell (fixed before running): 37,654 / 2.8 px / >2 px family operating point with a 600 m catalogue exclusion. E1 at the comparable cell: HOLDOUT-DTI 0.1519 (far-field 0.1341). The full sweep grid and the anti-collision variant are in the evidence JSON — sensitivity only, never selection.</p><a href="evidence/bstep/e2_emission.json">Emission evidence JSON →</a></article><article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3><div class="barrow"><span>gravity_gradient_s2</span><div class="track"><div class="bar " style="width:60.9%"></div></div><strong>0.0730</strong></div><div class="barrow"><span>gravity_gradient_s5</span><div class="track"><div class="bar " style="width:59.8%"></div></div><strong>0.0718</strong></div><div class="barrow"><span>signed_opposition_s2</span><div class="track"><div class="bar " style="width:57.4%"></div></div><strong>0.0689</strong></div><div class="barrow"><span>signed_opposition_s5</span><div class="track"><div class="bar " style="width:55.1%"></div></div><strong>0.0662</strong></div><div class="barrow"><span>basement_gradient_s2</span><div class="track"><div class="bar " style="width:39.2%"></div></div><strong>0.0471</strong></div><div class="barrow"><span>basement_gradient_s5</span><div class="track"><div class="bar " style="width:37.3%"></div></div><strong>0.0447</strong></div><div class="barrow"><span>low_surface_expression</span><div class="track"><div class="bar " style="width:33.2%"></div></div><strong>0.0398</strong></div><div class="barrow"><span>BGAC-1</span><div class="track"><div class="bar candidate" style="width:32.5%"></div></div><strong>0.0390</strong></div><p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article></div></section>
+<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list"><li><a href="evidence/bstep/run_card.json">2026-10-31 run card (H-BSTEP, this session)</a><span>JSON ↗</span></li><li><a href="evidence/bstep/release.json">Release gates and verdict</a><span>JSON ↗</span></li><li><a href="evidence/bstep/e1_holdout.json">E1 concordance-learner holdout</a><span>JSON ↗</span></li><li><a href="evidence/bstep/e2_emission.json">E2 emission sensitivity</a><span>JSON ↗</span></li><li><a href="evidence/bstep/leakage_canary.json">Per-feature leakage canaries</a><span>JSON ↗</span></li><li><a href="evidence/thermal/run_card.json">2026-10-30 run card (H-TVGB, superseded)</a><span>JSON ↗</span></li><li><a href="evidence/thermal/release.json">H-TVGB release gates (superseded)</a><span>JSON ↗</span></li><li><a href="evidence/run_card.json">BGAC-1 run card (frozen negative)</a><span>JSON ↗</span></li><li><a href="evidence/first_pass_run_card.json">Preserved first-pass card</a><span>JSON ↗</span></li><li><a href="evidence/corrected_surface_novelty.json">Corrected pre-placement stop</a><span>JSON ↗</span></li><li><a href="evidence/nine_site_audit.json">Nine-site byte / duplicate / H33 mechanism audit</a><span>JSON ↗</span></li><li><a href="evidence/holdout.json">Exploratory holdout and paired confidence intervals</a><span>JSON ↗</span></li><li><a href="evidence/focus_inventory.json">Complete frozen nine-site TIFF inventory</a><span>JSON ↗</span></li><li><a href="evidence/release_checks.json">Frozen implementation hashes and verification checks</a><span>JSON ↗</span></li></ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2><p class="small">Static snapshot checked: 2026-10-27T11:58:40.093528+00:00. GitHub heads only—not a current competition leaderboard. Changed heads require a new registry audit; they never update the frozen experiment.</p><p class="small" id="feed-live-status" role="status">Current GitHub freshness will be checked automatically if browser access is available.</p><div class="table-wrap"><table class="feed-grid"><thead><tr><th>Source</th><th>Experiment pin</th><th>Current head</th><th>Advisory</th></tr></thead><tbody><tr data-source-repo="GEMSDOE24" data-frozen-ref="cf093c8c5e9fa77294ecf4c59b79cdade92cbc06"><td>GEMSDOE24</td><td><code>cf093c8c5e9f</code></td><td><code data-current-head>a1ecb683a9fd</code></td><td data-advisory>Changed — audit required</td></tr><tr data-source-repo="GEMSDOE25" data-frozen-ref="227347d0f1beb420c0dd2a7dd4079ddc6389f5ab"><td>GEMSDOE25</td><td><code>227347d0f1be</code></td><td><code data-current-head>227347d0f1be</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE27" data-frozen-ref="6c34f5b7cb7756d23c258df051318b7b11cd9ab4"><td>GEMSDOE27</td><td><code>6c34f5b7cb77</code></td><td><code data-current-head>6c34f5b7cb77</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE28" data-frozen-ref="f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309"><td>GEMSDOE28</td><td><code>f78c1e8fdc2f</code></td><td><code data-current-head>f78c1e8fdc2f</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE30" data-frozen-ref="3c3d7255fdbb3a94375eff086522463a8eaca449"><td>GEMSDOE30</td><td><code>3c3d7255fdbb</code></td><td><code data-current-head>3c3d7255fdbb</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE31" data-frozen-ref="abd9a45cc7adf046d7d3829eb6e8c980943f462d"><td>GEMSDOE31</td><td><code>abd9a45cc7ad</code></td><td><code data-current-head>abd9a45cc7ad</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE32" data-frozen-ref="1398109a23f04a2ace71c1bd2f527cfba87860b5"><td>GEMSDOE32</td><td><code>1398109a23f0</code></td><td><code data-current-head>1398109a23f0</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE33" data-frozen-ref="122e2240a835c9c84831943ee3489dbb48fd6e85"><td>GEMSDOE33</td><td><code>122e2240a835</code></td><td><code data-current-head>122e2240a835</code></td><td data-advisory>Matches snapshot</td></tr><tr data-source-repo="GEMSDOE36" data-frozen-ref="61783525af4aa6dcf8da0bc68b06fa38b89ed27a"><td>GEMSDOE36</td><td><code>61783525af4a</code></td><td><code data-current-head>61783525af4a</code></td><td data-advisory>Matches snapshot</td></tr></tbody></table></div></section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{
   &quot;schema_version&quot;: 1,
   &quot;generated_utc&quot;: &quot;2026-10-27T11:37:33.643679+00:00&quot;,
   &quot;hypothesis&quot;: &quot;BGAC-1: buried basin-edge anti-gradient consistency&quot;,
@@ -91,173 +91,230 @@
   &quot;first_pass_record&quot;: &quot;first_pass_run_card.json&quot;,
   &quot;surface_audit&quot;: &quot;corrected_surface_novelty.json&quot;,
   &quot;planned_submission_name&quot;: &quot;gems-sass1-bgac1-20261027-d510a8033961&quot;
-}</pre><h2>The H-TVGB run card (this session).</h2><pre>{
+}</pre><h2>The H-BSTEP basement-step concordance learner run card (this session).</h2><pre>{
   &quot;schema&quot;: &quot;gemsass1.run_card.v2&quot;,
-  &quot;generated_utc&quot;: &quot;2026-10-30T03:47:35Z&quot;,
-  &quot;hypothesis&quot;: &quot;H-TVGB: uncatalogued Holocene faults carry geothermal surface expression (warm/hot springs, geothermometer-positive wells, paleo sinter/tufa/travertine vents, 2 m heat-flow anomalies); a segment-withheld learner conditioned on a label-free thermal-anchor family recovers hidden fault segments better than morphology alone.&quot;,
-  &quot;mechanism&quot;: &quot;5 x HistGradientBoosting (250 it) on 28 GeoDAWN/lidar layers + visible-only catalogue context + 10 thermal-anchor features; fold models averaged with full-catalogue context; Poisson-disk 2.8 px, n=37,654, &gt;600 m catalogue exclusion at emission (registered E3 cell; the 2 px packaging was logged as a lane-drift duplicate and superseded \u2014 see superseded_artifact).&quot;,
-  &quot;named_non_fault_mimic&quot;: &quot;Pluvial shoreline benches and fluvial terrace risers around thermal basins (coherent, low-relief, contour-parallel); road/canal embankments; basaltic vent rims.&quot;,
+  &quot;generated_utc&quot;: &quot;2026-10-31T05:55:29Z&quot;,
+  &quot;lane_label&quot;: &quot;H-BSTEP basement-step concordance learner&quot;,
+  &quot;run_card_href&quot;: &quot;evidence/bstep/run_card.json&quot;,
+  &quot;hypothesis&quot;: &quot;H-BSTEP: basement-rooted faults under basin fill co-locate gradient ridges of depth-to-basement, gravity and magnetics; a segment-withheld learner augmented with edge-concordance transforms (plus relay-polarity, gouge-conductivity, strain-boundary and quake-curvature transforms) recovers hidden fault segments that the lidar-openness family misses (knowledge/hypotheses_20261031.md).&quot;,
+  &quot;mechanism&quot;: &quot;single HistGradientBoosting (250 it, lr 0.08, 31 leaves) trained on ALL catalogue segments with full-catalogue context; features = 28 static lidar/GeoDAWN layers + 19 derived bands + 10 concordance transforms + 4 visible-catalogue context; Poisson-disk emission 37654 dots at 2.8 px, &gt;600 m catalogue exclusion, variant=anti_collision.&quot;,
+  &quot;named_non_fault_mimic&quot;: &quot;Pluvial shoreline benches and fluvial terrace risers around thermal basins (coherent, low-relief, contour-parallel); road/canal embankments; basaltic vent rims; dike and intrusive contacts give magnetic-gradient maxima without displacement.&quot;,
   &quot;holdout_dti&quot;: {
     &quot;label&quot;: &quot;HOLDOUT-DTI&quot;,
     &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment&quot;,
-    &quot;value&quot;: 0.12871408632909964,
+    &quot;value&quot;: 0.1412590858726133,
     &quot;ci95&quot;: [
-      0.12314242017202875,
-      0.13549018375093902
+      0.13481934845360496,
+      0.14864261150201674
     ],
-    &quot;farfield_true_gt500m_from_visible&quot;: 0.13426565343128563,
+    &quot;farfield_true_gt500m_from_visible&quot;: 0.14809257179769297,
     &quot;n_withheld_positives&quot;: 60988,
-    &quot;paired_delta_vs_swgb_repro&quot;: -0.012379592197781925,
-    &quot;paired_delta_ci95&quot;: [
-      -0.016984848430040823,
-      -0.007937612109963485
-    ],
-    &quot;field_emission_44090_2p8px&quot;: {
-      &quot;value&quot;: 0.14621776586543866,
+    &quot;e1_comparable_cell&quot;: {
+      &quot;value&quot;: 0.15189130805600623,
       &quot;ci95&quot;: [
-        0.13939649610317975,
-        0.15396433094650447
+        0.1445539883613929,
+        0.15871070157417574
       ],
-      &quot;farfield&quot;: 0.12616916260331212
+      &quot;farfield&quot;: 0.13411171722185278,
+      &quot;cell&quot;: &quot;37,654 / 2.8 px / &gt;2 px&quot;
     },
-    &quot;e3_sweep&quot;: [
+    &quot;e2_sweep&quot;: [
       {
         &quot;n_dots&quot;: 37654,
         &quot;prune_px&quot;: 2.0,
-        &quot;holdout_dti&quot;: 0.14070022265615528,
+        &quot;holdout_dti&quot;: 0.15194933187195245,
         &quot;ci95&quot;: [
-          0.1353506887361049,
-          0.14642098924535418
+          0.14339205065154464,
+          0.1566533736380795
         ],
-        &quot;farfield&quot;: 0.11915399076681793
+        &quot;farfield&quot;: 0.13408394524939085,
+        &quot;quick_max_overlap&quot;: 0.6326286715886759,
+        &quot;quick_max_rho&quot;: 0.04199489562598189,
+        &quot;quick_over_limit&quot;: []
       },
       {
         &quot;n_dots&quot;: 37654,
         &quot;prune_px&quot;: 6.0,
-        &quot;holdout_dti&quot;: 0.12871408632909964,
+        &quot;holdout_dti&quot;: 0.1412590858726133,
         &quot;ci95&quot;: [
-          0.12314242017202875,
-          0.13549018375093902
+          0.13492574915000047,
+          0.14771044581378348
         ],
-        &quot;farfield&quot;: 0.13426565343128563
+        &quot;farfield&quot;: 0.14809257179769297,
+        &quot;quick_max_overlap&quot;: 0.5667392574494078,
+        &quot;quick_max_rho&quot;: 0.02676962048843596,
+        &quot;quick_over_limit&quot;: []
       },
       {
         &quot;n_dots&quot;: 44090,
         &quot;prune_px&quot;: 2.0,
-        &quot;holdout_dti&quot;: 0.14621776586543866,
+        &quot;holdout_dti&quot;: 0.15827141480629034,
         &quot;ci95&quot;: [
-          0.13963199781974803,
-          0.15492529072015843
+          0.15255089498431207,
+          0.16469516715499227
         ],
-        &quot;farfield&quot;: 0.12616916260331212
+        &quot;farfield&quot;: 0.1413555839175578,
+        &quot;quick_max_overlap&quot;: 0.6257654797006124,
+        &quot;quick_max_rho&quot;: 0.04428438512296201,
+        &quot;quick_over_limit&quot;: []
       },
       {
         &quot;n_dots&quot;: 44090,
         &quot;prune_px&quot;: 6.0,
-        &quot;holdout_dti&quot;: 0.1333768022569796,
+        &quot;holdout_dti&quot;: 0.146133613301112,
         &quot;ci95&quot;: [
-          0.12797830777573455,
-          0.13933208022852955
+          0.1405607394926478,
+          0.15353439434420824
         ],
-        &quot;farfield&quot;: 0.13841029877143352
-      },
-      {
-        &quot;n_dots&quot;: 52000,
-        &quot;prune_px&quot;: 2.0,
-        &quot;holdout_dti&quot;: 0.1516064674379003,
-        &quot;ci95&quot;: [
-          0.14445710746395057,
-          0.1573717739055208
-        ],
-        &quot;farfield&quot;: 0.13299697090558224
-      },
-      {
-        &quot;n_dots&quot;: 52000,
-        &quot;prune_px&quot;: 6.0,
-        &quot;holdout_dti&quot;: 0.1365105635404968,
-        &quot;ci95&quot;: [
-          0.12947599506462362,
-          0.14299135665248916
-        ],
-        &quot;farfield&quot;: 0.1407852751601292
+        &quot;farfield&quot;: 0.15228605001870218,
+        &quot;quick_max_overlap&quot;: 0.5543660694034929,
+        &quot;quick_max_rho&quot;: 0.028196827196065186,
+        &quot;quick_over_limit&quot;: []
       }
     ],
+    &quot;e2_anti_collision_cell&quot;: {
+      &quot;n_dots&quot;: 37654,
+      &quot;prune_px&quot;: 6.0,
+      &quot;variant&quot;: &quot;anti_collision&quot;,
+      &quot;holdout_dti&quot;: 0.1412590858726133,
+      &quot;ci95&quot;: [
+        0.13492574915000047,
+        0.14771044581378348
+      ],
+      &quot;farfield&quot;: 0.14809257179769297,
+      &quot;quick_max_overlap&quot;: 0.5667392574494078,
+      &quot;quick_max_rho&quot;: 0.02676962048843596,
+      &quot;quick_over_limit&quot;: [],
+      &quot;offenders_union&quot;: [],
+      &quot;dots_per_fold&quot;: [
+        37654,
+        37654,
+        37654,
+        37654,
+        37654
+      ]
+    },
     &quot;bar&quot;: {
       &quot;name&quot;: &quot;gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)&quot;,
       &quot;holdout_dti&quot;: 0.1011,
       &quot;ci95&quot;: [
         0.0956,
         0.1072
-      ]
+      ],
+      &quot;evidence&quot;: &quot;evidence/swgb/holdout_calibration.json&quot;
     },
     &quot;repo_best&quot;: {
-      &quot;name&quot;: &quot;SWGB emitted (repo incumbent, withdrawn for lattice overlap)&quot;,
-      &quot;holdout_dti&quot;: 0.1401,
+      &quot;name&quot;: &quot;E2-SWGB emitted, prune 4 px, 44,090 dots (repo holdout best)&quot;,
+      &quot;holdout_dti&quot;: 0.1591,
       &quot;ci95&quot;: [
-        0.1329,
-        0.1452
-      ]
+        0.1538,
+        0.1639
+      ],
+      &quot;evidence&quot;: &quot;evidence/swgb/e3_prune_sweep_e2.json&quot;
+    },
+    &quot;e2_swgb&quot;: {
+      &quot;name&quot;: &quot;E2-SWGB as evaluated&quot;,
+      &quot;holdout_dti&quot;: 0.1586,
+      &quot;ci95&quot;: [
+        0.1519,
+        0.1649
+      ],
+      &quot;evidence&quot;: &quot;evidence/swgb/e2_swgb_holdout.json&quot;
+    },
+    &quot;label_note&quot;: &quot;HOLDOUT-DTI is hide-and-recover evidence, never a leaderboard score.&quot;,
+    &quot;shipped_variant_diagnostic&quot;: {
+      &quot;label&quot;: &quot;HOLDOUT-DTI&quot;,
+      &quot;measurement&quot;: &quot;shipped anti-collision emission variant on the fold fields&quot;,
+      &quot;evaluator&quot;: &quot;GEMSASS1-HR-v2-segment&quot;,
+      &quot;value&quot;: 0.1432591290408537,
+      &quot;ci95&quot;: [
+        0.1365828558961601,
+        0.15068563556455097
+      ],
+      &quot;farfield&quot;: 0.15020060866351367,
+      &quot;farfield_ci95&quot;: [
+        0.14263419472259525,
+        0.15748578896213913
+      ],
+      &quot;n_withheld_positives&quot;: 60988,
+      &quot;dots_per_fold&quot;: [
+        37654,
+        37654,
+        37654,
+        37654,
+        37654
+      ],
+      &quot;offenders&quot;: [
+        &quot;docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-nan.tif&quot;,
+        &quot;docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-zeros.tif&quot;
+      ],
+      &quot;elapsed_s&quot;: 28.7
     }
   },
-  &quot;superseded_artifact&quot;: {
-    &quot;raster_name&quot;: &quot;gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif&quot;,
-    &quot;status&quot;: &quot;LOGGED AS LANE-DRIFT DUPLICATE \u2014 NOT OK TO SUBMIT&quot;,
-    &quot;reason&quot;: &quot;dots 3px-overlap 0.7907 vs docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif (&gt; 0.70); flank habitat median 5.7 px off catalogue&quot;,
-    &quot;run_card&quot;: &quot;evidence/thermal/run_card_b2_duplicate_log.json&quot;,
-    &quot;novelty_dots&quot;: &quot;evidence/thermal/novelty_dots_b2.json&quot;
-  },
   &quot;correlation_overlap_vs_registry&quot;: {
-    &quot;surface_competitive&quot;: {
-      &quot;max_spearman&quot;: 0.13340998370850898,
+    &quot;surface&quot;: {
+      &quot;max_spearman&quot;: 0.5092436476480899,
       &quot;max_overlap&quot;: 0.3188835023134579,
       &quot;worst&quot;: [
         &quot;docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif&quot;,
         0.3188835023134579,
-        0.04254100105816922
+        -0.014177632201039585
       ]
     },
     &quot;dots_competitive&quot;: {
-      &quot;max_spearman&quot;: 0.03950334477206762,
-      &quot;max_overlap&quot;: 0.6501832474637489,
+      &quot;max_spearman&quot;: 0.01539307589900206,
+      &quot;max_overlap&quot;: 0.25407659212832634,
       &quot;worst&quot;: [
-        &quot;docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif&quot;,
-        0.6501832474637489,
-        0.029632712009601082
+        &quot;docs/downloads/gems25-h71-hgpc-blind-b2-sapd3-k3p5-20261026-9eb0c31e5149-nan.tif&quot;,
+        0.25407659212832634,
+        -0.00011444875160000044
       ]
     },
-    &quot;dots_full_registry&quot;: {
-      &quot;max_spearman&quot;: 0.03950334477206762,
-      &quot;max_overlap&quot;: 0.9979285069315345,
+    &quot;dots_full_registry_including_lattice_fixture&quot;: {
+      &quot;max_spearman&quot;: 0.01539307589900206,
+      &quot;max_overlap&quot;: 0.9995485207414883,
       &quot;worst&quot;: [
         &quot;inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
-        0.9979285069315345,
-        0.0003294005674405338
+        0.9995485207414883,
+        0.0003410065176520362
       ]
     },
-    &quot;thresholds&quot;: {
-      &quot;spearman&quot;: 0.9,
-      &quot;overlap&quot;: 0.7,
-      &quot;px&quot;: 3
-    },
-    &quot;lane_drift_duplicate&quot;: false,
+    &quot;lattice_amendment&quot;: &quot;AMEND-LATTICE-01 (IR-LATTICE-01): the 5 px calibration-lattice fixture is measured and reported here but exempted from the 70%/3 px gate; without the exemption the 0.2778 champion itself is classified a duplicate of a 0.0904 grid. AMEND-N2: nonfinite published priors compared with nonfinite = 0 support.&quot;,
     &quot;lattice_rows&quot;: [
       {
         &quot;path&quot;: &quot;inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
-        &quot;spearman&quot;: 0.0003294005674405338,
-        &quot;overlap&quot;: 0.9979285069315345
+        &quot;spearman&quot;: 0.0003410065176520362,
+        &quot;overlap&quot;: 0.9995485207414883
       },
       {
         &quot;path&quot;: &quot;docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif&quot;,
-        &quot;spearman&quot;: 0.000534035443442814,
-        &quot;overlap&quot;: 0.002549529930419079
+        &quot;spearman&quot;: -0.0008470143674280299,
+        &quot;overlap&quot;: 0.0
       }
     ],
-    &quot;ir_lattice_01&quot;: &quot;evidence/thermal/lattice_amendment.md&quot;
+    &quot;unassessable_rows&quot;: [
+      &quot;docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif&quot;,
+      &quot;docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif&quot;
+    ],
+    &quot;exact_duplicate_scan&quot;: {
+      &quot;candidate_values_sha256&quot;: &quot;405fda7ca39d36755710f70fcbc223e1febc29afe8ba13d673cdb792523cdfa5&quot;,
+      &quot;exact_duplicate_paths&quot;: [],
+      &quot;repo_priors_scanned&quot;: 8
+    },
+    &quot;anti_collision&quot;: {
+      &quot;offenders&quot;: [
+        &quot;docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-nan.tif&quot;,
+        &quot;docs/downloads/gemsdoe33-a33-r3-lchc-connectivity-37654-20261026-77337fc0c6c7-zeros.tif&quot;
+      ],
+      &quot;dots_before&quot;: 37654,
+      &quot;dots_after&quot;: 37654
+    },
+    &quot;emission_variant&quot;: &quot;anti_collision&quot;
   },
-  &quot;raster_sha256&quot;: &quot;d4061df68caf0e12eb7238088420178f6e9ebe1c56b121f2b9f401281088ee0b&quot;,
-  &quot;raster_name&quot;: &quot;gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif&quot;,
+  &quot;raster_sha256&quot;: &quot;e3268762e77c4f2db6aa1c0d1754009f4ec577b6c67cb2ecfa95f8fa8158f0ed&quot;,
+  &quot;raster_name&quot;: &quot;gemsass1-bstep-concord-37654-b6-20261031-zeros.tif&quot;,
   &quot;validator_output&quot;: {
-    &quot;path&quot;: &quot;/home/user/GEMSDOESASS1/docs/downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif&quot;,
+    &quot;path&quot;: &quot;/home/user/GEMSDOESASS1/docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif&quot;,
     &quot;checks&quot;: {
       &quot;single_band&quot;: true,
       &quot;dtype_float32&quot;: true,
@@ -276,8 +333,8 @@
     &quot;footprint_pixels&quot;: 5167373,
     &quot;min&quot;: 0.0,
     &quot;max&quot;: 1.0,
-    &quot;sha256&quot;: &quot;d4061df68caf0e12eb7238088420178f6e9ebe1c56b121f2b9f401281088ee0b&quot;,
-    &quot;size_bytes&quot;: 138611,
+    &quot;sha256&quot;: &quot;e3268762e77c4f2db6aa1c0d1754009f4ec577b6c67cb2ecfa95f8fa8158f0ed&quot;,
+    &quot;size_bytes&quot;: 89912,
     &quot;profile&quot;: {
       &quot;crs&quot;: &quot;EPSG:32611&quot;,
       &quot;shape&quot;: [
@@ -297,23 +354,20 @@
       &quot;nodata&quot;: null
     }
   },
-  &quot;submission_name&quot;: &quot;gemsass1-hvtgb-thermal-anchored-37654-b6-20261030&quot;,
-  &quot;note&quot;: &quot;GEMSASS1 H-TVGB thermal-anchored supervised 37654d &gt;600m-off-cat 2.8px; see evidence/thermal/run_card.json&quot;,
-  &quot;note_length&quot;: 106,
+  &quot;submission_name&quot;: &quot;gemsass1-bstep-concord-37654-b6-20261031&quot;,
+  &quot;note&quot;: &quot;GEMSASS1 H-BSTEP basement-edge concordance learner 37654d &gt;600m off-cat 2.8px anti_collision; HOLDOUT-DTI evidence/bstep/run_card.json&quot;,
+  &quot;note_length&quot;: 134,
   &quot;verdict&quot;: &quot;promote&quot;,
   &quot;ok_to_download_and_submit&quot;: true,
   &quot;submission_slots_used&quot;: 0,
-  &quot;evidence_class&quot;: {
-    &quot;holdout&quot;: &quot;HOLDOUT-DTI&quot;,
-    &quot;live_scores&quot;: &quot;OWNER-REPORT (no organizer receipt in this group)&quot;
-  },
+  &quot;evidence_class&quot;: &quot;HOLDOUT-DTI (GEMSASS1-HR-v2-segment) + REGISTRY-MEASUREMENT; owner-reported sibling scores are OWNER-REPORT, not receipts&quot;,
   &quot;experiments_run&quot;: 3,
   &quot;experiment_budget&quot;: 3,
-  &quot;elapsed_s&quot;: 570.1,
+  &quot;elapsed_s&quot;: 558.4,
   &quot;limitations&quot;: [
-    &quot;No organizer receipt: every historical score is OWNER-REPORT, never ORGANIZER-CONFIRMED.&quot;,
-    &quot;HOLDOUT-DTI is not a leaderboard forecast (proxy-live Spearman -0.08 over the 17-file family).&quot;,
-    &quot;IR-LATTICE-01: the 13gems calibration lattice covers &gt;=99% of any dotted file at 3 px; both readings are reported.&quot;,
-    &quot;Registry scope = nine public focus repos (414 TIFF blobs) + this repo prior files; global novelty unverified.&quot;
+    &quot;Holdout truth is catalogue-derived (labels.tif is byte-identical to existing_faults.tif in the owner mirror); holdout-live Spearman is -0.081 across 17 registry rasters, so no holdout number forecasts a leaderboard score.&quot;,
+    &quot;Owner-mirror data provenance: integrity-verified against pinned hashes, NOT organizer-authenticated.&quot;,
+    &quot;Eligibility (rules \u00a71.3, U.S. persons/entities) is a user decision before any upload; this workspace never uploads and spends no competition slot.&quot;,
+    &quot;IR-LATTICE-01 policy item remains open; both the literal and AMEND-LATTICE-01 readings are printed above.&quot;
   ]
 }</pre></section></main><footer><span>Independent research workspace · not an organizer website</span><span>Evidence before submission. No competition uploads automated.</span><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">View repository ↗</a></footer><script src="assets/source-feed.js" defer></script></body></html>

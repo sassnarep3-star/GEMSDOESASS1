@@ -1,0 +1,24 @@
+{
+  "stages": {
+    "canary": {
+      "seconds": 149.5,
+      "utc": "2026-10-31T05:21:47.261163+00:00"
+    },
+    "e1": {
+      "seconds": 781.8,
+      "utc": "2026-10-31T05:35:47.992198+00:00"
+    },
+    "e2": {
+      "seconds": 402.0,
+      "utc": "2026-10-31T05:44:14.193338+00:00"
+    },
+    "package": {
+      "seconds": 558.4,
+      "utc": "2026-10-31T05:55:29.298121+00:00"
+    }
+  },
+  "cumulative_seconds": 1891.7,
+  "experiments_run": 3,
+  "seconds_budget": 7200,
+  "experiment_budget": 3
+}

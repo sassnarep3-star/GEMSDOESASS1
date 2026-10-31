@@ -1,0 +1,906 @@
+{
+  "experiment": "E1-H-BSTEP-concordance-learner",
+  "hypothesis": "basement/grav/mag edge-concordance + relay + gouge + strain + quake transforms inside the segment-withheld learner (knowledge/hypotheses_20261031.md)",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "n_withheld_positives": 60988,
+  "holdout_dti": 0.15189130805600623,
+  "ci95": [
+    0.1445539883613929,
+    0.15871070157417574
+  ],
+  "per_fold": [
+    {
+      "fold": 0,
+      "n_test": 13289,
+      "tp": 2756.648874557188,
+      "fp": 36268.15912244881,
+      "fn": 10532.351125442812,
+      "dti": 0.1495240134284092,
+      "emitted": 37654
+    },
+    {
+      "fold": 1,
+      "n_test": 12209,
+      "tp": 2735.3265059381447,
+      "fp": 36302.19525299282,
+      "fn": 9473.673494061855,
+      "dti": 0.15563997272364594,
+      "emitted": 37654
+    },
+    {
+      "fold": 2,
+      "n_test": 11470,
+      "tp": 2377.0272544561817,
+      "fp": 36434.34072161861,
+      "fn": 9092.972745543819,
+      "dti": 0.14033468293531925,
+      "emitted": 37654
+    },
+    {
+      "fold": 3,
+      "n_test": 12776,
+      "tp": 2850.7352922891755,
+      "fp": 36213.95582472489,
+      "fn": 9925.264707710823,
+      "dti": 0.15807789028398495,
+      "emitted": 37654
+    },
+    {
+      "fold": 4,
+      "n_test": 11244,
+      "tp": 2612.013180815457,
+      "fp": 36355.860456791066,
+      "fn": 8631.986819184543,
+      "dti": 0.15558092971094947,
+      "emitted": 37654
+    }
+  ],
+  "farfield": 0.13411171722185278,
+  "farfield_ci95": [
+    0.12708119614737873,
+    0.14106283795487212
+  ],
+  "n_dots": 37654,
+  "spacing_px": 2.8,
+  "prune_px": 2.0,
+  "beats_bar": true,
+  "beats_repo_best": false,
+  "fold_novelty": [
+    {
+      "fold": 0,
+      "dots": 37654,
+      "quick_overlap": {
+        "max_spearman": 0.04255343995975758,
+        "max_overlap": 0.6315929250544431,
+        "worst_path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "over_limit": [],
+        "rows": [
+          {
+            "path": "docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+            "spearman": 0.028682706095713856,
+            "directed_overlap_within_3px": 0.5079407234291178,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+            "spearman": 0.010011850535287104,
+            "directed_overlap_within_3px": 0.33300578955755034,
+            "is_lattice": false,
+            "registry_dots": 60069
+          },
+          {
+            "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+            "spearman": 0.0010509598367735265,
+            "directed_overlap_within_3px": 0.9963881659319063,
+            "is_lattice": true,
+            "registry_dots": 206895
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.0097019037630069,
+            "directed_overlap_within_3px": 0.31924895097466405,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+            "spearman": 0.04255343995975758,
+            "directed_overlap_within_3px": 0.6315929250544431,
+            "is_lattice": false,
+            "registry_dots": 44832
+          },
+          {
+            "path": "docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+            "spearman": 0.010027406797858173,
+            "directed_overlap_within_3px": 0.21968449567111065,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.010035253062684704,
+            "directed_overlap_within_3px": 0.3540394114835077,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.010035253062684704,
+            "directed_overlap_within_3px": 0.3540394114835077,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+            "spearman": 0.008540658098608047,
+            "directed_overlap_within_3px": 0.27694268869177247,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+            "spearman": 0.008960968525011775,
+            "directed_overlap_within_3px": 0.3027301216338238,
+            "is_lattice": false,
+            "registry_dots": 42294
+          },
+          {
+            "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+            "spearman": 0.00952070580157462,
+            "directed_overlap_within_3px": 0.27202953205502733,
+            "is_lattice": false,
+            "registry_dots": 37660
+          },
+          {
+            "path": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+            "spearman": 0.009787197273169667,
+            "directed_overlap_within_3px": 0.2757475965368885,
+            "is_lattice": false,
+            "registry_dots": 37860
+          },
+          {
+            "path": "docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+            "spearman": 0.02336840247991568,
+            "directed_overlap_within_3px": 0.5470866309024274,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+            "spearman": 0.0097019037630069,
+            "directed_overlap_within_3px": 0.31924895097466405,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+            "spearman": 0.0097019037630069,
+            "directed_overlap_within_3px": 0.31924895097466405,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+            "spearman": 0.008540658098608047,
+            "directed_overlap_within_3px": 0.27694268869177247,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.0097019037630069,
+            "directed_overlap_within_3px": 0.31924895097466405,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+            "spearman": 0.008639794558402298,
+            "directed_overlap_within_3px": 0.23830137568385829,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+            "spearman": 0.008540062645774745,
+            "directed_overlap_within_3px": 0.29707335210070646,
+            "is_lattice": false,
+            "registry_dots": 41865
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+            "spearman": 0.008955177087247308,
+            "directed_overlap_within_3px": 0.24379879959632442,
+            "is_lattice": false,
+            "registry_dots": 38854
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+            "spearman": 0.0019716634852059646,
+            "directed_overlap_within_3px": 0.00427577415414033,
+            "is_lattice": true,
+            "registry_dots": 505
+          }
+        ]
+      }
+    },
+    {
+      "fold": 1,
+      "dots": 37654,
+      "quick_overlap": {
+        "max_spearman": 0.041619968484482496,
+        "max_overlap": 0.6327349020024433,
+        "worst_path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "over_limit": [],
+        "rows": [
+          {
+            "path": "docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+            "spearman": 0.022110454222488547,
+            "directed_overlap_within_3px": 0.5408190364901472,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+            "spearman": 0.014421714793181521,
+            "directed_overlap_within_3px": 0.35050725022573964,
+            "is_lattice": false,
+            "registry_dots": 60069
+          },
+          {
+            "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+            "spearman": -0.0012082083598451004,
+            "directed_overlap_within_3px": 0.993679290380836,
+            "is_lattice": true,
+            "registry_dots": 206895
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.01382234052576885,
+            "directed_overlap_within_3px": 0.3355818770914113,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+            "spearman": 0.041619968484482496,
+            "directed_overlap_within_3px": 0.6327349020024433,
+            "is_lattice": false,
+            "registry_dots": 44832
+          },
+          {
+            "path": "docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+            "spearman": 0.012806787056228914,
+            "directed_overlap_within_3px": 0.23941679502841665,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.014952885745261222,
+            "directed_overlap_within_3px": 0.3704785680140224,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.014952885745261222,
+            "directed_overlap_within_3px": 0.3704785680140224,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+            "spearman": 0.011192266932685229,
+            "directed_overlap_within_3px": 0.29170871620544964,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+            "spearman": 0.010582318311403853,
+            "directed_overlap_within_3px": 0.31818664683698944,
+            "is_lattice": false,
+            "registry_dots": 42294
+          },
+          {
+            "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+            "spearman": 0.00814642362020381,
+            "directed_overlap_within_3px": 0.285520794603495,
+            "is_lattice": false,
+            "registry_dots": 37660
+          },
+          {
+            "path": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+            "spearman": 0.008073788287401159,
+            "directed_overlap_within_3px": 0.2886545918096351,
+            "is_lattice": false,
+            "registry_dots": 37860
+          },
+          {
+            "path": "docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+            "spearman": 0.022730709578842562,
+            "directed_overlap_within_3px": 0.5653582620704307,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+            "spearman": 0.01382234052576885,
+            "directed_overlap_within_3px": 0.3355818770914113,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+            "spearman": 0.01382234052576885,
+            "directed_overlap_within_3px": 0.3355818770914113,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+            "spearman": 0.011192266932685229,
+            "directed_overlap_within_3px": 0.29170871620544964,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.01382234052576885,
+            "directed_overlap_within_3px": 0.3355818770914113,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+            "spearman": 0.011720395563941739,
+            "directed_overlap_within_3px": 0.2524034631114888,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+            "spearman": 0.011808713287975316,
+            "directed_overlap_within_3px": 0.31075051787326713,
+            "is_lattice": false,
+            "registry_dots": 41865
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+            "spearman": 0.011316098289749655,
+            "directed_overlap_within_3px": 0.25649333404153607,
+            "is_lattice": false,
+            "registry_dots": 38854
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+            "spearman": 0.0105359394292485,
+            "directed_overlap_within_3px": 0.005789557550326658,
+            "is_lattice": true,
+            "registry_dots": 505
+          }
+        ]
+      }
+    },
+    {
+      "fold": 2,
+      "dots": 37654,
+      "quick_overlap": {
+        "max_spearman": 0.036583681669890296,
+        "max_overlap": 0.6090720773357412,
+        "worst_path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "over_limit": [],
+        "rows": [
+          {
+            "path": "docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+            "spearman": 0.03173410969155826,
+            "directed_overlap_within_3px": 0.5128007648589791,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+            "spearman": 0.011570911955028596,
+            "directed_overlap_within_3px": 0.3723907154618367,
+            "is_lattice": false,
+            "registry_dots": 60069
+          },
+          {
+            "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+            "spearman": 0.0006623736630939248,
+            "directed_overlap_within_3px": 0.9948478249322781,
+            "is_lattice": true,
+            "registry_dots": 206895
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.01654757118687413,
+            "directed_overlap_within_3px": 0.35733255431029903,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+            "spearman": 0.036583681669890296,
+            "directed_overlap_within_3px": 0.6090720773357412,
+            "is_lattice": false,
+            "registry_dots": 44832
+          },
+          {
+            "path": "docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+            "spearman": 0.012620691420525626,
+            "directed_overlap_within_3px": 0.2277845647208796,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.01185803064841561,
+            "directed_overlap_within_3px": 0.3881659319063048,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.01185803064841561,
+            "directed_overlap_within_3px": 0.3881659319063048,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+            "spearman": 0.014012959636855327,
+            "directed_overlap_within_3px": 0.3077495086843363,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+            "spearman": 0.013015717968656219,
+            "directed_overlap_within_3px": 0.33837042545280716,
+            "is_lattice": false,
+            "registry_dots": 42294
+          },
+          {
+            "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+            "spearman": 0.011055550580162376,
+            "directed_overlap_within_3px": 0.3011366654273118,
+            "is_lattice": false,
+            "registry_dots": 37660
+          },
+          {
+            "path": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+            "spearman": 0.011319578399292866,
+            "directed_overlap_within_3px": 0.3046157114781962,
+            "is_lattice": false,
+            "registry_dots": 37860
+          },
+          {
+            "path": "docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+            "spearman": 0.0174486734993357,
+            "directed_overlap_within_3px": 0.5516545386944283,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+            "spearman": 0.01654757118687413,
+            "directed_overlap_within_3px": 0.35733255431029903,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+            "spearman": 0.01654757118687413,
+            "directed_overlap_within_3px": 0.35733255431029903,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+            "spearman": 0.014012959636855327,
+            "directed_overlap_within_3px": 0.3077495086843363,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.01654757118687413,
+            "directed_overlap_within_3px": 0.35733255431029903,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+            "spearman": 0.012909696552987592,
+            "directed_overlap_within_3px": 0.26833802517660804,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+            "spearman": 0.010657662705203057,
+            "directed_overlap_within_3px": 0.33098741169596857,
+            "is_lattice": false,
+            "registry_dots": 41865
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+            "spearman": 0.01248881471389491,
+            "directed_overlap_within_3px": 0.27181707122749243,
+            "is_lattice": false,
+            "registry_dots": 38854
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+            "spearman": 0.010608838438703899,
+            "directed_overlap_within_3px": 0.004939714240186965,
+            "is_lattice": true,
+            "registry_dots": 505
+          }
+        ]
+      }
+    },
+    {
+      "fold": 3,
+      "dots": 37654,
+      "quick_overlap": {
+        "max_spearman": 0.03759476255287369,
+        "max_overlap": 0.6073192755085781,
+        "worst_path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "over_limit": [],
+        "rows": [
+          {
+            "path": "docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+            "spearman": 0.02814422373628591,
+            "directed_overlap_within_3px": 0.4933871567429755,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+            "spearman": 0.012076181984508017,
+            "directed_overlap_within_3px": 0.3647421256705795,
+            "is_lattice": false,
+            "registry_dots": 60069
+          },
+          {
+            "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+            "spearman": 0.0002886277358909298,
+            "directed_overlap_within_3px": 0.9968927603973018,
+            "is_lattice": true,
+            "registry_dots": 206895
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.009586432178224635,
+            "directed_overlap_within_3px": 0.3493121580708557,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+            "spearman": 0.03759476255287369,
+            "directed_overlap_within_3px": 0.6073192755085781,
+            "is_lattice": false,
+            "registry_dots": 44832
+          },
+          {
+            "path": "docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+            "spearman": 0.011298016499694374,
+            "directed_overlap_within_3px": 0.2520582142667446,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.012079766312076391,
+            "directed_overlap_within_3px": 0.3803845540978382,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.012079766312076391,
+            "directed_overlap_within_3px": 0.3803845540978382,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+            "spearman": 0.009751145829526681,
+            "directed_overlap_within_3px": 0.3040845594093589,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+            "spearman": 0.010459930829080291,
+            "directed_overlap_within_3px": 0.33167790938545705,
+            "is_lattice": false,
+            "registry_dots": 42294
+          },
+          {
+            "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+            "spearman": 0.007696872993059001,
+            "directed_overlap_within_3px": 0.29941042120359057,
+            "is_lattice": false,
+            "registry_dots": 37660
+          },
+          {
+            "path": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+            "spearman": 0.007625435694311439,
+            "directed_overlap_within_3px": 0.30310192808200986,
+            "is_lattice": false,
+            "registry_dots": 37860
+          },
+          {
+            "path": "docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+            "spearman": 0.023193299138497128,
+            "directed_overlap_within_3px": 0.5699792850693154,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+            "spearman": 0.009586432178224635,
+            "directed_overlap_within_3px": 0.3493121580708557,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+            "spearman": 0.009586432178224635,
+            "directed_overlap_within_3px": 0.3493121580708557,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+            "spearman": 0.009751145829526681,
+            "directed_overlap_within_3px": 0.3040845594093589,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.009586432178224635,
+            "directed_overlap_within_3px": 0.3493121580708557,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+            "spearman": 0.008534471640672678,
+            "directed_overlap_within_3px": 0.26706326021139853,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+            "spearman": 0.008431982659394408,
+            "directed_overlap_within_3px": 0.32647261911085146,
+            "is_lattice": false,
+            "registry_dots": 41865
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+            "spearman": 0.008847408912202015,
+            "directed_overlap_within_3px": 0.2711796887448877,
+            "is_lattice": false,
+            "registry_dots": 38854
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+            "spearman": 0.007637592406392029,
+            "directed_overlap_within_3px": 0.0034790460508843683,
+            "is_lattice": true,
+            "registry_dots": 505
+          }
+        ]
+      }
+    },
+    {
+      "fold": 4,
+      "dots": 37654,
+      "quick_overlap": {
+        "max_spearman": 0.04183009549508809,
+        "max_overlap": 0.6263876347798375,
+        "worst_path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "over_limit": [],
+        "rows": [
+          {
+            "path": "docs/downloads/gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros.tif",
+            "spearman": 0.029724234551392763,
+            "directed_overlap_within_3px": 0.5428905295586126,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+            "spearman": 0.015006508285197454,
+            "directed_overlap_within_3px": 0.3538003930525309,
+            "is_lattice": false,
+            "registry_dots": 60069
+          },
+          {
+            "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+            "spearman": 0.0014049315416068406,
+            "directed_overlap_within_3px": 0.9956445530355341,
+            "is_lattice": true,
+            "registry_dots": 206895
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.010657975088322703,
+            "directed_overlap_within_3px": 0.3392468263663887,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+            "spearman": 0.04183009549508809,
+            "directed_overlap_within_3px": 0.6263876347798375,
+            "is_lattice": false,
+            "registry_dots": 44832
+          },
+          {
+            "path": "docs/downloads/gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite.tif",
+            "spearman": 0.011156893391461146,
+            "directed_overlap_within_3px": 0.2376905508046954,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.014709980865113412,
+            "directed_overlap_within_3px": 0.3714877569448133,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+            "spearman": 0.014709980865113412,
+            "directed_overlap_within_3px": 0.3714877569448133,
+            "is_lattice": false,
+            "registry_dots": 61328
+          },
+          {
+            "path": "docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+            "spearman": 0.009285963493872628,
+            "directed_overlap_within_3px": 0.29229298348117067,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan.tif",
+            "spearman": 0.008394860971082966,
+            "directed_overlap_within_3px": 0.3212673288362458,
+            "is_lattice": false,
+            "registry_dots": 42294
+          },
+          {
+            "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+            "spearman": 0.009638095454713233,
+            "directed_overlap_within_3px": 0.28846868858554203,
+            "is_lattice": false,
+            "registry_dots": 37660
+          },
+          {
+            "path": "docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan.tif",
+            "spearman": 0.01023101267455895,
+            "directed_overlap_within_3px": 0.29375365167047324,
+            "is_lattice": false,
+            "registry_dots": 37860
+          },
+          {
+            "path": "docs/downloads/gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+            "spearman": 0.021844579734424625,
+            "directed_overlap_within_3px": 0.5747596536888511,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif",
+            "spearman": 0.010657975088322703,
+            "directed_overlap_within_3px": 0.3392468263663887,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+            "spearman": 0.010657975088322703,
+            "directed_overlap_within_3px": 0.3392468263663887,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+            "spearman": 0.009285963493872628,
+            "directed_overlap_within_3px": 0.29229298348117067,
+            "is_lattice": false,
+            "registry_dots": 40199
+          },
+          {
+            "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+            "spearman": 0.010657975088322703,
+            "directed_overlap_within_3px": 0.3392468263663887,
+            "is_lattice": false,
+            "registry_dots": 44090
+          },
+          {
+            "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+            "spearman": 0.008768896286921807,
+            "directed_overlap_within_3px": 0.25519201147288467,
+            "is_lattice": false,
+            "registry_dots": 37654
+          },
+          {
+            "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+            "spearman": 0.009262892223737721,
+            "directed_overlap_within_3px": 0.31457481276889576,
+            "is_lattice": false,
+            "registry_dots": 41865
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+            "spearman": 0.008403732219202577,
+            "directed_overlap_within_3px": 0.25731661974823394,
+            "is_lattice": false,
+            "registry_dots": 38854
+          },
+          {
+            "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+            "spearman": 0.007464885113681527,
+            "directed_overlap_within_3px": 0.004328889361024061,
+            "is_lattice": true,
+            "registry_dots": 505
+          }
+        ]
+      }
+    }
+  ],
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ],
+    "evidence": "evidence/swgb/holdout_calibration.json"
+  },
+  "repo_best": {
+    "name": "E2-SWGB emitted, prune 4 px, 44,090 dots (repo holdout best)",
+    "holdout_dti": 0.1591,
+    "ci95": [
+      0.1538,
+      0.1639
+    ],
+    "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+  },
+  "e2_swgb": {
+    "name": "E2-SWGB as evaluated",
+    "holdout_dti": 0.1586,
+    "ci95": [
+      0.1519,
+      0.1649
+    ],
+    "evidence": "evidence/swgb/e2_swgb_holdout.json"
+  },
+  "n_features": 61,
+  "new_features": [
+    "bst_step_ridge",
+    "bst_grav_ridge",
+    "bst_mag_ridge",
+    "bst_triple",
+    "bst_step_grav",
+    "bst_step_mag",
+    "gouge_cond_step",
+    "strain_edge",
+    "quake_curv",
+    "relay_bridge"
+  ],
+  "elapsed_s": 781.8
+}

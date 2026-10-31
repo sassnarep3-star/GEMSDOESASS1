@@ -21,6 +21,9 @@ def main():
     subprocess.run([sys.executable, str(ROOT / 'scripts/swgb_build_site.py')],
                    capture_output=True, text=True, timeout=10, check=True)
     card_path = ROOT / 'evidence/thermal/run_card.json'
+    pointer = ROOT / 'evidence/current_release.json'
+    if pointer.exists():
+        card_path = ROOT / json.loads(pointer.read_text()).get('run_card', 'evidence/thermal/run_card.json')
     card = json.loads(card_path.read_text()) if card_path.exists() else {}
     approved_name = card.get('raster_name') if card.get('ok_to_download_and_submit') else None
     for page in pages:

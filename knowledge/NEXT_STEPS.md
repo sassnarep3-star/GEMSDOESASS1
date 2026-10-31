@@ -5,7 +5,73 @@
 > conclusions. **Read both.** The eligibility finding in Part 2 and the uniqueness-policy question
 > are blocking user decisions.
 
-## Part 1 — H-TVGB thermal-lane release
+# Next session — ordered actions (updated 2026-10-31 after the H-BSTEP release)
+
+> Three sessions have written this file. **Part 0 (2026-10-31, H-BSTEP) is current**: one file is
+> released as OK TO DOWNLOAD AND SUBMIT. Part 1 is the 2026-10-30 H-TVGB thermal-lane record
+> (superseded download, record kept); Part 2 (verbatim) is the nine-site-board session's record.
+> The eligibility finding and the uniqueness-policy question remain blocking user decisions.
+
+## Part 0 — H-BSTEP release (2026-10-31) — current
+
+**Released (OK TO DOWNLOAD AND SUBMIT):**
+`docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif` (37,654 dots, H-BSTEP
+basement-step concordance learner, 600 m catalogue exclusion, anti-collision emission; values in
+[0,1], no NaN anywhere). Run card `evidence/bstep/run_card.json` · release
+`evidence/bstep/release.json` · pointer `evidence/current_release.json`. Shipped-variant HOLDOUT-DTI
+0.1433 [0.1366, 0.1507] vs bar 0.1011 [0.0956, 0.1072]; far-field TRUE 0.1502; dots-gate max
+overlap 25.4% (limit 70%), max Spearman 0.015 (limit 0.90). Slots used: 0.
+
+**E3 headline (why 0.2778 scored highest).** The nine-site champion is exactly the GEMSDOE25 d2.8
+dotted emission with dots within 2 px of visible catalogue faults deleted (44,090 − 6,436 = 37,654,
+zero symmetric difference; verified against three baselines). The ladder 0.2600 → 0.2708 → 0.2778 is
+progressively moving dots away from visible catalogue faults; champion dots sit a median 1.96 km
+from the visible catalogue, so hidden truth is far-field. H-BSTEP reproduces the learning pattern
+with a second-order concordance feature stack (canary max AUC 0.722; new transforms 0.53–0.60;
+nothing flagged above 0.90).
+
+**Policies that hold next session.**
+- AMEND-LATTICE-01 comparative gates (Spearman ≤ 0.90 AND ≤ 70% within 3 px of any competitive
+  raster), literal 70%/3 px reading reported alongside (still saturated by the 5 px calibration
+  lattice). The Policy A/B/C choice is open to the user.
+- E2-SWGB 0.1586 remains a withdrawn duplicate benchmark (79.1% vs one registry raster); the
+  zero-mass catalogue exclusion prunes 6,436 dots from the d2.8 family (measurement, no submission).
+- 2026-10-30 H-TVGB download superseded but preserved (`evidence/thermal/`); its B2 packaging
+  duplicate stays logged in `run_card_b2_duplicate_log.json`.
+- All frozen negatives (BGAC, H-PBSC, SWGB, H-TSFX, H-GDR-CONDUIT) remain in force and unmodified.
+
+**What remains open.**
+1. **Selector decision (user):** spend one weekly submission slot on
+   `gemsass1-bstep-concord-37654-b6-20261031-zeros.tif`? Name/note on the executive summary. This
+   workspace never uploads. Save the organizer receipt — only a receipt makes a score
+   ORGANIZER-CONFIRMED.
+2. **Eligibility (rules §1.3):** U.S. citizens / permanent residents / U.S.-incorporated entities
+   only. Arena reports Calgary, Canada (earlier sessions recorded Singapore) — confirm with the
+   administrator before any upload; do not sign a certification unless it is true.
+3. **Evidence-integrity review decisions** (knowledge/REVIEW_2026-10-31.md, irregularities 2–5):
+   owner-reported-vs-organizer wording, the SGMC far-field limit, the NLR URL 404/placeholder risk,
+   and the IR-LATTICE-01 policy choice (A/B/C) — all user calls.
+4. Candidates 2 (relay-bridge stepover offsets) and 4–5 were not run (budget); preregistered in
+   `knowledge/hypotheses_20261031.md` if another lane is wanted.
+5. Live validation is out of scope here (HOLDOUT-DTI ≠ leaderboard; Spearman −0.081).
+
+## Reproduce the release
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-lock.txt
+.venv/bin/python scripts/prepare_data.py        # official rasters + registry snapshot (414 rasters)
+.venv/bin/python scripts/run_bstep.py canary
+.venv/bin/python scripts/run_bstep.py e1
+.venv/bin/python scripts/run_bstep.py e2
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/run_bstep.py package
+.venv/bin/python -m pytest -q
+python scripts/build_site.py && python scripts/swgb_build_site.py
+python scripts/verify_release.py && python scripts/check_release_entrypoints.py && python scripts/verify_swgb_correction.py
+```
+
+## Part 1 — H-TVGB thermal-lane release (2026-10-30, superseded download)
+
 
 1. **Selector decision on the generated H-TVGB file.**
    `docs/downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif`

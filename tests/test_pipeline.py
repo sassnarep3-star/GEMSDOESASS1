@@ -191,10 +191,13 @@ def test_frozen_negative_artifact_contract():
     # B2 duplicate log; nothing else may appear there.
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    pointer = json.loads((ROOT/'evidence/current_release.json').read_text())
+    current = json.loads((ROOT / pointer['run_card']).read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
+               current['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
@@ -245,9 +248,12 @@ def test_concurrent_main_research_preserved_not_promoted():
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     assert pbsc['ok_to_submit'] is False
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    pointer = json.loads((ROOT/'evidence/current_release.json').read_text())
+    current = json.loads((ROOT / pointer['run_card']).read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
+               current['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 

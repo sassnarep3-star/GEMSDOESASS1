@@ -1,0 +1,100 @@
+{
+  "experiment": "E2-emission-sensitivity",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "selection_rule": "shipped cell fixed a priori at n=37,654 / 2.8 px / >6 px catalogue exclusion (knowledge/hypotheses_20261031.md \u00a72); sweep = sensitivity evidence, never selection",
+  "grid": [
+    {
+      "n_dots": 37654,
+      "prune_px": 2.0,
+      "holdout_dti": 0.15194933187195245,
+      "ci95": [
+        0.14339205065154464,
+        0.1566533736380795
+      ],
+      "farfield": 0.13408394524939085,
+      "quick_max_overlap": 0.6326286715886759,
+      "quick_max_rho": 0.04199489562598189,
+      "quick_over_limit": []
+    },
+    {
+      "n_dots": 37654,
+      "prune_px": 6.0,
+      "holdout_dti": 0.1412590858726133,
+      "ci95": [
+        0.13492574915000047,
+        0.14771044581378348
+      ],
+      "farfield": 0.14809257179769297,
+      "quick_max_overlap": 0.5667392574494078,
+      "quick_max_rho": 0.02676962048843596,
+      "quick_over_limit": []
+    },
+    {
+      "n_dots": 44090,
+      "prune_px": 2.0,
+      "holdout_dti": 0.15827141480629034,
+      "ci95": [
+        0.15255089498431207,
+        0.16469516715499227
+      ],
+      "farfield": 0.1413555839175578,
+      "quick_max_overlap": 0.6257654797006124,
+      "quick_max_rho": 0.04428438512296201,
+      "quick_over_limit": []
+    },
+    {
+      "n_dots": 44090,
+      "prune_px": 6.0,
+      "holdout_dti": 0.146133613301112,
+      "ci95": [
+        0.1405607394926478,
+        0.15353439434420824
+      ],
+      "farfield": 0.15228605001870218,
+      "quick_max_overlap": 0.5543660694034929,
+      "quick_max_rho": 0.028196827196065186,
+      "quick_over_limit": []
+    }
+  ],
+  "anti_collision_cell": {
+    "n_dots": 37654,
+    "prune_px": 6.0,
+    "variant": "anti_collision",
+    "holdout_dti": 0.1412590858726133,
+    "ci95": [
+      0.13492574915000047,
+      0.14771044581378348
+    ],
+    "farfield": 0.14809257179769297,
+    "quick_max_overlap": 0.5667392574494078,
+    "quick_max_rho": 0.02676962048843596,
+    "quick_over_limit": [],
+    "offenders_union": [],
+    "dots_per_fold": [
+      37654,
+      37654,
+      37654,
+      37654,
+      37654
+    ]
+  },
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ],
+    "evidence": "evidence/swgb/holdout_calibration.json"
+  },
+  "repo_best": {
+    "name": "E2-SWGB emitted, prune 4 px, 44,090 dots (repo holdout best)",
+    "holdout_dti": 0.1591,
+    "ci95": [
+      0.1538,
+      0.1639
+    ],
+    "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+  },
+  "elapsed_s": 402.0
+}

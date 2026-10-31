@@ -82,5 +82,12 @@
     "audit_input_fallback": "Hash/size-verified checked-in bridge sample_submission and existing_faults rasters; full feature stack is unnecessary for historical raster comparison.",
     "submission_status": "No TIFF approved; prior negative decision unchanged.",
     "review_record": "docs/REPO_REVIEW_2026-10-30.md"
-  }
+  },
+  "post_review_2026-10-31_implementation_sha256": {
+    "scripts/build_site.py": "4107b166878d31ce0e8701c4e2b346c855d073a3d30ac6fe7bd8adde2d08f892",
+    "scripts/verify_release.py": "a26f3e9db5dcaf245cd462ad0650938859145e5cfe087881b5335e6d15936cc0",
+    "scripts/check_release_entrypoints.py": "cb35527d2680a382f97418e679befd6a425666137cf09e7647bf42d4869aa65b",
+    "scripts/verify_swgb_correction.py": "1334385aa80413bcd43295506736354de5513269fce4bdf765a6fc4ccc308c80"
+  },
+  "post_review_2026-10-31": "H-BSTEP lane release (2026-10-31): current-release pointer (evidence/current_release.json) added; build_site/check_release_entrypoints/verify_release/verify_swgb_correction updated to render and verify the H-BSTEP candidate; all frozen negative records unchanged."
 }

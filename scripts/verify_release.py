@@ -83,12 +83,16 @@ def main():
     tifs = list((ROOT / 'docs/downloads').glob('*.tif'))
     zips = list((ROOT / 'docs/downloads').glob('*.zip'))
     thermal = strict_json(ROOT / 'evidence/thermal/run_card.json')
+    pointer = strict_json(ROOT / 'evidence/current_release.json')
+    current = strict_json(ROOT / pointer['run_card']) if (ROOT / pointer['run_card']).exists() else {}
     allowed_prefixes = [pbsc['submission_name'].replace('.tif', '')]
     if thermal.get('raster_name'):
         allowed_prefixes.append(thermal['raster_name'].replace('.tif', ''))
         allowed_prefixes.append('gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    if current.get('raster_name'):
+        allowed_prefixes.append(current['raster_name'].replace('.tif', ''))
     require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in tifs),
-            'docs/downloads may only hold the named H-PBSC research TIF and the thermal-lane release')
+            'docs/downloads may only hold the named H-PBSC research TIF and the approved lane releases')
     require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in zips),
             'docs/downloads zip must match an allowed artifact')
     require(card['raster_sha256'] is None, 'BGAC still must not claim a TIFF')
@@ -110,6 +114,25 @@ def main():
         require(thermal['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'live score labeling')
         canary = strict_json(ROOT / 'evidence/thermal/leakage_canary.json')
         require(canary['canary_pass'] and not canary['flagged_over_0p90'], 'thermal canary unresolved')
+    # --- 2026-10-31 current-release checks (additive; all frozen negatives above unchanged) ---
+    if current:
+        require(current['submission_slots_used'] == 0, 'the current run must not use slots')
+        require(len(current['note']) <= 140 and len(current['submission_name']) <= 140, 'current name/note length')
+        require(current['holdout_dti']['label'] == 'HOLDOUT-DTI', 'current score class')
+        require(current['experiments_run'] <= current['experiment_budget'] == 3, 'current experiment budget')
+        cur_release = strict_json(ROOT / pointer['release'])
+        require(cur_release['card']['raster_sha256'] == current['raster_sha256'], 'current release/card hash drift')
+        ok = cur_release['card']['ok_to_download_and_submit']
+        require(ok == all(passed for _, passed in cur_release['gates']), 'current verdict must equal the gate table')
+        if ok:
+            tif_path = ROOT / 'docs/downloads' / current['raster_name']
+            require(tif_path.is_file(), 'approved current TIFF missing')
+            require(hashlib.sha256(tif_path.read_bytes()).hexdigest() == current['raster_sha256'],
+                    'approved current TIFF hash mismatch')
+        require('OWNER-REPORT' in current['evidence_class'] and 'HOLDOUT-DTI' in current['evidence_class'],
+                'current evidence class labeling')
+        cur_canary = strict_json(ROOT / 'evidence/bstep/leakage_canary.json')
+        require(cur_canary['canary_pass'] and not cur_canary['flagged_over_0p90'], 'current canary unresolved')
     correction = strict_json(ROOT / 'evidence/corrected_surface_novelty.json')
     require(correction['duplicate'] and not correction['cleared'], 'pre-placement stop missing')
     require(correction['candidate_values_sha256'] == card['canonical_surface_sha256'], 'corrective audit changed candidate')
@@ -129,10 +152,11 @@ def main():
         require(hashlib.sha256((ROOT / 'vendor/gems57' / name).read_bytes()).hexdigest() == digest, 'shared tool modified without source fix: ' + name)
     frozen = strict_json(ROOT / 'evidence/release_checks.json')
     post = frozen.get('post_review_2026-10-30_implementation_sha256', {})
+    post.update(frozen.get('post_review_2026-10-31_implementation_sha256', {}))
     for relative, digest in frozen['implementation_sha256'].items():
-        current = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
-        # A file may change after the 2026-10-27 review only if its new bytes are pinned in the explicit post-review map.
-        require(current == digest or current == post.get(relative), 'implementation changed since review: ' + relative)
+        current_hash = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+        # A file may change after the 2026-10-27 review only if its new bytes are pinned in an explicit post-review map.
+        require(current_hash == digest or current_hash == post.get(relative), 'implementation changed since review: ' + relative)
     local_links = check_links()
     for path in (ROOT / 'evidence').glob('*.json'):
         require(path.read_bytes() == (ROOT / 'docs/evidence' / path.name).read_bytes(), 'site evidence stale: ' + path.name)
@@ -140,7 +164,11 @@ def main():
         if path.suffix in ('.json', '.md'):
             require(path.read_bytes() == (ROOT / 'docs/evidence/thermal' / path.name).read_bytes(),
                     'site thermal evidence stale: ' + path.name)
-    print(f'PASS: frozen negative release preserved; thermal-lane release verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
+    for path in (ROOT / 'evidence/bstep').glob('*'):
+        if path.suffix in ('.json', '.md'):
+            require(path.read_bytes() == (ROOT / 'docs/evidence/bstep' / path.name).read_bytes(),
+                    'site bstep evidence stale: ' + path.name)
+    print(f'PASS: frozen negative release preserved; thermal + current lane releases verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
 
 
 if __name__ == '__main__':
