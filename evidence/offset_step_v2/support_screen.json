@@ -1,0 +1,320 @@
+{
+  "evidence_class": "HOLDOUT-DTI",
+  "generated_utc": "2026-10-31T05:56:29.066353+00:00",
+  "purpose": "support screening at fixed certified emission geometry",
+  "geometry": {
+    "spacing_px": 2.8,
+    "dots_cap": 44090,
+    "catalogue_prune_px": 2,
+    "support_matched_to_px": 121131
+  },
+  "rows": [
+    {
+      "label": "sgmc_offcatalogue (raw mask)",
+      "support_px": 83593,
+      "emitted": 24280,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.12324974504919772,
+      "ci95": [
+        0.11567713708830757,
+        0.130337364478662
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9129.263975070717,
+      "fp": 117275.03864553836,
+      "fn": 51858.73602492928,
+      "coverage": 0.149689512282264,
+      "farfield_gt5px_dti": 0.12300181369703665,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "H19-5 (champion control)",
+      "support_px": 121131,
+      "emitted": 41017,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.1048002062385249,
+      "ci95": [
+        0.09975329221867935,
+        0.10955788951761336
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9526.1356521613,
+      "fp": 201012.17472374806,
+      "fn": 51461.86434783871,
+      "coverage": 0.15619688548831406,
+      "farfield_gt5px_dti": 0.10189814995510095,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "H19-4",
+      "support_px": 121131,
+      "emitted": 41639,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.10391445825990216,
+      "ci95": [
+        0.09940147623819871,
+        0.10861430624297845
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9510.021163352278,
+      "fp": 204126.9093186124,
+      "fn": 51477.97883664772,
+      "coverage": 0.1559326615621479,
+      "farfield_gt5px_dti": 0.1010918279917122,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "H16-1",
+      "support_px": 121131,
+      "emitted": 42591,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.1026902889216957,
+      "ci95": [
+        0.09820209457316505,
+        0.1077394078724858
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9495.171972693744,
+      "fp": 208873.66052267916,
+      "fn": 51492.828027306256,
+      "coverage": 0.15568918430992562,
+      "farfield_gt5px_dti": 0.0996922351248047,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:upface_max",
+      "support_px": 121131,
+      "emitted": 37639,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.05150337696590405,
+      "ci95": [
+        0.04737467452980429,
+        0.05541422792047733
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 4477.608839513407,
+      "fp": 186261.19235568252,
+      "fn": 56510.3911604866,
+      "coverage": 0.07341786645755569,
+      "farfield_gt5px_dti": 0.05040285214784043,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:ex_mean",
+      "support_px": 121131,
+      "emitted": 38861,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.05088837005564315,
+      "ci95": [
+        0.04665886684623437,
+        0.054954061379651996
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 4486.275406086725,
+      "fp": 192357.47037838935,
+      "fn": 56501.72459391328,
+      "coverage": 0.07355996927406579,
+      "farfield_gt5px_dti": 0.04947532620025012,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:lapneg_max",
+      "support_px": 121131,
+      "emitted": 35570,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04787687805711092,
+      "ci95": [
+        0.04355535673323551,
+        0.05253366084778515
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 4060.8472404186855,
+      "fp": 176079.88867007865,
+      "fn": 56927.15275958132,
+      "coverage": 0.0665843647999391,
+      "farfield_gt5px_dti": 0.046996085622452326,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:lappos_max",
+      "support_px": 121131,
+      "emitted": 32496,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04605996213237203,
+      "ci95": [
+        0.042534648060892716,
+        0.05051923185211267
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3763.577142905297,
+      "fp": 160836.33743413317,
+      "fn": 57224.4228570947,
+      "coverage": 0.06171012564611558,
+      "farfield_gt5px_dti": 0.04539242788421398,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:downface_max",
+      "support_px": 121131,
+      "emitted": 35430,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.0452538464385876,
+      "ci95": [
+        0.04163080879965753,
+        0.04874370391464283
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3830.9065051898665,
+      "fp": 175485.70010802412,
+      "fn": 57157.093494810135,
+      "coverage": 0.06281410285941277,
+      "farfield_gt5px_dti": 0.04342974157611354,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:coh100",
+      "support_px": 121131,
+      "emitted": 44090,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.0445217263331591,
+      "ci95": [
+        0.04166962408144039,
+        0.04710291614688569
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 4155.83219341183,
+      "fp": 218611.73774346075,
+      "fn": 56832.16780658817,
+      "coverage": 0.06814180155787745,
+      "farfield_gt5px_dti": 0.04047685102106739,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:ex_max",
+      "support_px": 121131,
+      "emitted": 33536,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.043845548663007224,
+      "ci95": [
+        0.03994801088936204,
+        0.04742655217805931
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3627.443226049203,
+      "fp": 166082.07278432066,
+      "fn": 57360.5567739508,
+      "coverage": 0.05947798298106518,
+      "farfield_gt5px_dti": 0.04250980505725283,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:cross_max",
+      "support_px": 121131,
+      "emitted": 30949,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04372710590821118,
+      "ci95": [
+        0.040108150210616096,
+        0.04751252094926718
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3503.987154358439,
+      "fp": 153209.35320840863,
+      "fn": 57484.012845641555,
+      "coverage": 0.05745371473664392,
+      "farfield_gt5px_dti": 0.04295677613279707,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:step_max",
+      "support_px": 121131,
+      "emitted": 32679,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.043533694580885816,
+      "ci95": [
+        0.03974173250748599,
+        0.04721379756487577
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3564.185552812102,
+      "fp": 161843.229852401,
+      "fn": 57423.81444718789,
+      "coverage": 0.058440767902080776,
+      "farfield_gt5px_dti": 0.04210306214795306,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:strike",
+      "support_px": 121131,
+      "emitted": 44090,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04109570070699902,
+      "ci95": [
+        0.03821368090687606,
+        0.04358761221140216
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3835.2180365693202,
+      "fp": 218833.13039274255,
+      "fn": 57152.78196343068,
+      "coverage": 0.06288479760886273,
+      "farfield_gt5px_dti": 0.03753072876429602,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:relief",
+      "support_px": 121131,
+      "emitted": 28928,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.027566696225113905,
+      "ci95": [
+        0.024661972490202747,
+        0.03052584094099422
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2149.0750018238496,
+      "fp": 143694.45658349397,
+      "fn": 58838.92499817615,
+      "coverage": 0.0352376697354209,
+      "farfield_gt5px_dti": 0.027637219871019345,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:MAX",
+      "support_px": 121131,
+      "emitted": 13954,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.017589911991065067,
+      "ci95": [
+        0.012745804605432271,
+        0.0229190048686078
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1105.2356765711693,
+      "fp": 69110.24768905978,
+      "fn": 59882.764323428826,
+      "coverage": 0.01812218266824899,
+      "farfield_gt5px_dti": 0.01617869285194971,
+      "evidence_class": "HOLDOUT-DTI"
+    },
+    {
+      "label": "lidar_scarp:valid",
+      "support_px": 121131,
+      "emitted": 13954,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.017582294952718642,
+      "ci95": [
+        0.012744255936611945,
+        0.022924977125850572
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1104.7555084375524,
+      "fp": 69110.28338165078,
+      "fn": 59883.24449156245,
+      "coverage": 0.01811430951068329,
+      "farfield_gt5px_dti": 0.016201489141912218,
+      "evidence_class": "HOLDOUT-DTI"
+    }
+  ],
+  "elapsed_seconds": 442.9
+}

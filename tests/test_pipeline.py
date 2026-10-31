@@ -10,6 +10,8 @@ from rasterio.transform import from_origin
 from scipy.stats import spearmanr
 
 ROOT = Path(__file__).resolve().parents[1]
+# 2026-10-31 H-FUSION3 lane: the one new downloadable candidate this session shipped.
+NEW_CANDIDATE = 'gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros'
 sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
 from bgac import emit
 from novelty import audit, canonical_hash, centered_ranks, exact_spearman
@@ -195,7 +197,8 @@ def test_frozen_negative_artifact_contract():
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               NEW_CANDIDATE)                     # 2026-10-31 H-FUSION3 lane, own run card
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
@@ -248,7 +251,8 @@ def test_concurrent_main_research_preserved_not_promoted():
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               NEW_CANDIDATE)                     # 2026-10-31 H-FUSION3 lane, own run card
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 
@@ -259,3 +263,37 @@ def test_second_parallel_audit_preserved_and_ledger_retained():
         assert hashlib.sha256((ROOT/row['archived_path']).read_bytes()).hexdigest() == row['sha256']
     assert (ROOT/'knowledge/user-provided-submission-ledger.md').is_file()
     assert 'testpaths = tests' in (ROOT/'pytest.ini').read_text()
+
+
+def test_20261031_fusion_candidate_gates():
+    """The 2026-10-31 candidate may only ship if its own run card clears the format
+    and uniqueness gates, and it must not claim a score improvement it did not measure."""
+    card = json.loads((ROOT / 'evidence/offset_step_v2/run_card.json').read_text())
+    name = card['submission_name']
+    tif = ROOT / 'docs/downloads' / f"{name}.tif"
+    assert tif.is_file()
+    assert hashlib.sha256(tif.read_bytes()).hexdigest() == card['raster_sha256']
+    assert len(card['note']) <= 140
+    assert card['submission_slots_used'] == 0
+    # it is NOT promoted as a better scorer: the holdout did not beat the control
+    assert card['approved_as_expected_score_improvement'] is False
+    assert card['holdout_dti'] <= card['champion_control']['holdout_dti']
+    # it IS format-clear and not an exact duplicate
+    validator = card['validator_output']
+    assert validator['all_checks_passed'] is True
+    assert validator['on_catalogue_positive_pixels'] == 0
+    assert validator['in_footprint_positive_pixels'] == validator['emitted_positive_pixels']
+    assert validator['n_nan'] == 0 and validator['min'] >= 0.0 and validator['max'] <= 1.0
+    nov = json.loads((ROOT / 'evidence/offset_step_v2/novelty_focus9.json').read_text())
+    assert nov['any_exact_duplicate'] is False
+    assert max(r['spearman'] for r in nov['per_site']) <= 0.90
+
+
+def test_metric_certification_is_frozen_and_passed():
+    cert = json.loads((ROOT / 'evidence/metric_certification.json').read_text())
+    assert cert['all_checks_passed'] is True
+    assert cert['alpha'] == 0.2 and cert['beta'] == 0.8 and cert['radius_px'] == 3.0
+    # the oracle ceiling and the denominator identity are the two load-bearing facts
+    names = {c['name'] for c in cert['checks']}
+    assert 'I4 oracle DTI (P == T)' in names
+    assert any(n.startswith('I1 denominator') for n in names)

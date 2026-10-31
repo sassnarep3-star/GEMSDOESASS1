@@ -1,3 +1,48 @@
+# Next session — ordered actions (updated 2026-10-31, H-FUSION3 lane)
+
+> Earlier sessions' records are preserved verbatim below. Read both. The eligibility
+> finding and the uniqueness-policy question remain blocking user decisions.
+
+## Part 0 — 2026-10-31 (this session)
+
+1. **Decide on the shipped file** `docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif`.
+   Format-clear (values in [0,1], no NaN, exact grid, 0 mass on/outside the footprint) and
+   uniqueness-clear under the standard you actually stated ("not an exact duplicate"):
+   0/9 exact duplicates, max Spearman 0.56. It does **not** beat the champion on the
+   holdout (0.1004 vs 0.1048, CIs overlap), so it is **not** promoted as a score
+   improvement. Expected live score is a PROJECTION: central 0.266, advisory band
+   0.22-0.29. Spending a weekly slot is your selector decision.
+2. **Do not chase emission geometry again — it is settled.** `scripts/certify_metric.py`
+   proves the optimum sits at 2.8-3.0 px for any field with a 5-20 % hit rate, and the
+   whole leaderboard already sits there. Every future hour goes into the **field**.
+3. **Buy precision `g`, not mass.** The certified model gives DTI 0.278 at g=0.065,
+   0.454 at g=0.108, 0.555 at the ceiling. Ranked cheapest-first:
+   (a) **pluvial-shoreline rejection** — remove lineaments whose along-strike elevation
+   variance is near zero (needs an absolute DEM; currently outside the outbound
+   allowlist — check obtainability first); (b) **buried basement-step continuation**
+   using `depth_to_base_surf` + `iso_grav_anom` where the topographic scarp dies out;
+   (c) **geodetic strain-rate lineaments** (bands 4/7/8) that do not coincide with
+   topography; (d) **radiometric alteration haloes** (K/Th/U/TC, ThK/UK/UTh) along
+   structure — the actual geothermal target.
+4. **Fix or replace the instrument before trusting any holdout win.** The champion's
+   field has exactly zero pixels in common with the public catalogue (min distance
+   1.0 px) while our holdout truth *is* the catalogue. The holdout therefore rewards
+   predicting already-mapped faults — which is what loses live. Needs a truth set of
+   genuinely unmapped faults, or an explicit bias model.
+5. **Resolve the two blocking policy items (user):** (i) eligibility under rules §1.3;
+   (ii) the uniqueness rule — adopt the null-calibrated amendment (option A in
+   knowledge/REVIEW_2026-10-30.md) or keep the literal 70 %/3 px rule, which no
+   competitive dotted file can satisfy (72/72 pairs over limit; the 0.2778 champion is
+   itself a strict subset of GEMSDOE25's file).
+6. **Data is now restorable offline.** `scripts/local_restore.py` restores all six pins
+   over the git protocol (gh auth is broken: "token is no longer valid" + quota
+   exhausted). The 19-band official stack is cached in `.cache/features/`.
+7. **Read first next session:** `knowledge/MISSION_PROMPT.md`, this file,
+   `knowledge/hypotheses_20261031_recalldom.md`,
+   `evidence/offset_step_v2/run_card.json`, `evidence/metric_certification.json`.
+
+---
+
 # Next session — ordered actions (updated 2026-10-30 after the H-TVGB release)
 
 > Two parallel sessions wrote this file on 2026-10-30. Part 1 is the H-TVGB thermal-lane release

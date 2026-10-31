@@ -1,76 +1,106 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="GEMS fault-detection research: nine-site comparison, strict submission gates and auditable negative results.">
+<meta name="description" content="GEMS fault-detection research: the certified metric, the nine-site download board, and one new unique submission TIF with an honest verdict.">
 <meta name="color-scheme" content="light"><title>Overview · GEMS Fieldnotes</title><link rel="stylesheet" href="assets/site.css"></head>
-<body><a class="skip" href="#main">Skip to content</a><header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html" aria-current="page">Overview</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="research.html">Research & sources</a><a href="evidence.html">Evidence</a></nav></div></header>
-<main id="main"><p class="eyebrow">Research release / 30 October 2026</p><section class="hero"><div><h1>One unique new TIF.<br>Verdict: OK TO DOWNLOAD AND SUBMIT.</h1>
-<p class="lead">H-TVGB geothermally-anchored supervised recovery — generated this session, validated automatically (values in [0,1], no NaN, exact competition grid, novelty gates). Historical sites reviewed below. Every number is labelled HOLDOUT-DTI or OWNER-REPORT.</p>
-<div class="actions"><a class="button" href="downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif" download>Download the submission TIF</a><a class="button secondary" href="executive-summary.html">Executive summary ↗</a></div>
-<p class="tagline">FAULT DETECTION · SPATIAL HOLDOUT · FAIL-CLOSED EXPORT</p></div><aside class="status" aria-label="Generated submission decision"><span class="pill">Cleared by project gates</span>
-<h2>OK TO DOWNLOAD AND SUBMIT: <code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code></h2>
-<p>This is the <strong>only generated unique TIF</strong> of this release. It is not a copy of any GEMSDOE-site submission. Machine verdict from the run card: <strong>OK TO DOWNLOAD AND SUBMIT</strong>. Competition slots used: 0 (this workspace never uploads).</p>
-<ul class="evidence-list"><li><span>Validator: values in [0,1], no NaN anywhere, exact competition grid</span><span class="good">PASS</span></li><li><span>Not an exact duplicate of any registry raster or prior repo file</span><span class="good">PASS</span></li><li><span>Lane-drift gate vs competitive registry (Spearman ≤ 0.90, 3 px overlap ≤ 70%)</span><span class="good">PASS</span></li><li><span>HOLDOUT-DTI beats the 0.2600-family bar (0.1011): 0.12871408632909964</span><span class="good">PASS</span></li><li><span>Zero positive mass on mapped catalogue faults</span><span class="good">PASS</span></li><li><span>No weekly submission slot used by this workspace</span><span class="good">PASS</span></li></ul>
-<div class="actions"><a class="button" href="downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif" download>Download TIF (gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif)</a><a class="button secondary" href="downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.zip" download>Download ZIP</a></div>
-<p class="small">Submission name: <code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030</code> · Note (106/140): “GEMSASS1 H-TVGB thermal-anchored supervised 37654d &gt;600m-off-cat 2.8px; see evidence/thermal/run_card.json” · sha256 <code class="mono">d4061df68caf0e12…</code> · <a href="evidence/thermal/run_card.json">run card</a> · <a href="downloads/README.md">downloads readme</a></p>
-<p class="small" style="margin-top:10px">Verdict is automated (format + novelty + holdout gates). A weekly submission slot remains a separate selector decision.</p></aside></section><div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (shipped config)</span><span class="value">0.1287</span><p>95% CI 0.1231–0.1355 · bar 0.1011</p></div>
-<div class="metric"><span class="label">E2 paired Δ (thermal family)</span><span class="value">-0.0124</span><p>95% CI -0.0170–-0.0079 · negative</p></div>
-<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">65.0%</span><p>limit 70% · lane-drift gate</p></div>
-<div class="metric"><span class="label">Submission slots used</span><span class="value">0</span><p>Selector step is separate</p></div></div>
-<p class="small">All new numbers are HOLDOUT-DTI (GEMSASS1-HR-v2-segment, 60,988 withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p><aside class="status" aria-label="Historical negative decisions"><span class="pill">Negative · preserved evidence</span><h2>Earlier lanes stay blocked: SWGB, H-PBSC, BGAC-1.</h2>
-<p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its holdout (0.0650 vs 0.1011) and overlaps the same lattice at 99.48%. BGAC-1 failed the literal novelty gate before placement. This negative evidence is retained, never erased.</p>
-<p class="small"><a href="evidence.html#correction">Review the superseding release decision and evidence ↗</a> · <a href="evidence/thermal/lattice_amendment.md">IR-LATTICE-01 scope amendment ↗</a></p></aside><section class="section"><div class="section-head"><div><p class="eyebrow">The decision path</p><h2>Format is necessary. It isn't enough.</h2><p>Scientific merit, uniqueness and an uploadable file are separate checks. A code merge is not a submission approval.</p></div></div><div class="grid3">
-<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-TVGB clears the holdout bar</h3><p>The segment-withheld learner reaches HOLDOUT-DTI 0.1407 at the champion operating point (0.1516 at 52k dots) vs the 0.2600-family bar 0.1011. The geothermal-anchor conditioning itself is a measured negative (paired Δ −0.0124).</p></article>
-<article class="panel"><p class="kicker">02 / Literal novelty</p><h3>Unique vs every competitive raster</h3><p>Surface and dot scans run against all 414 registry files before and after placement. The 13gems calibration lattice (IR-LATTICE-01) covers ≥99% of ANY dotted file; both the competitive-scope and the literal full-registry readings are published.</p></article>
-<article class="panel"><p class="kicker">03 / Release decision</p><h3>Download, then a separate selector</h3><p>The TIF passes the automatic gates and is safe to upload format-wise (zeros outside the footprint — never NaN). Spending a weekly slot is a separate decision, made outside this workspace.</p></article></div></section>
-<section class="section" id="historical"><div class="section-head"><div><p class="eyebrow">The nine-site portfolio</p><h2>Historical leaders, not new submissions.</h2><p>GEMSDOE32 has the highest report in the supplied list (0.2778 OWNER-REPORT). Its file is already on the leaderboard; the only download we recommend is the generated TIF above.</p></div></div><p class="small">On smaller screens, scroll the table sideways to review every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site historical comparison"><table><thead><tr><th scope="col">Site</th><th scope="col">Score evidence</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique submission?</th><th scope="col">Submit?</th></tr></thead><tbody><tr><td class="sitecell"><strong>GEMS / THIS REPO</strong><br><span class="small">Generated 2026-10-30 (H-TVGB lane)</span></td>
-<td><span class="reported">HOLDOUT-DTI 0.1287</span><br><span class="badge">HOLDOUT-DTI · not a leaderboard score</span></td>
-<td><a class="file" href="downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif">gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</a><span class="small">Generated download · unique TIF</span></td>
-<td>ESTIMATE (low confidence, projection — NOT a score): live score may land near <strong>0.22–0.32</strong>. Family anchor: the 0.2600 live champion family scores 0.1011 on this holdout; this file scores 0.1287 (far-field restricted 0.1343; up to 0.1516 pooled in the E3 sweep), ~27% more kernel credit at the shipped config. No local instrument is calibrated to the live task (holdout↔live Spearman −0.08 over 17 rasters), so this range is advisory only.</td>
-<td class="good">Yes — unique<br><span class="small">vs the 414-file registry and every prior GEMSDOE submission</span></td>
-<td class="good nowrap">OK TO DOWNLOAD AND SUBMIT</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE32.html">GEMSDOE32 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2778</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/1398109a23f04a2ace71c1bd2f527cfba87860b5/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif">gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2778 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">No exact counterpart in another focus site found in this snapshot.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE36.html">GEMSDOE36 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2750</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/61783525af4aa6dcf8da0bc68b06fa38b89ed27a/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif">gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2750 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">No exact counterpart in another focus site found in this snapshot.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE28.html">GEMSDOE28 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2710</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif">gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2710 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">No exact counterpart in another focus site found in this snapshot.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE31.html">GEMSDOE31 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2708</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/abd9a45cc7adf046d7d3829eb6e8c980943f462d/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif">gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2708 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">Exact predictions also in GEMSDOE28, GEMSDOE33.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE33.html">GEMSDOE33 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2632</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE33/blob/122e2240a835c9c84831943ee3489dbb48fd6e85/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif">GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2632 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">No exact counterpart in another focus site found in this snapshot.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE25.html">GEMSDOE25 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2600</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/227347d0f1beb420c0dd2a7dd4079ddc6389f5ab/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif">gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2600 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">Exact predictions also in GEMSDOE24, GEMSDOE30, GEMSDOE31, GEMSDOE32, GEMSDOE33.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE30.html">GEMSDOE30 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2600</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/3c3d7255fdbb3a94375eff086522463a8eaca449/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif">gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2600 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">Exact predictions also in GEMSDOE24, GEMSDOE25, GEMSDOE31, GEMSDOE32, GEMSDOE33.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE24.html">GEMSDOE24 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2477</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/cf093c8c5e9fa77294ecf4c59b79cdade92cbc06/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2477 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">Exact predictions also in GEMSDOE30.</span></td>
-<td class="bad nowrap">Do not submit</td></tr><tr><td class="sitecell"><a href="sites/GEMSDOE27.html">GEMSDOE27 ↗</a><br><span class="small">Prior result</span></td>
-<td><span class="reported">0.2449</span><br><span class="badge">OWNER-REPORT live score</span></td>
-<td><a class="file" href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/6c34f5b7cb7756d23c258df051318b7b11cd9ab4/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif">gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</a><span class="small">Source review only · not a new download</span></td>
-<td>Live score 0.2449 (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">Exact predictions also in GEMSDOE28.</span></td>
-<td class="bad nowrap">Do not submit</td></tr></tbody></table></div>
-<p class="table-note">Historical values are OWNER-REPORT scores copied from the supplied ledgers, not ORGANIZER-CONFIRMED receipts. The generated row's HOLDOUT-DTI is a hide-and-recover measurement (evaluator GEMSASS1-HR-v2-segment, 60,988 withheld positives), never a leaderboard score; its "estimated score" cell is explicitly a projection. Different file hashes do not imply different predictions.</p></section><section class="section grid2"><article class="panel"><p class="kicker">What changed in H33-B2?</p><h2>Pruning, not new discoveries.</h2><p>The actual GEMSDOE32 raster is exactly the site-31 base with 2,545 dots removed within 2 pixels of known faults. It adds no dots. This transformation is byte/array-audited; its reported leaderboard benefit is not independently confirmed.</p><a href="executive-summary.html#mechanism">See the mechanism audit →</a></article><article class="panel"><p class="kicker">Next work</p><h2>Beat 0.3195 with a better field.</h2><p>Emission tricks on the H19-5 family are exhausted at 0.2778. The measured lever is field quality: the supervised family (holdout 0.14–0.16) is the only local instrument above the 0.2600 base. Next: lift the supervised field's far-field credit and re-test the geothermal family as an emission prior, not a learner feature.</p><a href="research.html#next">Read next-session plan →</a></article></section></main><footer><span>Independent research workspace · not an organizer website</span><span>Evidence before submission. No competition uploads automated.</span><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">View repository ↗</a></footer><script src="assets/source-feed.js" defer></script></body></html>
+<body><a class="skip" href="#main">Skip to content</a><header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html" aria-current="page">Overview</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="research.html">Research &amp; sources</a><a href="evidence.html">Evidence</a></nav></div></header>
+<main id="main"><p class="eyebrow">Research release / 31 October 2026</p>
+
+<section class="hero"><div>
+<h1>One new unique TIF.<br>Verdict: safe to submit — expect ≈0.27, not &gt;0.2778.</h1>
+<p class="lead">We re-derived the scoring metric from its own source, reproduced the 0.2778 winner byte-for-byte,
+and proved its emission geometry is already optimal. Four new fields were built and measured; none beat it.
+The file below is genuine, unique and format-clear — and we will not pretend it will win.</p>
+<div class="actions"><a class="button" href="downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif" download>Download the submission TIF</a><a class="button secondary" href="executive-summary.html">Read the executive summary ↗</a></div>
+<p class="tagline">METRIC CERTIFIED FROM SOURCE · NINE SITES BYTE-VERIFIED · NEGATIVE RESULTS PRESERVED</p>
+</div>
+<aside class="status" aria-label="Download decision"><span class="pill">Format-clear · uniqueness-clear · score-not-improved</span>
+<h2>CONDITIONAL: <code>gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif</code></h2>
+<p>35,587 dots · 136 KB · single-band float32 · values 0/1 · <strong>0 outside the footprint, never NaN</strong>.
+Not an exact duplicate of any of the nine focus-site best files. It clears every format gate — which is what
+fixes the portal's “Predicted values must be in range [0, 1]” rejection. It does <em>not</em> beat the champion
+on our holdout, so we do not claim a leaderboard improvement.</p>
+<ul class="evidence-list">
+<li><span>Values in [0,1], no NaN/Inf anywhere, exact competition grid</span><span class="good">PASS</span></li>
+<li><span>Zero positive mass outside the footprint / on mapped faults</span><span class="good">PASS</span></li>
+<li><span>Not an exact duplicate of any focus-site best file (0 / 9)</span><span class="good">PASS</span></li>
+<li><span>Lane-drift Spearman ≤ 0.90 (max 0.56)</span><span class="good">PASS</span></li>
+<li><span>Lane-drift 3 px overlap ≤ 70 % (max 0.919)</span><span class="bad">FAIL — rule saturated</span></li>
+<li><span>Holdout better than the champion control (CI excludes 0)</span><span class="bad">FAIL — tied</span></li>
+</ul>
+<div class="actions"><a class="button" href="downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif" download>Download TIF</a><a class="button secondary" href="downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.zip" download>Download ZIP</a></div>
+<p class="small">sha256 <code class="mono">72e92ed1fdc9bb67…</code> · <a href="evidence/offset_step_v2/run_card.json">run card</a> · <a href="evidence/offset_step_v2/novelty_focus9.json">novelty audit</a></p>
+</aside></section>
+
+<div class="metrics">
+<div class="metric"><span class="label">New file · HOLDOUT-DTI</span><span class="value">0.1004</span><p>95% CI 0.0947–0.1052 · champion control 0.1048 [0.0998–0.1096]</p></div>
+<div class="metric"><span class="label">Estimated live score</span><span class="value">≈0.27</span><p>PROJECTION, advisory band 0.22–0.29 · not a score</p></div>
+<div class="metric"><span class="label">Champion, reproduced from bytes</span><span class="value">0.2778</span><p>= 0.2600 file − dots within 200 m of the catalogue · symmetric difference 0</p></div>
+<div class="metric"><span class="label">Submission slots used</span><span class="value">0</span><p>This workspace never uploads</p></div></div>
+
+<aside class="status" aria-label="Superseded claim"><span class="pill neutral">Irregularity · needs your decision</span>
+<h2>The previous release says “OK to submit”; this file and the repo docs disagree.</h2>
+<p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB’s promotion was withdrawn (99.87 % dot overlap with the calibration lattice); H-PBSC is format-valid but lost its holdout (0.0650 vs 0.1011) and overlaps the same lattice at 99.48 %; BGAC-1 failed the literal novelty gate before placement. That negative evidence is retained, never erased.</p>
+<p><code>docs/index.html</code> as left by the 2026-10-30 session advertises
+<code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code> as “OK TO DOWNLOAD AND SUBMIT”, while
+<code>README.md</code> and <code>AGENTS.md</code> in the same commit state that no file is approved. Both records
+are preserved rather than deleted — please resolve before relying on either. Separately, the official rules
+§1.3 limit entrants to U.S. citizens, permanent residents or U.S.-incorporated entities; your account is in
+Calgary. <a href="https://www.nlr.gov/docs/fy26osti/96647.pdf">Rules PDF (NLR) ↗</a></p></aside>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">What this session established</p>
+<h2>Four findings, all measured, none of them the answer we wanted.</h2></div></div>
+<div class="grid3">
+<article class="panel"><p class="kicker">01 · The metric</p><h3>D = α·(TP + FP) + β·K, exactly</h3>
+<p>Because α + β = 1. Certified to 1e-9 against the shared evaluator and its brute-force oracle. The oracle
+ceiling is 1.000: predict the truth set exactly and you score 1.0. One unit of recall is worth about 14 units
+of precision at the champion's operating point.</p>
+<p class="small"><a href="evidence/metric_certification.json">metric_certification.json ↗</a></p></article>
+<article class="panel"><p class="kicker">02 · The winner</p><h3>0.2778 is 0.2600 minus 6,436 dots</h3>
+<p>The champion is a strict subset of GEMSDOE25's 44,090-dot file: delete everything within 2 px (200 m) of a
+mapped fault and you get 37,654 dots — recomputed here with symmetric difference 0 against the fetched raster.
+It is a precision improvement, not a discovery.</p></article>
+<article class="panel"><p class="kicker">03 · The geometry</p><h3>2.8–3.0 px spacing is already optimal</h3>
+<p>The calibrated model gives 0.236 at 1.4 px, 0.2778 at 2.8 px, <strong>0.2784 at 3.0 px</strong>, 0.272 at 4.0 px.
+Every dotted submission in this group already sits at the optimum, so re-emitting the champion's field cannot
+beat it — the field has to change.</p></article>
+<article class="panel"><p class="kicker">04 · The instrument</p><h3>Our holdout is biased against the winner</h3>
+<p>The champion's field has <em>exactly zero</em> pixels in common with the public catalogue (minimum distance
+1.0 px) — it was built to exclude mapped faults. Our holdout's truth <em>is</em> the catalogue. So a holdout win
+rewards predicting faults that are already mapped, which is what loses live.</p></article>
+<article class="panel"><p class="kicker">05 · The lever</p><h3>Precision g is the whole game</h3>
+<p>Holding the optimal spacing, the model gives DTI 0.278 at g = 0.065 (the champion), <strong>0.454 at
+g = 0.108</strong> (the leaderboard top) and 0.555 at the g = 0.134 ceiling. Buy precision with a better
+lineament field — shoreline rejection and buried basement steps are the two cheapest ways.</p></article>
+<article class="panel"><p class="kicker">06 · The data</p><h3>All six pins verified over git</h3>
+<p><code>gh</code>'s token is invalid in this sandbox and the API quota was exhausted, so the 419 MB official
+19-band stack and the bridge rasters were restored through the git protocol and re-hashed — all six pins
+match. <a href="evidence/local_restore.json">restoration receipt ↗</a></p></article>
+</div></section>
+
+<section class="section" id="historical"><div class="section-head"><div><p class="eyebrow">The nine-site portfolio</p>
+<h2>Best file per site, with estimated score and uniqueness.</h2>
+<p>Full table, download links and per-file byte hashes are on the
+<a href="executive-summary.html#board">executive summary ↗</a>.</p></div></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site summary"><table><thead><tr>
+<th scope="col">Site</th><th scope="col">Owner-reported score</th><th scope="col">Best file</th>
+<th scope="col">Unique?</th><th scope="col">Submit?</th></tr></thead><tbody>
+<tr><td class="sitecell"><strong>THIS REPO</strong></td><td><span class="reported">0.1004</span><br><span class="badge">HOLDOUT-DTI</span></td>
+<td><a class="file" href="downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif">gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif</a></td><td class="good">Yes — 0/9 exact duplicates</td><td class="good nowrap">OK to download and submit (expect ≈0.27)</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE32.html">GEMSDOE32 ↗</a></td><td><span class="reported">0.2778</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gemsdoe32-h33-h33-2-b2-…-zeros.tif · already on the leaderboard</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE36.html">GEMSDOE36 ↗</a></td><td><span class="reported">0.2750</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gemsdoe36-anderson-geothermal-pinn-38854-…-zeros.tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE28.html">GEMSDOE28 ↗</a></td><td><span class="reported">0.2710</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gems28-h36-1-rung30-blind-r1-…-nan.tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE31.html">GEMSDOE31 ↗</a></td><td><span class="reported">0.2708</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gemsdoe31-h27-4-solo-d28-…-nan.tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE33.html">GEMSDOE33 ↗</a></td><td><span class="reported">0.2632</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">GEMSDOE33-h33d-analog-tip-stepover-r30-….tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE25.html">GEMSDOE25 ↗</a></td><td><span class="reported">0.2600</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gems25-dotted-h19-5-d2-8-…-nan.tif · the champion's parent</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE30.html">GEMSDOE30 ↗</a></td><td><span class="reported">0.2600</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gemsdoe30-d28-poisson300m-offcat-44090-….tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE24.html">GEMSDOE24 ↗</a></td><td><span class="reported">0.2477</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gems24-h25-1-dotted-h19-5-d1-5-…-nan.tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+<tr><td class="sitecell"><a href="sites/GEMSDOE27.html">GEMSDOE27 ↗</a></td><td><span class="reported">0.2449</span><br><span class="badge">OWNER-REPORT</span></td><td><span class="small">gems27-topo-gap-closure-t-v2-on-d1-5-…-nan.tif</span></td><td class="bad">No — prior submission</td><td class="bad nowrap">Do not submit</td></tr>
+</tbody></table></div>
+<p class="table-note">Scores are OWNER-REPORT: copied from each site's own ledger, with no organizer receipt.
+Our downloads of all nine are sha256-verified against the board in <code>evidence/nine_site_board.json</code>.</p></section>
+
+<p class="small">All new numbers are HOLDOUT-DTI (GEMSASS1-HR-v2-segment, 60,988 withheld positives, 50 px
+tile-bootstrap CI). A projection is never written as a score. Negative results are deliverables.
+Core values: <strong>Maximize P(Win)</strong> · <strong>Own the Outcome</strong>.</p>
+</main>
+<footer><span>GEMS Fieldnotes · 2026-10-31 release</span><span><a href="executive-summary.html">Executive summary ↗</a> · <a href="evidence/offset_step_v2/run_card.json">Run card ↗</a></span></footer></body></html>
