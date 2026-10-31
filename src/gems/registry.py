@@ -9,12 +9,13 @@ one registry raster's dots.
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import numpy as np
 from scipy import ndimage
 from scipy.stats import spearmanr
 
-from .grid import REGISTRY, binary_dots, sha256_file, read_band
+from .grid import ROOT, binary_dots, sha256_file, read_band
 
 # site, published file, owner-reported live score
 REGISTRY_ENTRIES = [
@@ -43,14 +44,31 @@ OVERLAP_PX = 3
 
 
 def load_registry():
+    """Load registry rasters from .cache/registry/ (restored by scripts/registry_snapshot.py).
+    `r['local']` is already a ROOT-relative path like .cache/registry/GEMSDOE24/...tif."""
+    inv_path = ROOT / "registry" / "focus_inventory.json"
+    inv = json.loads(inv_path.read_text())
     out = []
-    for site, fn, score in REGISTRY_ENTRIES:
-        p = REGISTRY / fn
+    for r in inv.get("rasters", []):
+        if r.get("status") != "verified":
+            continue
+        p = ROOT / r["local"]
         if not p.exists():
             continue
+        # Match against the 9 best files to attach owner-reported scores
+        score = None
+        site = r["repo"]
+        fname = Path(r["path"]).name
+        for bs, bfn, bscore in REGISTRY_ENTRIES:
+            if bs == site and bfn == fname:
+                score = bscore
+                break
+        if score is None:
+            continue  # only load the 9 best files per site
         a = read_band(p)
-        out.append(dict(site=site, file=fn, score=score, path=p, field=np.nan_to_num(a, nan=0.0),
-                        dots=binary_dots(p), sha256=sha256_file(p)))
+        out.append(dict(site=site, file=r["path"], score=score, path=p,
+                        field=np.nan_to_num(a, nan=0.0),
+                        dots=binary_dots(p), sha256=r.get("sha256", sha256_file(p))))
     return out
 
 

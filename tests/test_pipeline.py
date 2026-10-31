@@ -197,7 +197,8 @@ def test_frozen_negative_artifact_contract():
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
-               sparse['submission_name'].replace('.tif', ''))  # new generated unique release
+               sparse['submission_name'].replace('.tif', ''),  # new generated unique release (this lane)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # H-STEP-OVER gate-passed release (parallel lane)
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
@@ -253,7 +254,8 @@ def test_concurrent_main_research_preserved_not_promoted():
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
-               sparse['submission_name'].replace('.tif', ''))  # new generated unique release
+               sparse['submission_name'].replace('.tif', ''),  # new generated unique release (this lane)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # H-STEP-OVER gate-passed release (parallel lane)
     assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 

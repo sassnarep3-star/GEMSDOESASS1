@@ -1,13 +1,63 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="GEMS fault-detection research: nine-site comparison, strict submission gates and auditable negative results.">
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Step-by-step: download, verify, and submit a generated GEMS submission TIF only after eligibility and uniqueness are confirmed.">
 <meta name="color-scheme" content="light"><title>How to submit · GEMS Fieldnotes</title><link rel="stylesheet" href="assets/site.css"></head>
-<body><a class="skip" href="#main">Skip to content</a><header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html" aria-current="page">How to submit</a><a href="research.html">Research & sources</a><a href="evidence.html">Evidence</a></nav></div></header>
-<main id="main"><p class="eyebrow">How to submit / step by step</p><h1>From this site to<br>the submission form.</h1>
-<p class="lead">Everything below is automated except the upload itself. The file below has passed all 11 format checks and carries zero mass on mapped faults — read the verdict first, then copy the name and note exactly. It is not a score forecast.</p>
-<aside class="status" aria-label="Historical negative decisions"><span class="pill">Negative · preserved evidence</span><h2>Earlier lanes stay blocked: SWGB, H-PBSC, BGAC-1.</h2>
-<p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its holdout (0.0650 vs 0.1011) and overlaps the same lattice at 99.48%. BGAC-1 failed the literal novelty gate before placement. The H-TVGB thermal field (HOLDOUT-DTI 0.1287 vs bar 0.1011) beats its holdout but is blocked under the literal 70/3 px lattice gate (99.79% vs the 13gems calibration lattice). This negative evidence is retained, never erased.</p>
-<p class="small"><a href="evidence.html#correction">Review the superseding release decision and evidence ↗</a> · <a href="evidence/thermal/lattice_amendment.md">IR-LATTICE-01 scope amendment ↗</a></p></aside>
-<section class="section"><div class="grid2"><article class="panel"><h3>1 · Read the verdict</h3><p>Open the <a href="executive-summary.html">executive summary</a>. The status panel at the top reads format-valid & unique for <code>gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif</code>. It is <strong>OK to download</strong> and format-ready; upload is pending eligibility confirmation and a uniqueness check against the organizer registry. If a future run reports “NOT OK TO SUBMIT”, do not upload that run's file.</p><h3>2 · Download and verify</h3><p>Download <a href="downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif">gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif</a> (or the <a href="downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.zip">ZIP with the single GeoTIFF inside</a>). Check the hash:</p><p class="mono">sha256: e1fea78319fa45a1499f0d647ed9ebca4fdbf81ee619a653eecec055691833be</p><h3>3 · Open the competition submission form</h3><p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData — DOE GEMS Prize Challenge ↗</a> → “Submit predictions” → “New submission”.</p></article>
-<article class="panel"><h3>4 · Fill the form exactly</h3><p><strong>File to submit:</strong> <code>gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif</code> (single-band GeoTIFF) — or the ZIP containing exactly that one TIFF.</p><p><strong>Note (optional, ≤140 chars):</strong> “GEMSDOESASS1 unique sparse dot field 18000d 3.0px off-catalogue; format-valid [0,1] zeros-outside-footprint; not a score forecast”</p><p>Use this note so later submissions can be told apart. Suggested submission name for your records: <code>gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e</code>.</p><h3>5 · Requirements this file already meets</h3><ul class="evidence-list"><li><span>Single-band GeoTIFF, float32</span><span class="good">PASS</span></li><li><span>CRS EPSG:32611 · shape 3730×3292</span><span class="good">PASS</span></li><li><span>Geotransform (100, 0, 243350, 0, −100, 4508550)</span><span class="good">PASS</span></li><li><span>Predicted values in [0, 1] everywhere (no NaN anywhere)</span><span class="good">PASS</span></li><li><span>Zeros outside the survey footprint · no dots on mapped faults</span><span class="good">PASS</span></li></ul><h3>6 · After upload</h3><p>Save the organizer receipt (submission id, file hash, returned score). A score becomes ORGANIZER-CONFIRMED only from that receipt. Check the weekly submission cap on the submission page before spending a slot — this project never uploads automatically.</p></article></div></section>
-<section class="section"><div class="callout"><strong>Why the earlier file was rejected.</strong> The portal error “Predicted values must be in range [0, 1]” is produced by NaN or out-of-range values — historically the “-nan” variants written by sibling sites. The generated sparse TIF uses explicit zeros everywhere outside the footprint and has no NaN on the whole grid, so it cannot trigger that error. Validator output: <a href="docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.checks.json">checks.json →</a></div></section></main><footer><span>Independent research workspace · not an organizer website</span><span>Evidence before submission. No competition uploads automated.</span><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">View repository ↗</a></footer><script src="assets/source-feed.js" defer></script></body></html>
+<body><a class="skip" href="#main">Skip to content</a>
+<header><div class="nav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>GEMS / FIELDNOTES</a><nav aria-label="Main"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html" aria-current="page">How to submit</a><a href="research.html">Research &amp; sources</a><a href="evidence.html">Evidence</a></nav></div></header>
+<main id="main"><p class="eyebrow">How to submit · step by step</p>
+<h1>From this site to the submission form.</h1>
+<p class="lead">Everything below is automated except the upload itself. Read the verdict first, then copy the file name and note exactly. This workspace never uploads automatically and has spent zero weekly slots.</p>
+
+<div class="callout"><strong>Verdict first.</strong> No file in this repository is unconditionally OK to download and submit. The generated TIFs below are <strong>format-valid and OK to download</strong>, but <strong>not submit-cleared</strong>: upload requires (1) eligibility confirmation under official rules &#167;1.3 (the user is located in Singapore) and (2) a uniqueness check vs the organizer&#8217;s full registry.</div>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">1 · Download the artifact</p><h2>Pick a generated TIF</h2></div></div>
+<div class="grid2"><article class="panel"><p class="kicker">Sparse dot field (this lane)</p>
+<p class="mono">gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif</p>
+<p class="small">18,000 dots @ 3.0 px, off mapped catalogue faults &#183; sha256 <code class="mono">e1fea78319fa45a1&#8230;</code> &#183; note 129/140</p>
+<a class="button" href="downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif" download>Download TIF &#8594;</a>
+<a class="button secondary" href="downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.zip" download>Download ZIP &#8594;</a>
+</article>
+<article class="panel"><p class="kicker">Step-over annulus field (parallel lane)</p>
+<p class="mono">gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif</p>
+<p class="small">~40,000 dots, 300&#8211;900 m from catalogue faults (H-STEP-OVER)</p>
+<a class="button" href="downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif" download>Download TIF &#8594;</a>
+<a class="button secondary" href="downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.zip" download>Download ZIP &#8594;</a>
+</article></div>
+</section>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">2 · Verify the hash</p><h2>Confirm the file before you upload</h2></div></div>
+<ol>
+<li>Run <code>sha256sum &lt;file&gt;</code> (or the equivalent on your OS) on the downloaded TIF.</li>
+<li>Compare against the validator receipt: <code>docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.checks.json</code> (sparse) or the stepover checks JSON beside its TIF.</li>
+<li>Only proceed if the hash matches and <code>all_checks_passed</code> is true.</li>
+</ol>
+</section>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">3 · Confirm eligibility</p><h2>Official rules &#167;1.3</h2></div></div>
+<p>The official rules limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. The user&#8217;s listed location is Singapore. <strong>Confirm with the administrator before any upload.</strong> No competition upload is automated from this workspace.</p>
+</section>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">4 · Run the organizer uniqueness check</p><h2>Before spending a slot</h2></div></div>
+<p>Run the organizer&#8217;s uniqueness check vs the full registry (the literal 70&#8289;/3&#8289;px lattice gate caps any dotted file at 22,163 dots). The full 414-raster registry is not present in this checkout and the GitHub API was rate-limited, so this check could not be re-certified here.</p>
+</section>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">5 · Submit on DrivenData</p><h2>Form, exact name, note</h2></div></div>
+<ol>
+<li>Open the DrivenData GEMS Prize submission page (login required; not reachable from this sandbox).</li>
+<li>Upload the TIF (or ZIP) whose hash you verified.</li>
+<li>Use the exact submission file name and note (at most 140 characters) from the run card &#8212; do not rename.</li>
+<li>Save the organizer receipt (submission id, file hash, returned score). A score becomes ORGANIZER-CONFIRMED only from that receipt.</li>
+<li>Check the weekly submission cap (three) before spending a slot; this workspace has used 0.</li>
+</ol>
+</section>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">Why earlier files were rejected</p><h2>The &#8220;range [0, 1]&#8221; error</h2></div></div>
+<p>The portal error &#8220;Predicted values must be in range [0, 1]&#8221; is produced by NaN or out-of-range values &#8212; historically the &#8220;-nan&#8221; variants written by sibling sites. The generated sparse TIF uses explicit zeros everywhere outside the footprint and has no NaN on the whole grid, so it cannot trigger that error. Validator output: <a href="downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.checks.json">checks.json &#8594;</a></p>
+</section>
+
+<p class="small"><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> Full nine-site table and gate status: <a href="executive-summary.html">executive summary &#8594;</a></p>
+</main>
+<footer><span>Independent research workspace &middot; not an organizer website</span><span>Evidence before submission. No competition uploads automated.</span><a href="https://github.com/sassnarep3-star/GEMSDOESASS1">View repository &#8594;</a></footer>
+<script src="assets/source-feed.js" defer></script></body></html>
