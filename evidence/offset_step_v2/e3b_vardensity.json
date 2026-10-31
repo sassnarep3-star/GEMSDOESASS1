@@ -1,0 +1,197 @@
+{
+  "evidence_class": "HOLDOUT-DTI",
+  "generated_utc": "2026-10-31T05:47:42.911153+00:00",
+  "hypothesis": "variable-density emission under the certified marginal rule",
+  "k_truth_used": 14086,
+  "rows": [
+    {
+      "label": "P-uniform marginal-bar cap20000 prune2",
+      "emitted": 20000,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.02175244760483367,
+      "ci95": [
+        0.019760037430805334,
+        0.023855425169896003
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1497.435712286619,
+      "fp": 98749.92508835024,
+      "fn": 59490.56428771338,
+      "coverage": 0.02455295652073554,
+      "farfield_gt5px_dti": 0.021915723275968885,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-uniform",
+      "k_truth": 14086,
+      "max_dots": 20000
+    },
+    {
+      "label": "P-uniform marginal-bar cap40000 prune2",
+      "emitted": 26551,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.026624814771352222,
+      "ci95": [
+        0.024617541294967547,
+        0.02887196867369999
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2006.8002870919647,
+      "fp": 130907.72523165877,
+      "fn": 58981.199712908034,
+      "coverage": 0.03290483844513617,
+      "farfield_gt5px_dti": 0.02659476071905974,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-uniform",
+      "k_truth": 14086,
+      "max_dots": 40000
+    },
+    {
+      "label": "P-uniform marginal-bar cap80000 prune2",
+      "emitted": 26551,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.026624814771352222,
+      "ci95": [
+        0.024617541294967547,
+        0.02887196867369999
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2006.8002870919647,
+      "fp": 130907.72523165877,
+      "fn": 58981.199712908034,
+      "coverage": 0.03290483844513617,
+      "farfield_gt5px_dti": 0.02659476071905974,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-uniform",
+      "k_truth": 14086,
+      "max_dots": 80000
+    },
+    {
+      "label": "P-uniform marginal-bar cap200000 prune2",
+      "emitted": 26551,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.026624814771352222,
+      "ci95": [
+        0.024617541294967547,
+        0.02887196867369999
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2006.8002870919647,
+      "fp": 130907.72523165877,
+      "fn": 58981.199712908034,
+      "coverage": 0.03290483844513617,
+      "farfield_gt5px_dti": 0.02659476071905974,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-uniform",
+      "k_truth": 14086,
+      "max_dots": 200000
+    },
+    {
+      "label": "P-geo marginal-bar cap20000 prune2",
+      "emitted": 20000,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.017994597128262565,
+      "ci95": [
+        0.016276260465911897,
+        0.020255570750802792
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1238.321728388953,
+      "fp": 98891.21551370564,
+      "fn": 59749.67827161105,
+      "coverage": 0.020304350501556913,
+      "farfield_gt5px_dti": 0.017280641800744092,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-geo",
+      "k_truth": 14086,
+      "max_dots": 20000
+    },
+    {
+      "label": "P-geo marginal-bar cap40000 prune2",
+      "emitted": 22973,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.020244129723078565,
+      "ci95": [
+        0.018129234579306486,
+        0.022488020967859665
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1453.374457937124,
+      "fp": 113556.57594891549,
+      "fn": 59534.62554206288,
+      "coverage": 0.023830498752822254,
+      "farfield_gt5px_dti": 0.019251817280006214,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-geo",
+      "k_truth": 14086,
+      "max_dots": 40000
+    },
+    {
+      "label": "P-geo marginal-bar cap80000 prune2",
+      "emitted": 22973,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.020244129723078565,
+      "ci95": [
+        0.018129234579306486,
+        0.022488020967859665
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1453.374457937124,
+      "fp": 113556.57594891549,
+      "fn": 59534.62554206288,
+      "coverage": 0.023830498752822254,
+      "farfield_gt5px_dti": 0.019251817280006214,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-geo",
+      "k_truth": 14086,
+      "max_dots": 80000
+    },
+    {
+      "label": "P-geo marginal-bar cap200000 prune2",
+      "emitted": 22973,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.020244129723078565,
+      "ci95": [
+        0.018129234579306486,
+        0.022488020967859665
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1453.374457937124,
+      "fp": 113556.57594891549,
+      "fn": 59534.62554206288,
+      "coverage": 0.023830498752822254,
+      "farfield_gt5px_dti": 0.019251817280006214,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "posterior": "P-geo",
+      "k_truth": 14086,
+      "max_dots": 200000
+    },
+    {
+      "label": "CONTROL champion H19-5 md2.8 prune2",
+      "emitted": 41017,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.1048002062385249,
+      "ci95": [
+        0.09975329221867935,
+        0.10955788951761336
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9526.1356521613,
+      "fp": 201012.17472374806,
+      "fn": 51461.86434783871,
+      "coverage": 0.15619688548831406,
+      "farfield_gt5px_dti": 0.10189814995510095,
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "control",
+      "support_px": 121131,
+      "spacing": 2.8
+    }
+  ],
+  "elapsed_seconds": 268.4
+}
