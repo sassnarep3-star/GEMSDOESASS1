@@ -58,7 +58,7 @@ def test_frozen_receipt_and_withdrawal():
         else:
             # The root page may state the generated release verdict, but only for the
             # run-card-approved raster (never for SWGB or any historical file).
-            card_path = ROOT / 'evidence/thermal/run_card.json'
+            card_path = ROOT / json.loads((ROOT / 'evidence/current_release.json').read_text())['run_card']
             card = json.loads(card_path.read_text()) if card_path.exists() else {}
             if 'ok to download and submit' in text:
                 assert card.get('ok_to_download_and_submit')

@@ -112,10 +112,20 @@ def test_lattice_overlap_is_disclosed_not_hidden(release):
 
 
 def test_page_verdict_matches_the_card(release):
-    card = release["card"]
+    # The pages present whichever release the current-release pointer names (2026-10-31 H-BSTEP
+    # after the merge), falling back to H-KDAM, then the thermal card. The H-KDAM artifact's own
+    # bytes stay contracted by the tests above; its file must never vanish from the download index.
+    pointer = ROOT / 'evidence/current_release.json'
+    if pointer.exists():
+        ptr = json.loads(pointer.read_text())
+        card = json.loads((ROOT / ptr['release']).read_text())['card']
+    else:
+        card = release["card"]
     word = "OK TO DOWNLOAD AND SUBMIT" if card["ok_to_download_and_submit"] else "NOT OK TO SUBMIT"
     for page in (ROOT / "docs/index.html", ROOT / "docs/executive-summary.html"):
         text = page.read_text()
         assert word in text
         assert card["raster_name"] in text
         assert "HOLDOUT-DTI" in text
+    index = (ROOT / "docs/downloads/README.md").read_text()
+    assert release["card"]["raster_name"] in index  # the H-KDAM file stays listed and described

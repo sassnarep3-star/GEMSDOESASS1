@@ -221,6 +221,13 @@ def test_frozen_negative_artifact_contract():
         assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
         if reg.get('submission_name'):
             allowed.append(reg['submission_name'].replace('.tif', ''))
+    pointer_path = ROOT/'evidence/current_release.json'
+    if pointer_path.exists():
+        pointer = json.loads(pointer_path.read_text())
+        cur = json.loads((ROOT / pointer['run_card']).read_text())
+        assert cur['ok_to_download_and_submit'] == all(passed for _, passed in json.loads((ROOT / pointer['release']).read_text())['gates'])
+        if cur['ok_to_download_and_submit']:
+            allowed.append(cur['submission_name'].replace('.tif', ''))
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
@@ -298,6 +305,12 @@ def test_concurrent_main_research_preserved_not_promoted():
         assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
         if reg.get('submission_name'):
             allowed.append(reg['submission_name'].replace('.tif', ''))
+    pointer_path = ROOT/'evidence/current_release.json'
+    if pointer_path.exists():
+        pointer = json.loads(pointer_path.read_text())
+        cur = json.loads((ROOT / pointer['run_card']).read_text())
+        if cur['ok_to_download_and_submit']:
+            allowed.append(cur['submission_name'].replace('.tif', ''))
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 

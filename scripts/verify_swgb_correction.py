@@ -20,7 +20,9 @@ assert read('swgb/downloads/' + release['submission_name'].replace('.tif', '.che
 # appear there. The root entry point may present the generated 2026-10-30 release verdict
 # (a different, run-card-approved artifact), but only naming that exact raster — SWGB and
 # every other historical file remain "not approved" and "do not submit" on every page.
-card = read('evidence/thermal/run_card.json') if (ROOT / 'evidence/thermal/run_card.json').exists() else {}
+pointer = read('evidence/current_release.json') if (ROOT / 'evidence/current_release.json').exists() else {}
+card_path = pointer.get('run_card', 'evidence/thermal/run_card.json')
+card = read(card_path) if (ROOT / card_path).exists() else {}
 approved_name = card.get('raster_name') if card.get('ok_to_download_and_submit') else None
 for page in ('index.html', 'swgb/index.html', 'swgb/how-to-submit.html', 'swgb/run-card.html', 'swgb/hypotheses.html'):
     text = (ROOT / page).read_text()

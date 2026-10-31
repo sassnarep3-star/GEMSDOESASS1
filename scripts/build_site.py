@@ -30,7 +30,8 @@ def fusion_card():
     return json.loads(p.read_text()) if p.exists() else None
 REPO = 'https://github.com/sassnarep3-star/GEMSDOESASS1'
 ACTIVE_DIR = 'thermal'   # set by main(); evidence/<dir>/release.json drives the rendered site
-LANE_TITLES = {'tiprelay': 'H-TIPRELAY continuation-geometry-supervised recovery',
+LANE_TITLES = {'bstep': 'H-BSTEP basement-step concordance learner',
+               'tiprelay': 'H-TIPRELAY continuation-geometry-supervised recovery',
                'kdam': 'H-KDAM alteration-contact-supervised recovery',
                'thermal': 'H-TVGB geothermally-anchored supervised recovery'}
 
@@ -227,6 +228,13 @@ def metric_strip_new(rel):
     h = card['holdout_dti']
     comp = card['correlation_overlap_vs_registry']
     ov = (comp['dots_competitive']['max_overlap'] or 0) * 100
+    if ACTIVE_DIR == 'bstep':
+        sh = h.get('shipped_variant_diagnostic') or {}
+        return f'''<div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (shipped anti-collision variant)</span><span class="value">{sh.get('value', h['value']):.4f}</span><p>95% CI {sh.get('ci95', h['ci95'])[0]:.4f}–{sh.get('ci95', h['ci95'])[1]:.4f} · bar 0.1011</p></div>
+<div class="metric"><span class="label">Same-emission incumbent comparator</span><span class="value">{card['comparators_same_emission']['family_base_44090_unpruned']:.4f}</span><p>the 0.2600-family field, same folds</p></div>
+<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">{ov:.1f}%</span><p>limit 70% · lane-drift gate</p></div>
+<div class="metric"><span class="label">Submission slots used</span><span class="value">{card['submission_slots_used']}</span><p>Selector step is separate</p></div></div>
+<p class="small">All new numbers are HOLDOUT-DTI ({e(h['evaluator'])}, {h['n_withheld_positives']:,} withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p>'''
     if ACTIVE_DIR == 'tiprelay':
         dBA = h['delta_B_minus_A']
         dCB = h['delta_C_minus_B']
@@ -343,11 +351,15 @@ def main():
     card = load('evidence/run_card.json')
     if card['approved_for_submission'] or card['verdict'] != 'negative':
         raise ValueError('This frozen negative-release site must not misrepresent a different approval state.')
-    # Active release: newest lane release directory present, newest first (2026-10-31).
+    # Active release: the current-release pointer wins (2026-10-31 H-BSTEP), then the newest
+    # lane release directory present.
     # NOTE (regavoid merge): 'regavoid' is intentionally NOT a candidate — its release verdict is
     # negative (AMEND-2); it renders only through regavoid_panel() and can never become ACTIVE.
     global ACTIVE_DIR
-    for candidate in ('tiprelay', 'kdam', 'thermal'):
+    pointer = load('evidence/current_release.json') if (ROOT / 'evidence/current_release.json').exists() else {}
+    if pointer.get('release') and (ROOT / pointer['release']).exists():
+        ACTIVE_DIR = Path(pointer['release']).parts[-2]
+    for candidate in (ACTIVE_DIR, 'tiprelay', 'kdam', 'thermal'):
         if (ROOT / 'evidence' / candidate / 'release.json').exists():
             ACTIVE_DIR = candidate
             break
@@ -366,6 +378,7 @@ def main():
 <div class="actions"><a class="button" href="downloads/{e(relcard['raster_name'])}" download>Download the submission TIF</a><a class="button secondary" href="executive-summary.html">Executive summary ↗</a></div>
 <p class="tagline">FAULT DETECTION · SPATIAL HOLDOUT · FAIL-CLOSED EXPORT</p></div>''' + release_card(rel) + '</section>'
     sig_panels = {
+        'bstep': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-BSTEP clears the holdout bar</h3><p>A basement-step concordance learner (strain-edge, relay-bridge, step-over and seismicity-catalogue transforms, all visible-only and canaried at max AUC 0.722) is measured against the 0.2600-family field on the same folds: shipped-variant HOLDOUT-DTI 0.1433 vs 0.1011. All numbers are HOLDOUT-DTI.</p></article>',
         'tiprelay': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-TIPRELAY clears the holdout bar</h3><p>Adding visible-only continuation geometry (tip-relay corridors, step-over gaps, strike persistence) to the thermal-anchored learner is scored as a paired ablation on the same folds; the shipped file emits at the champion operating point (37,654 dots, 2.8 px spacing, &gt;600 m off-catalogue). All numbers on this page are HOLDOUT-DTI.</p></article>',
         'kdam': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-KDAM clears the holdout bar</h3><p>An alteration-contact-supervised learner (map contacts + geophysical rasters) is measured against the 0.2600-family field on the same folds with the same emission: a measured field gain on the shared holdout. A parallel H-TIPRELAY lane shipped an independent gated candidate the same day; the cross-lane duplicate check passed (near-independent fields). All numbers are HOLDOUT-DTI.</p></article>',
         'thermal': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-TVGB clears the holdout bar</h3><p>The segment-withheld learner reaches HOLDOUT-DTI 0.1407 at the champion operating point (0.1516 at 52k dots) vs the 0.2600-family bar 0.1011. The geothermal-anchor conditioning itself is a measured negative (paired Δ −0.0124).</p></article>',
@@ -378,8 +391,8 @@ def main():
     (OUT / 'index.html').write_text(page('Overview', mainbody))
 
     mechanism = audit['h33_mechanism_audit']
-    if ACTIVE_DIR == 'kdam':
-        mech_callout = ('<div class="callout">Can we exceed the reported 0.2778? Not by copying or re-pruning it: every file at or above 0.24 in the nine focus sites is the same field. This session built a different field (H-KDAM) and measured it against that field on the same folds with the same emission: '
+    if ACTIVE_DIR in ('kdam', 'bstep'):
+        mech_callout = (f'<div class="callout">Can we exceed the reported 0.2778? Not by copying or re-pruning it: every file at or above 0.24 in the nine focus sites is the same field. The {e(LANE_TITLES[ACTIVE_DIR])} lane built a different field and measured it against that field on the same folds with the same emission: '
                         f'<strong>{rel["card"]["holdout_dti"]["value"]:.4f} vs {rel["card"]["comparators_same_emission"]["family_base_44090_unpruned"]:.4f}</strong> HOLDOUT-DTI. That is a measured field gain; whether it transfers to the live board is unproven, because this holdout is not rank-correlated with live scores. Owner-reported highs (0.3195, 0.4413) are OWNER-REPORT; the public leaderboard leader read on 2026-10-31 is 0.4544.</div>')
     else:
         mech_callout = '<div class="callout">Can we exceed the reported 0.2778? This session\'s answer: only with a better field at ~40k dots. The supervised family is the only local instrument above the 0.2600 base (HOLDOUT-DTI 0.14–0.16 vs 0.1011); whether that transfers live is unproven. Conflicting user-provided highs of 0.3195 and 0.4413 are OWNER-REPORT, not ORGANIZER-CONFIRMED.</div>'
@@ -512,6 +525,14 @@ def main():
                    f'{e2k["paired_delta_mean"]:+.6f} — the measured effect of the novelty rule is negligible, so the shipped '
                    f'file keeps the constrained emission. Evidence class HOLDOUT-DTI, {e2k["n_withheld_positives"]:,} '
                    f'withheld positives.</p><a href="evidence/kdam/e2_paired_novelty.json">E2 paired evidence JSON →</a>')
+    if ACTIVE_DIR == 'bstep':
+        e2panel = ('<p class="kicker">E2 emission sensitivity (this session)</p><h3>Concordance field: emission cell sweep.</h3>'
+                   '<p>The same learned field was emitted at the frozen cells (37,654/44,090 dots x 2/2.8/6 px catalogue '
+                   'exclusion); the shipped anti-collision variant measures 0.1433 [0.1366, 0.1507] on the fold fields vs '
+                   'the family base 0.1011. E3 evidence: the nine-site champion is exactly the family emission with dots '
+                   'within 2 px of the visible catalogue deleted (44,090 - 6,436 = 37,654, symmetric difference 0).</p>'
+                   '<a href="evidence/bstep/e2_emission.json">E2 evidence JSON &#8594;</a> &middot; '
+                   '<a href="evidence/bstep/e1_holdout.json">E1 holdout &#8594;</a>')
     if ACTIVE_DIR == 'tiprelay':
         e1 = rel['e1']
         e2t = rel['e2']
@@ -530,8 +551,8 @@ def main():
                    f'<a href="evidence/tiprelay/e1_paired_ablation.json">E1 paired evidence JSON \u2192</a> \u00b7 '
                    f'<a href="evidence/tiprelay/e2_emission_ablation.json">E2 \u2192</a>')
     else:
-        e2 = rel['e2']
-        e2panel = (f'<p class="kicker">E2 paired ablation (this session)</p><h3>Thermal features: measured negative.</h3>'
+        e2 = load('evidence/thermal/release.json')['e2']  # this panel documents the 2026-10-30 thermal E2
+        e2panel = (f'<p class="kicker">E2 paired ablation (2026-10-30 thermal lane)</p><h3>Thermal features: measured negative.</h3>'
                    f'<p>Arm A (28 layers + context + thermal family): HOLDOUT-DTI {e2["arms"]["A_hvtgb"]["holdout_dti"]:.4f}. '
                    f'Arm B (identical learner, no thermal family): {e2["arms"]["B_swgb_repro"]["holdout_dti"]:.4f} \u2014 an exact '
                    f'reproduction of the withdrawn SWGB field. Paired \u0394 {e2["paired_delta_A_minus_B"]:+.4f}, 95% CI '
@@ -570,6 +591,13 @@ def main():
         src = ROOT / 'evidence' / name
         if src.exists():
             shutil.copyfile(src, evidence_out / name)
+    bstep_out = evidence_out / 'bstep'
+    bstep_out.mkdir(exist_ok=True)
+    bstep_src = ROOT / 'evidence' / 'bstep'
+    if bstep_src.exists():
+        for path in bstep_src.glob('*'):
+            if path.is_file() and path.suffix in ('.json', '.md'):
+                shutil.copyfile(path, bstep_out / path.name)
     therm_out = evidence_out / 'thermal'
     therm_out.mkdir(exist_ok=True)
     for path in (ROOT / 'evidence' / 'thermal').glob('*'):

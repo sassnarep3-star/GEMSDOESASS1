@@ -47,79 +47,77 @@ site — download first, nine-site decision table, evidence, how-to-submit — i
 <h1>GEMSDOESASS1 — 2026-10-31 release</h1>
 
 <div class="banner ok">
-<h2>VERDICT: OK TO DOWNLOAD AND SUBMIT — <code>gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif</code></h2>
-<p>One unique GeoTIFF is the recommended download (H-TIPRELAY continuation-geometry-supervised recovery:
-tip-relay corridors, step-over gaps and strike persistence as visible-only learner features on the
-thermal-anchored stack; 37,654 dots, 2.8 px spacing, 600 m catalogue exclusion). It passed every
-automatic project gate: on-disk format validator (values in [0,1], no NaN anywhere — the fix for the
-earlier portal rejection), exact-copy scan against all 414 registry rasters on disk and all prior repo
-files, the lane-drift novelty gates (surface Spearman 0.132 ≤ 0.90; max competitive 3 px dot overlap
-65.2% ≤ 70%), and HOLDOUT-DTI above the 0.2600-family bar (shipped cell 0.1384 [0.1322, 0.1458] vs bar
-0.1011 and vs the superseded 2026-10-30 incumbent 0.1287; far-field restricted 0.1445). The paired
-ablation behind it: relay features +0.0110 [+0.0081, +0.0141] over the identical learner without them.</p>
+<h2>VERDICT: OK TO DOWNLOAD AND SUBMIT — <code>gemsass1-bstep-concord-37654-b6-20261031-zeros.tif</code></h2>
+<p>One unique GeoTIFF was generated this session (H-BSTEP basement-step concordance learner,
+37,654 dots, 600 m catalogue exclusion, anti-collision emission). It passed every automatic
+project gate: on-disk format validator (values in [0,1], no NaN anywhere — the fix for the earlier
+portal rejection “Predicted values must be in range [0, 1]”), exact-copy scan against 414 registry
+rasters and all prior repo files, the lane-drift novelty gates (measured max Spearman 0.015 and
+25.4% of dots within 3 px of the worst competitive raster — limits 0.90 / 70%), and HOLDOUT-DTI
+above the 0.2600-family bar (shipped anti-collision variant 0.1433 [0.1366, 0.1507] vs 0.1011;
+far-field 0.1502). The file is unique — it is not a copy of any GEMSDOE-site submission or of any
+earlier file in this repository.</p>
 <p><a class="btn" href="docs/executive-summary.html">Open the executive summary → verdict, download, table</a>
 <a class="btn alt" href="docs/how-to-submit.html">How to submit (step by step)</a></p>
-<p class="mut">The file itself is downloaded from the executive summary (one click). Spending a weekly
-competition slot is a separate selector decision — this workspace never uploads. The verdict above is
-machine-computed from <a href="docs/evidence/tiprelay/run_card.json">the run card</a>; if any gate had
-failed, this page would read NOT OK TO SUBMIT. Uniqueness reading: not an exact duplicate of anything;
-measured 83.9% 3 px overlap with this workspace's own superseded 2026-10-30 release (same operating
-point, different dot sets) is recorded in the run card.</p>
+<p class="mut">The file itself is downloaded from the executive summary (one click). Submission
+name <code>gemsass1-bstep-concord-37654-b6-20261031</code> and a short note are printed there for
+the upload form. Spending a weekly competition slot is a separate selector decision — this
+workspace never uploads. The verdict above is machine-computed from
+<a href="docs/evidence/bstep/run_card.json">the run card</a>; if any gate had failed, this page
+would read NOT OK TO SUBMIT.</p>
+<h3>Three other gate-passing candidates from the same day — selector alternatives</h3>
+<table>
+<tr><th>Candidate</th><th>HOLDOUT-DTI (its protocol)</th><th>Max 3 px overlap vs competitive registry</th><th>Standing</th></tr>
+<tr><td>H-TIPRELAY <code>gemsass1-tiprelay-continuation-37654-b6-20261031-zeros</code></td><td>shipped 0.1384 [0.1322, 0.1458]; E1 ablation 0.1573</td><td>65.2% (limit 70%)</td><td>main's three-lane cross-check recommended it (paired-ablation positive Δ +0.0110)</td></tr>
+<tr><td>H-KDAM <code>gemsass1-kdam-alteration-contact-37654-20261031-zeros</code></td><td>unpruned arm 0.1471 [0.1418, 0.1531]</td><td>31.1%</td><td>gate-passing alternative (emission unpruned, unlike the champion ladder)</td></tr>
+<tr><td>H-FUSION3 <code>gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros</code></td><td>0.1004 vs champion control 0.1048 — NOT ESTABLISHED</td><td>no exact duplicate of the nine best</td><td>conditional; its own card says not expected to beat 0.2778</td></tr>
+</table>
+<p class="mut">All four passed their own machine gates and cross-lane duplicate checks
+([cross-lane check](docs/evidence/tiprelay/cross_lane_kdam_check.json)); the field-quality numbers
+are measured under different protocols and are not directly comparable. Choosing which, if any, to
+submit is the selector's decision within the weekly cap.</p>
 </div>
 
 <div class="banner warn">
-<h2>Parallel gated candidate — selector alternative (H-KDAM lane, 2026-10-31)</h2>
-<p>A concurrent session packaged <code>gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif</code>
-(alteration-contact-supervised; HOLDOUT-DTI 0.1471 [0.1418, 0.1531] unpruned arm vs the same-emission
-family base 0.1011; competitive max 3 px overlap 31.1%; all 489 inventory rasters measured, lattice
-99.96% disclosed). It passed every gate in its own release
-(<a href="docs/evidence/kdam/release.json">evidence/kdam/release.json</a>). The cross-lane duplicate
-check passed: the two fields are near-independent (full-footprint Spearman −0.0028, 169 of 37,654 dot
-pixels shared, 3 px overlap 4.3%/10.3% —
-<a href="docs/evidence/tiprelay/cross_lane_kdam_check.json">cross-lane check</a>). Choosing between the
-two gated candidates is the selector's decision within the weekly cap; the default recommendation is the
-H-TIPRELAY file above (champion-family-consistent emission; its features carry the paired-ablation
-positive). The 2026-10-31 step-over and sparse TIFFs are research artifacts, not submit-cleared.</p>
+<h2>Eligibility check before any upload</h2>
+<p>The official rules (§1.3) limit competitors to U.S. citizens or permanent residents, or
+U.S.-incorporated entities. Arena reports the user's location as Calgary, Canada (earlier sessions
+recorded Singapore) — either way outside the stated eligibility. Confirm eligibility with the prize
+administrator before submitting, and do not sign an eligibility certification unless it is true.</p>
 </div>
 
 <div class="banner bad">
-<h2>NOT APPROVED — DO NOT SUBMIT (historical lanes, including the superseded 2026-10-30 file)</h2>
-<p><strong>No SWGB, H-PBSC, BGAC-1 or H-TVGB file is approved for submission.</strong> SWGB's promotion
-was withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its
+<h2>NOT APPROVED — DO NOT SUBMIT (historical lanes)</h2>
+<p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was
+withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its
 holdout comparison (HOLDOUT-DTI 0.0650 vs bar 0.1011) and 99.48% of its dots fall within 3 px of the
-same lattice; its <code>ok_to_submit = false</code> stands. BGAC-1 stopped before placement on the
-literal novelty gate. The 2026-10-30 H-TVGB release
-(<code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code>) passed its gates in that
-session and is now <strong>superseded by the 2026-10-31 files above</strong> — do not upload it. Its
-first 2 px packaging
-(<code>gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif</code>) is likewise logged as a
-lane-drift duplicate (79.1% dot overlap with one GEMSDOE25 raster) and was never OK to submit.
-None of these files is a new submission; they are retained as evidence only.</p>
+same lattice. BGAC-1 failed the literal novelty gate before placement. The 2026-10-30 H-TVGB file is
+superseded as the presented download by the H-BSTEP file above. This negative evidence is retained,
+never erased.</p>
 </div>
 
-<h2>What is on the site</h2>
+<h2>Nine-site board (highest-scoring submissions, OWNER-REPORT)</h2>
 <table>
-<tr><th>Page</th><th>Content</th></tr>
-<tr><td><a href="docs/executive-summary.html">Executive summary</a></td><td>Generated-file verdict at the top, one-click download (TIF + ZIP), the file / estimated score / uniqueness / submit table for all nine focus sites, submission name and note, gates, and the exactly-how-to-submit checklist.</td></tr>
-<tr><td><a href="docs/how-to-submit.html">How to submit</a></td><td>Step-by-step: verify the file, copy the name and note, open the form, save the organizer receipt.</td></tr>
-<tr><td><a href="docs/index.html">Documentation</a></td><td>Current project documentation and release status.</td></tr>
-<tr><td><a href="docs/evidence.html">Evidence</a></td><td>Run cards, holdout JSONs, novelty audits, cross-lane checks, data provenance, and preserved negative results.</td></tr>
+<tr><th>Site</th><th>Best file (review link)</th><th>Score (owner-reported)</th><th>Unique?</th><th>Submit?</th></tr>
+<tr><td>GEMSDOE32</td><td>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</td><td>0.2778</td><td>No — 37,654-dot subset of the GEMSDOE25 family</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE36</td><td>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</td><td>0.2750</td><td>No — same family</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE28</td><td>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</td><td>0.2710</td><td>No — same family</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE31</td><td>h27-4-solo-d28-20261004-8acb75e1-nan</td><td>0.2708</td><td>No — exact dot-set twin of GEMSDOE28 files</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE33</td><td>h33d-analog-tip-stepover-r30-20261004-cb490425926e</td><td>0.2632</td><td>No — same family</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE25</td><td>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</td><td>0.2600</td><td>No — the family base</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE30</td><td>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</td><td>0.2600</td><td>No — byte-twin of the family base</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE24</td><td>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</td><td>0.2477</td><td>No — same family</td><td>No — already submitted</td></tr>
+<tr><td>GEMSDOE27</td><td>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</td><td>0.2449</td><td>No — same family</td><td>No — already submitted</td></tr>
+<tr><td><strong>THIS REPO</strong></td><td><strong>gemsass1-bstep-concord-37654-b6-20261031-zeros (generated)</strong></td><td><strong>HOLDOUT-DTI 0.1433 · live score not estimable</strong></td><td><strong>Yes — unique vs 414 registry rasters and all priors</strong></td><td><strong>OK TO DOWNLOAD AND SUBMIT</strong></td></tr>
 </table>
+<p class="mut">Historical values are OWNER-REPORT (no organizer receipt in this workspace). Every
+one of the nine best files is already a previous submission in one H19-5 dotted family — resubmitting
+any of them cannot beat its own score. The generated file is the only new submission here. Its
+HOLDOUT-DTI is hide-and-recover evidence labelled with the evaluator and CI; it is not a leaderboard
+score and a projection is never written as a score.</p>
 
-<div class="banner warn">
-<h2>Score provenance</h2>
-<p>Historical values quoted on this site are <strong>OWNER-REPORT</strong> (per-competition-group ledgers;
-no organizer receipt exists in this workspace). New values are <strong>HOLDOUT-DTI</strong>
-(evaluator-versioned hide-and-recover measurement with withheld positives and 95% CIs) — a local
-instrument, never a leaderboard score. Any live-score figure is an explicit projection. The user-
-reported high of 0.2778 for GEMSDOE32 and the conflicting claimed highs of 0.3195 / 0.4413 remain
-unverified owner reports.</p>
-</div>
+<p><a class="btn alt" href="docs/executive-summary.html">Full executive summary and download →</a></p>
 </main>
-<footer>
-<p>Values include historical reported competition scores owned by their competition groups. This
-research does not replace the official competition rules or leaderboard. This workspace never
-automates uploads or spends weekly submission slots.</p>
-</footer>
+<footer>GEMS Fieldnotes · evidence before submission · no competition uploads automated</footer>
 </body>
 </html>

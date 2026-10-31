@@ -22,13 +22,21 @@ def main():
     before = {p: p.read_bytes() for p in pages}
     subprocess.run([sys.executable, str(ROOT / 'scripts/swgb_build_site.py')],
                    capture_output=True, text=True, timeout=10, check=True)
-    # Active release first (2026-10-31): newest lane release directory wins.
+    # Active release first (2026-10-31): the current-release pointer wins, then the newest
+    # lane release directory.
     card = {}
-    for candidate in ('tiprelay', 'thermal'):
+    pointer_path = ROOT / 'evidence/current_release.json'
+    if pointer_path.exists():
+        ptr = json.loads(pointer_path.read_text())
+        cp = ROOT / ptr['run_card']
+        if cp.exists():
+            card = json.loads(cp.read_text())
+    for candidate in ('bstep', 'tiprelay', 'thermal'):
+        if card:
+            break
         cp = ROOT / 'evidence' / candidate / 'run_card.json'
         if cp.exists():
             card = json.loads(cp.read_text())
-            break
     approved_name = card.get('raster_name') if card.get('ok_to_download_and_submit') else None
     for page in pages:
         text = page.read_text()

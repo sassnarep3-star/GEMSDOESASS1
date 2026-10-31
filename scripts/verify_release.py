@@ -172,6 +172,18 @@ def main():
             if path.suffix in ('.json', '.md'):
                 require(path.read_bytes() == (ROOT / 'docs/evidence/tiprelay' / path.name).read_bytes(),
                         'site tiprelay evidence stale: ' + path.name)
+    # --- 2026-10-31 current-release checks (additive; nothing above is weakened) ---
+    pointer = strict_json(ROOT / 'evidence/current_release.json') if (ROOT / 'evidence/current_release.json').exists() else {}
+    if pointer.get('run_card') and (ROOT / pointer['run_card']).exists():
+        cur = strict_json(ROOT / pointer['run_card'])
+        require(cur['submission_slots_used'] == 0, 'the current run must not use slots')
+        require(len(cur['note']) <= 140 and len(cur['submission_name']) <= 140, 'current name/note length')
+        require(cur['holdout_dti']['label'] == 'HOLDOUT-DTI', 'current score class')
+        require(cur['experiments_run'] <= cur['experiment_budget'] == 3, 'current experiment budget')
+        require('OWNER-REPORT' in cur['evidence_class'] and 'HOLDOUT-DTI' in cur['evidence_class'],
+                'current evidence class labeling')
+        canary = strict_json(ROOT / 'evidence/bstep/leakage_canary.json')
+        require(canary['canary_pass'] and not canary['flagged_over_0p90'], 'current canary unresolved')
     correction = strict_json(ROOT / 'evidence/corrected_surface_novelty.json')
     require(correction['duplicate'] and not correction['cleared'], 'pre-placement stop missing')
     require(correction['candidate_values_sha256'] == card['canonical_surface_sha256'], 'corrective audit changed candidate')
@@ -234,6 +246,10 @@ def main():
         if path.suffix in ('.json', '.md'):
             require(path.read_bytes() == (ROOT / 'docs/evidence/thermal' / path.name).read_bytes(),
                     'site thermal evidence stale: ' + path.name)
+    for path in (ROOT / 'evidence/bstep').glob('*'):
+        if path.suffix in ('.json', '.md'):
+            require(path.read_bytes() == (ROOT / 'docs/evidence/bstep' / path.name).read_bytes(),
+                    'site bstep evidence stale: ' + path.name)
     for lane in ('tiprelay', 'kdam', 'regavoid'):
         lane_dir = ROOT / 'evidence' / lane
         if lane_dir.is_dir():

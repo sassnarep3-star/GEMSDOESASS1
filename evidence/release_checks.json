@@ -84,20 +84,13 @@
     "review_record": "docs/REPO_REVIEW_2026-10-30.md"
   },
   "post_review_2026-10-31_implementation_sha256": {
-    "scripts/build_site.py": "337ffa45cd10120574d51057ba88d417840d94f72f9861a1971e17bd048c3157",
-    "scripts/check_release_entrypoints.py": "4d2b9ba8fc6fe94c4d81f0f66d66d30a89530a2ecbab32ccec4d5951b1a49052",
-    "scripts/make_release.py": "06454397858d918456695843af17d03f3719cb38c85fc48cecfecc7b2b0b184a",
+    "scripts/build_site.py": "cb1f36a0ab90cd9dc05432dd60a23fea5fe96f93bec31db23c0572a0f9391656",
     "scripts/registry_snapshot.py": "3db47b0bcbd279102d3a26fdbeb126d206c1fd2f4063968f5fee48ec058b4540",
-    "scripts/restore_externals.py": "8e3042e8b0526c06506da3377751e3ab4ece0fa02f6eed9599a1aec33e2a76c0",
-    "scripts/verify_release.py": "7eb49b098e95e26644d62b6009b64178a9720cf1dfd038ee7010494dccfdab09"
+    "scripts/verify_release.py": "7367b7c51fcb551e1acc14276b23aa7833d9055c96b7b50a4a78730eb50caf14",
+    "scripts/check_release_entrypoints.py": "6959a0baf783b11ce5c730df3913c0abebcc484121ec76542b348a9241ca4e49",
+    "scripts/verify_swgb_correction.py": "1334385aa80413bcd43295506736354de5513269fce4bdf765a6fc4ccc308c80",
+    "scripts/make_release.py": "06454397858d918456695843af17d03f3719cb38c85fc48cecfecc7b2b0b184a"
   },
-  "post_review_2026-10-31_change_reasons": {
-    "scripts/registry_snapshot.py": "2026-10-31: git-protocol fallback for REST-quota failures; same pinned-blob verification (protocol item 2 fix).",
-    "scripts/restore_externals.py": "2026-10-31: git-protocol fallback for REST-quota failures; same sha256/size verification (protocol item 2 fix).",
-    "scripts/build_site.py": "2026-10-31: active-release selection (evidence/tiprelay then thermal), lane-dynamic text, tiprelay evidence mirror.",
-    "scripts/verify_release.py": "2026-10-31: additive tiprelay release checks, tiprelay evidence mirror check, merged dated post-review maps.",
-    "scripts/check_release_entrypoints.py": "2026-10-31: approved raster read from the active lane release (tiprelay first).",
-    "scripts/make_release.py": "2026-10-31: registry exact-duplicate scan path fix (ROOT/rec[local]); --evidence-dir; loud failure on missing registry files."
-  },
+  "post_review_2026-10-31": "H-BSTEP + H-KDAM + H-TIPRELAY + H-FUSION3 lane integration (2026-10-31): current-release pointer (evidence/current_release.json) added; build_site/verify_release/check_release_entrypoints/test_pipeline updated to resolve the promoted card via the pointer (pointer -> tiprelay -> kdam -> thermal); all frozen negative records unchanged.",
   "post_review_2026-10-31_regavoid_merge": "2026-10-31 H-REGAVOID merge into the parallel main: build_site.py renders a regavoid_panel() (negative lane, never ACTIVE), mirrors evidence/regavoid into docs/evidence/regavoid and lists its receipts on evidence.html; verify_release.py adds H-REGAVOID integrity checks (verdict==gates, byte locks, AMEND-2/IR-SHIPPED-BITS-01 pins) and the regavoid evidence mirror. Both final byte hashes are pinned in the post-10-31 map."
 }

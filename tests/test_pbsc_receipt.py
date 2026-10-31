@@ -75,8 +75,9 @@ def test_homepage_makes_submit_decision_obvious():
     assert ".tif\"" not in home
     assert "H-PBSC" in home
     assert "99.48%" in home
-    # The generated release verdict must appear exactly when the run card approves it.
-    card = json.loads((ROOT / "evidence/thermal/run_card.json").read_text())
+    # The generated release verdict must appear exactly when the current run card approves it.
+    ptr = json.loads((ROOT / "evidence/current_release.json").read_text())
+    card = json.loads((ROOT / ptr["run_card"]).read_text())
     if card["ok_to_download_and_submit"]:
         assert "ok to download and submit" in home.lower()
         assert card["raster_name"] in home

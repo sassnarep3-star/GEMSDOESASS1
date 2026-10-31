@@ -88,12 +88,21 @@ def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
 def test_generated_verdict_matches_run_card_gates():
     """The verdict and the linked file on every generated page must equal the current release card.
 
-    The pages are generated from `evidence/kdam/release.json` when that card exists (2026-10-31 H-KDAM),
-    otherwise from the 2026-10-30 thermal card. Every card in evidence/ must satisfy the same
-    format/validator invariants regardless of which one the site promotes.
+    The pages are generated from the release named by `evidence/current_release.json` when that
+    pointer exists (2026-10-31 H-BSTEP), else from `evidence/kdam/release.json` when present
+    (2026-10-31 H-KDAM), otherwise from the 2026-10-30 thermal card. Every card in evidence/ must
+    satisfy the same format/validator invariants regardless of which one the site promotes.
     """
+    pointer = ROOT / 'evidence' / 'current_release.json'
     kdam = ROOT / 'evidence' / 'kdam' / 'release.json'
-    if kdam.exists():
+    if pointer.exists():
+        ptr = json.loads(pointer.read_text())
+        rel = json.loads((ROOT / ptr['release']).read_text())
+        card = rel['card']
+        gates = rel['gates']
+        validator = rel.get('validator') or json.loads(
+            (ROOT / 'evidence/kdam' / f"final_{card['submission_name']}.json").read_text())['validator']
+    elif kdam.exists():
         card = json.loads(kdam.read_text())['card']
         gates = json.loads(kdam.read_text())['gates']
         validator = json.loads((ROOT / 'evidence/kdam' /
