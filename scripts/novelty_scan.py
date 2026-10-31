@@ -21,8 +21,11 @@ Two-stage cost control, both conservative:
      the threshold keep their bound and are labelled ``status="bounded"`` -- their true overlap is
      <= the reported number, which is what a clearance argument needs.
 
-Synthetic calibration fixtures (``inputs/calibration/*``, ``*lattice*``) and the explicit 32x48
-FORMAT_TEST file are reported separately and exempted (AMEND-LATTICE-01).
+Synthetic calibration fixtures (``inputs/calibration/*``) and the explicit 32x48 FORMAT_TEST file are
+**measured, not skipped**: every one of the 489 inventory rasters is scanned and tagged ``fixture``. The
+clearance verdict is taken over the competitive rasters only (AMEND-LATTICE-01), and the fixture maxima are
+reported alongside it, with the shipped candidate's full 99.96 % overlap against the 5 px synthetic lattice
+disclosed rather than hidden.
 
 Usage: python scripts/novelty_scan.py <tif-or-npy> [--out evidence/kdam/novelty_<name>.json]
 """
@@ -114,17 +117,15 @@ def main() -> int:
     offs = [(dy, dx) for dy in range(-R, R + 1) for dx in range(-R, R + 1)]
     rng = np.random.default_rng(20261031)
 
-    rows, exempt = [], []
+    rows = []
     t0 = time.time()
     for i, item in enumerate(inv["rasters"]):
-        if is_exempt(item["path"]):
-            exempt.append(dict(repo=item["repo"], path=item["path"]))
-            continue
+        fixture = is_exempt(item["path"])
         a = read_band(ROOT / item["local"])
         theirs = np.nan_to_num(a, nan=0.0) > 0.0
         if theirs.shape != mine.shape:
             rows.append(dict(repo=item["repo"], path=item["path"], sha256=item["sha256"],
-                             status="incompatible-grid", shape=list(theirs.shape),
+                             status="incompatible-grid", fixture=fixture, shape=list(theirs.shape),
                              their_dots=int(theirs.sum()), overlap3=None, rho=None,
                              duplicate=False, window_bound=None, jaccard=None,
                              on_dot_fraction=None))
@@ -140,7 +141,7 @@ def main() -> int:
                 hit[ok] |= theirs[yy[ok], xx[ok]]
         bound = float(hit.mean())
         row = dict(repo=item["repo"], path=item["path"], sha256=item["sha256"],
-                   their_dots=their_dots, window_bound=bound)
+                   their_dots=their_dots, window_bound=bound, fixture=fixture)
         # exact set comparisons
         inter = int((theirs & mine).sum())
         union = int((theirs | mine).sum())
@@ -165,18 +166,28 @@ def main() -> int:
         if (i + 1) % 100 == 0:
             print(f"scan {i + 1}/{len(inv['rasters'])} measured={len(rows)} t={time.time() - t0:.0f}s", flush=True)
 
-    exact_rows = [r for r in rows if r["overlap3"] is not None]
-    bounded = [r for r in rows if r["overlap3"] is None and r.get("status") == "bounded"]
-    incompatible = [r for r in rows if r.get("status") == "incompatible-grid"]
-    comparable = [r for r in rows if r.get("status") != "incompatible-grid"]
+    competitive = [r for r in rows if not r.get("fixture")]
+    fixtures = [r for r in rows if r.get("fixture")]
+    exact_rows = [r for r in competitive if r["overlap3"] is not None]
+    bounded = [r for r in competitive if r["overlap3"] is None and r.get("status") == "bounded"]
+    incompatible = [r for r in competitive if r.get("status") == "incompatible-grid"]
+    comparable = [r for r in competitive if r.get("status") != "incompatible-grid"]
     worst = max(comparable, key=lambda r: (r["overlap3"] if r["overlap3"] is not None else r["window_bound"]))
-    offenders = [r for r in rows if r["duplicate"]]
+    offenders = [r for r in competitive if r["duplicate"]]
+    comparable_all = [r for r in rows if r.get("status") != "incompatible-grid"]
+    worst_all = max(comparable_all, key=lambda r: (r["overlap3"] if r["overlap3"] is not None else r["window_bound"]))
+    fx_pool = [r for r in fixtures if r.get("status") != "incompatible-grid"] or \
+              [dict(overlap3=0.0, window_bound=0.0, repo=None, path=None, status="none")]
+    fx = max(fx_pool, key=val)
+    def val(r):
+        v = r["overlap3"] if r["overlap3"] is not None else r.get("window_bound")
+        return 0.0 if v is None else float(v)
     out = dict(
         candidate=str(cand_path), candidate_dots=int(n_dots),
         registry_inventory=str(INVENTORY.relative_to(ROOT)), snapshot_utc=inv["snapshot_utc"],
-        rasters_in_inventory=len(inv["rasters"]), competitive_rasters=len(rows),
-        measured_exactly=len(exact_rows), bounded=len(bounded), screened_out=0,
-        incompatible_grid=len(incompatible),
+        rasters_in_inventory=len(inv["rasters"]), competitive_rasters=len(competitive),
+        fixture_rasters=len(fixtures), measured_exactly=len(exact_rows), bounded=len(bounded),
+        screened_out=0, incompatible_grid=len(incompatible),
         thresholds=dict(overlap_limit=OVERLAP_LIMIT, rho_limit=RHO_LIMIT, radius_px=3.0),
         method="every candidate dot tested against a 7x7 window (upper bound on the 3 px disk overlap); "
                "exact shared dot_overlap wherever the bound is >= 0.05; Spearman sampled to "
@@ -187,15 +198,26 @@ def main() -> int:
         worst_raster=dict(repo=worst["repo"], path=worst["path"],
                           overlap3=worst["overlap3"] if worst["overlap3"] is not None else worst["window_bound"],
                           status=worst["status"]),
+        max_overlap3_all_rasters=round(max((val(r) for r in comparable_all), default=0.0), 6),
+        worst_raster_all_rasters=dict(repo=worst_all["repo"], path=worst_all["path"],
+                                      overlap3=round(val(worst_all), 6), status=worst_all["status"]),
+        max_fixture_overlap3=round(max((val(r) for r in fixtures
+                                       if r.get("status") != "incompatible-grid"), default=0.0), 6),
+        worst_fixture=dict(repo=fx["repo"], path=fx["path"], overlap3=round(val(fx), 6),
+                           status=fx["status"]),
         max_rho=max((r["rho"] for r in rows if r["rho"] is not None and not np.isnan(r["rho"])), default=None),
         duplicates=[dict(repo=r["repo"], path=r["path"],
                          overlap3=r["overlap3"] if r["overlap3"] is not None else r["window_bound"],
                          status=r["status"], rho=r["rho"]) for r in offenders],
-        exempt_fixtures=exempt,
+        exempt_fixtures=[dict(repo=r["repo"], path=r["path"],
+                              overlap3=None if r["overlap3"] is None else round(r["overlap3"], 6),
+                              window_bound=round(r["window_bound"], 6) if r.get("window_bound") is not None else None,
+                              status=r["status"]) for r in fixtures],
         cleared=(len(offenders) == 0),
         cleared_scope="all %d competitive rasters: %d exact, %d bounded above by the reported value, "
-                      "%d on an incompatible grid" % (len(rows), len(exact_rows), len(bounded),
-                                                      len(incompatible)),
+                      "%d on an incompatible grid; %d fixtures measured separately (max %.4f)"
+                      % (len(competitive), len(exact_rows), len(bounded), len(incompatible),
+                         len(fixtures), max((val(r) for r in fixtures), default=0.0)),
         per_raster=rows, runtime_s=round(time.time() - t0, 1),
         generated_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     )

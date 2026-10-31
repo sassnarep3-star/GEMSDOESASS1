@@ -28,31 +28,52 @@
   "exempt_fixtures": [
     {
       "repo": "GEMSDOE24",
-      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif"
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "overlap3": 0.999575,
+      "window_bound": 0.999575,
+      "status": "measured"
     },
     {
       "repo": "GEMSDOE24",
-      "path": "inputs/calibration/8GEMSDOE_Hedge-v2_submission.tif"
+      "path": "inputs/calibration/8GEMSDOE_Hedge-v2_submission.tif",
+      "overlap3": 0.160647,
+      "window_bound": 0.160647,
+      "status": "measured"
     },
     {
       "repo": "GEMSDOE24",
-      "path": "inputs/calibration/gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif"
+      "path": "inputs/calibration/gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif",
+      "overlap3": 0.140782,
+      "window_bound": 0.140782,
+      "status": "measured"
     },
     {
       "repo": "GEMSDOE24",
-      "path": "inputs/calibration/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif"
+      "path": "inputs/calibration/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "overlap3": 0.139932,
+      "window_bound": 0.139932,
+      "status": "measured"
     },
     {
       "repo": "GEMSDOE24",
-      "path": "inputs/calibration/gemsdoe-ens12-adopted-7f00890a.tif"
+      "path": "inputs/calibration/gemsdoe-ens12-adopted-7f00890a.tif",
+      "overlap3": 0.132788,
+      "window_bound": 0.132788,
+      "status": "measured"
     },
     {
       "repo": "GEMSDOE24",
-      "path": "inputs/calibration/gemsdoe9-PLACEHOLDER-2314b599.tif"
+      "path": "inputs/calibration/gemsdoe9-PLACEHOLDER-2314b599.tif",
+      "overlap3": 0.063446,
+      "window_bound": 0.063446,
+      "status": "measured"
     },
     {
       "repo": "GEMSDOE36",
-      "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif"
+      "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+      "overlap3": null,
+      "window_bound": null,
+      "status": "incompatible-grid"
     }
   ],
   "cleared": true,
@@ -6808,5 +6829,24 @@
     }
   ],
   "runtime_s": 286.8,
-  "generated_utc": "2026-10-31T05:39:51Z"
+  "generated_utc": "2026-10-31T05:39:51Z",
+  "fixture_rasters": 7,
+  "max_fixture_overlap3": 0.999575,
+  "worst_fixture": {
+    "repo": "GEMSDOE24",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "overlap3": 0.999575
+  },
+  "max_overlap3_all_rasters": 0.999575,
+  "worst_raster_all_rasters": {
+    "repo": "GEMSDOE24",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "overlap3": 0.999575
+  },
+  "fixture_audit": {
+    "source": "evidence/kdam/fixture_exemption_audit.json",
+    "merged_utc": "2026-10-31T05:52:59Z",
+    "all_489_measured": true,
+    "note": "fixtures are measured, not skipped: they are excluded from the clearance verdict (AMEND-LATTICE-01) but reported quantitatively"
+  }
 }

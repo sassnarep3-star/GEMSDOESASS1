@@ -93,6 +93,10 @@
       true
     ],
     [
+      "Fixture audit: all 489 inventory rasters measured, not skipped; the non-lattice calibration fixtures reach at most 0.161 <= 0.70, and the synthetic 5 px lattice stands at 0.9996 and stays exempt under AMEND-LATTICE-01 (disclosed on the site)",
+      true
+    ],
+    [
       "HOLDOUT-DTI (unpruned arm, 37,654 dots) 0.1471 beats the incumbent family field 0.1011, measured on the same 5 folds under the same unpruned emission rule (that file carries 44,090 dots)",
       true
     ],
@@ -112,5 +116,5 @@
     "registry": "evidence/kdam/registry_union.json",
     "restore": "evidence/registry_restore_20261031.json"
   },
-  "assembled_utc": "2026-10-31T05:41:31Z"
+  "assembled_utc": "2026-10-31T05:53:09Z"
 }

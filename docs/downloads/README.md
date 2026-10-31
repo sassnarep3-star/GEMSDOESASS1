@@ -26,9 +26,11 @@ Why **OK TO DOWNLOAD AND SUBMIT** is printed for this file:
 2. **Zero positive mass on mapped catalogue fault pixels** — those pixels are masked out of scoring, so
    mass there is pure penalty.
 3. **No exact duplicate** of any of the 489 registry rasters.
-4. **Novelty / lane-drift gate.** Across the 476 competitive rasters (430 measured exactly, 46
-   upper-bounded, 1 incompatible-grid fixture): maximum 3 px overlap **31.1 %** (limit 70 %) and maximum
-   Spearman **0.0149** (limit 0.90).
+4. **Novelty / lane-drift gate.** Across the 482 competitive rasters (430 overlap measured exactly,
+   52 cleared by a conservative 7×7 upper bound): maximum 3 px overlap **31.1 %** (limit 70 %) and maximum
+   Spearman **0.0152** (limit 0.90). All 7 remaining rasters in the 489-raster inventory are measured too
+   (`scripts/audit_fixtures.py`): the five calibration files top out at 16.1 %, the 32×48 format test is on a
+   different grid, and the synthetic 5 px lattice reaches 99.96 % and stays exempt under AMEND-LATTICE-01.
 5. **Field quality, measured against the incumbent.** HOLDOUT-DTI 0.1471 vs 0.1011 for the field behind
    every file ≥ 0.24 in the nine focus sites, same five folds, same emission rule.
 6. No competition slot was used by this workspace; promotion to a slot is a separate selector decision.

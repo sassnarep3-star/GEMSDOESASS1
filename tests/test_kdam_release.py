@@ -90,6 +90,13 @@ def test_novelty_receipt_supports_the_claim(release):
     assert nov["max_overlap3"] <= nov["thresholds"]["overlap_limit"]
     assert nov["max_rho"] <= nov["thresholds"]["rho_limit"]
     assert nov["measured_exactly"] + nov["bounded"] + nov["incompatible_grid"] == nov["competitive_rasters"]
+    # every inventory raster is measured, fixtures included: nothing is skipped by name
+    assert nov["rasters_in_inventory"] >= nov["competitive_rasters"] + nov["fixture_rasters"]
+    assert nov["fixture_rasters"] >= 1 and len(nov["exempt_fixtures"]) == nov["fixture_rasters"]
+    assert all("overlap3" in f and "window_bound" in f for f in nov["exempt_fixtures"])
+    # the disclosure is quantitative, and the all-rasters maximum cannot be below the competitive one
+    assert nov["max_overlap3_all_rasters"] >= nov["max_overlap3"]
+    assert nov["max_fixture_overlap3"] <= nov["max_overlap3_all_rasters"] + 1e-9
     # the bound must never be reported below the exact measurement (it is an upper bound)
     if nov["max_overlap3"] is not None:
         assert nov["max_overlap3_upper_bound"] >= nov["max_overlap3"]

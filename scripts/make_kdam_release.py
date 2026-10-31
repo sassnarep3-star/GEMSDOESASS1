@@ -72,6 +72,12 @@ def main() -> int:
     comp_live = e1["comparators_same_emission"]["live_champion_37654"]
     nov_arm = (e2 or {}).get("arms", {}).get("C_novelty")
 
+    fixtures = nov.get("exempt_fixtures", [])
+    lattice_rows = [f for f in fixtures if "lattice" in f["path"]]
+    nonlattice = [f["overlap3"] for f in fixtures
+                  if "lattice" not in f["path"] and f.get("overlap3") is not None]
+    fixture_lattice = max((f["overlap3"] for f in lattice_rows if f.get("overlap3")), default=0.0)
+    fixture_nonlattice_max = max(nonlattice, default=0.0)
     gates = [
         ["Validator from bytes: single-band float32, EPSG:32611, 3730x3292, values in [0,1], "
          "no NaN anywhere, zeros outside the footprint", bool(val["all_checks_passed"])],
@@ -82,6 +88,13 @@ def main() -> int:
         ["Lane-drift gate: max 3 px overlap %.3f <= 0.70 and max Spearman %.3f <= 0.90 vs every "
          "competitive registry raster" % (nov["max_overlap3"] or 0, nov["max_rho"] or 0),
          bool(nov["cleared"])],
+        ["Fixture audit: all %d inventory rasters measured, not skipped; the non-lattice calibration "
+         "fixtures reach at most %.3f <= 0.70, and the synthetic 5 px lattice stands at %.4f and stays "
+         "exempt under AMEND-LATTICE-01 (disclosed on the site)" % (
+             nov.get("rasters_in_inventory", 0), fixture_nonlattice_max, fixture_lattice),
+         bool(nov.get("fixture_audit", {}).get("all_489_measured"))
+         and nov.get("fixture_rasters", 0) + nov["competitive_rasters"] >= nov.get("rasters_in_inventory", 0)
+         and fixture_nonlattice_max <= 0.70],
         ["HOLDOUT-DTI (unpruned arm, 37,654 dots) %.4f beats the incumbent family field %.4f, measured "
          "on the same 5 folds under the same unpruned emission rule (that file carries 44,090 dots)"
          % (arm_protocol["holdout_dti"], comp["holdout_dti"]),

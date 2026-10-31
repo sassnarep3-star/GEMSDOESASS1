@@ -63,8 +63,17 @@ def lattice_note(card):
             f'The scan covers the nine focus sites only.</p>')
 
 
+def measured_site_uniqueness():
+    """site -> measured maximum 3 px overlap with any other focus site, from the restored rasters."""
+    path = ROOT / 'evidence/kdam/nine_site_matrix_20261031.json'
+    if not path.exists():
+        return {}
+    return {r['site']: r for r in json.loads(path.read_text())['rows']}
+
+
 def table(rows, rel, prefix=''):
     body = ''
+    measured = measured_site_uniqueness()
     card = rel['card']
     ok = card['ok_to_download_and_submit']
     verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if ok else 'NOT OK TO SUBMIT'
@@ -77,12 +86,22 @@ def table(rows, rel, prefix=''):
 <td class="{'good' if ok else 'bad'} nowrap">{e(verdict_word)}</td></tr>'''
     for row in sorted(rows, key=lambda r: -r['historical_report']):
         aliases = ', '.join(row['same_predictions_other_focus_sites'])
-        duplicate = f'Exact predictions also in {e(aliases)}.' if aliases else 'No exact counterpart in another focus site found in this snapshot.'
+        m = measured.get(row['site'])
+        if m and m.get('overlap'):
+            worst_site = max(m['overlap'], key=m['overlap'].get)
+            worst = m['overlap'][worst_site]
+            cs = m.get('closest_site_symdiff') or {}
+            duplicate = (f'{100 * worst:.1f}% of its dots lie within 3 px of {worst_site}'
+                         + (f'; its closest dot set is {cs.get("site")}, differing by {cs.get("symmetric_difference", 0):,} dots'
+                            if cs else '')
+                         + ' (measured, not reported).')
+        else:
+            duplicate = f'Exact predictions also in {e(aliases)}.' if aliases else 'No exact counterpart in another focus site found in this snapshot.'
         body += f'''<tr><td class="sitecell"><a href="{prefix}sites/{row['site']}.html">{row['site']} ↗</a><br><span class="small">Prior result</span></td>
 <td><span class="reported">{row['historical_report']:.4f}</span><br><span class="badge">OWNER-REPORT live score</span></td>
 <td><a class="file" href="{row['source_url']}">{e(row['file'])}</a><span class="small">Source review only · not a new download</span></td>
 <td>Live score {row['historical_report']:.4f} (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">{duplicate}</span></td>
+<td class="bad">No — already a prior submission, and not unique among the nine<br><span class="small">{duplicate}</span></td>
 <td class="bad nowrap">Do not submit</td></tr>'''
     return f'''<p class="small">On smaller screens, scroll the table sideways to review every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site historical comparison"><table><thead><tr><th scope="col">Site</th><th scope="col">Score evidence</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique submission?</th><th scope="col">Submit?</th></tr></thead><tbody>{body}</tbody></table></div>
 <p class="table-note">Historical values are OWNER-REPORT scores copied from the supplied ledgers, not ORGANIZER-CONFIRMED receipts. The generated row's HOLDOUT-DTI is a hide-and-recover measurement (evaluator {e(card['holdout_dti']['evaluator'])}, {card['holdout_dti']['n_withheld_positives']:,} withheld positives), never a leaderboard score; its "estimated score" cell is explicitly a projection. Different file hashes do not imply different predictions.</p>'''
