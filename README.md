@@ -157,6 +157,24 @@ session built and measured.
 account; the held-out labels and the official rules PDF are login-walled here; and the novelty registry
 covers the nine focus sites only, not the sibling GEMSDOE44–92 / WBG / KANLER / GINNY / karage / apart lanes.
 
+## Status — 2026-10-31 (H-REGAVOID lane · parallel NEGATIVE result — do not submit)
+
+**Is this session's file OK to download and submit? NO (AMEND-2, preregistered before the sweep).** The recommended download remains the H-TIPRELAY file above. This lane exists because it produced the highest protocol reading ever recorded in this repository — and because the shipped-bytes gate honestly blocked it.
+
+| Item | Value (all new numbers are HOLDOUT-DTI, labelled) |
+|---|---|
+| Method | Emission with a hard margin ≥2 px from the dots of all 412 competitive registry rasters (AMEND-3: catalogue ±2 px cleared from the avoid-set after the literal union was found to cover all 60,988 catalogue px; gate scans remain literal) |
+| Protocol rule-quality cell | **0.4443 [0.4349, 0.4529]** (visible-prune emission, n=37,654, 2.8 px; far-field 0.4108) — 2.7× the 0.1011 family bar |
+| Paired Δ vs identical field's unconstrained emission | **+0.2853 [+0.2701, +0.3004]** |
+| Uniqueness vs the 414-raster registry + every prior submission | **CLEARED with margin:** final dots max Spearman 0.003, max directed 3 px overlap **0.188** (limit 0.70); surface max 0.185 / 0.319; extras ≤0.0125; lattice 0.9999 excluded per AMEND-LATTICE-01 |
+| Shipped-bytes diagnostic | **0.000027 < 0.1011** — the champion-style full-catalogue 2 px prune deletes the holdout's credit neighbourhood by construction → AMEND-2 fired → `verdict = negative`, `ok_to_submit = false` |
+| Audit artifact (NOT OK, download disabled on the site) | `docs/downloads/gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` · sha256 `6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47` · validator 11/11 from bytes |
+| Budget / slots | 2 counted experiments + packaging; 2,669 s of 7,200 s; canary clear; **0 submission slots used** |
+
+**Instrument irregularity IR-SHIPPED-BITS-01 (disclosed here, not relitigated).** Scoring the standing H-TVGB file's *actual shipped bytes* measures **0.0000** ([`evidence/regavoid/tvgb_shipped_diagnostic.json`](evidence/regavoid/tvgb_shipped_diagnostic.json)); its release cited the visible-prune E3 cell 0.1287 while the file was emitted full-catalogue-pruned. Structurally **every** full-catalogue-pruned file scores ~0 on hide-and-recover (the 0.2778 champion included) — the instrument cannot forecast this artifact family's live score; protocol readings remain rule-quality cells, not projections. Neither 0.4443 nor 0.1287 is a leaderboard forecast (holdout↔live Spearman −0.08).
+
+**Read next:** [`knowledge/RESULTS_20261031_regavoid.md`](knowledge/RESULTS_20261031_regavoid.md) (numbers, labels, irregularities) · [`knowledge/hypotheses_20261031_regavoid.md`](knowledge/hypotheses_20261031_regavoid.md) (prereg + AMEND-1/2/3 with timestamps) · [`evidence/regavoid/release.json`](evidence/regavoid/release.json) (7-gate table) · [`evidence/regavoid/run_card.json`](evidence/regavoid/run_card.json). **Next-session lane (preregister first):** margin-2 anti-registry emission × far-field/thermal-anchor field × full-cat prune — the only plausible design passing both the rule-quality and shipped diagnostics.
+
 ## Status — 2026-10-30 (superseded by 2026-10-31 above)
 
 ### Other files generated on 2026-10-31 (kept for audit, not recommended)
@@ -168,6 +186,7 @@ holdout evidence, and neither is the recommendation above.
 |---|---|---|
 | `docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif` | H-STEP-OVER: 300–900 m annulus around mapped faults, 40,000 dots | format-valid; **no holdout measurement**; registry comparison was advisory (that lane could not restore GEMSDOE32/33/36) — this session restored all 489 registry rasters, so a full scan is possible and pending |
 | `docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif` | sparse 18,000-dot placeholder | `ok_to_download_and_submit = false` by its own run card ("not expected to be competitive") |
+| `docs/downloads/gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` | H-REGAVOID: margin-2 anti-registry emission, 36,557 dots | `verdict = negative` by AMEND-2 (shipped bytes 0.000027 < bar 0.1011); protocol rule-quality cell 0.4443 with novelty cleared at 0.188 overlap — see [status section](#status--2026-10-31-h-regavoid-lane--parallel-negative-result--do-not-submit) |
 
 ---
 

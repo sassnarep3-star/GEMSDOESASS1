@@ -1,0 +1,29 @@
+{
+  "stages": {
+    "canary": {
+      "seconds": 114.0,
+      "utc": "2026-10-31T05:15:48.136801+00:00"
+    },
+    "e1_train": {
+      "seconds": 789.9,
+      "utc": "2026-10-31T05:29:36.894698+00:00"
+    },
+    "e2_partial_degenerate": {
+      "seconds": 760.0,
+      "note": "first E2 execution: m=0 configs valid, m>0 configs degenerated to DTI 0.0000 because the literal union covers all catalogue pixels (AMEND-3); stopped and fixed once; counted as the same experiment 2",
+      "utc": "2026-10-31T05:45:00Z"
+    },
+    "e2": {
+      "seconds": 1005.5,
+      "utc": "2026-10-31T06:00:39.208614+00:00"
+    },
+    "package": {
+      "seconds": 346.2,
+      "utc": "2026-10-31T06:06:37.994894+00:00"
+    }
+  },
+  "cumulative_seconds": 3015.6,
+  "experiments_run": 2,
+  "seconds_budget": 7200,
+  "experiment_budget": 3
+}

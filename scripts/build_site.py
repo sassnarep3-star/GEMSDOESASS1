@@ -136,6 +136,50 @@ def parallel_candidate_note_line():
             f'(<a href="evidence/tiprelay/cross_lane_kdam_check.json">evidence/tiprelay/cross_lane_kdam_check.json</a>). The default '
             f'recommendation remains the file above.</p>')
 
+def regavoid_panel(prefix=''):
+    """2026-10-31 H-REGAVOID lane: a parallel NEGATIVE result (never an active download).
+
+    Anti-registry emission reached the highest protocol reading in this repository
+    (HOLDOUT-DTI 0.4443) with cleared novelty, but failed the preregistered shipped-bytes
+    gate (AMEND-2) and is therefore NOT OK to submit; its file is audit-only.
+    """
+    path = ROOT / 'evidence/regavoid/release.json'
+    if not path.exists() or ACTIVE_DIR == 'regavoid':
+        return ''
+    rel = load('evidence/regavoid/release.json')
+    card = rel.get('card', {})
+    h = card.get('holdout_dti', {})
+    proto = h.get('protocol_dots', {})
+    comp = card.get('correlation_overlap_vs_registry', {})
+    dots_comp = comp.get('dots_competitive') or comp.get('dots') or {}
+    ov = (dots_comp.get('max_overlap') or dots_comp.get('max_frac_dots_within_3px') or 0) * 100
+    word = 'OK TO DOWNLOAD AND SUBMIT' if card.get('ok_to_download_and_submit') else 'NOT OK TO SUBMIT'
+    gates_fail = [label for label, passed in rel.get('gates', []) if not passed]
+    return (f'<section class="section" id="regavoid"><div class="panel"><p class="kicker">Parallel lane \u00b7 2026-10-31 \u00b7 negative verdict</p>'
+            f'<h3>H-REGAVOID: anti-registry emission \u2014 the highest protocol reading, NOT OK to submit.</h3>'
+            f'<p>Every dot placed at a hard margin of 2 px from the dots of all 412 competitive registry '
+            f'rasters (AMEND-3: catalogue \u00b12 px cleared from the avoid-set). Protocol rule-quality '
+            f'<strong>HOLDOUT-DTI {proto.get("value", float("nan")):.4f} '
+            f'[{proto.get("ci95", [float("nan"), float("nan")])[0]:.4f}, {proto.get("ci95", [float("nan"), float("nan")])[1]:.4f}]</strong> '
+            f'(far-field {proto.get("farfield", float("nan")):.4f}), paired \u0394 {h.get("paired_delta_vs_tsfx_e1", float("nan")):+.4f} '
+            f'vs the identical field\'s unconstrained emission \u2014 2.7\u00d7 the 0.1011 family bar. Novelty cleared with margin: '
+            f'max 3 px dot overlap {ov:.1f}% (limit 70%), max Spearman 0.003 across the 414-raster registry and every prior submission.</p>'
+            f'<p><strong>Why it is blocked:</strong> AMEND-2 (preregistered before the sweep) requires the shipped bytes to beat the '
+            f'bar on hide-and-recover, but the champion-style full-catalogue 2 px prune deletes the holdout\'s credit neighbourhood: '
+            f'shipped {h.get("value", float("nan")):.4f} &lt; 0.1011 \u2192 verdict <strong>{e(word)}</strong>. '
+            f'Failing gates: {e(", ".join(gates_fail)) or "none"}. Audit file: <code>{e(card.get("raster_name", ""))}</code> '
+            f'(sha256 <code class="mono">{e(str(card.get("raster_sha256", ""))[:16])}\u2026</code>) \u2014 download disabled on this site.</p>'
+            f'<p><strong>IR-SHIPPED-BITS-01 (instrument irregularity).</strong> Scoring the standing H-TVGB file\'s actual shipped bytes '
+            f'measures 0.0000 \u2014 its release cited the visible-prune E3 cell 0.1287. Structurally every full-catalogue-pruned file '
+            f'scores ~0 on hide-and-recover (the 0.2778 champion included): the instrument cannot forecast this artifact family\'s live '
+            f'score. Protocol readings remain rule-quality cells, not projections.</p>'
+            f'<p class="small"><a href="{prefix}evidence/regavoid/release.json">release gates</a> \u00b7 '
+            f'<a href="{prefix}evidence/regavoid/run_card.json">run card</a> \u00b7 '
+            f'<a href="{prefix}evidence/regavoid/tvgb_shipped_diagnostic.json">TVGB shipped-bytes diagnostic</a> \u00b7 '
+            f'<a href="https://github.com/sassnarep3-star/GEMSDOESASS1/blob/main/knowledge/RESULTS_20261031_regavoid.md">full results record</a> \u00b7 '
+            f'budget 2,669 s / 7,200 s \u00b7 slots used 0.</p></div></section>')
+
+
 def table(rows, rel, prefix=''):
     body = ''
     measured = measured_site_uniqueness()
@@ -300,6 +344,8 @@ def main():
     if card['approved_for_submission'] or card['verdict'] != 'negative':
         raise ValueError('This frozen negative-release site must not misrepresent a different approval state.')
     # Active release: newest lane release directory present, newest first (2026-10-31).
+    # NOTE (regavoid merge): 'regavoid' is intentionally NOT a candidate — its release verdict is
+    # negative (AMEND-2); it renders only through regavoid_panel() and can never become ACTIVE.
     global ACTIVE_DIR
     for candidate in ('tiprelay', 'kdam', 'thermal'):
         if (ROOT / 'evidence' / candidate / 'release.json').exists():
@@ -328,7 +374,7 @@ def main():
 ''' + sig_panels[ACTIVE_DIR] + '''
 <article class="panel"><p class="kicker">02 / Literal novelty</p><h3>Unique vs every competitive raster</h3><p>Surface and dot scans run against all 414 registry files before and after placement. The 13gems calibration lattice (IR-LATTICE-01) covers ≥99% of ANY dotted file; both the competitive-scope and the literal full-registry readings are published.</p></article>
 <article class="panel"><p class="kicker">03 / Release decision</p><h3>Download, then a separate selector</h3><p>The TIF passes the automatic gates and is safe to upload format-wise (zeros outside the footprint — never NaN). Spending a weekly slot is a separate decision, made outside this workspace.</p></article></div></section>
-<section class="section" id="historical"><div class="section-head"><div><p class="eyebrow">The nine-site portfolio</p><h2>Historical leaders, not new submissions.</h2><p>GEMSDOE32 has the highest report in the supplied list (0.2778 OWNER-REPORT). Its file is already on the leaderboard; the only download we recommend is the generated TIF above.</p></div></div>''' + table(rows, rel) + '''</section><section class="section grid2"><article class="panel"><p class="kicker">What changed in H33-B2?</p><h2>Pruning, not new discoveries.</h2><p>The actual GEMSDOE32 raster is exactly the site-31 base with 2,545 dots removed within 2 pixels of known faults. It adds no dots. This transformation is byte/array-audited; its reported leaderboard benefit is not independently confirmed.</p><a href="executive-summary.html#mechanism">See the mechanism audit →</a></article><article class="panel"><p class="kicker">Next work</p><h2>Beat 0.3195 with a better field.</h2><p>The 2026-10-31 lane executed the previous session's plan items: tip/step-over continuation geometry and strike persistence as learner features (paired ablation), far-field training emphasis, and the geothermal family as an emission prior. Outcome numbers are on the run card; the selector decides any slot. Remaining levers: Qfault-attribute continuation weighting and radiometric concordance (both preregistered, untested).</p><a href="research.html#next">Read the research plan →</a></article></section>''' + parallel_candidate_panel()
+<section class="section" id="historical"><div class="section-head"><div><p class="eyebrow">The nine-site portfolio</p><h2>Historical leaders, not new submissions.</h2><p>GEMSDOE32 has the highest report in the supplied list (0.2778 OWNER-REPORT). Its file is already on the leaderboard; the only download we recommend is the generated TIF above.</p></div></div>''' + table(rows, rel) + '''</section><section class="section grid2"><article class="panel"><p class="kicker">What changed in H33-B2?</p><h2>Pruning, not new discoveries.</h2><p>The actual GEMSDOE32 raster is exactly the site-31 base with 2,545 dots removed within 2 pixels of known faults. It adds no dots. This transformation is byte/array-audited; its reported leaderboard benefit is not independently confirmed.</p><a href="executive-summary.html#mechanism">See the mechanism audit →</a></article><article class="panel"><p class="kicker">Next work</p><h2>Beat 0.3195 with a better field.</h2><p>The 2026-10-31 lane executed the previous session's plan items: tip/step-over continuation geometry and strike persistence as learner features (paired ablation), far-field training emphasis, and the geothermal family as an emission prior. Outcome numbers are on the run card; the selector decides any slot. Remaining levers: Qfault-attribute continuation weighting and radiometric concordance (both preregistered, untested).</p><a href="research.html#next">Read the research plan →</a></article></section>''' + parallel_candidate_panel() + regavoid_panel()
     (OUT / 'index.html').write_text(page('Overview', mainbody))
 
     mechanism = audit['h33_mechanism_audit']
@@ -494,7 +540,7 @@ def main():
                    f'<a href="evidence/thermal/e2_paired_holdout.json">Paired evidence JSON \u2192</a>')
     evidencebody = f'''<p class="eyebrow">Evidence / immutable experiment record</p><h1>Negative results.<br>Fully accounted for.</h1><p class="lead">Three experiments this session (E1 rule field negative, E2 paired thermal-family negative, E3 emission sweep), one packaged candidate. Earlier negative lanes are preserved unchanged.</p>''' + metric_strip_new(rel) + legacy_banner() + f'''<section class="section" id="correction"><h2>The protocol error we found and fixed.</h2><div class="callout"><strong>Do not treat the BGAC-1 first-pass holdout as promotion-qualified.</strong> The original pre-placement audit checked Spearman ranks but omitted positive-support overlap; it also continued despite an unassessable registry file. Review corrected both. The identical surface fails the pre-placement overlap gate. No new experiment, dot placement or TIFF followed the correction.</div><p>The original run card and rank scan remain in the evidence directory. The current card explicitly records the error and disqualifies the execution for promotion. The runner now applies both literal tests at both phases and stops before placement on any incomplete clearance. Shared geometry is reused without a private metric change.</p></section>
 <section class="section"><div class="grid2">{e2panel}<article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3>''' + bars + '''<p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article></div></section>
-<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list">''' + ''.join(f'<li><a href="evidence/{f}">{label}</a><span>JSON ↗</span></li>' for f, label in [('tiprelay/run_card.json', '2026-10-31 run card (H-TIPRELAY)'), ('tiprelay/release.json', '2026-10-31 release gates and verdict'), ('tiprelay/e1_paired_ablation.json', 'E1 paired continuation-geometry ablation'), ('tiprelay/e2_emission_ablation.json', 'E2 paired emission-prior ablation'), ('tiprelay/leakage_canary.json', '2026-10-31 per-feature leakage canaries'), ('tiprelay/cross_lane_kdam_check.json', '2026-10-31 cross-lane duplicate check (tiprelay vs kdam)'), ('kdam/release.json', '2026-10-31 release gates and verdict (parallel H-KDAM lane)'), ('kdam/e1_holdout.json', 'H-KDAM E1 holdout with same-emission comparators'), ('kdam/e2_paired_novelty.json', 'H-KDAM E2 novelty-constrained paired ablation'), ('kdam/leakage_canary.json', 'H-KDAM per-feature leakage canaries'), ('thermal/run_card.json', '2026-10-30 run card (H-TVGB)'), ('thermal/release.json', 'Release gates and verdict'), ('thermal/e2_paired_holdout.json', 'E2 paired thermal-family ablation'), ('thermal/e3_emission_sweep.json', 'E3 emission sweep'), ('thermal/leakage_canary.json', 'Per-feature leakage canaries (all clear)'), ('run_card.json', 'BGAC-1 run card (frozen negative)'), ('first_pass_run_card.json', 'Preserved first-pass card'), ('corrected_surface_novelty.json', 'Corrected pre-placement stop'), ('nine_site_audit.json', 'Nine-site byte / duplicate / H33 mechanism audit'), ('holdout.json', 'Exploratory holdout and paired confidence intervals'), ('focus_inventory.json', 'Complete frozen nine-site TIFF inventory'), ('release_checks.json', 'Frozen implementation hashes and verification checks')]) + '''</ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2>''' + feedhtml + f'''</section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{e(json.dumps(card, indent=2))}</pre><h2>The active run card (this session).</h2><pre>{e(json.dumps(relcard, indent=2))}</pre></section>'''
+<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list">''' + ''.join(f'<li><a href="evidence/{f}">{label}</a><span>JSON ↗</span></li>' for f, label in [('tiprelay/run_card.json', '2026-10-31 run card (H-TIPRELAY)'), ('tiprelay/release.json', '2026-10-31 release gates and verdict'), ('tiprelay/e1_paired_ablation.json', 'E1 paired continuation-geometry ablation'), ('tiprelay/e2_emission_ablation.json', 'E2 paired emission-prior ablation'), ('tiprelay/leakage_canary.json', '2026-10-31 per-feature leakage canaries'), ('tiprelay/cross_lane_kdam_check.json', '2026-10-31 cross-lane duplicate check (tiprelay vs kdam)'), ('kdam/release.json', '2026-10-31 release gates and verdict (parallel H-KDAM lane)'), ('kdam/e1_holdout.json', 'H-KDAM E1 holdout with same-emission comparators'), ('kdam/e2_paired_novelty.json', 'H-KDAM E2 novelty-constrained paired ablation'), ('kdam/leakage_canary.json', 'H-KDAM per-feature leakage canaries'), ('regavoid/run_card.json', '2026-10-31 run card (H-REGAVOID, negative)'), ('regavoid/release.json', '2026-10-31 release gates and verdict (H-REGAVOID)'), ('regavoid/e2_emission_sweep.json', 'H-REGAVOID E2 16-config emission sweep'), ('regavoid/tvgb_shipped_diagnostic.json', 'H-REGAVOID cross-measurement: TVGB shipped bytes 0.0000'), ('regavoid/registry_union.json', 'H-REGAVOID registry union / avoid-set receipts'), ('regavoid/leakage_canary.json', 'H-REGAVOID leakage canary'), ('thermal/run_card.json', '2026-10-30 run card (H-TVGB)'), ('thermal/release.json', 'Release gates and verdict'), ('thermal/e2_paired_holdout.json', 'E2 paired thermal-family ablation'), ('thermal/e3_emission_sweep.json', 'E3 emission sweep'), ('thermal/leakage_canary.json', 'Per-feature leakage canaries (all clear)'), ('run_card.json', 'BGAC-1 run card (frozen negative)'), ('first_pass_run_card.json', 'Preserved first-pass card'), ('corrected_surface_novelty.json', 'Corrected pre-placement stop'), ('nine_site_audit.json', 'Nine-site byte / duplicate / H33 mechanism audit'), ('holdout.json', 'Exploratory holdout and paired confidence intervals'), ('focus_inventory.json', 'Complete frozen nine-site TIFF inventory'), ('release_checks.json', 'Frozen implementation hashes and verification checks')]) + '''</ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2>''' + feedhtml + f'''</section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{e(json.dumps(card, indent=2))}</pre><h2>The active run card (this session).</h2><pre>{e(json.dumps(relcard, indent=2))}</pre></section>'''
     (OUT / 'evidence.html').write_text(page('Evidence and source feed', evidencebody, active='evidence'))
     (OUT / '.nojekyll').write_text('')
     evidence_out = OUT / 'evidence'
@@ -534,6 +580,11 @@ def main():
     for path in (ROOT / 'evidence' / 'tiprelay').glob('*'):
         if path.is_file() and path.suffix in ('.json', '.md'):
             shutil.copyfile(path, tip_out / path.name)
+    reg_out = evidence_out / 'regavoid'
+    reg_out.mkdir(exist_ok=True)
+    for path in (ROOT / 'evidence' / 'regavoid').glob('*'):
+        if path.is_file() and path.suffix in ('.json', '.md'):
+            shutil.copyfile(path, reg_out / path.name)
     for source, name in [('registry/focus_inventory.json', 'focus_inventory.json'), ('vendor/PROVENANCE.json', 'PROVENANCE.json'), ('knowledge/sources.json', 'sources.json')]:
         shutil.copyfile(ROOT / source, evidence_out / name)
     print('Built landing page, executive summary, how-to-submit, research, evidence and nine individual site summaries.')

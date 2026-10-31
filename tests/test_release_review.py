@@ -1,4 +1,5 @@
 """Regression tests for the revoked SWGB release and literal overlap audit."""
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -120,6 +121,36 @@ def test_generated_verdict_matches_run_card_gates():
         text = page.read_text()
         assert 'HOLDOUT-DTI' in text
         assert 'OWNER-REPORT' in text
+
+
+def test_regavoid_negative_release_is_disclosed_and_locked():
+    """2026-10-31 H-REGAVOID: the negative release must stay disclosed, byte-locked and
+    never rendered as an active download (AMEND-2 shipped-bytes gate)."""
+    release = json.loads((ROOT / 'evidence/regavoid/release.json').read_text())
+    card = release['card']
+    assert card['ok_to_download_and_submit'] is False
+    assert card['ok_to_download_and_submit'] == all(passed for _, passed in release['gates'])
+    failed = [label for label, passed in release['gates'] if not passed]
+    assert failed, 'a negative release must name its failing gates'
+    run = json.loads((ROOT / 'evidence/regavoid/run_card.json').read_text())
+    assert run['ok_to_submit'] is False and run['verdict'] == 'negative'
+    assert run['slot']['used'] == 0
+    assert run['budget']['experiments_run'] <= 3
+    assert run['budget']['cumulative_seconds'] <= run['budget']['seconds_budget']
+    canary = json.loads((ROOT / 'evidence/regavoid/leakage_canary.json').read_text())
+    assert not canary['flagged_over_0p90']
+    tif = ROOT / 'docs/downloads' / run['submission_name']
+    assert tif.is_file()
+    assert hashlib.sha256(tif.read_bytes()).hexdigest() == run['raster_sha256']
+    # AMEND-2 structural record: TVGB shipped bytes measure 0.0000 while its release claimed 0.1287
+    diag = json.loads((ROOT / 'evidence/regavoid/tvgb_shipped_diagnostic.json').read_text())
+    assert diag['holdout_dti'] == 0.0 and diag['release_claimed_value'] > 0.1
+    # rendered site: the panel discloses the negative verdict, the file is never an active link
+    index = (ROOT / 'docs/index.html').read_text()
+    assert 'NOT OK TO SUBMIT' in index
+    assert 'H-REGAVOID' in index
+    assert f'downloads/{run["submission_name"]}' not in index
+    assert f'downloads/{run["submission_name"]}' not in (ROOT / 'docs/how-to-submit.html').read_text()
 
 
 def test_parallel_sparse_card_is_self_consistent_and_not_submit_cleared():

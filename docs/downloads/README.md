@@ -93,6 +93,18 @@ findings this project inherits: the metric was re-derived and certified (`D = α
 exactly), and GEMSDOE32 0.2778 was reproduced from bytes as GEMSDOE25 minus 2 px-near-catalogue dots
 (symmetric difference 0).
 
+## Parallel negative lane (2026-10-31, H-REGAVOID) — NOT OK, audit only
+
+| File | What it is |
+|---|---|
+| `gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` | Margin-2 anti-registry emission, 36,557 dots. Validator 11/11 from bytes; novelty cleared (dots max 3 px overlap 0.188, max Spearman 0.003 across the 414-raster registry). **DO NOT SUBMIT:** AMEND-2 shipped-bytes diagnostic 0.000027 < bar 0.1011 → `verdict = negative`. Protocol rule-quality cell 0.4443 [0.4349, 0.4529] is a rule reading, not a leaderboard projection. sha256 `6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47`. |
+| `gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.zip` / `.checks.json` | Same bytes in the upload ZIP, plus the on-disk validator receipt — retained for audit. |
+
+Instrument note IR-SHIPPED-BITS-01: the standing H-TVGB file's shipped bytes measure 0.0000
+([`../evidence/regavoid/tvgb_shipped_diagnostic.json`](../evidence/regavoid/tvgb_shipped_diagnostic.json));
+every full-catalogue-pruned file scores ~0 on hide-and-recover. Gates:
+[`../evidence/regavoid/release.json`](../evidence/regavoid/release.json).
+
 ## Scope disclosures that apply to every dotted file in this project
 
 - **The synthetic calibration lattice is exempt.** The 5 px `inputs/calibration/13gems_20261001_r13-lattice-s5…`

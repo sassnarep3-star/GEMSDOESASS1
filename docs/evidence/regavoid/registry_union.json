@@ -1,0 +1,21 @@
+{
+  "n_rasters": 412,
+  "skipped": [
+    {
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "reason": "lattice-AMEND-LATTICE-01"
+    },
+    {
+      "path": "docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif",
+      "reason": "incompatible-grid"
+    }
+  ],
+  "union_dots": 2787240,
+  "frac_footprint_within_3px": 0.4202364005355415,
+  "catalogue_pixels_in_union": 60988,
+  "catalogue_pixels_total": 60988,
+  "rasters_with_dots_on_catalogue_led_by": "inputs/calibration/8GEMSDOE_Hedge-v2_submission.tif (60,988 on-catalogue dots)",
+  "emit_union_dots": 2568237,
+  "amend3": "emission avoid-union excludes catalogue +/-2 px; gate scans unchanged",
+  "evidence_class": "DATA-MEASUREMENT"
+}
