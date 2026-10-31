@@ -195,7 +195,8 @@ def test_frozen_negative_artifact_contract():
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # H-STEP-OVER gate-passed release
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
@@ -248,7 +249,8 @@ def test_concurrent_main_research_preserved_not_promoted():
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # H-STEP-OVER gate-passed release
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 

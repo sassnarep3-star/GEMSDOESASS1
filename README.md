@@ -12,9 +12,28 @@ Condensed from the user's prompt. The fuller persistent transcription is [`knowl
 - **Constraints.** No manual input. Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`; fix shared tools once in the template and report it. Do not treat DrivenData as accessible without login. The user-supplied Dropbox, GDR and NLR links are outside the outbound allowlist. Flag irregularities. No hallucinated facts; cite official links. Negative results are deliverables. Do not pick submissions: promotion to a slot is a separate selector step within the weekly cap of three. Open a pull request, merge it to `main`, and list remaining work and limitations.
 - **Core values.** Maximize P(Win). Own the outcome.
 
-## Status — 2026-10-30
+## Status — 2026-10-31 (current session)
 
-**Is any new file OK to download and submit? NO.** No TIFF was generated this session, and no file in this repository is approved.
+**Is any new file OK to download and submit? YES — with conditions.** A new unique GeoTIFF was generated and passes all automatic gates:
+
+| Item | Evidence |
+|---|---|
+| **File** | `docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif` (+ `.zip`) |
+| **sha256** | `f523d68c6293a0db523dd04d07af6574d3b0c1dbab11d682054005720a8e6c38` |
+| **Validator** | All 11 checks PASS: values in [0,1], no NaN anywhere, exact EPSG:32611 / 3730×3292 / geotransform, zeros outside footprint, zero mass on catalogue faults |
+| **Novelty vs registry** | max Spearman 0.0196 (≤0.90), max 3 px dot overlap 51.69% (≤70%) → NOT a duplicate |
+| **Method** | H-STEP-OVER: catalogue step-over/splay annulus 300–900 m, Poisson-disk 3.0 px, 40,000 dots |
+| **Holdout-DTI** | Not evaluated for this lane — no leaderboard score forecast is made |
+| **Submission slots used** | 0 (this workspace never uploads; selector step is separate) |
+| **Run card** | `evidence/stepover_run_card_20261031T045819Z.json` |
+
+**Conditions before upload:** (1) confirm eligibility with the prize administrator (rules §1.3: US citizens/permanent residents or US-incorporated entities; user location is Singapore); (2) obtain an organizer submission-page receipt — only that makes a score ORGANIZER-CONFIRMED; (3) GEMSDOE32/33/36 best files were not locally restored (GitHub rate-limited), so novelty vs those sites is advisory.
+
+---
+
+## Status — 2026-10-30 (historical, preserved)
+
+**Is any new file OK to download and submit? NO.** No TIFF was generated that session, and no file in this repository was approved at that time.
 
 | Blocker | Evidence |
 |---|---|
