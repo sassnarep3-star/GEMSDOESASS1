@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GEMS Fieldnotes — generated submission release (2026-10-30)</title>
+<title>GEMS Fieldnotes — generated submission release (2026-10-31)</title>
 <style>
 :root{--bg:#0b1220;--card:#121a2f;--ink:#e8eef8;--mut:#93a0b8;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--acc:#38bdf8;--line:#1e293b}
 *{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
@@ -35,34 +35,44 @@ footer{padding:30px 20px 46px;color:var(--mut);font-size:13px}
 </header>
 <main>
 <p class="mut">GEMS Fieldnotes · independent research workspace · not an organizer website</p>
-<h1>GEMSDOESASS1 — 2026-10-30 release</h1>
+<h1>GEMSDOESASS1 — 2026-10-31 release</h1>
 
 <div class="banner ok">
-<h2>VERDICT: OK TO DOWNLOAD AND SUBMIT — <code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code></h2>
-<p>One unique GeoTIFF was generated this session (H-TVGB geothermally-anchored supervised recovery,
-37,654 dots, 600 m catalogue exclusion). It passed every automatic project gate: on-disk format
-validator (values in [0,1], no NaN anywhere — the fix for the earlier portal rejection), exact-copy
-scan against 414 registry rasters and all prior repo files, the lane-drift novelty gates
-(per-raster Spearman and 3 px overlap limits), and HOLDOUT-DTI above the 0.2600-family bar
-(0.1287 [0.1231, 0.1355] vs 0.1011; far-field restricted 0.1343).</p>
+<h2>VERDICT: OK TO DOWNLOAD AND SUBMIT — <code>gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif</code></h2>
+<p>One unique GeoTIFF was generated this session (H-TIPRELAY continuation-geometry-supervised recovery:
+tip-relay corridors, step-over gaps and strike persistence as visible-only learner features;
+37,654 dots, 2.8 px spacing, 600 m catalogue exclusion). It passed every automatic project gate:
+on-disk format validator (values in [0,1], no NaN anywhere — the fix for the earlier portal
+rejection), exact-copy scan against all 414 registry rasters on disk and all prior repo files, the
+lane-drift novelty gates (per-raster Spearman ≤ 0.90 — measured 0.132 surface / 0.035 dots; 3 px
+dot overlap ≤ 70% — measured 65.2% vs the most similar competitive raster), and HOLDOUT-DTI above
+the 0.2600-family bar (shipped cell 0.1384 [0.1322, 0.1458] vs bar 0.1011 and vs the 2026-10-30
+incumbent 0.1287; far-field restricted 0.1445). The paired ablation behind it: relay features
++0.0110 [+0.0081, +0.0141] over the identical learner without them.</p>
 <p><a class="btn" href="docs/executive-summary.html">Open the executive summary → verdict, download, table</a>
 <a class="btn alt" href="docs/how-to-submit.html">How to submit (step by step)</a></p>
 <p class="mut">The file itself is downloaded from the executive summary (one click). Spending a weekly
 competition slot is a separate selector decision — this workspace never uploads. The verdict above is
-machine-computed from <a href="docs/evidence/thermal/run_card.json">the run card</a>; if any gate had
-failed, this page would read NOT OK TO SUBMIT.</p>
+machine-computed from <a href="docs/evidence/tiprelay/run_card.json">the run card</a>; if any gate had
+failed, this page would read NOT OK TO SUBMIT. Uniqueness reading: not an exact duplicate of any
+GEMSDOE-site submission or repo prior; measured 83.9% 3 px overlap with this workspace's own
+2026-10-30 release (same operating point, different dot sets — 16% of dots moved beyond 3 px) is
+recorded in the run card.</p>
 </div>
 
 <div class="banner bad">
-<h2>NOT APPROVED — DO NOT SUBMIT (historical lanes)</h2>
-<p><strong>No SWGB, H-PBSC or BGAC-1 file is approved for submission.</strong> SWGB's promotion was
-withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its
+<h2>NOT APPROVED — DO NOT SUBMIT (historical lanes, including the superseded 2026-10-30 file)</h2>
+<p><strong>No SWGB, H-PBSC, BGAC-1 or H-TVGB file is approved for submission.</strong> SWGB's promotion
+was withdrawn (99.87% dot overlap with the calibration lattice). H-PBSC is format-valid but lost its
 holdout comparison (HOLDOUT-DTI 0.0650 vs bar 0.1011) and 99.48% of its dots fall within 3 px of the
 same lattice; its <code>ok_to_submit = false</code> stands. BGAC-1 stopped before placement on the
-literal novelty gate. The superseded first packaging of this release
+literal novelty gate. The 2026-10-30 H-TVGB release
+(<code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code>) passed its gates in that
+session and is now <strong>superseded by the 2026-10-31 file above</strong> — do not upload it. Its
+first 2 px packaging
 (<code>gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif</code>) is likewise logged as a
-lane-drift duplicate (79.1% dot overlap with one GEMSDOE25 raster) and is <strong>not</strong> OK to
-submit. None of these files is a new submission; they are retained as negative evidence only.</p>
+lane-drift duplicate (79.1% dot overlap with one GEMSDOE25 raster) and was never OK to submit.
+None of these files is a new submission; they are retained as evidence only.</p>
 </div>
 
 <h2>What is on the site</h2>

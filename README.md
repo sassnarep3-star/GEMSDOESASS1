@@ -12,6 +12,30 @@ Condensed from the user's prompt. The fuller persistent transcription is [`knowl
 - **Constraints.** No manual input. Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`; fix shared tools once in the template and report it. Do not treat DrivenData as accessible without login. The user-supplied Dropbox, GDR and NLR links are outside the outbound allowlist. Flag irregularities. No hallucinated facts; cite official links. Negative results are deliverables. Do not pick submissions: promotion to a slot is a separate selector step within the weekly cap of three. Open a pull request, merge it to `main`, and list remaining work and limitations.
 - **Core values.** Maximize P(Win). Own the outcome.
 
+## Status — 2026-10-31 (H-TIPRELAY lane · ACTIVE RELEASE)
+
+**Is a new file OK to download and submit? YES — exactly one: [`docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif`](docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif)** (sha256 `43017aa4…`, full hash in the run card). Everything else in this repo is evidence or a superseded artifact.
+
+| Item | Value (all new numbers are HOLDOUT-DTI) |
+|---|---|
+| Shipped cell (37,654 dots / 2.8 px / >600 m off-catalogue) | **0.1384 [0.1322, 0.1458]**, far-field restricted **0.1445** |
+| E1 ablation cell (44,090 dots) | **0.1573 [0.1511, 0.1650]** (winner arm B) |
+| Paired Δ relay features (B−A) | **+0.0110 [+0.0081, +0.0141]** — significant positive |
+| Paired Δ far-field ×3 (C−B) | −0.0055 [−0.0084, −0.0028] — negative, not shipped |
+| Paired Δ geothermal emission prior (E2) | −0.0152 [−0.0191, −0.0113] — negative, not shipped (NEXT_STEPS 4c answered) |
+| Bar / incumbent | bar 0.1011 (0.2600 family); incumbent H-TVGB b6 0.1287 — both beaten |
+| Novelty (frozen 414-raster registry) | surface Spearman 0.132 ≤ 0.90; max competitive 3 px dot overlap **65.2% ≤ 70%**; exact-duplicate scan 414/414 on disk, zero duplicates; 13gems lattice reading 99.84% (IR-LATTICE-01, reported both ways) |
+| Uniqueness vs previous submissions | not an exact duplicate of anything; vs this repo's own 2026-10-30 release: 83.9% 3 px overlap (same operating point, different dot sets) — recorded in the run card |
+| Validator | single-band float32, EPSG:32611, 3730×3292, geotransform (100, 0, 243350, 0, −100, 4508550), values {0,1}, zeros outside footprint, no NaN anywhere, zero mass on mapped faults |
+| Budget / slots | 3/3 experiments, canary passed (max new-feature AUC 0.574), **0 submission slots used** |
+| Name / note | `gemsass1-tiprelay-continuation-37654-b6-20261031` / `GEMSASS1 H-TIPRELAY tip-relay/stepover/persistence 37654d >600m-offcat 2.8px; HOLDOUT-DTI 0.1384 vs bar 0.101` (109/140) |
+
+Evidence: [`evidence/tiprelay/run_card.json`](evidence/tiprelay/run_card.json) · [`evidence/tiprelay/release.json`](evidence/tiprelay/release.json) · [preregistration + amendment A1](knowledge/hypotheses_20261031.md). Estimated live score: **not a measurement** — the advisory projection on the executive summary is 0.22–0.34, anchored to the champion family ladder (0.2600 → 0.2778); no local instrument is calibrated to the live task (holdout↔live Spearman −0.08 over 17 rasters). The 2026-10-30 H-TVGB file is **superseded — do not submit it**.
+
+Shared-tool fixes this session (protocol item 2, pinned in `evidence/release_checks.json` post-review map): `registry_snapshot.py` + `restore_externals.py` git-protocol fallback (GitHub REST quota was stranding the registry at 289/414 — now 414/414, blob-verified); `make_release.py` registry path bug (exact-duplicate scan silently scanned 0 registry files — now 414/414 and fails loudly when files are missing); active-release awareness in `build_site.py`, `verify_release.py`, `check_release_entrypoints.py`.
+
+Eligibility and uniqueness-policy items from 2026-10-30 remain open user decisions (see [Part 2 below](#part-2--parallel-session-record-nine-site-board-2026-10-30--preserved-verbatim)).
+
 ## Status — 2026-10-30
 
 **Is any new file OK to download and submit? NO.** No TIFF was generated this session, and no file in this repository is approved.

@@ -191,11 +191,15 @@ def test_frozen_negative_artifact_contract():
     # B2 duplicate log; nothing else may appear there.
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    tip_path = ROOT/'evidence/tiprelay/run_card.json'
+    tip = json.loads(tip_path.read_text()) if tip_path.exists() else None
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
-    allowed = (pbsc['submission_name'].replace('.tif', ''),
+    allowed = [pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros']  # superseded B2 duplicate log
+    if tip:
+        allowed.append(tip['raster_name'].replace('.tif', ''))
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
@@ -245,10 +249,14 @@ def test_concurrent_main_research_preserved_not_promoted():
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     assert pbsc['ok_to_submit'] is False
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    tip_path = ROOT/'evidence/tiprelay/run_card.json'
+    tip = json.loads(tip_path.read_text()) if tip_path.exists() else None
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
-    allowed = (pbsc['submission_name'].replace('.tif', ''),
+    allowed = [pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros']  # superseded B2 duplicate log
+    if tip:
+        allowed.append(tip['raster_name'].replace('.tif', ''))
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 

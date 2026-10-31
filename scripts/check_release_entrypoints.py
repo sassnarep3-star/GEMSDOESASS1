@@ -2,9 +2,11 @@
 """Fail closed if a deployed entry point revives the historical SWGB promotion.
 
 2026-10-30 scope update (documented): the root entry point may now present the *generated*
-H-TVGB candidate and its machine verdict; the SWGB pages remain strictly revoked. The checks
-below keep the original fail-closed intent (SWGB never revived, no stray raw raster links)
-while allowing exactly the run-card-approved file to be linked from the root page.
+H-TVGB candidate and its machine verdict; the SWGB pages remain strictly revoked. 2026-10-31
+update: the approved file is read from the ACTIVE lane release (evidence/tiprelay then
+evidence/thermal). The checks below keep the original fail-closed intent (SWGB never revived,
+no stray raw raster links) while allowing exactly the run-card-approved file to be linked from
+the root page.
 """
 from pathlib import Path
 import json
@@ -20,8 +22,13 @@ def main():
     before = {p: p.read_bytes() for p in pages}
     subprocess.run([sys.executable, str(ROOT / 'scripts/swgb_build_site.py')],
                    capture_output=True, text=True, timeout=10, check=True)
-    card_path = ROOT / 'evidence/thermal/run_card.json'
-    card = json.loads(card_path.read_text()) if card_path.exists() else {}
+    # Active release first (2026-10-31): newest lane release directory wins.
+    card = {}
+    for candidate in ('tiprelay', 'thermal'):
+        cp = ROOT / 'evidence' / candidate / 'run_card.json'
+        if cp.exists():
+            card = json.loads(cp.read_text())
+            break
     approved_name = card.get('raster_name') if card.get('ok_to_download_and_submit') else None
     for page in pages:
         text = page.read_text()

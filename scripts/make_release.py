@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Fail-closed release verifier for the generated submission (2026-10-30).
+"""Fail-closed release verifier for a generated submission.
 
-Runs AFTER scripts/run_thermal_lane.py final. Re-validates the on-disk TIFF (the run card
-holds the writer's receipt), re-checks the sha256 and the exact-duplicate scan against the
-414-raster registry and this repo's prior submission TIFFs, folds the results into
-evidence/thermal/run_card.json + evidence/thermal/release.json (same key layout that
+Runs AFTER a lane's `final` step (default: the active 2026-10-31 H-TIPRELAY lane; pass the
+evidence directory, e.g. `evidence/thermal`, to re-verify an older release). Re-validates the
+on-disk TIFF (the run card holds the writer's receipt), re-checks the sha256 and the
+exact-duplicate scan against the 414-raster registry and this repo's prior submission TIFFs,
+folds the results into <evidence-dir>/run_card.json + release.json (same key layout that
 scripts/build_site.py consumes), and exits 2 with reason strings if any gate blocks.
+
+2026-10-31 template fix (reported per protocol item 2): the exact-duplicate scan joined the
+inventory's `local` paths onto `registry/` instead of the repo root, so it silently scanned
+zero registry files. Fixed to `ROOT / rec['local']` and now fails loudly when registry files
+are absent rather than passing an empty scan.
 
 Release gates (all must pass; the run card keeps the full table):
   1. format validator: single-band GeoTIFF, exact competition grid, values in [0,1], no NaN;
@@ -16,6 +22,7 @@ Release gates (all must pass; the run card keeps the full table):
   5. zero positive mass on mapped catalogue faults;
   6. no weekly submission slot used by this workspace.
 """
+import argparse
 import hashlib
 import json
 import sys
@@ -29,7 +36,6 @@ sys.path[:0] = [str(ROOT), str(ROOT / 'src')]
 from gems.grid import CRS as GRID_CRS, SHAPE as GRID_SHAPE  # noqa: E402
 from gems.submission import validate  # noqa: E402
 
-OUT = ROOT / 'evidence/thermal'
 BAR = {'holdout_dti': 0.1011}
 
 
@@ -54,6 +60,11 @@ def sha256_file(path):
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--evidence-dir', default='evidence/tiprelay',
+                    help='lane evidence directory holding run_card.json + release.json')
+    args = ap.parse_args()
+    OUT = ROOT / args.evidence_dir
     card = strict_json(OUT / 'run_card.json')
     rel = strict_json(OUT / 'release.json')
     blockers = []
@@ -84,9 +95,11 @@ def main():
     cand_sha = hashlib.sha256(np.ascontiguousarray(cand.astype(np.float32)).tobytes()).hexdigest()
     exact = []
     inv = strict_json(ROOT / 'registry/focus_inventory.json')
+    missing_registry = 0
     for rec in inv['rasters']:
-        p = ROOT / 'registry' / rec['local']
+        p = ROOT / rec['local']
         if not p.exists():
+            missing_registry += 1
             continue
         with rasterio.open(p) as ds:
             arr = np.nan_to_num(ds.read(1), nan=0.0).astype(np.float32)
@@ -105,7 +118,11 @@ def main():
                 continue
     if exact:
         blockers.append(f'exact prediction duplicate of {exact}')
-    rel['exact_duplicate_scan'] = dict(scanned_registry=len(inv['rasters']), duplicates=exact)
+    rel['exact_duplicate_scan'] = dict(scanned_registry=len(inv['rasters']),
+                                       present_on_disk=len(inv['rasters']) - missing_registry,
+                                       missing_from_disk=missing_registry, duplicates=exact)
+    if missing_registry:
+        blockers.append(f'registry incomplete on disk: {missing_registry} of {len(inv["rasters"])} rasters missing')
 
     # 3-6. novelty / holdout / catalogue-mass / slots gates from the run card
     comp = card['correlation_overlap_vs_registry']

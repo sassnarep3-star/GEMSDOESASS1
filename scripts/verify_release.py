@@ -83,12 +83,16 @@ def main():
     tifs = list((ROOT / 'docs/downloads').glob('*.tif'))
     zips = list((ROOT / 'docs/downloads').glob('*.zip'))
     thermal = strict_json(ROOT / 'evidence/thermal/run_card.json')
+    tiprelay_path = ROOT / 'evidence/tiprelay/run_card.json'
+    tiprelay = strict_json(tiprelay_path) if tiprelay_path.exists() else None
     allowed_prefixes = [pbsc['submission_name'].replace('.tif', '')]
     if thermal.get('raster_name'):
         allowed_prefixes.append(thermal['raster_name'].replace('.tif', ''))
         allowed_prefixes.append('gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    if tiprelay and tiprelay.get('raster_name'):
+        allowed_prefixes.append(tiprelay['raster_name'].replace('.tif', ''))
     require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in tifs),
-            'docs/downloads may only hold the named H-PBSC research TIF and the thermal-lane release')
+            'docs/downloads may only hold the named H-PBSC research TIF and named lane releases')
     require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in zips),
             'docs/downloads zip must match an allowed artifact')
     require(card['raster_sha256'] is None, 'BGAC still must not claim a TIFF')
@@ -110,6 +114,28 @@ def main():
         require(thermal['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'live score labeling')
         canary = strict_json(ROOT / 'evidence/thermal/leakage_canary.json')
         require(canary['canary_pass'] and not canary['flagged_over_0p90'], 'thermal canary unresolved')
+    # --- 2026-10-31 H-TIPRELAY lane release checks (additive; frozen lanes above unchanged) ---
+    if tiprelay:
+        require(tiprelay['submission_slots_used'] == 0, 'the tiprelay run must not use slots')
+        require(len(tiprelay['note']) <= 140 and len(tiprelay['submission_name']) <= 140, 'tiprelay name/note length')
+        require(tiprelay['holdout_dti']['label'] == 'HOLDOUT-DTI', 'tiprelay score class')
+        require(tiprelay['experiments_run'] <= tiprelay['experiment_budget'] == 3, 'tiprelay experiment budget')
+        release_t = strict_json(ROOT / 'evidence/tiprelay/release.json')
+        require(release_t['card']['raster_sha256'] == tiprelay['raster_sha256'], 'tiprelay release/card hash drift')
+        ok_t = release_t['card']['ok_to_download_and_submit']
+        require(ok_t == all(passed for _, passed in release_t['gates']), 'tiprelay verdict must equal the gate table')
+        if ok_t:
+            tif_path = ROOT / 'docs/downloads' / tiprelay['raster_name']
+            require(tif_path.is_file(), 'approved tiprelay release TIFF missing')
+            require(hashlib.sha256(tif_path.read_bytes()).hexdigest() == tiprelay['raster_sha256'],
+                    'approved tiprelay release TIFF hash mismatch')
+        require(tiprelay['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'tiprelay live score labeling')
+        canary_t = strict_json(ROOT / 'evidence/tiprelay/leakage_canary.json')
+        require(canary_t['canary_pass'] and not canary_t['flagged_over_0p90'], 'tiprelay canary unresolved')
+        for path in (ROOT / 'evidence/tiprelay').glob('*'):
+            if path.suffix in ('.json', '.md'):
+                require(path.read_bytes() == (ROOT / 'docs/evidence/tiprelay' / path.name).read_bytes(),
+                        'site tiprelay evidence stale: ' + path.name)
     correction = strict_json(ROOT / 'evidence/corrected_surface_novelty.json')
     require(correction['duplicate'] and not correction['cleared'], 'pre-placement stop missing')
     require(correction['candidate_values_sha256'] == card['canonical_surface_sha256'], 'corrective audit changed candidate')
@@ -128,10 +154,14 @@ def main():
     for name, digest in provenance['files_sha256'].items():
         require(hashlib.sha256((ROOT / 'vendor/gems57' / name).read_bytes()).hexdigest() == digest, 'shared tool modified without source fix: ' + name)
     frozen = strict_json(ROOT / 'evidence/release_checks.json')
-    post = frozen.get('post_review_2026-10-30_implementation_sha256', {})
+    # A file may change after the 2026-10-27 review only if its new bytes are pinned in an
+    # explicit dated post-review map (2026-10-30 or 2026-10-31). Maps are merged; every change
+    # must be pinned somewhere or verification fails.
+    post = {}
+    for key in ('post_review_2026-10-30_implementation_sha256', 'post_review_2026-10-31_implementation_sha256'):
+        post.update(frozen.get(key, {}))
     for relative, digest in frozen['implementation_sha256'].items():
         current = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
-        # A file may change after the 2026-10-27 review only if its new bytes are pinned in the explicit post-review map.
         require(current == digest or current == post.get(relative), 'implementation changed since review: ' + relative)
     local_links = check_links()
     for path in (ROOT / 'evidence').glob('*.json'):
@@ -140,7 +170,7 @@ def main():
         if path.suffix in ('.json', '.md'):
             require(path.read_bytes() == (ROOT / 'docs/evidence/thermal' / path.name).read_bytes(),
                     'site thermal evidence stale: ' + path.name)
-    print(f'PASS: frozen negative release preserved; thermal-lane release verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
+    print(f'PASS: frozen negative release preserved; lane releases verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
 
 
 if __name__ == '__main__':
