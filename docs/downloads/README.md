@@ -1,12 +1,12 @@
 # Downloads
 
 
-## The generated submission (2026-10-31, H-FUSION3 lane)
+## Second lane, same day (2026-10-31, H-FUSION3) — independent candidate
 
-**This is the file to download and submit from this release.** Verdict: **conditional —
-format-clear and uniqueness-clear, but not expected to beat 0.2778.** Read the machine-built
-gate table on the [executive summary](../executive-summary.html) first; it is rendered from
-`evidence/`, not typed by hand.
+> Two lanes ran in parallel on 2026-10-31. The lane below and the H-KDAM lane further down
+> are independent; pick one, do not submit both in the same slot. Verdict here:
+> **conditional — format-clear and uniqueness-clear, but not expected to beat 0.2778.**
+> Full detail on the [lane page](../lane-20261031-fusion3.html).
 
 | File | What it is |
 |---|---|
