@@ -148,7 +148,31 @@ def main():
         require(thermal['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'live score labeling')
         canary = strict_json(ROOT / 'evidence/thermal/leakage_canary.json')
         require(canary['canary_pass'] and not canary['flagged_over_0p90'], 'thermal canary unresolved')
-    # --- 2026-10-31 H-BSTEP current-release checks (additive; nothing above is weakened) ---
+    # --- 2026-10-31 H-TIPRELAY lane release checks (additive; frozen lanes above unchanged) ---
+    tiprelay_path = ROOT / 'evidence/tiprelay/run_card.json'
+    tiprelay = strict_json(tiprelay_path) if tiprelay_path.exists() else None
+    if tiprelay:
+        require(tiprelay['submission_slots_used'] == 0, 'the tiprelay run must not use slots')
+        require(len(tiprelay['note']) <= 140 and len(tiprelay['submission_name']) <= 140, 'tiprelay name/note length')
+        require(tiprelay['holdout_dti']['label'] == 'HOLDOUT-DTI', 'tiprelay score class')
+        require(tiprelay['experiments_run'] <= tiprelay['experiment_budget'] == 3, 'tiprelay experiment budget')
+        release_t = strict_json(ROOT / 'evidence/tiprelay/release.json')
+        require(release_t['card']['raster_sha256'] == tiprelay['raster_sha256'], 'tiprelay release/card hash drift')
+        ok_t = release_t['card']['ok_to_download_and_submit']
+        require(ok_t == all(passed for _, passed in release_t['gates']), 'tiprelay verdict must equal the gate table')
+        if ok_t:
+            tif_path = ROOT / 'docs/downloads' / tiprelay['raster_name']
+            require(tif_path.is_file(), 'approved tiprelay release TIFF missing')
+            require(hashlib.sha256(tif_path.read_bytes()).hexdigest() == tiprelay['raster_sha256'],
+                    'approved tiprelay release TIFF hash mismatch')
+        require(tiprelay['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'tiprelay live score labeling')
+        canary_t = strict_json(ROOT / 'evidence/tiprelay/leakage_canary.json')
+        require(canary_t['canary_pass'] and not canary_t['flagged_over_0p90'], 'tiprelay canary unresolved')
+        for path in (ROOT / 'evidence/tiprelay').glob('*'):
+            if path.suffix in ('.json', '.md'):
+                require(path.read_bytes() == (ROOT / 'docs/evidence/tiprelay' / path.name).read_bytes(),
+                        'site tiprelay evidence stale: ' + path.name)
+    # --- 2026-10-31 current-release checks (additive; nothing above is weakened) ---
     pointer = strict_json(ROOT / 'evidence/current_release.json') if (ROOT / 'evidence/current_release.json').exists() else {}
     if pointer.get('run_card') and (ROOT / pointer['run_card']).exists():
         cur = strict_json(ROOT / pointer['run_card'])
@@ -196,7 +220,14 @@ def main():
         if path.suffix in ('.json', '.md'):
             require(path.read_bytes() == (ROOT / 'docs/evidence/bstep' / path.name).read_bytes(),
                     'site bstep evidence stale: ' + path.name)
-    print(f'PASS: frozen negative release preserved; thermal-lane release verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
+    for lane in ('tiprelay', 'kdam'):
+        lane_dir = ROOT / 'evidence' / lane
+        if lane_dir.is_dir():
+            for path in lane_dir.glob('*'):
+                if path.suffix in ('.json', '.md'):
+                    require(path.read_bytes() == (ROOT / 'docs/evidence' / lane / path.name).read_bytes(),
+                            f'site {lane} evidence stale: ' + path.name)
+    print(f'PASS: frozen negative release preserved; lane releases verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
 
 
 if __name__ == '__main__':

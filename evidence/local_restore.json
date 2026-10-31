@@ -1,0 +1,41 @@
+{
+  "evidence_class": "DATA-MEASUREMENT",
+  "provenance": "hash-verified public bridge; NOT organizer-authenticated",
+  "transport": "local git clone (gh api unavailable: invalid GH_TOKEN + exhausted quota)",
+  "source_repo": "buffedlizard55-lab/6GEMSDOE",
+  "source_commit": "e2fe3f41c6f5dd2dcb2fc91958ee67698f114ada",
+  "files": [
+    {
+      "path": "data/official/training_features.tif",
+      "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+      "expected_sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+      "verified": true,
+      "bytes": 418912844
+    },
+    {
+      "path": "data/official/labels.tif",
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "expected_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "verified": true,
+      "bytes": 425830,
+      "origin": "already-present"
+    },
+    {
+      "path": "data/official/existing_faults.tif",
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "expected_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "verified": true,
+      "bytes": 425830,
+      "origin": "copied from /home/user/GEMSDOESASS1/data/bridge/existing_faults.tif"
+    },
+    {
+      "path": "data/official/sample_submission.tif",
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "expected_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "verified": true,
+      "bytes": 1599597,
+      "origin": "already-present"
+    }
+  ],
+  "all_pins_verified": true
+}

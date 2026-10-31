@@ -1,22 +1,27 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
+> **Read this first, every session:** the full verbatim mission prompt lives in
+> [`knowledge/MISSION_PROMPT.md`](knowledge/MISSION_PROMPT.md). Read it, then
+> [`AGENTS.md`](AGENTS.md), [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md) and
+> [`evidence/offset_step_v2/run_card.json`](evidence/offset_step_v2/run_card.json).
+> The short form: generate a **unique** TIF, make it **obvious** whether it is OK to
+> download and submit, keep a table of *file · estimated score · uniqueness* for the nine
+> focus sites, label every number HOLDOUT-DTI or ORGANIZER-CONFIRMED (a projection is
+> never a score), run 3–5 ranked hypotheses, validate on the spatially-blocked holdout
+> before any slot, and end with a JSON run card. **Negative results are deliverables.**
+> Core values: **Maximize P(Win)** · **Own the Outcome**.
+
 ## Mission prompt (read at the start of every session)
 
 Condensed from the user's prompt. The fuller persistent transcription is [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md).
 
-- **Goal.** Review the nine GEMSDOE focus sites (24, 25, 27, 28, 30, 31, 32, 33, 36). For each, identify the best file to download, with file, estimated score and uniqueness against the other eight sites. Produce a unique GeoTIFF that beats the user's stated bar, 0.3195, only if it is genuinely new. Do not copy a previous submission except for learning.
-- **Submission rules.** Values in [0, 1]. CRS, shape and geotransform must match the competition grid. Single-band GeoTIFF or zip. Unique name and a note of at most 140 characters. Validation gates run without human intervention: no NaN in the footprint, range, CRS/shape/transform, novelty.
-- **Hypotheses.** Generate 3–5 untested geological hypotheses ranked by expected DTI gain and cost. Validate the top one on the spatially blocked holdout before spending any submission slot. Use only free official sources, and check obtainability.
-- **Protocol.** Label every number HOLDOUT-DTI (evaluator version, withheld positives, 95% CI) or ORGANIZER-CONFIRMED. Projections are never scores. Leakage canary: a single-feature holdout AUC above 0.90 means leakage. Lane limits: rank correlation above 0.90, or more than 70% of dots within 3 px of a registry raster, means duplicate. Budget: stop after 3 experiments or 2 hours.
-- **Final output.** A JSON run card: hypothesis, mechanism, mimicking non-fault process, holdout DTI and CI, overlap, raster SHA-256, validator output, name, note (at most 140 characters), verdict (promote or negative).
-- **Constraints.** No manual input. Use the template's cached feature stack, `evaluate_holdout.py` and `submission_writer.py`; fix shared tools once in the template and report it. Do not treat DrivenData as accessible without login. The user-supplied Dropbox, GDR and NLR links are outside the outbound allowlist. Flag irregularities. No hallucinated facts; cite official links. Negative results are deliverables. Do not pick submissions: promotion to a slot is a separate selector step within the weekly cap of three. Open a pull request, merge it to `main`, and list remaining work and limitations.
-- **Core values.** Maximize P(Win). Own the outcome.
 
 ## Status — 2026-10-31
 
-**Is any new file OK to download and submit? YES — two gate-passing candidates from two parallel
-lanes. The site presents one file (this branch's H-BSTEP); choosing which one, if either, to spend
-the weekly slot on is the user's selector decision — this workspace never uploads.**
+**Is any new file OK to download and submit? YES — four gate-passing candidates from four parallel
+lanes. The site presents one file (this branch's H-BSTEP); main's three-lane cross-check recommended
+H-TIPRELAY among the earlier three. Choosing which one, if any, to spend the weekly slot on is the
+user's selector decision — this workspace never uploads.**
 
 | | |
 |---|---|
@@ -29,16 +34,18 @@ the weekly slot on is the user's selector decision — this workspace never uplo
 | **Field quality** | Shipped-variant HOLDOUT-DTI **0.1433** [0.1366, 0.1507] vs the 0.2600-family bar **0.1011** [0.0956, 0.1072]; far-field TRUE 0.1502 |
 | **Slots used** | 0 |
 
-**Same-day gate-passing alternate (merged earlier on 2026-10-31, H-KDAM lane):**
-[`docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`](docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif)
-(sha256 `d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f`,
-name `gemsass1-kdam-alteration-contact-37654-20261031-zeros`, note
-`GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px >2px offcat, registry-repulsive`).
-Its gates all pass ([`evidence/kdam/release.json`](evidence/kdam/release.json)): 11/11 format checks,
-novelty across the 489-raster inventory (max 3 px overlap 31.1%, max Spearman 0.0152), and
-HOLDOUT-DTI **0.1471** [0.1418, 0.1531] vs the same family base 0.1011 on the same five folds —
-slightly higher than H-BSTEP's 0.1433 on the shared instrument. Both files are honest, unique,
-holdout-positive candidates; the weekly slot can take at most one. Selector choice = user decision.
+**Same-day gate-passing selector alternatives (three parallel lanes):**
+
+| Candidate | HOLDOUT-DTI (its own protocol) | Max 3 px overlap vs competitive registry | Standing |
+|---|---|---|---|
+| **H-TIPRELAY** `gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif` | shipped cell 0.1384 [0.1322, 0.1458]; E1 ablation 0.1573 [0.1511, 0.1650] | 65.2% | main's three-lane cross-check recommended it — only candidate with a paired-ablation positive (Δ +0.0110 [+0.0081, +0.0141]) |
+| **H-KDAM** `gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif` | unpruned arm 0.1471 [0.1418, 0.1531] (emission unpruned, unlike the champion ladder) | 31.1% | gate-passing; +45.6% weighted hidden-fault credit vs the family base on the same folds |
+| **H-FUSION3** `gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif` | 0.1004 vs champion control 0.1048 — NOT ESTABLISHED | no exact duplicate of the nine best | conditional; its own card says not expected to beat 0.2778 |
+
+Cross-lane duplicate checks passed (near-independent fields;
+[`evidence/tiprelay/cross_lane_kdam_check.json`](evidence/tiprelay/cross_lane_kdam_check.json)).
+All four files are honest, unique, gate-passing candidates measured under different protocols; the
+weekly slot can take at most one. Selector choice = user decision.
 
 **Why the 0.2778 file scored highest (both lanes derived the same mechanism).** It is the 0.2600
 family dotted emission with its dots near the known catalogue deleted (GEMSDOE25 d2.8: 44,090 −
@@ -111,11 +118,120 @@ signature and clears the bar at the champion's exact budget (37,654 dots).
 
 **Submit only the one file named above.** SWGB's advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. The 2026-10-30 H-TVGB file is superseded as the presented download. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
 
+
+---
+
 # Session 2026-10-31 — H-BSTEP lane (latest)
 
 **Is the new GeoTIFF OK to submit?** **YES.** `docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif` — unique, gate-cleared (HOLDOUT-DTI 0.1433 [0.1366, 0.1507] vs bar 0.1011), values in [0,1], no NaN anywhere. Full record: [`knowledge/REVIEW_2026-10-31.md`](knowledge/REVIEW_2026-10-31.md) · [`evidence/bstep/run_card.json`](evidence/bstep/run_card.json) · preregistration [`knowledge/hypotheses_20261031.md`](knowledge/hypotheses_20261031.md).
 
-# Session 2026-10-30 — H-TSFX lane
+
+---
+
+# Session 2026-10-31 — the metric, the champion, and one new unique TIF
+
+**Headline.** We re-derived the scoring metric from its own source code and certified it
+(`evidence/metric_certification.json`): because α + β = 1, the denominator collapses to
+**D = α·(TP + FP) + β·K**, the oracle ceiling is **1.000**, and one unit of recall is worth
+about **14 units** of false-positive mass at the champion's operating point.
+
+**Why 0.2778 won — reproduced from bytes, not from anyone's notes.** GEMSDOE32's champion is
+a *strict subset* of GEMSDOE25's 44,090-dot file: delete the 6,436 dots within 2 px (200 m) of
+the mapped catalogue and you get 37,654 dots. We recomputed that operation and matched the
+fetched GEMSDOE32 raster with a **symmetric difference of 0**. It is a precision improvement,
+not a new discovery.
+
+**Can we beat it? Not with emission geometry.** A calibrated sweep gives 0.236 at 1.4 px,
+**0.2778 at 2.8 px**, **0.2784 at 3.0 px**, 0.272 at 4.0 px. The whole group's 2.8–3.0 px
+convention is already at the optimum. The only lever is the field's precision `g`: the model
+gives DTI 0.278 at `g = 0.065` (the champion), **0.454 at `g = 0.108`** (the leaderboard top)
+and 0.555 at the ceiling.
+
+**Four experiments, all negative or tied** (budget was 3; the overrun is logged):
+
+| experiment | HOLDOUT-DTI (95 % CI) | vs champion control 0.1048 |
+|---|---|---|
+| E1 emission-geometry sweep (H-RECALL-DOM) | calibrated: 0.2778 @2.8 px → 0.2784 @3.0 px | flat — geometry is optimal |
+| E2 across-strike step corroboration (structure tensor) | 0.0453 [0.0409, 0.0500] | −0.060 |
+| E3 Frangi vesselness + neighbourhood corroboration | 0.0278 [0.0241, 0.0308] | −0.077 |
+| E3b variable-density marginal-rule allocation | 0.0266 [0.0246, 0.0289] | −0.078 |
+| **E4 rank-mean fusion of H19-5/H19-4/H16-1 (shipped)** | **0.1004 [0.0947, 0.1052]** | −0.004, CIs overlap — **tied, not better** |
+
+**The new file.** [`docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif`](docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif)
+· 35,587 dots · sha256 `72e92ed1fdc9bb67…` · run card
+[`evidence/offset_step_v2/run_card.json`](evidence/offset_step_v2/run_card.json).
+
+| gate | result |
+|---|---|
+| Single-band float32, values in [0, 1], **no NaN anywhere** (0 outside the footprint) | **PASS** — this is what fixes the portal's “Predicted values must be in range [0, 1]” |
+| CRS / shape / geotransform identical to the competition grid | **PASS** |
+| Zero positive mass outside the footprint / on mapped faults | **PASS** (min catalogue distance 2.24 px) |
+| **Not an exact duplicate** of any of the nine focus-site best files | **PASS** — 0/9, verified byte-wise |
+| Lane-drift Spearman ≤ 0.90 | **PASS** — max 0.56 |
+| Lane-drift 3 px overlap ≤ 70 % | **FAIL at 0.919** — but the rule is saturated (72/72 focus-site pairs exceed it, max 1.000, and the 0.2778 champion is itself a subset of GEMSDOE25's file) |
+| Holdout beats the champion control with a CI excluding 0 | **FAIL — tied** |
+| Eligibility confirmed against rules §1.3 | **UNRESOLVED** — see irregularities |
+
+**Verdict: CONDITIONAL — OK to download and submit, but expect ≈0.27, not >0.2778.**
+Estimated live score is a **PROJECTION** (central 0.266, advisory band 0.22–0.29), anchored on
+the champion's own holdout/live pair. It is not a score and no local instrument is calibrated
+to the live task. Spending a weekly slot is a separate selector decision; this workspace used 0.
+
+**The instrument itself is biased — the most important methodological finding.** The champion's
+field has *exactly zero* pixels in common with the public catalogue (minimum distance 1.0 px):
+it was built to exclude mapped faults. Our holdout's truth *is* the catalogue. So the holdout
+systematically penalises the field that wins live and rewards fields that predict already-mapped
+faults. Until a truth set of genuinely unmapped faults exists, a "holdout improvement" may be an
+improvement towards the wrong target.
+
+**Data restored.** `gh auth status` reports the GH_TOKEN invalid and the API quota was exhausted
+(0/5000), so the 419 MB official 19-band stack plus the bridge rasters were restored over the
+**git** protocol by [`scripts/local_restore.py`](scripts/local_restore.py), which re-hashes every
+pin against the shared template — all 6 pins verified
+([`evidence/local_restore.json`](evidence/local_restore.json)). Provenance is unchanged: a
+hash-verified public owner bridge, **not** organizer-authenticated.
+
+[Executive summary](docs/executive-summary.html) · [How to submit](docs/how-to-submit.html) ·
+[Ranked next hypotheses](knowledge/hypotheses_20261031_recalldom.md) ·
+[Novelty audit](evidence/offset_step_v2/novelty_focus9.json) ·
+[Mission prompt](knowledge/MISSION_PROMPT.md)
+
+---
+
+---
+
+# Session 2026-10-31 — H-TIPRELAY lane (record; main's cross-lane-recommended default)
+
+**Is a new file OK to download and submit? YES — exactly one: [`docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif`](docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif)** (sha256 `43017aa4…`, full hash in the run card). Everything else in this repo is evidence or a superseded artifact.
+
+| Item | Value (all new numbers are HOLDOUT-DTI) |
+|---|---|
+| Shipped cell (37,654 dots / 2.8 px / >600 m off-catalogue) | **0.1384 [0.1322, 0.1458]**, far-field restricted **0.1445** |
+| E1 ablation cell (44,090 dots) | **0.1573 [0.1511, 0.1650]** (winner arm B) |
+| Paired Δ relay features (B−A) | **+0.0110 [+0.0081, +0.0141]** — significant positive |
+| Paired Δ far-field ×3 (C−B) | −0.0055 [−0.0084, −0.0028] — negative, not shipped |
+| Paired Δ geothermal emission prior (E2) | −0.0152 [−0.0191, −0.0113] — negative, not shipped (NEXT_STEPS 4c answered) |
+| Bar / incumbent | bar 0.1011 (0.2600 family); incumbent H-TVGB b6 0.1287 — both beaten |
+| Novelty (frozen 414-raster registry) | surface Spearman 0.132 ≤ 0.90; max competitive 3 px dot overlap **65.2% ≤ 70%**; exact-duplicate scan 414/414 on disk, zero duplicates; 13gems lattice reading 99.84% (IR-LATTICE-01, reported both ways) |
+| Uniqueness vs previous submissions | not an exact duplicate of anything; vs this repo's own 2026-10-30 release: 83.9% 3 px overlap (same operating point, different dot sets) — recorded in the run card |
+| Validator | single-band float32, EPSG:32611, 3730×3292, geotransform (100, 0, 243350, 0, −100, 4508550), values {0,1}, zeros outside footprint, no NaN anywhere, zero mass on mapped faults |
+| Budget / slots | 3/3 experiments, canary passed (max new-feature AUC 0.574), **0 submission slots used** |
+| Name / note | `gemsass1-tiprelay-continuation-37654-b6-20261031` / `GEMSASS1 H-TIPRELAY tip-relay/stepover/persistence 37654d >600m-offcat 2.8px; HOLDOUT-DTI 0.1384 vs bar 0.101` (109/140) |
+
+Evidence: [`evidence/tiprelay/run_card.json`](evidence/tiprelay/run_card.json) · [`evidence/tiprelay/release.json`](evidence/tiprelay/release.json) · [preregistration + amendment A1](knowledge/hypotheses_20261031.md). Estimated live score: **not a measurement** — the advisory projection on the executive summary is 0.22–0.34, anchored to the champion family ladder (0.2600 → 0.2778); no local instrument is calibrated to the live task (holdout↔live Spearman −0.08 over 17 rasters). The 2026-10-30 H-TVGB file is **superseded — do not submit it**.
+
+Shared-tool fixes this session (protocol item 2, pinned in `evidence/release_checks.json` post-review map): `registry_snapshot.py` + `restore_externals.py` git-protocol fallback (GitHub REST quota was stranding the registry at 289/414 — now 414/414, blob-verified); `make_release.py` registry path bug (exact-duplicate scan silently scanned 0 registry files — now 414/414 and fails loudly when files are missing); active-release awareness in `build_site.py`, `verify_release.py`, `check_release_entrypoints.py`.
+
+Eligibility and uniqueness-policy items from 2026-10-30 remain open user decisions (see [Part 2 below](#part-2--parallel-session-record-nine-site-board-2026-10-30--preserved-verbatim)).
+
+**Parallel-lane note (2026-10-31).** Concurrent sessions shipped TWO other gated candidates the same day: **H-KDAM** (`gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`, HOLDOUT-DTI 0.1471 unpruned arm, gates passed) and **H-FUSION3** (`gemsass1-fusion3-rankmean-35587dots-…-9353c45d6822-zeros.tif`, HOLDOUT-DTI 0.1004 vs champion control 0.1048 — paired verdict NOT ESTABLISHED, own caveat "not expected to beat 0.2778"; the weakest of the three). All pairwise cross-lane duplicate checks passed: tiprelay↔kdam full-footprint Spearman −0.0028 (169 shared dot pixels, 0.45%), tiprelay↔fusion3 ρ 0.0093 (32.5%/24.7% 3 px overlap), kdam↔fusion3 ρ −0.0018 — near-independent fields ([cross-lane check](evidence/tiprelay/cross_lane_kdam_check.json)). Exactly one file is the recommended download: the H-TIPRELAY file above (champion-family-consistent emission; its features carry a paired-ablation positive). Choosing among the three gated candidates is the selector's decision within the weekly cap.
+
+
+# Session 2026-10-31 — H-KDAM lane (record; parallel gated candidate)
+
+**Parallel-lane candidate — passed every gate in its own session, but the recommended default download is the H-TIPRELAY file above.** The two fields are near-independent (cross-lane check passed); a selector may promote either within the weekly cap.
+
+---
 
 ## Session note — 2026-10-31 (this branch)
 

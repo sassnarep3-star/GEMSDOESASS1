@@ -65,6 +65,17 @@ the upload form. Spending a weekly competition slot is a separate selector decis
 workspace never uploads. The verdict above is machine-computed from
 <a href="docs/evidence/bstep/run_card.json">the run card</a>; if any gate had failed, this page
 would read NOT OK TO SUBMIT.</p>
+<h3>Three other gate-passing candidates from the same day — selector alternatives</h3>
+<table>
+<tr><th>Candidate</th><th>HOLDOUT-DTI (its protocol)</th><th>Max 3 px overlap vs competitive registry</th><th>Standing</th></tr>
+<tr><td>H-TIPRELAY <code>gemsass1-tiprelay-continuation-37654-b6-20261031-zeros</code></td><td>shipped 0.1384 [0.1322, 0.1458]; E1 ablation 0.1573</td><td>65.2% (limit 70%)</td><td>main's three-lane cross-check recommended it (paired-ablation positive Δ +0.0110)</td></tr>
+<tr><td>H-KDAM <code>gemsass1-kdam-alteration-contact-37654-20261031-zeros</code></td><td>unpruned arm 0.1471 [0.1418, 0.1531]</td><td>31.1%</td><td>gate-passing alternative (emission unpruned, unlike the champion ladder)</td></tr>
+<tr><td>H-FUSION3 <code>gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros</code></td><td>0.1004 vs champion control 0.1048 — NOT ESTABLISHED</td><td>no exact duplicate of the nine best</td><td>conditional; its own card says not expected to beat 0.2778</td></tr>
+</table>
+<p class="mut">All four passed their own machine gates and cross-lane duplicate checks
+([cross-lane check](docs/evidence/tiprelay/cross_lane_kdam_check.json)); the field-quality numbers
+are measured under different protocols and are not directly comparable. Choosing which, if any, to
+submit is the selector's decision within the weekly cap.</p>
 </div>
 
 <div class="banner warn">

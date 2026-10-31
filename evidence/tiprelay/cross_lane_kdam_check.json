@@ -1,0 +1,58 @@
+{
+  "check": "cross-lane duplicate rule between the 2026-10-31 concurrent lanes (protocol: rho>0.90 or >70% dots within 3px => duplicate => stop)",
+  "evaluated_utc": "2026-10-31T07:05:00Z",
+  "pairs": [
+    {
+      "a": "tiprelay",
+      "b": "kdam",
+      "spearman_full_footprint": -0.0028,
+      "overlap_3px_a_to_b": 0.0431,
+      "overlap_3px_b_to_a": 0.1031,
+      "dot_pixel_intersection": 169,
+      "verdict": "not duplicates - fields are near-independent",
+      "note": "a union-of-positives subsample Spearman (-0.9955) is an artifact of conditioning on the union and was discarded; the protocol metric is full-footprint"
+    },
+    {
+      "a": "tiprelay",
+      "b": "stepover_research",
+      "spearman_full_footprint": 0.0216,
+      "overlap_3px_a_to_b": 0.2888,
+      "overlap_3px_b_to_a": 0.4707,
+      "verdict": "research artifact is not a submission; recorded for completeness"
+    },
+    {
+      "a": "tiprelay",
+      "b": "sparse_research",
+      "spearman_full_footprint": 0.0004,
+      "overlap_3px_a_to_b": 0.1661,
+      "overlap_3px_b_to_a": 0.1516,
+      "verdict": "research artifact is not a submission; recorded for completeness"
+    },
+    {
+      "spearman_full_footprint": 0.0093,
+      "overlap_3px_a_to_b": 0.3253,
+      "overlap_3px_b_to_a": 0.2467,
+      "dot_pixel_intersection": 596,
+      "a": "tiprelay",
+      "b": "fusion3",
+      "verdict": "not duplicates - far below the 0.90 rho / 70% overlap rule"
+    },
+    {
+      "spearman_full_footprint": -0.0018,
+      "overlap_3px_a_to_b": 0.1698,
+      "overlap_3px_b_to_a": 0.0555,
+      "dot_pixel_intersection": 194,
+      "a": "kdam",
+      "b": "fusion3",
+      "verdict": "not duplicates - recorded for the three-candidate selector picture"
+    }
+  ],
+  "sha256": {
+    "tiprelay": "43017aa480526acf2789dbffb32202da830966b9dadc40cb4d84b995b651f5eb",
+    "kdam": "d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f",
+    "stepover_research": "f523d68c6293a0db523dd04d07af6574d3b0c1dbab11d682054005720a8e6c38",
+    "sparse_research": "e1fea78319fa45a1499f0d647ed9ebca4fdbf81ee619a653eecec055691833be",
+    "fusion3": "72e92ed1fdc9bb67f6f9578b7e7293fd92f5e090316cbe638a23f399141550c8"
+  },
+  "note_3way": "Three gated candidates existed by end of 2026-10-31 (tiprelay, kdam, fusion3). fusion3 is the weakest by its own run card: paired verdict NOT ESTABLISHED (0.1004 vs champion control 0.1048) and ok_to_download_and_submit_caveat says NOT expected to beat 0.2778."
+}

@@ -1,44 +1,16 @@
-# Next session — ordered actions (updated 2026-10-31 after the H-BSTEP and H-KDAM releases)
+# Next session — ordered actions (updated 2026-10-31 after FOUR same-day lanes: bstep, tiprelay, kdam, fusion3)
 
-> Two 2026-10-31 releases exist. **H-BSTEP is the presented download** (Part 0a below);
-> **H-KDAM is a same-day gate-passing alternate** with a slightly higher shared-instrument holdout
-> (Part 0b). Choosing which, if either, to spend the weekly slot on is the user's selector decision.
-> Part 1 is the 2026-10-30 H-TVGB record (superseded download); Part 2 is the nine-site-board
-> session's record, preserved verbatim. The eligibility finding is a blocking user decision.
-
-## Part 0b — H-KDAM lane (merged earlier on 2026-10-31) — its ordered actions, preserved
-
-0. **Reviewed and merged (2026-10-31, later pass).** PR #29 is merged; the release now carries **7 gates**
-   including a fixture audit that measures all 489 inventory rasters (non-lattice fixtures ≤ 16.1 %, lattice
-   99.96 % disclosed). Two integrity defects found in review are fixed: `registry/focus_inventory.json` had
-   been silently rewritten (`failed: 0 → 114`) by a concurrent lane and is restored, and the sparse
-   placeholder's card names a filename that does not exist (irregularity #11, bytes hash-locked).
-   Details: `knowledge/REVIEW_2026-10-31.md`.
-1. **Download and submit(selector's decision)** `docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`
-   (`gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip` also works). Every automatic gate passes;
-   the disclosures to read first are on the executive summary (lattice exemption, nine-site registry scope,
-   eligibility).
-2. **Close the eligibility question before uploading** (rules: U.S. citizen / permanent resident / U.S.-
-   incorporated entity). Confirm with the organizer; never sign a certification that is not true.
-3. **Extend the novelty registry beyond the nine focus sites.** The sibling lanes named in the prompt
-   (GEMSDOE44–92, WBG, KANLER, GINNY, karage, apart) publish their files in public repos and can be added to
-   `registry/focus_inventory_*.json` with the same byte-verified fetch (`scripts/fetch_registry_current.py`,
-   git sparse checkout — the REST contents API exhausts its 5,000/h quota).
-4. **The one experiment worth running next: H-SOFTEMIT.** The official metric scores fractional values
-   fractionally (`TP_w = Σ_g max_x p(x)k(d)`, `FP_w = Σ_x p(x)[1−max k]`), and every registry file is binary.
-   Emit the same field as graded probabilities inside a support and measure the paired holdout difference at
-   equal support. It is cheap (cached fields exist in `work/kdam/fields/`), it cannot copy anyone, and it is
-   the only remaining degree of freedom the official text explicitly permits.
-5. **Build the full-catalogue, single-model field for the live task.** The shipped file uses one full-catalogue
-   model (good); the holdout arms average five fold models (irregularity #3 in `RESULTS_20261031.md`). Re-run
-   E1 with a single model trained on all catalogue segments and a *held-out* emission sweep so the shipping
-   configuration is not chosen on the same holdout that scores it.
-6. **Do not select on this holdout.** It inverts the live prune effect (the 0.2778 file scores 0.0044 here;
-   the same field unpruned scores 0.1011). Use it to compare fields only, as this session did.
-7. **Keep the frozen negatives** (BGAC-1, H-PBSC, SWGB, H-TVGB, the lattice audits). New evidence goes in new
-   directories (`evidence/kdam/`).
+> **Current release = H-BSTEP** (see its addendum below); H-TIPRELAY / H-KDAM / H-FUSION3 are
+> gate-passing selector alternatives (main's three-lane cross-check recommended H-TIPRELAY before
+> H-BSTEP was merged). Choosing which, if any, to spend the weekly slot on is the user's selector
+> decision. Eligibility (rules §1.3, U.S.-only; Arena reports Calgary, Canada) is blocking.
 
 ---
+
+
+---
+
+# H-BSTEP lane addendum (2026-10-31, merged last) — the current release
 
 ## Part 0a — H-BSTEP release (2026-10-31) — the presented download
 
@@ -98,64 +70,135 @@ python scripts/build_site.py && python scripts/swgb_build_site.py
 python scripts/verify_release.py && python scripts/check_release_entrypoints.py && python scripts/verify_swgb_correction.py
 ```
 
-## Part 1 — H-TVGB thermal-lane release (2026-10-30, superseded download)
 
+# H-FUSION3 lane addendum (2026-10-31, preserved verbatim)
 
-1. **Selector decision on the generated H-TVGB file.**
-   `docs/downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif`
-   passes every automatic gate under the per-raster reading of the lane-drift rule (format
-   validator, exact-duplicate scan vs 414 registry rasters + repo priors, per-raster novelty gates:
-   surface Spearman ≤ 0.133, dots 3 px overlap 65.0% ≤ 70% vs the competitive registry;
-   HOLDOUT-DTI 0.1287 [0.1231, 0.1355] at the shipped config vs bar 0.1011; far-field restricted
-   0.1343). The superseded 2 px packaging is logged as a lane-drift duplicate
-   (`evidence/thermal/run_card_b2_duplicate_log.json`, 79.1% vs `gems25-h38-greedy-credit-k3p5`)
-   and must not be uploaded. Spending a weekly slot is a separate selector decision — and see
-   Part 2's **eligibility** item first.
-2. **Ratify or reject the lattice scope readings (user).** Part 2's lattice-bound analysis shows
-   the literal full-registry 70%/3 px rule is unsatisfiable for any competitive dotted file
-   (the 13gems lattice covers ≥99%). The H-TVGB run card reports both readings
-   (`dots_competitive` per-raster vs `dots_full_registry` 99.79% vs the lattice); the amendment
-   draft is `evidence/thermal/lattice_amendment.md`, and Part 2's options A/B/C
-   (null-calibrated amendment vs literal rule vs registry exclusion) are the policy menu.
-   **No file is uploaded until the policy is chosen in writing.**
-3. **Resolve eligibility (user, blocking).** Per Part 2: rules §1.3 limit competitors to U.S.
-   citizens/permanent residents or U.S.-incorporated entities; the user's location is Singapore.
-   Confirm with the administrator before any upload; do not sign an eligibility certification
-   unless it is true.
-4. **Beat 0.3195 with field quality, not emission.** The H19-5 emission ladder is exhausted at
-   0.2778 (0.2600 → 0.2708 → 0.2778 came only from deleting near-catalogue dots). The supervised
-   family is the only local instrument above the 0.2600 base (HOLDOUT-DTI 0.129–0.152 vs 0.1011).
-   Concrete steps: (a) add tip/step-over geometry and orientation-persistence features and re-run
-   the paired ablation; (b) raise far-field credit (0.134–0.141 vs pooled 0.129–0.152); (c) re-test
-   the geothermal family as an EMISSION prior (concentrate dots near warm-spring/sinter/2 mDAB
-   anchors) — as learner features it is a measured negative (paired Δ −0.0124 [−0.0170, −0.0079]).
-5. **Emission sensitivity exists but is out of the preregistered operating point.** E3 measured
-   0.1516 [0.1445, 0.1574] at 52,000 dots / >2 px prune and far-field best 0.1408 at 52k / >6 px,
-   vs 0.1287 shipped (37,654 / >6 px). The champion operating point is fixed by live evidence;
-   a future selector preferring holdout-optimal mass has the sweep one step away.
-6. **Keep the frozen negatives.** Do not delete or soften `evidence/run_card.json` (BGAC-1),
-   `evidence/pbsc/run_card.json`, `evidence/swgb/`, the lattice audits, or the B2 duplicate log.
-   New evidence goes in new directories.
-7. **Read first next session:** this file, `README.md` (project prompt appendix + Part 2's
-   instrument-irregularity section), `knowledge/PROJECT_BRIEF.md`,
-   `knowledge/hypotheses_20261030.md` (both parts), `evidence/thermal/run_card.json`,
-   `evidence/thermal/release.json`, and Part 2's `knowledge/REVIEW_2026-10-30.md`.
+> Earlier sessions' records are preserved verbatim below. Read both. The eligibility
+> finding and the uniqueness-policy question remain blocking user decisions.
+
+## Part 0 — 2026-10-31 (this session)
+
+1. **Decide on the shipped file** `docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif`.
+   Format-clear (values in [0,1], no NaN, exact grid, 0 mass on/outside the footprint) and
+   uniqueness-clear under the standard you actually stated ("not an exact duplicate"):
+   0/9 exact duplicates, max Spearman 0.56. It does **not** beat the champion on the
+   holdout (0.1004 vs 0.1048, CIs overlap), so it is **not** promoted as a score
+   improvement. Expected live score is a PROJECTION: central 0.266, advisory band
+   0.22-0.29. Spending a weekly slot is your selector decision.
+2. **Do not chase emission geometry again — it is settled.** `scripts/certify_metric.py`
+   proves the optimum sits at 2.8-3.0 px for any field with a 5-20 % hit rate, and the
+   whole leaderboard already sits there. Every future hour goes into the **field**.
+3. **Buy precision `g`, not mass.** The certified model gives DTI 0.278 at g=0.065,
+   0.454 at g=0.108, 0.555 at the ceiling. Ranked cheapest-first:
+   (a) **pluvial-shoreline rejection** — remove lineaments whose along-strike elevation
+   variance is near zero (needs an absolute DEM; currently outside the outbound
+   allowlist — check obtainability first); (b) **buried basement-step continuation**
+   using `depth_to_base_surf` + `iso_grav_anom` where the topographic scarp dies out;
+   (c) **geodetic strain-rate lineaments** (bands 4/7/8) that do not coincide with
+   topography; (d) **radiometric alteration haloes** (K/Th/U/TC, ThK/UK/UTh) along
+   structure — the actual geothermal target.
+4. **Fix or replace the instrument before trusting any holdout win.** The champion's
+   field has exactly zero pixels in common with the public catalogue (min distance
+   1.0 px) while our holdout truth *is* the catalogue. The holdout therefore rewards
+   predicting already-mapped faults — which is what loses live. Needs a truth set of
+   genuinely unmapped faults, or an explicit bias model.
+5. **Resolve the two blocking policy items (user):** (i) eligibility under rules §1.3;
+   (ii) the uniqueness rule — adopt the null-calibrated amendment (option A in
+   knowledge/REVIEW_2026-10-30.md) or keep the literal 70 %/3 px rule, which no
+   competitive dotted file can satisfy (72/72 pairs over limit; the 0.2778 champion is
+   itself a strict subset of GEMSDOE25's file).
+6. **Data is now restorable offline.** `scripts/local_restore.py` restores all six pins
+   over the git protocol (gh auth is broken: "token is no longer valid" + quota
+   exhausted). The 19-band official stack is cached in `.cache/features/`.
+7. **Read first next session:** `knowledge/MISSION_PROMPT.md`, this file,
+   `knowledge/hypotheses_20261031_recalldom.md`,
+   `evidence/offset_step_v2/run_card.json`, `evidence/metric_certification.json`.
 
 ---
 
-## Part 2 — parallel-session record (nine-site board, 2026-10-30) — preserved verbatim
+# Next session — ordered actions (2026-10-31 H-KDAM release on top)
 
-## Added on branch arena/6c40af2c-gemsdoesass1 (nine-site board, 2026-10-30)
+> 2026-10-31 shipped two independent gated candidates from concurrent sessions (H-TIPRELAY, this
+> branch, merged last; H-KDAM, merged earlier the same day) plus the H-STEP-OVER research artifact.
+> The cross-lane duplicate check PASSED (near-independent fields), so both candidates stand and the
+> selector chooses within the weekly cap. The 2026-10-30 parts (Part 1/Part 2) remain valid history.
 
-- **Eligibility is a blocking item main does not list.** Official rules §1.3 limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. The user's location is Singapore. Confirm with the administrator before any upload, and do not sign the eligibility certification unless it is true. This also blocks any selector slot, including under an amended uniqueness test.
-- **SWGB has two holdout numbers, both above the bar.** E2 (2 px prune, the run-card headline) is 0.1586 [0.1519, 0.1649]. The shipped 6 px prune is 0.1401 [0.1329, 0.1452]. Both beat the 0.1011 [0.0956, 0.1072] bar. Both are withdrawn by the lattice gate.
-- **Nine-site board:** `evidence/nine_site_board.json` (byte-verified best files, registry-wide overlap, exact dot-set duplicates). Arithmetic bound under the literal rule: a file above **22,163** positive pixels cannot pass. `evidence/format_validation_nine_best.json`: 9/9 best files pass the official format text. Run card: `evidence/run_card_20261030_nine_site.json`.
-- **Verified sources and irregularities:** `knowledge/sources_verified_20261030.md`. Ranked hypotheses, none run: `knowledge/hypotheses_20261030.md`.
+## Part 0 — state after the 2026-10-31 double release (read this first)
 
-**No file in this repository is cleared to download or submit.** Latest decision and measurements: [`knowledge/REVIEW_2026-10-30.md`](REVIEW_2026-10-30.md), [`evidence/gate_null_audit.json`](../evidence/gate_null_audit.json), [`evidence/run_card_20261030.json`](../evidence/run_card_20261030.json).
+1. **Recommended default release (this session):** `docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif`
+   (sha256 `43017aa4…`, run card `evidence/tiprelay/run_card.json`, verdict `promote`,
+   `ok_to_download_and_submit = true`, 0 slots used). Shipped-cell HOLDOUT-DTI **0.1384 [0.1322,
+   0.1458]** vs bar 0.1011 and incumbent 0.1287; E1 ablation cell 0.1573; paired Δ relay features
+   **+0.0110 [+0.0081, +0.0141]**; novelty surface ρ 0.132 / dots 65.2% competitive; exact-duplicate
+   scan 414/414 on disk.
+2. **Parallel gated candidate (H-KDAM, selector alternative):** `gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`
+   (sha256 `d10c99c3…`, `evidence/kdam/release.json`), HOLDOUT-DTI **0.1471 [0.1418, 0.1531]**
+   unpruned arm vs same-emission family base 0.1011; competitive max 3 px overlap 31.1%; all 489
+   inventory rasters measured with the lattice disclosed (99.96%, AMEND-LATTICE-01). Review pass
+   fixed two integrity defects the same day (`knowledge/REVIEW_2026-10-31.md`): a concurrent
+   rewrite of `registry/focus_inventory.json` (failed 0→114) was restored, and the sparse
+   placeholder's card named a nonexistent file (irregularity #11, hash-locked).
+3. **Cross-lane duplicate check (both audits were blind to each other) — PASSED:** full-footprint
+   Spearman −0.0028; 169 of 37,654 dot pixels shared (0.45%); 3 px overlap 4.3%/10.3%. The fields
+   are near-independent, not duplicates
+   ([evidence/tiprelay/cross_lane_kdam_check.json](../evidence/tiprelay/cross_lane_kdam_check.json)).
+4. **Open user decisions (unchanged, blocking any upload):** (a) eligibility — rules §1.3 restrict
+   competitors to U.S. citizens/permanent residents or U.S.-incorporated entities; confirm with the
+   administrator; (b) IR-LATTICE-01 / AMEND-LATTICE-01 uniqueness scope — the literal 70%/3 px rule
+   is unsatisfiable for any dotted file (the lattice covers ≥99% of all of them, champion included);
+   both readings are published for every artifact.
+5. **Measured answers now on file (do not re-run):**
+   - Relay/step-over/persistence learner features: paired Δ **+0.0110 [+0.0081, +0.0141]** — keep.
+   - Far-field positives ×3 in the loss: paired Δ **−0.0055 [−0.0084, −0.0028]** — negative.
+   - Geothermal anchors as emission prior: paired Δ **−0.0152 [−0.0191, −0.0113]** — negative
+     (NEXT_STEPS 4c answered; the family is a measured negative as learner features AND emission prior).
+   - E1 arm A reproduced the 2026-10-30 arm to 4 decimals (0.1462) — the shared instrument is stable.
+   - H-KDAM field: +45.6% weighted hidden-fault credit vs the same-emission family base (0.1471 vs 0.1011).
+6. **Next experiments, ranked across both lanes' plans:**
+   a. **H-SOFTEMIT (from the H-KDAM review — highest value per cost).** The official metric scores
+      fractional values fractionally (`TP_w = Σ_g max_x p(x)k(d)`, `FP_w = Σ_x p(x)[1−max k]`), and
+      every registry file is binary. Emit the same field as graded probabilities and measure the
+      paired holdout difference at equal support. Cheap (cached fields exist), cannot copy anyone.
+   b. **Single-model full-catalogue field with a held-out emission sweep (both lanes need this).**
+      The shipped files use one full-catalogue model (good); the holdout arms average five fold
+      models. Re-run E1 with a single model trained on all catalogue segments and a held-out
+      emission sweep so the shipping configuration is not chosen on the same holdout that scores it.
+   c. **H-QFAULT-ATTR** — slip-rate/recency-weighted continuation corridors (data mirrored:
+      `data/external/gdr_qfaults_traces.csv`, `qfault_attributes.csv`); the relay family's positive
+      result makes attribute-weighted continuations the natural follow-up.
+   d. **H-RADON-CONCORD** — radiometric gradient lineament concordance (lane-drift check against
+      GEMSDOE74/75 files mandatory before running).
+   e. Extend the novelty registry beyond the nine focus sites (sibling lanes GEMSDOE44–92, WBG,
+      KANLER, GINNY, karage, apart publish their files publicly;
+      `scripts/fetch_registry_current.py`, git sparse checkout — the REST contents API exhausts
+      its 5,000/h quota).
+7. **Instrument cautions stay in force:** HOLDOUT-DTI is not a leaderboard forecast (holdout↔live
+   Spearman −0.08 over the 17-file family; it inverts the live prune effect — the 0.2778 file scores
+   0.0044 here while the same field unpruned scores 0.1011); catalogue-prune width dominates the
+   off-catalogue instrument (docs/INSTRUMENT_IRREGULARITY.md). Use the holdout to compare fields,
+   never to predict live scores. Label every number HOLDOUT-DTI or OWNER-REPORT.
+8. **Keep the frozen negatives** (BGAC-1, H-PBSC, SWGB, thermal lane, B2 duplicate log, lattice
+   audits). New evidence goes in new directories.
+9. **Read first next session:** this file, `README.md` (both 2026-10-31 status blocks),
+   `knowledge/hypotheses_20261031.md` (both lanes' preregistrations + amendments),
+   `knowledge/RESULTS_20261031.md` (both lanes' results), `knowledge/REVIEW_2026-10-31.md`,
+   `evidence/tiprelay/run_card.json`, `evidence/kdam/release.json`.
 
-1. **Decide the uniqueness policy (user).** The 70%/3 px rule is saturated by the 13gems 5 px lattice: uniform-random dots score 99.88%. Options A (null-calibrated amendment, recommended), B (keep literal rule, nothing submittable), C (exclude the lattice; rejected for now). Write any chosen amendment and its thresholds down **before** running anything.
-2. **If A is chosen:** re-run `scripts/gate_null_audit.py` under the amended rule and record the outcome in a new run card. SWGB 6 px prune (`0.1401`, HOLDOUT-DTI, 60,988 withheld positives) is the only shipped candidate with a holdout above the 0.1011 bar. It still needs one selector decision and a receipt-backed rules check. It is not a leaderboard forecast.
-3. **Verify `labels.tif`.** It is byte-identical to `existing_faults.tif` (sha256 `7ba308cc…`). Confirm against the organizer's labels, which are login-walled. Until then, treat local "labels" results as catalogue-only.
-4. **Read the live leaderboard in a browser** and record the timestamp. The cached page shows #1 0.4544; the request cites 0.4413 and 0.3195.
-5. **Resolve the portal error.** The official text permits NaN outside the bounds. Whether NaN caused "Predicted values must be in range [0, 1]" is unverified. Get a receipt before changing the writer.
+
+---
+
+## Part 1 — H-TVGB thermal-lane release record (2026-10-30, superseded by Part 0 where noted)
+
+1. **Selector decision on the generated H-TVGB file.**
+   `docs/downloads/gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif`
+   passed every automatic gate in its own session under the per-raster reading of the lane-drift
+   rule. **2026-10-31 update: superseded by the H-TIPRELAY and H-KDAM files above — do not submit
+   it.** The superseded 2 px packaging remains a logged lane-drift duplicate
+   (`evidence/thermal/run_card_b2_duplicate_log.json`) and must not be uploaded.
+2. **Ratify or reject the lattice scope readings (user).** Both readings are reported for every
+   artifact, including the new releases.
+3. **Resolve eligibility (user, blocking).** See Part 0 item 4a.
+4. **Beat 0.3195 with field quality — EXECUTED 2026-10-31** (see Part 0 item 5 for outcomes).
+5. Emission sensitivity for H-TVGB measured; the relay-field sweep at 52k dots is pending.
+6. **Keep the frozen negatives.** Unchanged.
+7. Read-first list superseded by Part 0 item 9.

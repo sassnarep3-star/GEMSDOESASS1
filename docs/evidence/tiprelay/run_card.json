@@ -1,0 +1,188 @@
+{
+  "schema": "gemsass1.run_card.v3",
+  "generated_utc": "2026-10-31T06:07:17Z",
+  "hypothesis": "H-TIPRELAY: uncatalogued fault continuations concentrate where visible traces end in mutually facing tips (relay corridors), between offset parallel strands (step-over gaps), and beyond straight (persistent) traces; a segment-withheld learner carrying these VISIBLE-only continuation-geometry families recovers hidden segments better than the thermal-anchored baseline.",
+  "mechanism": "5 x HistGradientBoosting (250 it) on 28 GeoDAWN/lidar layers + visible-only catalogue context + 10 thermal-anchor features + 5 relay-geometry features (relay_corridor,relay_logdist,stepover_band,strike_persist,tip_align); fold models averaged with full-catalogue context; Poisson-disk 2.8 px, n=37654, >600 m catalogue exclusion at emission (registered b6 cell).",
+  "named_non_fault_mimic": "Pluvial shoreline benches and fluvial terrace risers (straight, coherent, can bridge between real scarps); road/canal embankments; magma-dike margins (persistent strike, step-over-like offsets).",
+  "arm": "B_tiprelay",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "value": 0.15725768851342797,
+    "ci95": [
+      0.15111431949731974,
+      0.16496284467325495
+    ],
+    "farfield_true_gt500m_from_visible": 0.13905551465845958,
+    "n_withheld_positives": 60988,
+    "delta_B_minus_A": {
+      "value": 0.011029842763380815,
+      "ci95": [
+        0.008109928906022372,
+        0.014108381144100929
+      ]
+    },
+    "delta_C_minus_B": {
+      "value": -0.005526970860870922,
+      "ci95": [
+        -0.008419370805056201,
+        -0.002791680317711784
+      ]
+    },
+    "shipped_cell_emission": {
+      "holdout_dti": 0.1383706275021848,
+      "ci95": [
+        0.13216926206204996,
+        0.1457577172171357
+      ],
+      "farfield": 0.1445113335018527,
+      "farfield_ci95": [
+        0.13668104848300794,
+        0.1505038097308499
+      ]
+    },
+    "e2_emission": {
+      "value": -0.015234982300494262,
+      "ci95": [
+        -0.019081752760325848,
+        -0.011253082958120117
+      ]
+    },
+    "bar": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ]
+    },
+    "repo_best": {
+      "name": "H-TVGB b6 shipped 2026-10-30 (repo incumbent at the registered b6 cell)",
+      "holdout_dti": 0.1287,
+      "ci95": [
+        0.1231,
+        0.1355
+      ]
+    },
+    "value_definition": "value = E1 paired-ablation cell (44,090 dots, no prune, winner arm B_tiprelay); the shipped b6 cell (37,654 dots, >600 m catalogue exclusion) is holdout_dti.shipped_cell_emission = 0.1384 [0.1322, 0.1458]."
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_competitive": {
+      "max_spearman": 0.1321348231985267,
+      "max_overlap": 0.3188835023134579,
+      "worst": [
+        "docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+        0.3188835023134579,
+        0.04470948071044986
+      ]
+    },
+    "dots_competitive": {
+      "max_spearman": 0.03487515433242654,
+      "max_overlap": 0.6518032612737027,
+      "worst": [
+        "docs/downloads/gems25-h38-greedy-credit-k3p5-20261025-18de99d38bb0-nan.tif",
+        0.6518032612737027,
+        0.028674711879910452
+      ]
+    },
+    "dots_full_registry": {
+      "max_spearman": 0.03487515433242654,
+      "max_overlap": 0.99843310139693,
+      "worst": [
+        "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        0.99843310139693,
+        0.0002481589159600301
+      ]
+    },
+    "thresholds": {
+      "spearman": 0.9,
+      "overlap": 0.7,
+      "px": 3
+    },
+    "lane_drift_duplicate": false,
+    "lattice_rows": [
+      {
+        "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "spearman": 0.0002481589159600301,
+        "overlap": 0.99843310139693
+      },
+      {
+        "path": "docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+        "spearman": 0.000534035443442814,
+        "overlap": 0.0016731290168375205
+      }
+    ],
+    "prior_repo_release_overlap": {
+      "path": "gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif",
+      "directed_overlap_within_3px": 0.8394061719870399
+    },
+    "ir_lattice_01": "evidence/thermal/lattice_amendment.md"
+  },
+  "raster_sha256": "43017aa480526acf2789dbffb32202da830966b9dadc40cb4d84b995b651f5eb",
+  "raster_name": "gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif",
+  "validator_output": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif",
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "crs_matches_template": true,
+      "shape_matches_template": true,
+      "transform_matches_template": true,
+      "no_nan_inside_footprint": true,
+      "no_nan_anywhere": true,
+      "values_in_0_1_everywhere": true,
+      "values_in_0_1_inside_footprint": true,
+      "no_positive_outside_footprint": true,
+      "zero_mass_on_known_catalogue_pixels": true
+    },
+    "all_checks_passed": true,
+    "positive_pixels": 37654,
+    "footprint_pixels": 5167373,
+    "min": 0.0,
+    "max": 1.0,
+    "sha256": "43017aa480526acf2789dbffb32202da830966b9dadc40cb4d84b995b651f5eb",
+    "size_bytes": 136856,
+    "profile": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null
+    }
+  },
+  "submission_name": "gemsass1-tiprelay-continuation-37654-b6-20261031",
+  "note": "GEMSASS1 H-TIPRELAY tip-relay/stepover/persistence 37654d >600m-offcat 2.8px; HOLDOUT-DTI 0.1384 vs bar 0.101",
+  "note_length": 109,
+  "verdict": "promote",
+  "ok_to_download_and_submit": true,
+  "submission_slots_used": 0,
+  "evidence_class": {
+    "holdout": "HOLDOUT-DTI",
+    "live_scores": "OWNER-REPORT (no organizer receipt in this group)"
+  },
+  "experiments_run": 3,
+  "experiment_budget": 3,
+  "elapsed_s": 773.6,
+  "relay_meta_full_catalogue": {
+    "n_tips": 6938,
+    "n_relay_pairs": 272,
+    "n_stepover_px": 5702
+  },
+  "limitations": [
+    "No organizer receipt: every historical score is OWNER-REPORT, never ORGANIZER-CONFIRMED.",
+    "HOLDOUT-DTI is not a leaderboard forecast (proxy-live Spearman -0.08 over the 17-file family).",
+    "IR-LATTICE-01: the 13gems calibration lattice covers >=99% of any dotted file at 3 px; both readings are reported.",
+    "Registry scope = nine public focus repos (414 TIFF blobs, frozen 2026-10-27 pins) + this repo prior release; global novelty unverified."
+  ]
+}
