@@ -36,7 +36,7 @@ so those dots were pure false-positive mass. Every one of the nine best files is
 published **identical** dot sets. Beating 0.2778 therefore requires a different field — which is what this
 session built and measured.
 
-**Read next:** [`knowledge/RESULTS_20261031.md`](knowledge/RESULTS_20261031.md) (numbers, labels, irregularities) ·
+**Read next:** [`knowledge/REVIEW_2026-10-31.md`](knowledge/REVIEW_2026-10-31.md) (three review passes, the seven defects found and fixed, what stays open) · [`knowledge/RESULTS_20261031.md`](knowledge/RESULTS_20261031.md) (numbers, labels, irregularities) ·
 [`knowledge/hypotheses_20261031.md`](knowledge/hypotheses_20261031.md) (pre-registration, five ranked hypotheses) ·
 [`evidence/kdam/release.json`](evidence/kdam/release.json) (gates) ·
 [`evidence/kdam/e1_holdout.json`](evidence/kdam/e1_holdout.json) ·
