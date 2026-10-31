@@ -276,5 +276,36 @@
     "Owner-mirror data provenance: integrity-verified against pinned hashes, NOT organizer-authenticated.",
     "Eligibility (rules \u00a71.3, U.S. persons/entities) is a user decision before any upload; this workspace never uploads and spends no competition slot.",
     "IR-LATTICE-01 policy item remains open; both the literal and AMEND-LATTICE-01 readings are printed above."
-  ]
+  ],
+  "lane": "H-BSTEP basement-step concordance learner",
+  "comparators_same_emission": {
+    "family_base_44090_unpruned": 0.10109334174188524,
+    "label": "HOLDOUT-DTI",
+    "evaluator": "GEMSASS1-HR-v2-segment",
+    "ci95": [
+      0.0966508882698378,
+      0.10602639926890282
+    ],
+    "n_dots": 44090,
+    "raw_file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+    "note": "the 0.2600-family dotted field (raw_file above, 44,090 dots \u2014 the field behind every file >= 0.24 in the nine focus sites) scored on the same five folds with the same pooled metric; measured in evidence/kdam/e1_holdout.json (shared instrument, same folds)",
+    "live_champion_37654": 0.004371798949252752,
+    "live_champion_ci95": [
+      0.004079872486479671,
+      0.0047951947378010425
+    ],
+    "live_champion_note": "the 0.2778 champion dots themselves score near zero on this holdout \u2014 hide-and-recover truth is catalogue-derived, and the champion deliberately avoids the visible catalogue; the holdout does not rank live scores (Spearman -0.081). Recorded so the HOLDOUT-DTI above is never read as a leaderboard forecast.",
+    "family_style_reemission_unpruned": 0.1208,
+    "family_style_reemission_ci95": [
+      0.1138,
+      0.1275
+    ],
+    "family_style_reemission_note": "this lane's own 2 px / 44,090-dot emission recipe re-sampled on its fold fields without catalogue exclusion; reported for completeness"
+  },
+  "lattice_disclosure": {
+    "available": true,
+    "overlap3": 0.9995,
+    "fixture": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "reading": "AMEND-LATTICE-01 comparative gates; literal reading reported separately"
+  }
 }

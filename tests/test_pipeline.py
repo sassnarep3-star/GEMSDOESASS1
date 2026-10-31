@@ -191,16 +191,33 @@ def test_frozen_negative_artifact_contract():
     # B2 duplicate log; nothing else may appear there.
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
-    pointer = json.loads((ROOT/'evidence/current_release.json').read_text())
-    current = json.loads((ROOT / pointer['run_card']).read_text())
+    sparse = json.loads((ROOT/'evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               current['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               sparse['submission_name'].replace('.tif', ''),  # 2026-10-31 sparse placeholder (not submit-cleared)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # 2026-10-31 H-STEP-OVER lane
+    kdam_path = ROOT/'evidence/kdam/release.json'
+    if kdam_path.exists():
+        # 2026-10-31: a release may ship its own candidate, but only while its own
+        # machine gate table says the file is approved.
+        kdam = json.loads(kdam_path.read_text())
+        assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
+        if kdam['ok_to_download_and_submit']:
+            allowed = allowed + (kdam['card']['submission_name'].replace('.tif', ''),)
+    pointer_path = ROOT/'evidence/current_release.json'
+    if pointer_path.exists():
+        # The current-release pointer (H-BSTEP when present) may likewise ship its candidate.
+        pointer = json.loads(pointer_path.read_text())
+        cur = json.loads((ROOT / pointer['run_card']).read_text())
+        assert cur['ok_to_download_and_submit'] == all(passed for _, passed in json.loads((ROOT / pointer['release']).read_text())['gates'])
+        if cur['ok_to_download_and_submit']:
+            allowed = allowed + (cur['submission_name'].replace('.tif', ''),)
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
+    assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in zips)
 
@@ -248,13 +265,30 @@ def test_concurrent_main_research_preserved_not_promoted():
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     assert pbsc['ok_to_submit'] is False
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
-    pointer = json.loads((ROOT/'evidence/current_release.json').read_text())
-    current = json.loads((ROOT / pointer['run_card']).read_text())
+    sparse = json.loads((ROOT/'evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               current['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               sparse['submission_name'].replace('.tif', ''),  # 2026-10-31 sparse placeholder (not submit-cleared)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # 2026-10-31 H-STEP-OVER lane
+    assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
+    kdam_path = ROOT/'evidence/kdam/release.json'
+    if kdam_path.exists():
+        # 2026-10-31: a release may ship its own candidate, but only while its own
+        # machine gate table says the file is approved.
+        kdam = json.loads(kdam_path.read_text())
+        assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
+        if kdam['ok_to_download_and_submit']:
+            allowed = allowed + (kdam['card']['submission_name'].replace('.tif', ''),)
+    pointer_path = ROOT/'evidence/current_release.json'
+    if pointer_path.exists():
+        # The current-release pointer (H-BSTEP when present) may likewise ship its candidate.
+        pointer = json.loads(pointer_path.read_text())
+        cur = json.loads((ROOT / pointer['run_card']).read_text())
+        assert cur['ok_to_download_and_submit'] == all(passed for _, passed in json.loads((ROOT / pointer['release']).read_text())['gates'])
+        if cur['ok_to_download_and_submit']:
+            allowed = allowed + (cur['submission_name'].replace('.tif', ''),)
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 

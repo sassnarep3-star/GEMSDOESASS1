@@ -1,0 +1,55 @@
+{
+  "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif",
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "all_checks_passed": true,
+  "positive_pixels": 40000,
+  "footprint_pixels": 5167373,
+  "min": 0.0,
+  "max": 1.0,
+  "sha256": "f523d68c6293a0db523dd04d07af6574d3b0c1dbab11d682054005720a8e6c38",
+  "size_bytes": 110437,
+  "profile": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "nodata": null
+  },
+  "zip": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.zip",
+    "sha256": "5f0c1d9da69a87acf11d2f3c1fbac05b9156cd89d3ac812353c73bdabe12eb54",
+    "size_bytes": 65493
+  },
+  "submission_note": "GEMSASS1 H-STEP-OVER catalogue-stepover-annulus 300-900m 40000d 3.0px off-cat; HOLDOUT proxy; see run card",
+  "meta": {
+    "hypothesis": "H-STEP-OVER",
+    "annulus_inner_px": 3.0,
+    "annulus_outer_px": 9.0,
+    "n_dots": 40000,
+    "min_dist_px": 3.0,
+    "annulus_cells": 781026
+  }
+}

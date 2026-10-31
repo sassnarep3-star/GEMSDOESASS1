@@ -84,10 +84,11 @@
     "review_record": "docs/REPO_REVIEW_2026-10-30.md"
   },
   "post_review_2026-10-31_implementation_sha256": {
-    "scripts/build_site.py": "4107b166878d31ce0e8701c4e2b346c855d073a3d30ac6fe7bd8adde2d08f892",
-    "scripts/verify_release.py": "a26f3e9db5dcaf245cd462ad0650938859145e5cfe087881b5335e6d15936cc0",
+    "scripts/build_site.py": "b98de1aa60fd9ca7be691f0cab21f96c9d56dac89660eee9d810580e06320640",
+    "scripts/verify_release.py": "a05f9afce9d5d7aaa06e5fb0df414ed0ac7d910b4e8988d8a79c4b1248d3a859",
     "scripts/check_release_entrypoints.py": "cb35527d2680a382f97418e679befd6a425666137cf09e7647bf42d4869aa65b",
     "scripts/verify_swgb_correction.py": "1334385aa80413bcd43295506736354de5513269fce4bdf765a6fc4ccc308c80"
   },
-  "post_review_2026-10-31": "H-BSTEP lane release (2026-10-31): current-release pointer (evidence/current_release.json) added; build_site/check_release_entrypoints/verify_release/verify_swgb_correction updated to render and verify the H-BSTEP candidate; all frozen negative records unchanged."
+  "post_review_2026-10-31": "H-BSTEP lane release (2026-10-31): current-release pointer (evidence/current_release.json) added; build_site/check_release_entrypoints/verify_release/verify_swgb_correction updated to render and verify the H-BSTEP candidate; all frozen negative records unchanged.",
+  "post_review_2026-10-31_scope": "2026-10-31 H-KDAM lane. build_site.py: the release card, metric strip and the nine-site table are data-driven (measurement of the restored registry replaces the reported uniquity text; lattice disclosure rendered from evidence/kdam/release.json). verify_release.py: docs/downloads is now hash-locked to evidence cards (any published TIF/ZIP must have its sha256 claimed by a card, and any release card that approves its own file must agree with its gate table), and this post-review map is consulted. Frozen 2026-10-27 hashes are unchanged; registry/focus_inventory.json was restored to its 2026-10-27 bytes after a concurrent lane rewrote failed=0 as failed=114 without changing any data."
 }
