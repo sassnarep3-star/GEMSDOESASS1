@@ -276,7 +276,8 @@
       "Holdout truth is catalogue-derived (labels.tif is byte-identical to existing_faults.tif in the owner mirror); holdout-live Spearman is -0.081 across 17 registry rasters, so no holdout number forecasts a leaderboard score.",
       "Owner-mirror data provenance: integrity-verified against pinned hashes, NOT organizer-authenticated.",
       "Eligibility (rules \u00a71.3, U.S. persons/entities) is a user decision before any upload; this workspace never uploads and spends no competition slot.",
-      "IR-LATTICE-01 policy item remains open; both the literal and AMEND-LATTICE-01 readings are printed above."
+      "IR-LATTICE-01 policy item remains open; both the literal and AMEND-LATTICE-01 readings are printed above.",
+      "IR-SHIPPED-BITS-01 (2026-10-31, from the H-REGAVOID lane): scoring the literal shipped bytes of any full-catalogue-pruned file measures ~0 on hide-and-recover (the 0.2778 champion included). The 0.1433 shipped-variant value above is a protocol cell (the shipped emission variant re-emitted per fold against the visible catalogue only), not a shipped-bytes score, and never a leaderboard forecast (holdout vs live Spearman -0.081)."
     ],
     "lane": "H-BSTEP basement-step concordance learner",
     "comparators_same_emission": {

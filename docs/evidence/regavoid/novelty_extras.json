@@ -1,0 +1,294 @@
+{
+  "rows": [
+    {
+      "site": "GEMSDOESASS1-SWGB",
+      "file": "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif",
+      "frac_dots_within_3px": 0.012501025795333316,
+      "spearman": -0.007529220920743925,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS1-PBSC",
+      "file": "gemsass1-pbsc-playa-37654dots-20261028T225532Z-87cfb194-zeros.tif",
+      "frac_dots_within_3px": 0.07385726399868699,
+      "spearman": -0.006037358470551531,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "file": "GEMSDOESASS2-gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "frac_dots_within_3px": 0.030527669119457285,
+      "spearman": -0.006901614896976957,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-nan.tif",
+      "file": "GEMSDOESASS2-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-nan.tif",
+      "frac_dots_within_3px": 0.2322674180047597,
+      "spearman": 0.0008890676075488133,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+      "file": "GEMSDOESASS2-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+      "frac_dots_within_3px": 0.2322674180047597,
+      "spearman": 0.0008890676075488133,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+      "file": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+      "frac_dots_within_3px": 0.036627732034904395,
+      "spearman": -0.005032879857846441,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+      "file": "GEMSDOESASS2-gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+      "frac_dots_within_3px": 0.036627732034904395,
+      "spearman": -0.005032879857846441,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-nan.tif",
+      "frac_dots_within_3px": 0.02440025166178844,
+      "spearman": -0.00458595638002023,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif",
+      "frac_dots_within_3px": 0.02440025166178844,
+      "spearman": -0.00458595638002023,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "frac_dots_within_3px": 0.0025713269688431763,
+      "spearman": -0.007096133224483989,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "frac_dots_within_3px": 0.003911699537708237,
+      "spearman": -0.007113567107142659,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "frac_dots_within_3px": 0.003911699537708237,
+      "spearman": -0.007113567107142659,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "frac_dots_within_3px": 0.0023251360888475532,
+      "spearman": -0.00539860598269999,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "frac_dots_within_3px": 0.0023251360888475532,
+      "spearman": -0.00539860598269999,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-stepperelay-dilation-22163-49c96b30-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-stepperelay-dilation-22163-49c96b30-nan.tif",
+      "frac_dots_within_3px": 0.0015592089066389474,
+      "spearman": -0.005398605982699994,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif",
+      "frac_dots_within_3px": 0.0015592089066389474,
+      "spearman": -0.005398605982699994,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+      "frac_dots_within_3px": 0.010668271466477008,
+      "spearman": -0.006580319882824581,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+      "frac_dots_within_3px": 0.010668271466477008,
+      "spearman": -0.006580319882824581,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "frac_dots_within_3px": 0.0007112180977651339,
+      "spearman": -0.007805367571201572,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "frac_dots_within_3px": 0.0007112180977651339,
+      "spearman": -0.007805367571201572,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+      "frac_dots_within_3px": 0.030801214541674646,
+      "spearman": -0.006118802682392479,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "file": "GEMSDOESASS2-gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "frac_dots_within_3px": 0.030801214541674646,
+      "spearman": -0.006118802682392479,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-bgk-pbe-gravity-k-dilatation-blind-fault-20261029T000321Z-af121062-zeros.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-bgk-pbe-gravity-k-dilatation-blind-fault-20261029T000321Z-af121062-zeros.tif",
+      "frac_dots_within_3px": 0.0011215362310911727,
+      "spearman": 0.0008032357797610279,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-cdist-18000-20261031T1200Z-nanoutside.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-cdist-18000-20261031T1200Z-nanoutside.tif",
+      "frac_dots_within_3px": 0.012610443964220258,
+      "spearman": -0.004363537463987748,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-cdist-52000-20261031T1200Z-nanoutside.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-cdist-52000-20261031T1200Z-nanoutside.tif",
+      "frac_dots_within_3px": 0.06611592854993571,
+      "spearman": -0.006289634599250932,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-cdist-52000-20261031T1200Z-zeros.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-cdist-52000-20261031T1200Z-zeros.tif",
+      "frac_dots_within_3px": 0.06611592854993571,
+      "spearman": -0.006289634599250932,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-cdti128-consensus-40533-20261030T041500Z-nanoutside.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-cdti128-consensus-40533-20261030T041500Z-nanoutside.tif",
+      "frac_dots_within_3px": 0.0048691085154689935,
+      "spearman": -0.007505360314167237,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-exp3-sarpu-legal21k-20261030T030010Z-nan.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-exp3-sarpu-legal21k-20261030T030010Z-nan.tif",
+      "frac_dots_within_3px": 0.0011762453155346444,
+      "spearman": -0.005212144594522515,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-gsdhua3-sar-deconf-37654-20261027-74f544e862fd-zeros.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-gsdhua3-sar-deconf-37654-20261027-74f544e862fd-zeros.tif",
+      "frac_dots_within_3px": 0.001395081653308532,
+      "spearman": -0.007204725506938541,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-lane70-consensus-55000-20261030T073000Z-c4d19b7e-safe.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-lane70-consensus-55000-20261030T073000Z-c4d19b7e-safe.tif",
+      "frac_dots_within_3px": 0.050387066772437566,
+      "spearman": -0.0079900920823551,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-lane70-consensus-55000-20261030T073000Z-c4d19b7e.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-lane70-consensus-55000-20261030T073000Z-c4d19b7e.tif",
+      "frac_dots_within_3px": 0.050387066772437566,
+      "spearman": -0.0079900920823551,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-lbinv-84262-20261030T0900Z-nanoutside.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-lbinv-84262-20261030T0900Z-nanoutside.tif",
+      "frac_dots_within_3px": 0.03851519544820418,
+      "spearman": -0.010229752356147015,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-lbinv-84262-20261030T0900Z-safe.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-lbinv-84262-20261030T0900Z-safe.tif",
+      "frac_dots_within_3px": 0.03851519544820418,
+      "spearman": -0.010229752356147015,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-literal-lwst-disp21k-20261029T001500Z-f0e5abd2-nan.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-literal-lwst-disp21k-20261029T001500Z-f0e5abd2-nan.tif",
+      "frac_dots_within_3px": 0.007413080942090434,
+      "spearman": -0.004813027634930294,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-lwst-geoconduit-dual37654-20261027T120000Z-a9ad3386-zeros.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-lwst-geoconduit-dual37654-20261027T120000Z-a9ad3386-zeros.tif",
+      "frac_dots_within_3px": 0.008835517137620702,
+      "spearman": -0.006770356377120102,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-s3-ocm-wide44090-20261030T024750Z-s3hash-nan.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-s3-ocm-wide44090-20261030T024750Z-s3hash-nan.tif",
+      "frac_dots_within_3px": 0.026506551412862105,
+      "spearman": -0.006826302174124767,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-s3-ocm-wide44090-20261030T024750Z-s3hash-safe.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-s3-ocm-wide44090-20261030T024750Z-s3hash-safe.tif",
+      "frac_dots_within_3px": 0.026506551412862105,
+      "spearman": -0.006826302174124767,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-sdr1-spaced-dense21k-20261030T022635Z-nan.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-sdr1-spaced-dense21k-20261030T022635Z-nan.tif",
+      "frac_dots_within_3px": 0.002981645102169215,
+      "spearman": -0.005139577874596651,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-tipcont-disp44923-4px-20261030T0330Z-safe.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-tipcont-disp44923-4px-20261030T0330Z-safe.tif",
+      "frac_dots_within_3px": 0.07473260934978253,
+      "spearman": -0.005193645564392738,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-tipcont-disp44923-4px-20261030T0330Z.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-tipcont-disp44923-4px-20261030T0330Z.tif",
+      "frac_dots_within_3px": 0.07473260934978253,
+      "spearman": -0.005193645564392738,
+      "duplicate": false
+    },
+    {
+      "site": "GEMSDOESASS3-gemsdoesass3-unique-structural-20261029T000102Z-e3ecb47c-zeros.tif",
+      "file": "GEMSDOESASS3-gemsdoesass3-unique-structural-20261029T000102Z-e3ecb47c-zeros.tif",
+      "frac_dots_within_3px": 0.05730776595453675,
+      "spearman": -0.00039065285618238667,
+      "duplicate": false
+    }
+  ],
+  "max_spearman": 0.0008890676075488133,
+  "max_frac_dots_within_3px": 0.2322674180047597,
+  "is_duplicate": false
+}

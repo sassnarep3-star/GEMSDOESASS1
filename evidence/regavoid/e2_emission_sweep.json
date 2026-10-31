@@ -1,0 +1,436 @@
+{
+  "experiment": "E2-emission-sweep",
+  "field": "H-REGAVOID-on-H-TSFX",
+  "grid": [
+    {
+      "margin_px": 0.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.15189438186709048,
+      "ci95": [
+        0.14536056453806043,
+        0.1590094806506945
+      ],
+      "farfield_dti": 0.13481568905793595,
+      "max_overlap": 0.6072888640413712,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 171714
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.1628174675312412,
+      "ci95": [
+        0.1574707905448361,
+        0.16811864859682069
+      ],
+      "farfield_dti": 0.14453879956662882,
+      "max_overlap": 0.5816414285216219,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 172094
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 2.0,
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.15870726100104657,
+      "ci95": [
+        0.1520572526022674,
+        0.16533861581957235
+      ],
+      "farfield_dti": 0.14235981921921195,
+      "max_overlap": 0.6000692607667869,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 199247
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 2.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.1672748684731895,
+      "ci95": [
+        0.16183618587800536,
+        0.17285978723555592
+      ],
+      "farfield_dti": 0.14968273677157556,
+      "max_overlap": 0.5640315395269071,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 200003
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 6.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.14226133222560813,
+      "ci95": [
+        0.13608471133591887,
+        0.14838481860893515
+      ],
+      "farfield_dti": 0.1492230313881774,
+      "max_overlap": 0.5454733574754268,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 173970
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 6.0,
+      "n_dots": 37654,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.1483159823137093,
+      "ci95": [
+        0.14294289381881625,
+        0.15406589283707284
+      ],
+      "farfield_dti": 0.15608733223110546,
+      "max_overlap": 0.5087821406756025,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 173534
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 6.0,
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.14657811214007463,
+      "ci95": [
+        0.1397046349537774,
+        0.15278560782634842
+      ],
+      "farfield_dti": 0.15280125574743167,
+      "max_overlap": 0.5336272827370029,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 201622
+    },
+    {
+      "margin_px": 0.0,
+      "prune_px": 6.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.15115335754762177,
+      "ci95": [
+        0.14527801367640014,
+        0.1569302040920193
+      ],
+      "farfield_dti": 0.15810539888464875,
+      "max_overlap": 0.48884701214976445,
+      "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+      "total_dots": 201650
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.44430733910870074,
+      "ci95": [
+        0.4346598266518977,
+        0.45364534347905994
+      ],
+      "farfield_dti": 0.41084246452677053,
+      "max_overlap": 0.16070450238456632,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 111341
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.40086262264937716,
+      "ci95": [
+        0.39249751180347814,
+        0.40883670249324655
+      ],
+      "farfield_dti": 0.3670617318198381,
+      "max_overlap": 0.14045232458570492,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 99265
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 2.0,
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.41696156858165334,
+      "ci95": [
+        0.40923773327616825,
+        0.42559067950991475
+      ],
+      "farfield_dti": 0.38261794955024664,
+      "max_overlap": 0.1452391151486741,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 123727
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 2.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.40086262264937716,
+      "ci95": [
+        0.39249751180347814,
+        0.40883670249324655
+      ],
+      "farfield_dti": 0.3670617318198381,
+      "max_overlap": 0.14045232458570492,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 99265
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 6.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.36981878045816746,
+      "ci95": [
+        0.3620867620673824,
+        0.37771307053354514
+      ],
+      "farfield_dti": 0.39989463208864034,
+      "max_overlap": 0.12733656733656734,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 108225
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 6.0,
+      "n_dots": 37654,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.33882776742521353,
+      "ci95": [
+        0.33251496142001946,
+        0.3456344019274689
+      ],
+      "farfield_dti": 0.36883538978088093,
+      "max_overlap": 0.11519285441507192,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 94268
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 6.0,
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.352222829659413,
+      "ci95": [
+        0.34304647943517186,
+        0.3620000376768907
+      ],
+      "farfield_dti": 0.3790003832647627,
+      "max_overlap": 0.11783387830719451,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 117131
+    },
+    {
+      "margin_px": 2.0,
+      "prune_px": 6.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.33882776742521353,
+      "ci95": [
+        0.33251496142001946,
+        0.3456344019274689
+      ],
+      "farfield_dti": 0.36883538978088093,
+      "max_overlap": 0.11519285441507192,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 94268
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.14101687574670052,
+      "ci95": [
+        0.13438358230978695,
+        0.14786858400898514
+      ],
+      "farfield_dti": 0.10519305343175323,
+      "max_overlap": 0.1118005540166205,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 27075
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.1265385803873752,
+      "ci95": [
+        0.11878261070246582,
+        0.13427835111189249
+      ],
+      "farfield_dti": 0.09334496535303552,
+      "max_overlap": 0.11013498055364905,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 21855
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 2.0,
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.14101687574670052,
+      "ci95": [
+        0.13438358230978695,
+        0.14786858400898514
+      ],
+      "farfield_dti": 0.10519305343175323,
+      "max_overlap": 0.1118005540166205,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 27075
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 2.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.1265385803873752,
+      "ci95": [
+        0.11878261070246582,
+        0.13427835111189249
+      ],
+      "farfield_dti": 0.09334496535303552,
+      "max_overlap": 0.11013498055364905,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 21855
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 6.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.09244607198498807,
+      "ci95": [
+        0.08452852490320803,
+        0.0975356767522866
+      ],
+      "farfield_dti": 0.1044828867656499,
+      "max_overlap": 0.06884246822501103,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 24941
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 6.0,
+      "n_dots": 37654,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.08307455314493188,
+      "ci95": [
+        0.07698119821671949,
+        0.08939013316719918
+      ],
+      "farfield_dti": 0.09438071973584615,
+      "max_overlap": 0.06606636485746978,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 20101
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 6.0,
+      "n_dots": 44090,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.09244607198498807,
+      "ci95": [
+        0.08452852490320803,
+        0.0975356767522866
+      ],
+      "farfield_dti": 0.1044828867656499,
+      "max_overlap": 0.06884246822501103,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 24941
+    },
+    {
+      "margin_px": 3.0,
+      "prune_px": 6.0,
+      "n_dots": 44090,
+      "spacing_px": 3.3,
+      "holdout_dti": 0.08307455314493188,
+      "ci95": [
+        0.07698119821671949,
+        0.08939013316719918
+      ],
+      "farfield_dti": 0.09438071973584615,
+      "max_overlap": 0.06606636485746978,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 20101
+    }
+  ],
+  "best": {
+    "margin_px": 2.0,
+    "prune_px": 2.0,
+    "n_dots": 37654,
+    "spacing_px": 2.8,
+    "holdout_dti": 0.44430733910870074,
+    "ci95": [
+      0.4346598266518977,
+      0.45364534347905994
+    ],
+    "farfield_dti": 0.41084246452677053,
+    "max_overlap": 0.16070450238456632,
+    "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+    "total_dots": 111341
+  },
+  "best_margin3": {
+    "margin_px": 3.0,
+    "prune_px": 2.0,
+    "n_dots": 37654,
+    "spacing_px": 2.8,
+    "holdout_dti": 0.14101687574670052,
+    "ci95": [
+      0.13438358230978695,
+      0.14786858400898514
+    ],
+    "farfield_dti": 0.10519305343175323,
+    "max_overlap": 0.1118005540166205,
+    "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+    "total_dots": 27075
+  },
+  "any_unique_eligible": true,
+  "selection_rule": "max HOLDOUT-DTI among configs with worst 17-raster overlap <= 0.70; tie: far-field, then lower n_dots (prereg AMEND-1)",
+  "bar": {
+    "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+    "holdout_dti": 0.1011,
+    "ci95": [
+      0.0956,
+      0.1072
+    ],
+    "evidence": "evidence/swgb/holdout_calibration.json"
+  },
+  "incumbent_shipped": {
+    "name": "H-TVGB b6 shipped (thermal-anchored, 37,654 dots, 6 px prune)",
+    "holdout_dti": 0.1287,
+    "ci95": [
+      0.1231,
+      0.1355
+    ],
+    "evidence": "evidence/thermal/run_card.json"
+  },
+  "repo_best": {
+    "name": "E2-SWGB field emission, prune 4 px, 44,090 dots",
+    "holdout_dti": 0.1591,
+    "ci95": [
+      0.1538,
+      0.1639
+    ],
+    "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+  },
+  "protocol_best": {
+    "name": "H-TSFX E1 protocol dots (44,090, 2.8 px, visible prune none)",
+    "holdout_dti": 0.1587,
+    "ci95": [
+      0.1522,
+      0.1658
+    ],
+    "evidence": "evidence/tsfx/e1_tsfx_holdout.json"
+  },
+  "beats_incumbent": true,
+  "elapsed_s": 1005.5
+}

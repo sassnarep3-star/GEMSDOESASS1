@@ -5,6 +5,28 @@
 > H-BSTEP was merged). Choosing which, if any, to spend the weekly slot on is the user's selector
 > decision. Eligibility (rules §1.3, U.S.-only; Arena reports Calgary, Canada) is blocking.
 
+# H-REGAVOID lane addendum (2026-10-31, preserved)
+
+## Part 0 — H-REGAVOID session record (READ FIRST)
+
+1. **Preregister H-FARFIELD×MARGIN-2 before any run.** The measured ingredients now exist
+   separately: anti-registry emission (margin 2 px vs all 412 competitive rasters' non-catalogue
+   dots) = HOLDOUT-DTI **0.4443** with dots overlap 0.188, AND far-field field families whose
+   credit lives outside catalogue halos. The shipped artifact failed AMEND-2 only because its
+   credit neighbourhood sits inside the catalogue halo the champion-style prune deletes. Next
+   lane: field with far-field credit × margin-2 emission × full-cat prune, then score the
+   **shipped bytes** on the holdout. Gate: shipped-bytes diagnostic must clear 0.1011. Budget fresh.
+2. **IR-SHIPPED-BITS-01 is a documented instrument limit:** hide-recover scores every
+   full-catalogue-pruned file at ~0 (regavoid 0.000027, TVGB shipped 0.0000, the champion family
+   by construction). Any future review quoting a shipped-bytes holdout must state the prune; the
+   standing H-TVGB release's 0.1287 is a visible-prune rule-quality cell — relabel before promoting.
+3. **Read first:** `README.md`, this file, `knowledge/RESULTS_20261031_regavoid.md`,
+   `knowledge/hypotheses_20261031_regavoid.md` (AMEND-1/2/3 with timestamps),
+   `evidence/regavoid/run_card.json`, `evidence/regavoid/tvgb_shipped_diagnostic.json`.
+4. **Still blocking (user decisions):** eligibility (rules §1.3), uniqueness-policy reading
+   (AMEND-LATTICE-01), selector slot within the weekly cap, DrivenData login for receipts.
+
+
 ---
 
 

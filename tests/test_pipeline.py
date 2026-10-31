@@ -214,9 +214,15 @@ def test_frozen_negative_artifact_contract():
         assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
         if kdam['ok_to_download_and_submit']:
             allowed.append(kdam['card']['submission_name'].replace('.tif', ''))
+    # 2026-10-31 H-REGAVOID: negative verdict by AMEND-2; its run-card-named artifact is
+    reg_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_path.exists():
+        reg = json.loads(reg_path.read_text())
+        assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
+        if reg.get('submission_name'):
+            allowed.append(reg['submission_name'].replace('.tif', ''))
     pointer_path = ROOT/'evidence/current_release.json'
     if pointer_path.exists():
-        # The current-release pointer (H-BSTEP) may likewise ship its own candidate.
         pointer = json.loads(pointer_path.read_text())
         cur = json.loads((ROOT / pointer['run_card']).read_text())
         assert cur['ok_to_download_and_submit'] == all(passed for _, passed in json.loads((ROOT / pointer['release']).read_text())['gates'])
@@ -293,6 +299,12 @@ def test_concurrent_main_research_preserved_not_promoted():
         assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
         if kdam['ok_to_download_and_submit']:
             allowed.append(kdam['card']['submission_name'].replace('.tif', ''))
+    reg_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_path.exists():
+        reg = json.loads(reg_path.read_text())
+        assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
+        if reg.get('submission_name'):
+            allowed.append(reg['submission_name'].replace('.tif', ''))
     pointer_path = ROOT/'evidence/current_release.json'
     if pointer_path.exists():
         pointer = json.loads(pointer_path.read_text())

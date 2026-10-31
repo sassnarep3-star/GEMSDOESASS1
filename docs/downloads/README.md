@@ -27,8 +27,12 @@ because every gate passed: format validator 11/11 from the written bytes (values
 exact CRS/shape/geotransform), zero mass on mapped catalogue pixels, no exact duplicate of any prior
 repo file or any of the 414 pinned registry rasters, lane-drift novelty gates (max Spearman 0.015
 ≤ 0.90; max competitive 3 px dot overlap 25.4% ≤ 70% — the cleanest novelty margins of the four
-candidates), HOLDOUT-DTI above the 0.2600-family bar (shipped anti-collision variant 0.1433
-[0.1366, 0.1507]; far-field TRUE 0.1502; bar 0.1011 [0.0956, 0.1072]), zero submission slots used.
+candidates), HOLDOUT-DTI above the 0.2600-family bar (shipped anti-collision emission variant, measured as a
+**protocol cell** on the fold fields: 0.1433 [0.1366, 0.1507]; far-field TRUE 0.1502; bar 0.1011
+[0.0956, 0.1072]), zero submission slots used. **Instrument note (IR-SHIPPED-BITS-01):** scoring the
+literal shipped bytes of any full-catalogue-pruned file measures ~0 on hide-and-recover (the 0.2778
+champion included — see the H-REGAVOID panel), so this number is a rule-quality protocol cell, not a
+shipped-bytes score and never a leaderboard projection.
 
 ## Selector alternatives (2026-10-31) — each gate-passing, each with its own record
 
@@ -61,7 +65,36 @@ Submission names and notes for the alternatives (copy exactly if the selector ch
   placeholder. `ok_to_download_and_submit = false` by its own run card ("not expected to be
   competitive"). Audit only.
 
-### Scope disclosures that apply to every dotted file in this project
+- Submission name (copy into the form's note field):
+  `gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros`
+- Note (116/140 chars): `GEMSASS1: rank-mean fusion of H19-5/H19-4/H16-1 lineament fields, 2.8px dot emission, >2px off catalogue, 35587 dots`
+- sha256 `72e92ed1fdc9bb67f6f9578b7e7293fd92f5e090316cbe638a23f399141550c8` · run card:
+  [`../evidence/offset_step_v2/run_card.json`](../evidence/offset_step_v2/run_card.json)
+
+**Why the verdict is conditional rather than a clean approval.** The file clears every *format*
+gate and is **not an exact duplicate** of any of the nine focus-site best files (0/9, verified
+byte-wise; max Spearman 0.56). But it did **not** beat the champion's own field on the holdout:
+HOLDOUT-DTI 0.1004 [0.0947, 0.1052] against the champion control's 0.1048 [0.0998, 0.1096], with
+overlapping CIs — paired verdict NOT ESTABLISHED. The estimated live score is a **projection**
+(central 0.266, advisory band 0.22–0.29), anchored on the champion's own holdout/live pair — it is
+not a score. The lane also logged a budget overrun (4 experiments against a preregistered 3) and two
+findings this project inherits: the metric was re-derived and certified (`D = α·(TP+FP) + β·K`
+exactly), and GEMSDOE32 0.2778 was reproduced from bytes as GEMSDOE25 minus 2 px-near-catalogue dots
+(symmetric difference 0).
+
+## Parallel negative lane (2026-10-31, H-REGAVOID) — NOT OK, audit only
+
+| File | What it is |
+|---|---|
+| `gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` | Margin-2 anti-registry emission, 36,557 dots. Validator 11/11 from bytes; novelty cleared (dots max 3 px overlap 0.188, max Spearman 0.003 across the 414-raster registry). **DO NOT SUBMIT:** AMEND-2 shipped-bytes diagnostic 0.000027 < bar 0.1011 → `verdict = negative`. Protocol rule-quality cell 0.4443 [0.4349, 0.4529] is a rule reading, not a leaderboard projection. sha256 `6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47`. |
+| `gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.zip` / `.checks.json` | Same bytes in the upload ZIP, plus the on-disk validator receipt — retained for audit. |
+
+Instrument note IR-SHIPPED-BITS-01: the standing H-TVGB file's shipped bytes measure 0.0000
+([`../evidence/regavoid/tvgb_shipped_diagnostic.json`](../evidence/regavoid/tvgb_shipped_diagnostic.json));
+every full-catalogue-pruned file scores ~0 on hide-and-recover. Gates:
+[`../evidence/regavoid/release.json`](../evidence/regavoid/release.json).
+
+## Scope disclosures that apply to every dotted file in this project
 
 - **The synthetic calibration lattice is exempt.** The 5 px `inputs/calibration/13gems_20261001_r13-lattice-s5…`
   artifact is a regular synthetic grid, not a competitor's submission. Every dotted file overlaps it

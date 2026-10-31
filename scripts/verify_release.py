@@ -201,6 +201,36 @@ def main():
     provenance = strict_json(ROOT / 'vendor/PROVENANCE.json')
     for name, digest in provenance['files_sha256'].items():
         require(hashlib.sha256((ROOT / 'vendor/gems57' / name).read_bytes()).hexdigest() == digest, 'shared tool modified without source fix: ' + name)
+    # --- 2026-10-31 H-REGAVOID release checks (additive; other lanes unchanged) ---
+    reg_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_path.exists():
+        reg = strict_json(reg_path)
+        require(reg['slot']['used'] == 0, 'the regavoid run must not use slots')
+        require(reg['budget']['experiments_run'] <= reg['budget']['experiment_budget'] == 3,
+                'regavoid experiment budget')
+        require(reg['budget']['cumulative_seconds'] <= reg['budget']['seconds_budget'],
+                'regavoid two-hour budget')
+        require(reg['evidence_classes']['holdout_dti'] == 'HOLDOUT-DTI', 'regavoid score class')
+        require(len(reg['submission_name'] or '') <= 140 and
+                len(reg['submission_note'] or reg['planned_note']) <= 140, 'regavoid name/note length')
+        canary = strict_json(ROOT / 'evidence/regavoid/leakage_canary.json')
+        require(not canary['flagged_over_0p90'], 'regavoid canary unresolved')
+        release = strict_json(ROOT / 'evidence/regavoid/release.json')
+        ok = release['card']['ok_to_download_and_submit']
+        require(ok == all(passed for _, passed in release['gates']), 'regavoid verdict vs gate table')
+        require(ok == reg['ok_to_submit'] and release['card']['verdict'] == reg['verdict'],
+                'regavoid release/run-card verdict drift')
+        require(reg['verdict'] == 'negative' and not reg['ok_to_submit'],
+                'the regavoid release must remain a disclosed negative (AMEND-2)')
+        if reg['raster_sha256']:
+            tif_path = ROOT / 'docs/downloads' / reg['submission_name']
+            require(tif_path.is_file(), 'regavoid TIFF missing')
+            require(hashlib.sha256(tif_path.read_bytes()).hexdigest() == reg['raster_sha256'],
+                    'regavoid TIFF hash mismatch')
+        # AMEND-2 structural finding must stay on file (scoring-only diagnostic of TVGB bytes)
+        diag = strict_json(ROOT / 'evidence/regavoid/tvgb_shipped_diagnostic.json')
+        require(diag['holdout_dti'] == 0.0 and diag['release_claimed_value'] > 0.1,
+                'TVGB shipped-bytes irregularity record changed')
     frozen = strict_json(ROOT / 'evidence/release_checks.json')
     post = frozen.get('post_review_2026-10-30_implementation_sha256', {})
     post31 = frozen.get('post_review_2026-10-31_implementation_sha256', {})
@@ -220,14 +250,14 @@ def main():
         if path.suffix in ('.json', '.md'):
             require(path.read_bytes() == (ROOT / 'docs/evidence/bstep' / path.name).read_bytes(),
                     'site bstep evidence stale: ' + path.name)
-    for lane in ('tiprelay', 'kdam'):
+    for lane in ('tiprelay', 'kdam', 'regavoid'):
         lane_dir = ROOT / 'evidence' / lane
         if lane_dir.is_dir():
             for path in lane_dir.glob('*'):
                 if path.suffix in ('.json', '.md'):
                     require(path.read_bytes() == (ROOT / 'docs/evidence' / lane / path.name).read_bytes(),
                             f'site {lane} evidence stale: ' + path.name)
-    print(f'PASS: frozen negative release preserved; lane releases verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
+    print(f'PASS: frozen negative release preserved; lane releases verified (incl. H-REGAVOID negative); 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
 
 
 if __name__ == '__main__':

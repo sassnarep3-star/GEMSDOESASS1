@@ -231,6 +231,70 @@ Eligibility and uniqueness-policy items from 2026-10-30 remain open user decisio
 
 **Parallel-lane candidate — passed every gate in its own session, but the recommended default download is the H-TIPRELAY file above.** The two fields are near-independent (cross-lane check passed); a selector may promote either within the weekly cap.
 
+| | |
+|---|---|
+| **Download** | [`docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`](docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif) · [ZIP](docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip) |
+| **sha256** | `d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f` |
+| **Submission name** | `gemsass1-kdam-alteration-contact-37654-20261031-zeros` |
+| **Note (120/140)** | `GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px >2px offcat, registry-repulsive` |
+| **Format** | 11/11 checks from the written bytes: single band, float32, EPSG:32611, 3730×3292, transform matches the template, no NaN anywhere, values in [0,1], zeros outside the footprint, zero mass on catalogue pixels → the portal's “values must be in [0, 1]” rejection cannot be triggered by this file |
+| **Uniqueness** | All **489** rasters of the pinned registry are measured, none skipped: **482 competitive** (430 overlap measured exactly, 52 cleared by a conservative 7×7 upper bound) plus **7 fixtures** measured separately. Competitive max 3 px overlap **31.1 %** (limit 70 %), max Spearman **0.0152** (limit 0.90), no exact duplicate. The only above-limit comparison in the whole inventory is the synthetic 5 px calibration lattice at **99.96 %**, exempt under AMEND-LATTICE-01 and disclosed on the site; the next-highest fixture is 16.1 %. |
+| **Field quality** | HOLDOUT-DTI **0.1471** [0.1418, 0.1531] (37,654 dots, unpruned arm) vs the incumbent 0.2600-family field **0.1011** [0.0967, 0.1060] on the same five folds — **+45.6 %** weighted hidden-fault credit |
+| **Where to click** | The repository-root page (which GitHub Pages serves) now redirects to [`docs/index.html`](docs/index.html); the download is the first thing on the executive summary |
+| **Slots used** | 0 — this workspace never uploads; promotion to a slot is a separate selector step |
+
+**Why the 0.2778 file scored highest, and why copying it cannot help.** It is the 0.2600 family field with
+the 2,545 dots within 2 px of the known catalogue deleted (GEMSDOE31 + prune = GEMSDOE32, symmetric
+difference measured as 2,545 on a 40,199-dot base). Known-fault pixels are masked out of scoring
+([DrivenData staff, 16 Sep 2026](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516)),
+so those dots were pure false-positive mass. Every one of the nine best files is the same field: all have
+≥ 97.6 % of their dots within 3 px of GEMSDOE24's dots, and the GEMSDOE25 and GEMSDOE30 "different" sites
+published **identical** dot sets. Beating 0.2778 therefore requires a different field — which is what this
+session built and measured.
+
+**Read next:** [`knowledge/REVIEW_2026-10-31.md`](knowledge/REVIEW_2026-10-31.md) (three review passes, the seven defects found and fixed, what stays open) · [`knowledge/RESULTS_20261031.md`](knowledge/RESULTS_20261031.md) (numbers, labels, irregularities) ·
+[`knowledge/hypotheses_20261031.md`](knowledge/hypotheses_20261031.md) (pre-registration, five ranked hypotheses) ·
+[`evidence/kdam/release.json`](evidence/kdam/release.json) (gates) ·
+[`evidence/kdam/e1_holdout.json`](evidence/kdam/e1_holdout.json) ·
+[`evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json`](evidence/kdam/novelty_gemsass1-kdam-alteration-contact-37654-20261031-zeros.json) ·
+[executive summary](docs/executive-summary.html) · [how to submit](docs/how-to-submit.html).
+
+**Still unresolved (blocks nothing in the file, but blocks an upload):** competitor eligibility
+(U.S. citizen / permanent resident / U.S.-incorporated entity per the rules) is unconfirmed for the owner
+account; the held-out labels and the official rules PDF are login-walled here; and the novelty registry
+covers the nine focus sites only, not the sibling GEMSDOE44–92 / WBG / KANLER / GINNY / karage / apart lanes.
+
+## Status — 2026-10-31 (H-REGAVOID lane · parallel NEGATIVE result — do not submit)
+
+**Is this session's file OK to download and submit? NO (AMEND-2, preregistered before the sweep).** The recommended download remains the H-TIPRELAY file above. This lane exists because it produced the highest protocol reading ever recorded in this repository — and because the shipped-bytes gate honestly blocked it.
+
+| Item | Value (all new numbers are HOLDOUT-DTI, labelled) |
+|---|---|
+| Method | Emission with a hard margin ≥2 px from the dots of all 412 competitive registry rasters (AMEND-3: catalogue ±2 px cleared from the avoid-set after the literal union was found to cover all 60,988 catalogue px; gate scans remain literal) |
+| Protocol rule-quality cell | **0.4443 [0.4349, 0.4529]** (visible-prune emission, n=37,654, 2.8 px; far-field 0.4108) — 2.7× the 0.1011 family bar |
+| Paired Δ vs identical field's unconstrained emission | **+0.2853 [+0.2701, +0.3004]** |
+| Uniqueness vs the 414-raster registry + every prior submission | **CLEARED with margin:** final dots max Spearman 0.003, max directed 3 px overlap **0.188** (limit 0.70); surface max 0.185 / 0.319; extras ≤0.0125; lattice 0.9999 excluded per AMEND-LATTICE-01 |
+| Shipped-bytes diagnostic | **0.000027 < 0.1011** — the champion-style full-catalogue 2 px prune deletes the holdout's credit neighbourhood by construction → AMEND-2 fired → `verdict = negative`, `ok_to_submit = false` |
+| Audit artifact (NOT OK, download disabled on the site) | `docs/downloads/gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` · sha256 `6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47` · validator 11/11 from bytes |
+| Budget / slots | 2 counted experiments + packaging; 2,669 s of 7,200 s; canary clear; **0 submission slots used** |
+
+**Instrument irregularity IR-SHIPPED-BITS-01 (disclosed here, not relitigated).** Scoring the standing H-TVGB file's *actual shipped bytes* measures **0.0000** ([`evidence/regavoid/tvgb_shipped_diagnostic.json`](evidence/regavoid/tvgb_shipped_diagnostic.json)); its release cited the visible-prune E3 cell 0.1287 while the file was emitted full-catalogue-pruned. Structurally **every** full-catalogue-pruned file scores ~0 on hide-and-recover (the 0.2778 champion included) — the instrument cannot forecast this artifact family's live score; protocol readings remain rule-quality cells, not projections. Neither 0.4443 nor 0.1287 is a leaderboard forecast (holdout↔live Spearman −0.08).
+
+**Read next:** [`knowledge/RESULTS_20261031_regavoid.md`](knowledge/RESULTS_20261031_regavoid.md) (numbers, labels, irregularities) · [`knowledge/hypotheses_20261031_regavoid.md`](knowledge/hypotheses_20261031_regavoid.md) (prereg + AMEND-1/2/3 with timestamps) · [`evidence/regavoid/release.json`](evidence/regavoid/release.json) (7-gate table) · [`evidence/regavoid/run_card.json`](evidence/regavoid/run_card.json). **Next-session lane (preregister first):** margin-2 anti-registry emission × far-field/thermal-anchor field × full-cat prune — the only plausible design passing both the rule-quality and shipped diagnostics.
+
+## Status — 2026-10-30 (superseded by 2026-10-31 above)
+
+### Other files generated on 2026-10-31 (kept for audit, not recommended)
+
+The parallel lane on this branch produced two further GeoTIFFs. Both are format-valid; neither carries
+holdout evidence, and neither is the recommendation above.
+
+| File | What it is | Status |
+|---|---|---|
+| `docs/downloads/gemsass1-stepover-40000dots-20261031T045819Z-9111e992.tif` | H-STEP-OVER: 300–900 m annulus around mapped faults, 40,000 dots | format-valid; **no holdout measurement**; registry comparison was advisory (that lane could not restore GEMSDOE32/33/36) — this session restored all 489 registry rasters, so a full scan is possible and pending |
+| `docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif` | sparse 18,000-dot placeholder | `ok_to_download_and_submit = false` by its own run card ("not expected to be competitive") |
+| `docs/downloads/gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` | H-REGAVOID: margin-2 anti-registry emission, 36,557 dots | `verdict = negative` by AMEND-2 (shipped bytes 0.000027 < bar 0.1011); protocol rule-quality cell 0.4443 with novelty cleared at 0.188 overlap — see [status section](#status--2026-10-31-h-regavoid-lane--parallel-negative-result--do-not-submit) |
+
 ---
 
 ## Session note — 2026-10-31 (this branch)
