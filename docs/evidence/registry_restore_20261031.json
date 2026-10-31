@@ -1,0 +1,10 @@
+{
+  "inventory": "registry/focus_inventory_20261030.json",
+  "snapshot_utc": "2026-10-30T02:30:44.207913+00:00",
+  "scope": "All TIFF blobs outside data/ in the nine public focus repos at their CURRENT public HEAD; not other sites, private submissions, or the frozen snapshot.",
+  "rasters": 489,
+  "verified": 489,
+  "failed": 0,
+  "failures": [],
+  "method": "git sparse checkout (blobless clone) + SHA-256 verification against the pinned inventory"
+}

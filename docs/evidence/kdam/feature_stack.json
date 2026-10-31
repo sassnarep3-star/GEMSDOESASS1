@@ -1,0 +1,26 @@
+{
+  "features": [
+    "lidar_ex_max",
+    "lidar_step_max",
+    "lidar_lapneg_max",
+    "lidar_relief",
+    "lidar_coh100",
+    "lidar_strike_cos2",
+    "lidar_strike_sin2",
+    "rad_K",
+    "rad_Th",
+    "rad_ThK",
+    "kdep_halo",
+    "kdep_deplete",
+    "mag_TMI",
+    "mag_tdr",
+    "mag_theta",
+    "mag_hgm500",
+    "lineament_persist",
+    "mcontact_dist",
+    "xcal_agree"
+  ],
+  "dtype": "float16",
+  "scaling": "percentile rank [0,1] over valid cells",
+  "valid_cells": 5167075
+}

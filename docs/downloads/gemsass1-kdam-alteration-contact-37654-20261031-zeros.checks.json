@@ -1,0 +1,52 @@
+{
+  "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif",
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "all_checks_passed": true,
+  "positive_pixels": 37654,
+  "footprint_pixels": 5167373,
+  "min": 0.0,
+  "max": 1.0,
+  "sha256": "d10c99c3652266f78b346d1baa3c6554628385f538d306fcbba1369339aca36f",
+  "size_bytes": 88899,
+  "profile": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "nodata": null
+  },
+  "zip": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip",
+    "sha256": "49e240ac4de2447100e1bdd90fa384b1cc58bb4e06b906139f77d9741948d7bc",
+    "size_bytes": 35295
+  },
+  "submission_note": "GEMSASS1 H-KDAM: K/Th depletion x magnetic contact/lineament corroboration, 37654d 2.8px >2px offcat, registry-repulsive",
+  "meta": {
+    "lane": "H-KDAM",
+    "n_dots": 37654,
+    "registry_repulsive_px": 4.0
+  }
+}

@@ -197,8 +197,16 @@ def test_frozen_negative_artifact_contract():
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
-               sparse['submission_name'].replace('.tif', ''),  # new generated unique release (this lane)
-               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # H-STEP-OVER gate-passed release (parallel lane)
+               sparse['submission_name'].replace('.tif', ''),  # 2026-10-31 sparse placeholder (not submit-cleared)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # 2026-10-31 H-STEP-OVER lane
+    kdam_path = ROOT/'evidence/kdam/release.json'
+    if kdam_path.exists():
+        # 2026-10-31: the current release may ship its own candidate, but only while its own
+        # machine gate table says the file is approved.
+        kdam = json.loads(kdam_path.read_text())
+        assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
+        if kdam['ok_to_download_and_submit']:
+            allowed = allowed + (kdam['card']['submission_name'].replace('.tif', ''),)
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
@@ -254,9 +262,17 @@ def test_concurrent_main_research_preserved_not_promoted():
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
-               sparse['submission_name'].replace('.tif', ''),  # new generated unique release (this lane)
-               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # H-STEP-OVER gate-passed release (parallel lane)
+               sparse['submission_name'].replace('.tif', ''),  # 2026-10-31 sparse placeholder (not submit-cleared)
+               'gemsass1-stepover-40000dots-20261031T045819Z-9111e992')  # 2026-10-31 H-STEP-OVER lane
     assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
+    kdam_path = ROOT/'evidence/kdam/release.json'
+    if kdam_path.exists():
+        # 2026-10-31: the current release may ship its own candidate, but only while its own
+        # machine gate table says the file is approved.
+        kdam = json.loads(kdam_path.read_text())
+        assert kdam['ok_to_download_and_submit'] == all(passed for _, passed in kdam['gates'])
+        if kdam['ok_to_download_and_submit']:
+            allowed = allowed + (kdam['card']['submission_name'].replace('.tif', ''),)
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 
