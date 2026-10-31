@@ -1,0 +1,209 @@
+{
+  "schema": "owner-head-drift-v1",
+  "tag": "20261030",
+  "checked_utc": "2026-10-30T03:19:14+00:00",
+  "frozen_manifest": {
+    "path": "registry/focus_inventory.json",
+    "snapshot_utc": "2026-10-27T11:33:22.453588+00:00"
+  },
+  "refreshed_manifest": "registry/focus_inventory_20261030_api.json",
+  "repos": {
+    "GEMSDOE24": {
+      "frozen_pin": "cf093c8c5e9fa77294ecf4c59b79cdade92cbc06",
+      "live_head": "63d5885b68f73c19a7746052ccb3e5690f3271b5",
+      "live_head_committed_utc": "2026-10-29T17:52:55Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 77,
+      "tif_blobs_in_frozen_registry": 63,
+      "new_blobs_since_frozen": 10,
+      "new_blob_paths": [
+        "docs/downloads/24GEMSDOE-ventrad-blind-geothermal-20261028-34b558b554fb-nan.tif",
+        "docs/downloads/24GEMSDOE-ventrad-blind-geothermal-20261028-34b558b554fb-zero.tif",
+        "docs/downloads/24gems-blind-upwell-conduit-20261028T190216Z-5b6e6af2ed3b-zeros.tif",
+        "docs/downloads/24gems-catalogue-offset-geothermal-proximity-20261027T114303Z-578c30176163-zeros.tif",
+        "docs/downloads/24gems-interior-offlattice-geothermal-20261028T164358Z-e5a3c34b27db-nan.tif",
+        "docs/downloads/24gems-interior-offlattice-geothermal-20261028T164358Z-e5a3c34b27db-zeros.tif",
+        "docs/downloads/GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-nan.tif",
+        "docs/downloads/GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-zeros.tif",
+        "docs/downloads/gems24-nine-complement-seghgb-20261029-zeros.tif",
+        "docs/downloads/gems24-tmcg-b-decoupled-basin-20261027T113937Z-6f8d042d5ee4-zeros.tif"
+      ],
+      "refreshed_pin": "63d5885b68f73c19a7746052ccb3e5690f3271b5",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE25": {
+      "frozen_pin": "227347d0f1beb420c0dd2a7dd4079ddc6389f5ab",
+      "live_head": "782824f08879a52ad5142b4b0f46d59d48017e7a",
+      "live_head_committed_utc": "2026-10-29T22:50:09Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 62,
+      "tif_blobs_in_frozen_registry": 50,
+      "new_blobs_since_frozen": 12,
+      "new_blob_paths": [
+        "docs/downloads/gems25-gems25-unique-latticegap-geothermal-20261028-20261028-aa0104874adb-nan.tif",
+        "docs/downloads/gems25-h75-dchb-cg-catfree-b2-37654-20261027-e035d75ca5d5-nan.tif",
+        "docs/downloads/gems25-h75-dchb-cg-catfree-b2-37654-20261027-e035d75ca5d5-zeros.tif",
+        "docs/downloads/gems25-h75-eu3d-poe65-catfree-b2-37654-20261027-0a97fd71c3f3-nan.tif",
+        "docs/downloads/gems25-h75-eu3d-poe65-catfree-b2-37654-20261027-0a97fd71c3f3-zeros.tif",
+        "docs/downloads/gems25-h78-mhscf-conduit-b2-sapd2-85-20261027-b2488f5d216c-nan.tif",
+        "docs/downloads/gems25-h78-mhscf-conduit-b2-sapd2-85-20261027-b2488f5d216c-zeros.tif",
+        "docs/downloads/gems25-h79-cthm-crustal-sgmc-b2-37654-20261027-e7ad8a4bf3ed-nan.tif",
+        "docs/downloads/gems25-h79-cthm-crustal-sgmc-b2-37654-20261027-e7ad8a4bf3ed-zeros.tif",
+        "docs/downloads/gems25-h79-spatial-poisson-disc-b2-20261027-66772eeec27a-zeros.tif",
+        "docs/downloads/gems25-mag-rad-decoupling-20261029-8e2e136eddc8-zero.tif",
+        "docs/downloads/gems25-vent-blind-fault-probe-20261028-407834b1710a-zero.tif"
+      ],
+      "refreshed_pin": "782824f08879a52ad5142b4b0f46d59d48017e7a",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE27": {
+      "frozen_pin": "6c34f5b7cb7756d23c258df051318b7b11cd9ab4",
+      "live_head": "bf34151e8e4ef26ec924f28dbc371a39bd740782",
+      "live_head_committed_utc": "2026-10-29T16:54:15Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 42,
+      "tif_blobs_in_frozen_registry": 40,
+      "new_blobs_since_frozen": 2,
+      "new_blob_paths": [
+        "docs/downloads/research/gems27-h33-bss-complement-20261027-9ba8480691ed-allfinite.tif",
+        "docs/downloads/research/gems27-h33-bss-complement-20261027-9ba8480691ed-nan.tif"
+      ],
+      "refreshed_pin": "bf34151e8e4ef26ec924f28dbc371a39bd740782",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE28": {
+      "frozen_pin": "f78c1e8fdc2fb95b0f5915e1e95ff82a8f1aa309",
+      "live_head": "424bf795ed2183000c643d6e30a12ce2d4bf401d",
+      "live_head_committed_utc": "2026-10-29T17:22:38Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 53,
+      "tif_blobs_in_frozen_registry": 51,
+      "new_blobs_since_frozen": 2,
+      "new_blob_paths": [
+        "docs/candidates/gems29-s29-hole-k20000-20261029-b68117a828cc-nan.tif",
+        "docs/downloads/gems28-s25-pcse-scarp-energy-k37654-20261028-4af5ddbb4b50-nan.tif"
+      ],
+      "refreshed_pin": "424bf795ed2183000c643d6e30a12ce2d4bf401d",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE30": {
+      "frozen_pin": "3c3d7255fdbb3a94375eff086522463a8eaca449",
+      "live_head": "eaff218f81e89fadc605650bb2cd55dd4b58e18d",
+      "live_head_committed_utc": "2026-10-29T17:22:38Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 36,
+      "tif_blobs_in_frozen_registry": 28,
+      "new_blobs_since_frozen": 7,
+      "new_blob_paths": [
+        "docs/downloads/GEMSDOE30-concealed-geothermal-unique-20261029.tif",
+        "docs/downloads/GEMSDOE30-geothermal-unique-20261029T165045Z-3995629e.tif",
+        "docs/downloads/GEMSDOE30-vent-structural-offcat-d3-20261027T000000Z.tif",
+        "docs/downloads/gems30-ctd1-concealed-stepper-20261027T172620Z-c39a9264.tif",
+        "docs/downloads/gems30-fc1-concealed-flank-20261027T172846Z-f182c780.tif",
+        "docs/downloads/gems30-offlattice-geothermal-structural-20261028-s7.tif",
+        "docs/downloads/gems30-unique-offlattice-structural-20261028-s8.tif"
+      ],
+      "refreshed_pin": "eaff218f81e89fadc605650bb2cd55dd4b58e18d",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE31": {
+      "frozen_pin": "abd9a45cc7adf046d7d3829eb6e8c980943f462d",
+      "live_head": "f9248200f20def2654af596c1cc13ab2f9d96687",
+      "live_head_committed_utc": "2026-10-29T18:43:29Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 64,
+      "tif_blobs_in_frozen_registry": 58,
+      "new_blobs_since_frozen": 6,
+      "new_blob_paths": [
+        "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-nan.tif",
+        "docs/downloads/gems31-h31cc-basement-step-37654d-20261028-zeros.tif",
+        "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-allfinite.tif",
+        "docs/downloads/gemsdoe31-h-steo-offcatalogue-stepper-20261029T164949Z-4bbba08696ed-nan.tif",
+        "docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-nan.tif",
+        "docs/downloads/gemsdoe31-h31aa-slfs-flexure-37654-20261027-fdb34746-zeros.tif"
+      ],
+      "refreshed_pin": "f9248200f20def2654af596c1cc13ab2f9d96687",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE32": {
+      "frozen_pin": "1398109a23f04a2ace71c1bd2f527cfba87860b5",
+      "live_head": "6edcc4cd529ca0809b956ccb00aea7f0e3b79cbf",
+      "live_head_committed_utc": "2026-10-29T18:23:11Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 86,
+      "tif_blobs_in_frozen_registry": 69,
+      "new_blobs_since_frozen": 17,
+      "new_blob_paths": [
+        "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+        "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+        "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+        "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+        "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+        "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+        "docs/downloads/gemsdoe32-H-GEO-VENT-28000-20261027T174146Z-3c5837e9-nan.tif",
+        "docs/downloads/gemsdoe32-H-GEO-VENT-28000-20261027T174146Z-3c5837e9-zeros.tif",
+        "docs/downloads/gemsdoe32-euler-e1-37654-20261028T000236Z-71f0a187-nan.tif",
+        "docs/downloads/gemsdoe32-euler-e1-37654-20261028T000236Z-71f0a187-zeros.tif",
+        "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-nan.tif",
+        "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
+        "docs/downloads/gemsdoe32-h49-cgtd-noisyor-axial28-37654-20261027T235000Z-f3e24fb5-nan.tif",
+        "docs/downloads/gemsdoe32-h49-cgtd-noisyor-axial28-37654-20261027T235000Z-f3e24fb5-zeros.tif",
+        "docs/downloads/gemsdoe32-h51-ewsp-crack-poisson-axial28-37654-20261028T123000Z-bdf25d8c-nan.tif",
+        "docs/downloads/gemsdoe32-h51-ewsp-crack-poisson-axial28-37654-20261028T123000Z-bdf25d8c-zeros.tif",
+        "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif"
+      ],
+      "refreshed_pin": "6edcc4cd529ca0809b956ccb00aea7f0e3b79cbf",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE33": {
+      "frozen_pin": "122e2240a835c9c84831943ee3489dbb48fd6e85",
+      "live_head": "ee2e464b61cb0e0aa604b0525044ad9ff31c9ec7",
+      "live_head_committed_utc": "2026-10-29T18:38:47Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 46,
+      "tif_blobs_in_frozen_registry": 31,
+      "new_blobs_since_frozen": 14,
+      "new_blob_paths": [
+        "docs/downloads/gemsdoe33-a33-r5-thkcond-37654-20261027-f47ef136b543-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r5-thkcond-37654-20261027-f47ef136b543-zeros.tif",
+        "docs/downloads/gemsdoe33-a33-r6-basestep-37654-20261027-4e0c37d1d539-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r6-basestep-37654-20261027-4e0c37d1d539-zeros.tif",
+        "docs/downloads/gemsdoe33-a33-r7-pcsup-37654-20261028-d1f9cca0af02-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r7-pcsup-37654-20261028-d1f9cca0af02-zeros.tif",
+        "docs/downloads/gemsdoe33-a33-r7-phcong-37654-20261028-45958ee5a5bc-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r7-phcong-37654-20261028-45958ee5a5bc-zeros.tif",
+        "docs/downloads/gemsdoe33-a33-r7-phcongdt-37654-20261028-98f7bfe0cff6-nan.tif",
+        "docs/downloads/gemsdoe33-a33-r7-phcongdt-37654-20261028-98f7bfe0cff6-zeros.tif",
+        "docs/downloads/gemsdoe33-h34-coh-tmiline-37654-20261029-1181c8712300-nan.tif",
+        "docs/downloads/gemsdoe33-h34-coh-tmiline-37654-20261029-1181c8712300-zeros.tif",
+        "docs/downloads/gemsdoe33-pfrt-listric-37654-20261027-048e07cb9d0e-nan.tif",
+        "docs/downloads/gemsdoe33-pfrt-listric-37654-20261027-048e07cb9d0e-zeros.tif"
+      ],
+      "refreshed_pin": "ee2e464b61cb0e0aa604b0525044ad9ff31c9ec7",
+      "refreshed_matches_live_head": true
+    },
+    "GEMSDOE36": {
+      "frozen_pin": "61783525af4aa6dcf8da0bc68b06fa38b89ed27a",
+      "live_head": "b0824c550c02792897d0ebe3aba1cb0e75583ea1",
+      "live_head_committed_utc": "2026-10-29T18:44:33Z",
+      "moved_since_frozen_pin": true,
+      "tif_blobs_at_live_head": 23,
+      "tif_blobs_in_frozen_registry": 19,
+      "new_blobs_since_frozen": 4,
+      "new_blob_paths": [
+        "docs/downloads/gemsdoe36-s2d36-exp2-20261027-31189d084a83-zeros.tif",
+        "docs/downloads/gemsdoe36-sfd36-exp2-20261027-d65acb3011d5-zeros.tif",
+        "docs/downloads/gemsdoe36-tcd36-exp2-20261027-9970b80c6585-nan.tif",
+        "docs/downloads/gemsdoe36-tcd36-exp2-20261027-9970b80c6585-zeros.tif"
+      ],
+      "refreshed_pin": "b0824c550c02792897d0ebe3aba1cb0e75583ea1",
+      "refreshed_matches_live_head": true
+    }
+  },
+  "totals": {
+    "repos_moved": 9,
+    "new_blobs_since_frozen": 74,
+    "tif_blobs_at_live_heads": 489
+  },
+  "note": "Blob-level comparison uses git blob SHA1 from the GitHub trees API. Byte-identical files under new names count as new paths but are not new bytes."
+}

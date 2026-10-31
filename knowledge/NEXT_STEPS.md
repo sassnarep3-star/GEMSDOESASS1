@@ -51,6 +51,15 @@
 
 ## Part 2 — parallel-session record (nine-site board, 2026-10-30) — preserved verbatim
 
+## Added on branch arena/0262b24e-gemsdoesass1 (registry refresh, 2026-10-30)
+
+- **Blocking: GEMSDOE31 `-nan` registry file is unassessable.** `gemsdoe31-csdu-stepover-8cf9dc27-nan.tif` has 2,610,312 non-finite cells inside the sample footprint. The fail-closed audit therefore reports `comparisons_complete = false` and blocks clearance for every candidate. This is independent of the lattice policy. Owner decision needed on how to treat the file (see the review's policy section); no silent exemption.
+- **Refreshed registry: 489 rasters, two independent builds agree.** The API build is `registry/focus_inventory_20261030_api.json`. The local-git build is `registry/focus_inventory_20261030.json` (staged from main). Both match on (repo, path, blob) sets and head refs. The frozen pin `registry/focus_inventory.json` is unchanged and must not be overwritten.
+- **Owner heads moved for all nine focus repos since the pin** (74 new TIF blobs). Refs are in [`docs/REPO_REVIEW_2026-10-30-registry-audit.md`](../docs/REPO_REVIEW_2026-10-30-registry-audit.md).
+- **Leaderboard read confirmed 2026-10-30 (fetch tool):** #1 xiaofanhu 0.4544 (35 submissions), #2 cfld__ 0.3916, #3 Batik Shirt Brothers 0.3915, #48 kpomazi 0.3195. Class is OFFICIAL-LEADERBOARD-READ, not ORGANIZER-CONFIRMED (no submission receipt). The 0.4413 figure is older. Evidence: [`knowledge/leaderboard_evidence_20261030.md`](leaderboard_evidence_20261030.md).
+- **Access note:** DrivenData, NLR, GDR and EPSG.io were reachable through the fetch tool on 2026-10-30. The bash sandbox cannot reach them (curl returned 000). Earlier "unreachable" statements apply to bash only.
+- **Eligibility is still open** (rules §1.3, see the first item above). The NLR rules say individuals must be U.S. citizens or permanent residents. Private entities must be incorporated in and keep a primary place of business in the U.S. Do not upload until the administrator confirms.
+
 ## Added on branch arena/6c40af2c-gemsdoesass1 (nine-site board, 2026-10-30)
 
 - **Eligibility is a blocking item main does not list.** Official rules §1.3 limit competitors to U.S. citizens or permanent residents, or U.S.-incorporated entities. The user's location is Singapore. Confirm with the administrator before any upload, and do not sign the eligibility certification unless it is true. This also blocks any selector slot, including under an amended uniqueness test.
