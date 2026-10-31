@@ -1,4 +1,12 @@
-# Next session — ordered actions (2026-10-31 H-KDAM release on top)
+# Next session — ordered actions (updated 2026-10-31 after the H-BSTEP and H-KDAM releases)
+
+> Two 2026-10-31 releases exist. **H-BSTEP is the presented download** (Part 0a below);
+> **H-KDAM is a same-day gate-passing alternate** with a slightly higher shared-instrument holdout
+> (Part 0b). Choosing which, if either, to spend the weekly slot on is the user's selector decision.
+> Part 1 is the 2026-10-30 H-TVGB record (superseded download); Part 2 is the nine-site-board
+> session's record, preserved verbatim. The eligibility finding is a blocking user decision.
+
+## Part 0b — H-KDAM lane (merged earlier on 2026-10-31) — its ordered actions, preserved
 
 0. **Reviewed and merged (2026-10-31, later pass).** PR #29 is merged; the release now carries **7 gates**
    including a fixture audit that measures all 489 inventory rasters (non-lattice fixtures ≤ 16.1 %, lattice
@@ -32,21 +40,7 @@
 
 ---
 
-# Next session — ordered actions (updated 2026-10-30 after the H-TVGB release)
-
-> Two parallel sessions wrote this file on 2026-10-30. Part 1 is the H-TVGB thermal-lane release
-> record; Part 2 (verbatim, not edited) is the nine-site-board session's record with different
-> conclusions. **Read both.** The eligibility finding in Part 2 and the uniqueness-policy question
-> are blocking user decisions.
-
-# Next session — ordered actions (updated 2026-10-31 after the H-BSTEP release)
-
-> Three sessions have written this file. **Part 0 (2026-10-31, H-BSTEP) is current**: one file is
-> released as OK TO DOWNLOAD AND SUBMIT. Part 1 is the 2026-10-30 H-TVGB thermal-lane record
-> (superseded download, record kept); Part 2 (verbatim) is the nine-site-board session's record.
-> The eligibility finding and the uniqueness-policy question remain blocking user decisions.
-
-## Part 0 — H-BSTEP release (2026-10-31) — current
+## Part 0a — H-BSTEP release (2026-10-31) — the presented download
 
 **Released (OK TO DOWNLOAD AND SUBMIT):**
 `docs/downloads/gemsass1-bstep-concord-37654-b6-20261031-zeros.tif` (37,654 dots, H-BSTEP
