@@ -1,5 +1,11 @@
 # Next session — ordered actions (2026-10-31 H-KDAM release on top)
 
+0. **Reviewed and merged (2026-10-31, later pass).** PR #29 is merged; the release now carries **7 gates**
+   including a fixture audit that measures all 489 inventory rasters (non-lattice fixtures ≤ 16.1 %, lattice
+   99.96 % disclosed). Two integrity defects found in review are fixed: `registry/focus_inventory.json` had
+   been silently rewritten (`failed: 0 → 114`) by a concurrent lane and is restored, and the sparse
+   placeholder's card names a filename that does not exist (irregularity #11, bytes hash-locked).
+   Details: `knowledge/REVIEW_2026-10-31.md`.
 1. **Download and submit(selector's decision)** `docs/downloads/gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`
    (`gemsass1-kdam-alteration-contact-37654-20261031-zeros.zip` also works). Every automatic gate passes;
    the disclosures to read first are on the executive summary (lattice exemption, nine-site registry scope,
