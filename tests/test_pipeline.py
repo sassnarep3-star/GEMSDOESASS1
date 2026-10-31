@@ -191,13 +191,16 @@ def test_frozen_negative_artifact_contract():
     # B2 duplicate log; nothing else may appear there.
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    sparse = json.loads((ROOT/'evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     zips = list((ROOT/'docs/downloads').glob('*.zip'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               sparse['submission_name'].replace('.tif', ''))  # new generated unique release
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
+    assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in zips)
 
@@ -245,10 +248,13 @@ def test_concurrent_main_research_preserved_not_promoted():
     pbsc = json.loads((ROOT/'evidence/pbsc/run_card.json').read_text())
     assert pbsc['ok_to_submit'] is False
     thermal = json.loads((ROOT/'evidence/thermal/run_card.json').read_text())
+    sparse = json.loads((ROOT/'evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
     tifs = list((ROOT/'docs/downloads').glob('*.tif'))
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
-               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+               'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros',  # superseded B2 duplicate log
+               sparse['submission_name'].replace('.tif', ''))  # new generated unique release
+    assert sparse['ok_to_download_and_submit'] is False  # format-ready, not submit-cleared
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 

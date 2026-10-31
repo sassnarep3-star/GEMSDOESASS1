@@ -32,6 +32,15 @@ Condensed from the user's prompt. The fuller persistent transcription is [`knowl
 
 **Do not submit any TIFF from this repository.** SWGB’s advertised uniqueness used a 17-file subset and is disproved against the calibration lattice (99.87%). H-PBSC is unique vs those 17 competitive rasters (25.3%) but fails the same lattice (99.48%) and lost the holdout bar. BGAC never packaged a file. [Home](index.html) · [executive summary](executive-summary.html) · [SWGB lattice review](evidence/swgb_lattice_review.json) · [H-PBSC run card](evidence/pbsc/run_card.json) · [next steps](knowledge/NEXT_STEPS.md).
 
+## Session note — 2026-10-31 (this branch)
+
+Generated one new unique competition-format GeoTIFF and published an executive summary covering all nine focus sites.
+
+- **Generated unique TIF:** `docs/downloads/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros.tif` (sha256 `e1fea78319fa45a1499f0d647ed9ebca4fdbf81ee619a653eecec055691833be`). 18,000 dots at 3.0 px spacing, off mapped catalogue faults; float32 {0,1}, zeros outside footprint — fixes the “Predicted values must be in range [0, 1]” portal rejection.
+- **Verdict:** format-valid (11/11) and unique structure; OK to DOWNLOAD; NOT submit-cleared unconditionally — upload requires eligibility confirmation (rules §1.3) and a uniqueness check vs the organizer registry (`ok_to_download_and_submit = false`). Full record: `evidence/gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json`.
+- **Executive summary:** `docs/executive-summary.html` — per-site best file, owner-reported score, uniqueness, and submit decision for GEMSDOE24/25/27/28/30/31/32/33/36. None is unique; all are prior submissions; none is recommended for resubmission.
+- **No score beats 0.3195 demonstrated here.** Holdout DTI does not rank live scores (Spearman −0.08), the literal 70%/3 px lattice gate caps any dotted file at 22,163 dots, and DrivenData requires login (not on the sandbox allowlist). The prior H-TVGB thermal field (HOLDOUT-DTI 0.1287 vs bar 0.1011) is blocked under the literal lattice gate (99.79% vs the 13gems calibration lattice).
+
 # Session 2026-10-30 — H-TSFX lane (latest)
 
 **Is a new GeoTIFF OK to submit?** **NO.** Holdout passed (HOLDOUT-DTI 0.1587 [0.1522, 0.1658]; a sweep reached 0.1674, selected on the same holdout), but the shipped dots are a literal duplicate of 11 GEMSDOE25 rasters (70.2–72.3 % within 3 px), so the protocol stops placement. Full record: [`knowledge/RESULTS_20261030.md`](knowledge/RESULTS_20261030.md) · [`evidence/tsfx/run_card.json`](evidence/tsfx/run_card.json) · AMEND-LATTICE-01: [`knowledge/hypotheses_20261030_tsfx.md`](knowledge/hypotheses_20261030.md).

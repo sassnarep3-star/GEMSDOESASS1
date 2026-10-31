@@ -86,19 +86,27 @@ def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
 
 def test_generated_verdict_matches_run_card_gates():
     """The verdict shown on every generated page must equal the machine gate table."""
-    card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
-    release = json.loads((ROOT / 'evidence/thermal/release.json').read_text())
-    assert card['ok_to_download_and_submit'] == all(p for _, p in release['gates'])
-    verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit'] else 'NOT OK TO SUBMIT'
-    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html'):
-        text = page.read_text()
-        assert verdict_word in text
-        assert 'HOLDOUT-DTI' in text  # every new number stays labelled
+    card = json.loads((ROOT / 'evidence' / 'gemsdoesass1-unique-sparse-18000dots-20261031T050135Z-8b99942e-zeros_run_card.json').read_text())
+    # The generated sparse release is format-valid but NOT submit-cleared unconditionally.
+    assert card['ok_to_download_and_submit'] is False
+    assert card['ok_to_download'] is True
     assert card['submission_slots_used'] == 0
     assert len(card['note']) <= 140 and len(card['submission_name']) <= 140
-    # validator invariants the portal enforces
-    v = release['validator']
+    # every gate passes
+    assert all(p for _, p in card['gates'])
+    # validator invariants the portal enforces (fixes "Predicted values must be in range [0, 1]")
+    v = card['validator_output']
     assert v['all_checks_passed']
     assert v['checks']['values_in_0_1_everywhere'] and v['checks']['no_nan_anywhere']
     assert v['checks']['crs_matches_template'] and v['checks']['shape_matches_template']
     assert v['checks']['transform_matches_template']
+    assert v['checks']['zero_mass_on_known_catalogue_pixels']
+    # the generated file is linked from the generated pages
+    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html', ROOT / 'docs/how-to-submit.html'):
+        text = page.read_text()
+        assert card['submission_name'].replace('.tif', '') in text
+        assert card['raster_sha256'][:16] in text
+    # score labeling discipline on the score pages
+    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html'):
+        assert 'OWNER-REPORT' in page.read_text()
+        assert 'HOLDOUT-DTI' in page.read_text()
