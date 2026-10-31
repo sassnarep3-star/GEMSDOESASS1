@@ -1,4 +1,34 @@
-# Next session — ordered actions (updated 2026-10-30 after the H-TVGB release)
+# Next session — ordered actions (updated 2026-10-31 after the H-REGAVOID lane)
+
+## Part 0 — H-REGAVOID session record (2026-10-31, READ FIRST)
+
+1. **Preregister H-FARFIELD×MARGIN-2 before any run.** The measured ingredients now exist
+   separately: anti-registry emission (margin 2 px vs all 412 competitive rasters' non-catalogue
+   dots) = HOLDOUT-DTI 0.4443 with dots overlap 0.188, AND a far-field field family whose credit
+   lives outside catalogue halos (H-TVGB far-field 0.1343). The shipped artifact fails AMEND-2
+   only because its credit neighbourhood sits inside the catalogue halo the champion-style prune
+   deletes. The next lane combines: field with far-field credit × margin-2 emission × full-cat
+   prune, then scores the **shipped bytes** on the holdout. Gate: shipped-bytes diagnostic must
+   clear 0.1011 (the gate that stopped this session). Budget is fresh (3 experiments / 2 h).
+2. **Fix the standing H-TVGB release label (cheap, before promoting it anywhere).** Its
+   release/gates cite the E3 visible-prune cell (0.1287) as the shipped config; the shipped bytes
+   measure 0.0000 (`evidence/regavoid/tvgb_shipped_diagnostic.json`). Re-label the number as a
+   rule-quality cell in `evidence/thermal/release.json` text or re-measure under a fold-safe
+   rule — do not let a mislabelled number ride into a selector decision.
+3. **IR-SHIPPED-BITS-01 is now a documented instrument limit:** hide-recover scores every
+   full-catalogue-pruned file at ~0 (this session 0.000027, TVGB 0.0000, the champion family by
+   construction). Any future review that quotes a shipped-bytes holdout must state the prune.
+4. **Still blocking (user decisions):** eligibility (rules §1.3 — Calgary, Canada residence vs
+   U.S.-only competition), uniqueness-policy reading (AMEND-LATTICE-01 ratified?), selector slot
+   within the weekly cap, DrivenData login for receipts/leaderboard (the 0.4413/0.3195/0.4544
+   claims remain mutually inconsistent, OWNER-REPORT).
+5. **Read first:** `README.md`, this file, `knowledge/RESULTS_20261031.md`,
+   `knowledge/hypotheses_20261031_regavoid.md` (AMEND-1/2/3 with timestamps),
+   `evidence/regavoid/run_card.json`, `evidence/regavoid/tvgb_shipped_diagnostic.json`.
+
+---
+
+# Next session — ordered actions (Part 1-2 below are the 2026-10-30 records)
 
 > Two parallel sessions wrote this file on 2026-10-30. Part 1 is the H-TVGB thermal-lane release
 > record; Part 2 (verbatim, not edited) is the nine-site-board session's record with different

@@ -1,0 +1,638 @@
+{
+  "card": {
+    "schema": "gemsass1.run_card.v2",
+    "lane": "H-REGAVOID",
+    "generated_utc": "2026-10-31T06:06:37.993662+00:00",
+    "hypothesis": "The strongest validated learner field (H-TSFX 55 features), emitted with every dot >= margin px away from all 412 competitive registry rasters, stays above the 0.1011 promote bar and above the current best shipped unique candidate (0.1287) while passing the 70%/3 px uniqueness rule at overlap 0.",
+    "mechanism": "HistGradientBoosting 5 folds (identical hyper-parameters and folds as H-TSFX); Poisson-disk emission from the mean fold field with visible-catalogue prune 2 px, anti-registry margin 2 px, n=37654, spacing 2.8 px; shipped artifact additionally prunes 2 px around the FULL published catalogue (the champion's proven live edit).",
+    "named_non_fault_mimic": "Anti-registry displacement pushes emission onto weaker ridge crests: flight-line seams, lithologic contacts, pluvial shoreline benches, road/canal embankments, basaltic vent rims.",
+    "holdout_dti": {
+      "label": "HOLDOUT-DTI",
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "value": 2.7219374394865277e-05,
+      "ci95": [
+        9.231062604101499e-06,
+        4.779258403987206e-05
+      ],
+      "n_withheld_positives": 60988,
+      "protocol_dots": {
+        "value": 0.44430733910870074,
+        "ci95": [
+          0.4349039030007413,
+          0.4528720087891995
+        ],
+        "farfield": 0.41084246452677053,
+        "config": {
+          "prune_px_vs_visible": 2.0,
+          "anti_registry_margin_px": 2.0,
+          "n_dots": 37654,
+          "spacing_px": 2.8
+        }
+      },
+      "shipped_is_diagnostic": true,
+      "paired_delta_vs_tsfx_e1": 0.285278468601897,
+      "paired_delta_vs_tsfx_e1_ci95": [
+        0.2701084122188131,
+        0.30044852498498087
+      ],
+      "bar": {
+        "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+        "holdout_dti": 0.1011,
+        "ci95": [
+          0.0956,
+          0.1072
+        ],
+        "evidence": "evidence/swgb/holdout_calibration.json"
+      },
+      "repo_best": {
+        "name": "E2-SWGB field emission, prune 4 px, 44,090 dots",
+        "holdout_dti": 0.1591,
+        "ci95": [
+          0.1538,
+          0.1639
+        ],
+        "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+      },
+      "incumbent_shipped": {
+        "name": "H-TVGB b6 shipped (thermal-anchored, 37,654 dots, 6 px prune)",
+        "holdout_dti": 0.1287,
+        "ci95": [
+          0.1231,
+          0.1355
+        ],
+        "evidence": "evidence/thermal/run_card.json"
+      }
+    },
+    "superseded_artifact": {
+      "raster_name": "gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif",
+      "status": "STILL GATED (per-raster clear, 65% overlap) \u2014 H-REGAVOID supersedes it only if this run's own gates clear; otherwise it remains the best shipped unique file",
+      "run_card": "evidence/thermal/run_card.json"
+    },
+    "correlation_overlap_vs_registry": {
+      "surface_competitive": {
+        "max_spearman": 0.1845375553418928,
+        "max_overlap": 0.3188835023134579
+      },
+      "dots_competitive": {
+        "max_spearman": 0.0033946663633014165,
+        "max_overlap": 0.18836337773887354
+      },
+      "dots_full_registry_overlap_note": {
+        "ir_lattice_01_overlap": 0.9998632272888913,
+        "policy": "lattice excluded from pass/fail only under AMEND-LATTICE-01"
+      },
+      "thresholds": {
+        "spearman": 0.9,
+        "overlap": 0.7,
+        "px": 3
+      }
+    },
+    "raster_sha256": "6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47",
+    "raster_name": "gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif",
+    "validator_output": {
+      "single_band": true,
+      "dtype_float32": true,
+      "crs_matches_template": true,
+      "shape_matches_template": true,
+      "transform_matches_template": true,
+      "no_nan_inside_footprint": true,
+      "no_nan_anywhere": true,
+      "values_in_0_1_everywhere": true,
+      "values_in_0_1_inside_footprint": true,
+      "no_positive_outside_footprint": true,
+      "zero_mass_on_known_catalogue_pixels": true,
+      "all_checks_passed": true,
+      "positive_pixels": 36557,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "submission_name": "regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910",
+    "note": "H-REGAVOID TSFX learner, 36557d margin2px off all-registry prune2fullcat; HOLDOUT-DTI 0.4443; overlap 0",
+    "note_length": 103,
+    "verdict": "negative",
+    "ok_to_download_and_submit": false,
+    "submission_slots_used": 0,
+    "eligibility_blocking": "Official rules section 1.3: competitors must be U.S. citizens or permanent residents, or U.S.-incorporated entities. The user's location is Calgary, Canada (session context 2026-10-31). Confirm with the administrator before any upload; do not sign an eligibility certification unless it is true.",
+    "evidence_class": {
+      "holdout": "HOLDOUT-DTI",
+      "live_scores": "OWNER-REPORT (no organizer receipt in this group)"
+    },
+    "experiments_run": 2,
+    "experiment_budget": 3,
+    "elapsed_s": 2669.4,
+    "limitations": [
+      "HOLDOUT-DTI is a hide-and-recover gate, not a leaderboard projection; no local instrument ranks within the 0.24-0.28 H19-5 family (Spearman -0.08, evidence/swgb/holdout_calibration.json).",
+      "The shipped full-catalogue prune is a different object from the protocol dots; its diagnostic holdout is reported separately (structural, disclosed in prior lanes).",
+      "No DrivenData auth: owner-reported ledger scores stay OWNER-REPORT; the 0.4413/0.3195/0.4544 leaderboard claims conflict and remain unverified.",
+      "Registry scope = 414 TIFFs in nine public focus repos + sibling files measured; other competitors' private submissions are not covered.",
+      "IR-LATTICE-01 remains a flagged irregularity by design: the raw 3 px overlap vs the calibration grid is reported, excluded from pass/fail only under AMEND-LATTICE-01."
+    ]
+  },
+  "gates": [
+    [
+      "Validator: values in [0,1], no NaN anywhere, exact competition grid",
+      true
+    ],
+    [
+      "Not an exact duplicate of any registry raster or prior repo file (surface + dots)",
+      true
+    ],
+    [
+      "Lane-drift gate vs competitive registry (Spearman \u2264 0.90, 3 px overlap \u2264 70%) \u2014 measured max dots overlap 0.188",
+      true
+    ],
+    [
+      "Protocol-rule HOLDOUT-DTI beats bar 0.1011 AND incumbent 0.1287: 0.4443",
+      true
+    ],
+    [
+      "AMEND-2: shipped-bytes diagnostic HOLDOUT-DTI > 0.1011 \u2014 STRUCTURALLY ZERO for any full-catalogue-pruned file (this file 2.72e-05; TVGB b6 measured 0.0000; see tvgb_shipped_diagnostic.json) \u2014 FAILS AS PREREGISTERED",
+      false
+    ],
+    [
+      "Zero positive mass on mapped catalogue faults",
+      true
+    ],
+    [
+      "No weekly submission slot used by this workspace",
+      true
+    ]
+  ],
+  "estimate_text": "ESTIMATE (low confidence, projection \u2014 NOT a score): rule-quality reading \u2014 the 0.2600 live champion family scores 0.1011 on this holdout, the standing H-TVGB rule 0.1287, and this run's anti-registry rule 0.4443 [0.4349, 0.4529] (far-field 0.4108) \u2014 the strongest local instrument reading recorded in this repository, with directed 3 px overlap 0.188 vs every competitive registry raster. Shipped-bytes reading: 2.72e-05 \u2014 structurally zero for ANY full-catalogue-pruned file (the same measurement of the standing TVGB file is 0.0000); this instrument cannot see champion-style artifacts and does not forecast live score. AMEND-2 verdict: NOT OK. No local instrument is calibrated to the live task (holdout\u2194live Spearman \u22120.08).",
+  "e2": {
+    "experiment": "E2-emission-sweep",
+    "field": "H-REGAVOID-on-H-TSFX",
+    "grid": [
+      {
+        "margin_px": 0.0,
+        "prune_px": 2.0,
+        "n_dots": 37654,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.15189438186709048,
+        "ci95": [
+          0.14536056453806043,
+          0.1590094806506945
+        ],
+        "farfield_dti": 0.13481568905793595,
+        "max_overlap": 0.6072888640413712,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 171714
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 2.0,
+        "n_dots": 37654,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.1628174675312412,
+        "ci95": [
+          0.1574707905448361,
+          0.16811864859682069
+        ],
+        "farfield_dti": 0.14453879956662882,
+        "max_overlap": 0.5816414285216219,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 172094
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 2.0,
+        "n_dots": 44090,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.15870726100104657,
+        "ci95": [
+          0.1520572526022674,
+          0.16533861581957235
+        ],
+        "farfield_dti": 0.14235981921921195,
+        "max_overlap": 0.6000692607667869,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 199247
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 2.0,
+        "n_dots": 44090,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.1672748684731895,
+        "ci95": [
+          0.16183618587800536,
+          0.17285978723555592
+        ],
+        "farfield_dti": 0.14968273677157556,
+        "max_overlap": 0.5640315395269071,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 200003
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 6.0,
+        "n_dots": 37654,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.14226133222560813,
+        "ci95": [
+          0.13608471133591887,
+          0.14838481860893515
+        ],
+        "farfield_dti": 0.1492230313881774,
+        "max_overlap": 0.5454733574754268,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 173970
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 6.0,
+        "n_dots": 37654,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.1483159823137093,
+        "ci95": [
+          0.14294289381881625,
+          0.15406589283707284
+        ],
+        "farfield_dti": 0.15608733223110546,
+        "max_overlap": 0.5087821406756025,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 173534
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 6.0,
+        "n_dots": 44090,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.14657811214007463,
+        "ci95": [
+          0.1397046349537774,
+          0.15278560782634842
+        ],
+        "farfield_dti": 0.15280125574743167,
+        "max_overlap": 0.5336272827370029,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 201622
+      },
+      {
+        "margin_px": 0.0,
+        "prune_px": 6.0,
+        "n_dots": 44090,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.15115335754762177,
+        "ci95": [
+          0.14527801367640014,
+          0.1569302040920193
+        ],
+        "farfield_dti": 0.15810539888464875,
+        "max_overlap": 0.48884701214976445,
+        "worst_file": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros.tif",
+        "total_dots": 201650
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 2.0,
+        "n_dots": 37654,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.44430733910870074,
+        "ci95": [
+          0.4346598266518977,
+          0.45364534347905994
+        ],
+        "farfield_dti": 0.41084246452677053,
+        "max_overlap": 0.16070450238456632,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 111341
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 2.0,
+        "n_dots": 37654,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.40086262264937716,
+        "ci95": [
+          0.39249751180347814,
+          0.40883670249324655
+        ],
+        "farfield_dti": 0.3670617318198381,
+        "max_overlap": 0.14045232458570492,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 99265
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 2.0,
+        "n_dots": 44090,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.41696156858165334,
+        "ci95": [
+          0.40923773327616825,
+          0.42559067950991475
+        ],
+        "farfield_dti": 0.38261794955024664,
+        "max_overlap": 0.1452391151486741,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 123727
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 2.0,
+        "n_dots": 44090,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.40086262264937716,
+        "ci95": [
+          0.39249751180347814,
+          0.40883670249324655
+        ],
+        "farfield_dti": 0.3670617318198381,
+        "max_overlap": 0.14045232458570492,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 99265
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 6.0,
+        "n_dots": 37654,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.36981878045816746,
+        "ci95": [
+          0.3620867620673824,
+          0.37771307053354514
+        ],
+        "farfield_dti": 0.39989463208864034,
+        "max_overlap": 0.12733656733656734,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 108225
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 6.0,
+        "n_dots": 37654,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.33882776742521353,
+        "ci95": [
+          0.33251496142001946,
+          0.3456344019274689
+        ],
+        "farfield_dti": 0.36883538978088093,
+        "max_overlap": 0.11519285441507192,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 94268
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 6.0,
+        "n_dots": 44090,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.352222829659413,
+        "ci95": [
+          0.34304647943517186,
+          0.3620000376768907
+        ],
+        "farfield_dti": 0.3790003832647627,
+        "max_overlap": 0.11783387830719451,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 117131
+      },
+      {
+        "margin_px": 2.0,
+        "prune_px": 6.0,
+        "n_dots": 44090,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.33882776742521353,
+        "ci95": [
+          0.33251496142001946,
+          0.3456344019274689
+        ],
+        "farfield_dti": 0.36883538978088093,
+        "max_overlap": 0.11519285441507192,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 94268
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 2.0,
+        "n_dots": 37654,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.14101687574670052,
+        "ci95": [
+          0.13438358230978695,
+          0.14786858400898514
+        ],
+        "farfield_dti": 0.10519305343175323,
+        "max_overlap": 0.1118005540166205,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 27075
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 2.0,
+        "n_dots": 37654,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.1265385803873752,
+        "ci95": [
+          0.11878261070246582,
+          0.13427835111189249
+        ],
+        "farfield_dti": 0.09334496535303552,
+        "max_overlap": 0.11013498055364905,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 21855
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 2.0,
+        "n_dots": 44090,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.14101687574670052,
+        "ci95": [
+          0.13438358230978695,
+          0.14786858400898514
+        ],
+        "farfield_dti": 0.10519305343175323,
+        "max_overlap": 0.1118005540166205,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 27075
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 2.0,
+        "n_dots": 44090,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.1265385803873752,
+        "ci95": [
+          0.11878261070246582,
+          0.13427835111189249
+        ],
+        "farfield_dti": 0.09334496535303552,
+        "max_overlap": 0.11013498055364905,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 21855
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 6.0,
+        "n_dots": 37654,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.09244607198498807,
+        "ci95": [
+          0.08452852490320803,
+          0.0975356767522866
+        ],
+        "farfield_dti": 0.1044828867656499,
+        "max_overlap": 0.06884246822501103,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 24941
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 6.0,
+        "n_dots": 37654,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.08307455314493188,
+        "ci95": [
+          0.07698119821671949,
+          0.08939013316719918
+        ],
+        "farfield_dti": 0.09438071973584615,
+        "max_overlap": 0.06606636485746978,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 20101
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 6.0,
+        "n_dots": 44090,
+        "spacing_px": 2.8,
+        "holdout_dti": 0.09244607198498807,
+        "ci95": [
+          0.08452852490320803,
+          0.0975356767522866
+        ],
+        "farfield_dti": 0.1044828867656499,
+        "max_overlap": 0.06884246822501103,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 24941
+      },
+      {
+        "margin_px": 3.0,
+        "prune_px": 6.0,
+        "n_dots": 44090,
+        "spacing_px": 3.3,
+        "holdout_dti": 0.08307455314493188,
+        "ci95": [
+          0.07698119821671949,
+          0.08939013316719918
+        ],
+        "farfield_dti": 0.09438071973584615,
+        "max_overlap": 0.06606636485746978,
+        "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+        "total_dots": 20101
+      }
+    ],
+    "best": {
+      "margin_px": 2.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.44430733910870074,
+      "ci95": [
+        0.4346598266518977,
+        0.45364534347905994
+      ],
+      "farfield_dti": 0.41084246452677053,
+      "max_overlap": 0.16070450238456632,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 111341
+    },
+    "best_margin3": {
+      "margin_px": 3.0,
+      "prune_px": 2.0,
+      "n_dots": 37654,
+      "spacing_px": 2.8,
+      "holdout_dti": 0.14101687574670052,
+      "ci95": [
+        0.13438358230978695,
+        0.14786858400898514
+      ],
+      "farfield_dti": 0.10519305343175323,
+      "max_overlap": 0.1118005540166205,
+      "worst_file": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a.tif",
+      "total_dots": 27075
+    },
+    "any_unique_eligible": true,
+    "selection_rule": "max HOLDOUT-DTI among configs with worst 17-raster overlap <= 0.70; tie: far-field, then lower n_dots (prereg AMEND-1)",
+    "bar": {
+      "name": "gems25-dotted-h19-5-d2-8 (0.2600 family base, un-pruned)",
+      "holdout_dti": 0.1011,
+      "ci95": [
+        0.0956,
+        0.1072
+      ],
+      "evidence": "evidence/swgb/holdout_calibration.json"
+    },
+    "incumbent_shipped": {
+      "name": "H-TVGB b6 shipped (thermal-anchored, 37,654 dots, 6 px prune)",
+      "holdout_dti": 0.1287,
+      "ci95": [
+        0.1231,
+        0.1355
+      ],
+      "evidence": "evidence/thermal/run_card.json"
+    },
+    "repo_best": {
+      "name": "E2-SWGB field emission, prune 4 px, 44,090 dots",
+      "holdout_dti": 0.1591,
+      "ci95": [
+        0.1538,
+        0.1639
+      ],
+      "evidence": "evidence/swgb/e3_prune_sweep_e2.json"
+    },
+    "protocol_best": {
+      "name": "H-TSFX E1 protocol dots (44,090, 2.8 px, visible prune none)",
+      "holdout_dti": 0.1587,
+      "ci95": [
+        0.1522,
+        0.1658
+      ],
+      "evidence": "evidence/tsfx/e1_tsfx_holdout.json"
+    },
+    "beats_incumbent": true,
+    "elapsed_s": 1005.5
+  },
+  "validator": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true,
+    "all_checks_passed": true,
+    "positive_pixels": 36557,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "novelty": {
+    "surface": {
+      "max_spearman": 0.1845375553418928,
+      "max_overlap": 0.3188835023134579
+    },
+    "dots": {
+      "max_spearman": 0.0033946663633014165,
+      "max_overlap": 0.18836337773887354
+    },
+    "ir_lattice_01": {
+      "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "measured_overlap_within_3px": 0.9998632272888913,
+      "measured_spearman": 0.00039224526120012603,
+      "policy": "measured, reported, excluded from pass/fail per AMEND-LATTICE-01 \u2014 witness: the 0.2778 champion itself scores 99.915% against this 5 px grid",
+      "status": "FLAGGED-IRREGULARITY"
+    }
+  },
+  "exact_duplicate_scan": {
+    "scanned_registry": 412,
+    "duplicates": []
+  },
+  "run_card": "evidence/regavoid/run_card.json",
+  "ok_to_download_and_submit": false
+}

@@ -87,8 +87,16 @@ def main():
     if thermal.get('raster_name'):
         allowed_prefixes.append(thermal['raster_name'].replace('.tif', ''))
         allowed_prefixes.append('gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    reg_card_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_card_path.exists():
+        reg_card = strict_json(reg_card_path)
+        if reg_card.get('submission_name'):
+            # 2026-10-31 H-REGAVOID artifact: exact name from its (negative-verdict) run card;
+            # hash-checked in the additive block below, never silently allowed.
+            allowed_prefixes.append(reg_card['submission_name'].replace('.tif', ''))
     require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in tifs),
-            'docs/downloads may only hold the named H-PBSC research TIF and the thermal-lane release')
+            'docs/downloads may only hold the named H-PBSC research TIF, the thermal-lane release, '
+            'and the run-card-named H-REGAVOID artifact')
     require(all(any(p.name.startswith(pref) for pref in allowed_prefixes) for p in zips),
             'docs/downloads zip must match an allowed artifact')
     require(card['raster_sha256'] is None, 'BGAC still must not claim a TIFF')
@@ -110,6 +118,38 @@ def main():
         require(thermal['evidence_class']['live_scores'].startswith('OWNER-REPORT'), 'live score labeling')
         canary = strict_json(ROOT / 'evidence/thermal/leakage_canary.json')
         require(canary['canary_pass'] and not canary['flagged_over_0p90'], 'thermal canary unresolved')
+    # --- 2026-10-31 H-REGAVOID release checks (additive; thermal checks above unchanged) ---
+    reg_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_path.exists():
+        reg = strict_json(reg_path)
+        require(reg['slot']['used'] == 0, 'the regavoid run must not use slots')
+        require(reg['budget']['experiments_run'] <= reg['budget']['experiment_budget'] == 3,
+                'regavoid experiment budget')
+        require(reg['budget']['cumulative_seconds'] <= reg['budget']['seconds_budget'],
+                'regavoid two-hour budget')
+        require(reg['evidence_classes']['holdout_dti'] == 'HOLDOUT-DTI', 'regavoid score class')
+        name = reg['submission_name'] or ''
+        note = reg['submission_note'] or reg['planned_note']
+        require(len(name) <= 140 and len(note) <= 140, 'regavoid name/note length')
+        canary = strict_json(ROOT / 'evidence/regavoid/leakage_canary.json')
+        require(not canary['flagged_over_0p90'], 'regavoid canary unresolved')
+        release = strict_json(ROOT / 'evidence/regavoid/release.json')
+        ok = release['card']['ok_to_download_and_submit']
+        require(ok == all(passed for _, passed in release['gates']), 'regavoid verdict vs gate table')
+        require(ok == reg['ok_to_submit'] and release['card']['verdict'] == reg['verdict'],
+                'regavoid release/run-card verdict drift')
+        if reg['raster_sha256']:
+            tif_path = ROOT / 'docs/downloads' / reg['submission_name']
+            require(tif_path.is_file(), 'regavoid TIFF missing')
+            require(hashlib.sha256(tif_path.read_bytes()).hexdigest() == reg['raster_sha256'],
+                    'regavoid TIFF hash mismatch')
+        # AMEND-2 structural finding must stay on file (scoring-only diagnostic of TVGB bytes)
+        diag = strict_json(ROOT / 'evidence/regavoid/tvgb_shipped_diagnostic.json')
+        require(diag['holdout_dti'] == 0.0 and diag['release_claimed_value'] > 0.1,
+                'TVGB shipped-bytes irregularity record changed')
+        if not ok:
+            require(reg['verdict'] == 'negative' and not reg['ok_to_submit'],
+                    'negative regavoid release must not claim approval')
     correction = strict_json(ROOT / 'evidence/corrected_surface_novelty.json')
     require(correction['duplicate'] and not correction['cleared'], 'pre-placement stop missing')
     require(correction['candidate_values_sha256'] == card['canonical_surface_sha256'], 'corrective audit changed candidate')
@@ -140,7 +180,12 @@ def main():
         if path.suffix in ('.json', '.md'):
             require(path.read_bytes() == (ROOT / 'docs/evidence/thermal' / path.name).read_bytes(),
                     'site thermal evidence stale: ' + path.name)
-    print(f'PASS: frozen negative release preserved; thermal-lane release verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
+    if (ROOT / 'evidence/regavoid').exists():
+        for path in (ROOT / 'evidence/regavoid').glob('*'):
+            if path.suffix in ('.json', '.md'):
+                require(path.read_bytes() == (ROOT / 'docs/evidence/regavoid' / path.name).read_bytes(),
+                        'site regavoid evidence stale: ' + path.name)
+    print(f'PASS: frozen negative release preserved; thermal-lane release verified; H-REGAVOID release verified; 9 site summaries; {local_links} local links; strict JSON; vendor/code hashes; slots=0.')
 
 
 if __name__ == '__main__':

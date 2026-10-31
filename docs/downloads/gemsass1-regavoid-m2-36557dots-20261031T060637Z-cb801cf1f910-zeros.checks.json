@@ -1,0 +1,53 @@
+{
+  "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif",
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "crs_matches_template": true,
+    "shape_matches_template": true,
+    "transform_matches_template": true,
+    "no_nan_inside_footprint": true,
+    "no_nan_anywhere": true,
+    "values_in_0_1_everywhere": true,
+    "values_in_0_1_inside_footprint": true,
+    "no_positive_outside_footprint": true,
+    "zero_mass_on_known_catalogue_pixels": true
+  },
+  "all_checks_passed": true,
+  "positive_pixels": 36557,
+  "footprint_pixels": 5167373,
+  "min": 0.0,
+  "max": 1.0,
+  "sha256": "6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47",
+  "size_bytes": 135088,
+  "profile": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "nodata": null
+  },
+  "zip": {
+    "path": "/home/user/GEMSDOESASS1/docs/downloads/gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.zip",
+    "sha256": "e7325c45a6999c853ef13eb4be2674c93ba6e9a6ed5abc7d33f0b619006beb58",
+    "size_bytes": 98132
+  },
+  "submission_note": "H-REGAVOID TSFX learner, 36557d margin2px off all-registry prune2fullcat; HOLDOUT-DTI 0.4443; overlap 0",
+  "meta": {
+    "lane": "H-REGAVOID",
+    "evidence": "evidence/regavoid/run_card.json",
+    "protocol_holdout": 0.44430733910870074,
+    "amendment": "AMEND-LATTICE-01"
+  }
+}

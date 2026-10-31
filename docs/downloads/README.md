@@ -1,6 +1,17 @@
 # Downloads
 
-## The generated submission (2026-10-30, H-TVGB lane)
+## Current status (2026-10-31, H-REGAVOID session)
+
+| File | Verdict | HOLDOUT-DTI (labelled) | Uniqueness vs 414-raster registry |
+|---|---|---|---|
+| `gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.tif` (2026-10-31, H-REGAVOID) | **NOT OK — DO NOT SUBMIT** (AMEND-2 shipped-bytes gate, preregistered) | protocol rule-quality cell **0.4443 [0.4349, 0.4529]**; **shipped bytes 0.000027** (structural: full-catalogue prune) | cleared: dots max 3 px overlap **0.188**, max ρ 0.003 (no duplicates) |
+| `gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif` (2026-10-30, H-TVGB) | **OK per its own gates — the standing download** | rule-quality cell 0.1287 [0.1231, 0.1355]; **shipped bytes measured 0.0000** — IR-SHIPPED-BITS-01: the release cited the visible-prune E3 cell while the file was emitted full-catalogue-pruned; every full-catalogue-pruned file scores ~0 on hide-recover | cleared: 0.650 ≤ 0.70 |
+
+Neither number forecasts a leaderboard score (holdout↔live Spearman −0.08). Eligibility (rules
+§1.3) and the weekly-cap selector remain blocking user decisions before any upload.
+
+## The standing submission file (2026-10-30, H-TVGB lane)
+
 
 **This is the only file to download and submit.** Read the machine verdict on the
 [executive summary](../executive-summary.html) first — it is computed from the run card's gate
@@ -24,6 +35,10 @@ bar (0.1287 [0.1231, 0.1355] vs 0.1011), zero mass on mapped faults. If a future
 NOT OK, do not upload that run's file.
 
 ## Historical research artifacts — audit only, NOT approved
+
+| File | What it is |
+|---|---|
+| `gemsass1-regavoid-m2-36557dots-20261031T060637Z-cb801cf1f910-zeros.*` | 2026-10-31 H-REGAVOID research artifacts (**NOT OK** — AMEND-2; sha256 `6568c180441c99bedfda233321184a729e7dddaef850d7062ad5aa5968c50a47`; validator 11/11). Kept for the record: protocol rule-quality cell 0.4443, novelty cleared at 0.188 overlap. |
 
 **No SWGB, H-PBSC or BGAC-1 file is approved for submission.** These files stay here for
 reproducibility and negative-evidence audits:

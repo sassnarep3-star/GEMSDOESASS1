@@ -28,8 +28,13 @@ try {
     results.push({ route, status: response.status(), page_wide_overflow: overflow, title: await page.title() });
   }
   await page.goto(`${base}/index.html`);
-  assert.equal(await page.locator('tbody tr').count(), 9);
-  assert.equal(await page.locator('button:disabled').count(), 1);
+  // 2026-10-31: the executive table now carries 9 historical rows + 2 generated rows
+  // (this session's H-REGAVOID file, verdict NOT OK, and the standing H-TVGB candidate, OK).
+  assert.equal(await page.locator('tbody tr').count(), 11);
+  // 2026-10-31: a negative verdict renders disabled download buttons (hero + release card)
+  // instead of active CTAs for the NOT OK file; the standing candidate keeps its active link.
+  assert.equal(await page.locator('button:disabled').count(), 2);
+  assert.equal(await page.locator('a.button[href*="regavoid"][download]').count(), 0);
   await page.screenshot({ path: '.cache/desktop-preview.png', fullPage: true });
   await page.setViewportSize({ width: 375, height: 812 });
   for (const route of ['index.html','executive-summary.html','sites/GEMSDOE32.html','evidence.html']) {
@@ -43,9 +48,9 @@ try {
     checked_utc: new Date().toISOString(), browser: await browser.version(),
     desktop_viewport: [1440,1000], mobile_viewport: [375,812],
     pages: results, mobile_pages_checked: 4, page_errors: errors,
-    disabled_submission_button: true, historical_rows: 9,
+    disabled_submission_button: true, total_executive_rows: 11, historical_rows: 9,
     screenshot_paths: ['.cache/desktop-preview.png','.cache/mobile-preview.png'],
     scope: 'Rendered UI/navigation and page-wide overflow. Not competition acceptance, scientific validation or score confirmation.'
   }, null, 2) + '\n');
-  console.log('PASS: 13 rendered desktop pages; 4 mobile layouts; no page errors; no horizontal page overflow; blocked download explicit.');
+  console.log('PASS: 13 rendered desktop pages; 4 mobile layouts; no page errors; no horizontal page overflow; blocked download explicit; executive table 11 rows (9 historical + 2 generated).');
 } finally { await browser.close(); }

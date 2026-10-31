@@ -65,8 +65,8 @@
     "review_record": "evidence/repo_review_2026-10-30.md"
   },
   "post_review_2026-10-30_implementation_sha256": {
-    "scripts/build_site.py": "51342b28023c6fdcc19f54b863b58438923a0b60db2bf92d873840a901706e6e",
-    "scripts/verify_release.py": "855efe1a36368e3e4283439a162bf52b0fd35a6fffa914da71b09196b832299a",
+    "scripts/build_site.py": "25b2bf42c3fddd617e31d6eb012b0085f75b9687c2d6d5e30a2c884ad5b737c5",
+    "scripts/verify_release.py": "bc6a27779458acb7f16a89f89eae1140245cc6f27b6ca9ac19a75e3d9f9c348c",
     "requirements.txt": "5f5e5310972cc344301d3ca8c73f65641608c5e2c2127ec7d11ac911103ac93b",
     "requirements-lock.txt": "0993e7e267807b390c1fd6ead4921396e39acb5eaeab16b0379553980463f264",
     "scripts/audit_history.py": "09dbe92f1bec28438ca43d8ecfdfcdc1721e74d269f03c5d96ae98f4972abb12",
@@ -82,5 +82,6 @@
     "audit_input_fallback": "Hash/size-verified checked-in bridge sample_submission and existing_faults rasters; full feature stack is unnecessary for historical raster comparison.",
     "submission_status": "No TIFF approved; prior negative decision unchanged.",
     "review_record": "docs/REPO_REVIEW_2026-10-30.md"
-  }
+  },
+  "post_review_2026-10-31_regavoid_note": "2026-10-31 H-REGAVOID lane: build_site.py generalized to consume the newest release card (regavoid preferred over thermal, standing-candidate panel when the newest verdict is negative) and verify_release.py gained additive H-REGAVOID checks; both new byte hashes are pinned here. Negative evidence and prior releases remain unchanged."
 }

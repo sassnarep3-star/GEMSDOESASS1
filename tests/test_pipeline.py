@@ -196,6 +196,15 @@ def test_frozen_negative_artifact_contract():
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    reg_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_path.exists():
+        reg = json.loads(reg_path.read_text())
+        # 2026-10-31 H-REGAVOID: negative verdict by AMEND-2; its named artifact is the only
+        # additional allowed file, and it must never claim approval.
+        assert reg['ok_to_submit'] is False
+        assert reg['verdict'] == 'negative'
+        if reg.get('submission_name'):
+            allowed = allowed + (reg['submission_name'].replace('.tif', ''),)
     assert pbsc['ok_to_submit'] is False
     assert pbsc['verdict'] == 'negative'
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
@@ -249,6 +258,12 @@ def test_concurrent_main_research_preserved_not_promoted():
     allowed = (pbsc['submission_name'].replace('.tif', ''),
                thermal['raster_name'].replace('.tif', ''),
                'gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros')  # superseded B2 duplicate log
+    reg_path = ROOT / 'evidence/regavoid/run_card.json'
+    if reg_path.exists():
+        reg = json.loads(reg_path.read_text())
+        assert reg['ok_to_submit'] is False and reg['verdict'] == 'negative'
+        if reg.get('submission_name'):
+            allowed = allowed + (reg['submission_name'].replace('.tif', ''),)
     assert all(any(p.name.startswith(pref) for pref in allowed) for p in tifs)
 
 

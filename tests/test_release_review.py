@@ -85,15 +85,30 @@ def test_generated_pages_and_download_index_do_not_revive_swgb_approval():
 
 
 def test_generated_verdict_matches_run_card_gates():
-    """The verdict shown on every generated page must equal the machine gate table."""
-    card = json.loads((ROOT / 'evidence/thermal/run_card.json').read_text())
-    release = json.loads((ROOT / 'evidence/thermal/release.json').read_text())
-    assert card['ok_to_download_and_submit'] == all(p for _, p in release['gates'])
-    verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit'] else 'NOT OK TO SUBMIT'
-    for page in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html'):
-        text = page.read_text()
-        assert verdict_word in text
-        assert 'HOLDOUT-DTI' in text  # every new number stays labelled
+    """The verdict shown on every generated page must equal the machine gate table.
+
+    2026-10-31: both releases are checked — the standing H-TVGB release (OK) and, when
+    present, the H-REGAVOID release (negative under AMEND-2). Every verdict phrase must
+    appear on the rendered pages."""
+    pairs = []
+    thermal_release = json.loads((ROOT / 'evidence/thermal/release.json').read_text())
+    pairs.append((thermal_release['card'], thermal_release))
+    reg_path = ROOT / 'evidence/regavoid/release.json'
+    if reg_path.exists():
+        reg_release = json.loads(reg_path.read_text())
+        pairs.append((reg_release['card'], reg_release))
+    pages_text = {p: p.read_text()
+                  for p in (ROOT / 'docs/index.html', ROOT / 'docs/executive-summary.html')}
+    for card, release in pairs:
+        assert card['ok_to_download_and_submit'] == all(p for _, p in release['gates'])
+        verdict_word = ('OK TO DOWNLOAD AND SUBMIT' if card['ok_to_download_and_submit']
+                        else 'NOT OK TO SUBMIT')
+        for page, text in pages_text.items():
+            assert verdict_word in text, f'{verdict_word} missing from {page}'
+            assert 'HOLDOUT-DTI' in text  # every new number stays labelled
+        assert card['submission_slots_used'] == 0
+        assert len(card['note']) <= 140 and len(card['submission_name']) <= 140
+    card, release = pairs[0]
     assert card['submission_slots_used'] == 0
     assert len(card['note']) <= 140 and len(card['submission_name']) <= 140
     # validator invariants the portal enforces

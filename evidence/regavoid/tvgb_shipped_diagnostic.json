@@ -1,0 +1,16 @@
+{
+  "diagnostic": "TVGB b6 SHIPPED FILE bytes scored on GEMSASS1-HR-v2-segment (scoring-only; no experiment)",
+  "holdout_dti": 0.0,
+  "ci95": [
+    0.0,
+    0.0
+  ],
+  "n_withheld": 60988,
+  "farfield": 0.0,
+  "farfield_ci95": [
+    0.0,
+    0.0
+  ],
+  "release_claimed_value": 0.12871408632909964,
+  "note": "release cited the E3 visible-prune cell; this measures the actual full-cat-pruned shipped bytes"
+}
