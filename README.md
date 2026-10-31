@@ -25,6 +25,7 @@ Condensed from the user's prompt. The fuller persistent transcription is [`knowl
 | **Format** | 11/11 checks from the written bytes: single band, float32, EPSG:32611, 3730×3292, transform matches the template, no NaN anywhere, values in [0,1], zeros outside the footprint, zero mass on catalogue pixels → the portal's “values must be in [0, 1]” rejection cannot be triggered by this file |
 | **Uniqueness** | All **489** rasters of the pinned registry are measured, none skipped: **482 competitive** (430 overlap measured exactly, 52 cleared by a conservative 7×7 upper bound) plus **7 fixtures** measured separately. Competitive max 3 px overlap **31.1 %** (limit 70 %), max Spearman **0.0152** (limit 0.90), no exact duplicate. The only above-limit comparison in the whole inventory is the synthetic 5 px calibration lattice at **99.96 %**, exempt under AMEND-LATTICE-01 and disclosed on the site; the next-highest fixture is 16.1 %. |
 | **Field quality** | HOLDOUT-DTI **0.1471** [0.1418, 0.1531] (37,654 dots, unpruned arm) vs the incumbent 0.2600-family field **0.1011** [0.0967, 0.1060] on the same five folds — **+45.6 %** weighted hidden-fault credit |
+| **Where to click** | The repository-root page (which GitHub Pages serves) now redirects to [`docs/index.html`](docs/index.html); the download is the first thing on the executive summary |
 | **Slots used** | 0 — this workspace never uploads; promotion to a slot is a separate selector step |
 
 **Why the 0.2778 file scored highest, and why copying it cannot help.** It is the 0.2600 family field with
