@@ -1,0 +1,209 @@
+{
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "generated_utc": "2026-10-31T05:41:19.222246+00:00",
+  "hypothesis": "H-OFFSET-STEP v2 (Frangi vesselness + smoothed geophysical corroboration)",
+  "n_segments": 3199,
+  "n_withheld_positives": 60988,
+  "rows": [
+    {
+      "label": "CONTROL champion H19-5 md2.8 prune0",
+      "emitted": 44090,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.10068791862844308,
+      "ci95": [
+        0.09590918143429712,
+        0.10489291817349677
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9460.564784582632,
+      "fp": 216383.85734098795,
+      "fn": 51527.435215417376,
+      "coverage": 0.15512174172923576,
+      "farfield_gt5px_dti": 0.10154992293080713,
+      "farfield_ci95": [
+        0.09680909939485921,
+        0.10596798918110403
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "control",
+      "support_px": 121131,
+      "spacing": 2.8
+    },
+    {
+      "label": "CONTROL champion H19-5 md2.8 prune2",
+      "emitted": 41017,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.1048002062385249,
+      "ci95": [
+        0.09975329221867935,
+        0.10955788951761336
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9526.1356521613,
+      "fp": 201012.17472374806,
+      "fn": 51461.86434783871,
+      "coverage": 0.15619688548831406,
+      "farfield_gt5px_dti": 0.10189814995510095,
+      "farfield_ci95": [
+        0.09700621964446653,
+        0.10754418618451922
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "control",
+      "support_px": 121131,
+      "spacing": 2.8
+    },
+    {
+      "label": "osv2 corroborated md2.0 prune2",
+      "emitted": 38094,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.026490143226940207,
+      "ci95": [
+        0.023022792095544718,
+        0.02938461884577886
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2306.197060876554,
+      "fp": 189035.2328612341,
+      "fn": 58681.802939123445,
+      "coverage": 0.03781394800414105,
+      "farfield_gt5px_dti": 0.02352676293149476,
+      "farfield_ci95": [
+        0.020281489816881285,
+        0.026230486495569413
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.0,
+      "field": "osv2 corroborated"
+    },
+    {
+      "label": "osv2 corroborated md2.8 prune2",
+      "emitted": 23099,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.027819780303848324,
+      "ci95": [
+        0.024135492411483366,
+        0.03079861074480683
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2005.8836459517752,
+      "fp": 114556.04278399565,
+      "fn": 58982.11635404822,
+      "coverage": 0.03288980858450474,
+      "farfield_gt5px_dti": 0.024923349254039478,
+      "farfield_ci95": [
+        0.021689863663756016,
+        0.02874814795901755
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.8,
+      "field": "osv2 corroborated"
+    },
+    {
+      "label": "osv2 corroborated md3.5 prune2",
+      "emitted": 17306,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.025948137103793595,
+      "ci95": [
+        0.022769824898487147,
+        0.029064922368266456
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1720.2540107622467,
+      "fp": 85807.03559703525,
+      "fn": 59267.74598923775,
+      "coverage": 0.028206434229065498,
+      "farfield_gt5px_dti": 0.02347538293313633,
+      "farfield_ci95": [
+        0.020988438726057185,
+        0.027366948602866422
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 3.5,
+      "field": "osv2 corroborated"
+    },
+    {
+      "label": "osv2 topo-only md2.0 prune2",
+      "emitted": 44770,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.015552915311046148,
+      "ci95": [
+        0.013655953340303494,
+        0.017453326072204966
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1457.3479465154346,
+      "fp": 223103.44125397035,
+      "fn": 59530.65205348456,
+      "coverage": 0.023895650726625476,
+      "farfield_gt5px_dti": 0.015108212187818536,
+      "farfield_ci95": [
+        0.013291694684761364,
+        0.016680036054688856
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.0,
+      "field": "osv2 topo-only"
+    },
+    {
+      "label": "osv2 topo-only md2.8 prune2",
+      "emitted": 30687,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.01628944917156223,
+      "ci95": [
+        0.014437847408658007,
+        0.018136012811138122
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1297.023790858996,
+      "fp": 152868.73243238768,
+      "fn": 59690.97620914101,
+      "coverage": 0.021266868742359085,
+      "farfield_gt5px_dti": 0.016127930704752585,
+      "farfield_ci95": [
+        0.01419738228296382,
+        0.018483750700678803
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.8,
+      "field": "osv2 topo-only"
+    },
+    {
+      "label": "osv2 topo-only md3.5 prune2",
+      "emitted": 24653,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.01583823901007317,
+      "ci95": [
+        0.014020835963975022,
+        0.01744476792001168
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1165.3931102645383,
+      "fp": 122787.49502892344,
+      "fn": 59822.60688973546,
+      "coverage": 0.019108564148103534,
+      "farfield_gt5px_dti": 0.015676244803102216,
+      "farfield_ci95": [
+        0.013828225872052702,
+        0.01741659064271757
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 3.5,
+      "field": "osv2 topo-only"
+    }
+  ],
+  "elapsed_seconds": 205.2
+}

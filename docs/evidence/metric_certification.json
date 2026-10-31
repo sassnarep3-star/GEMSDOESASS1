@@ -1,0 +1,205 @@
+{
+  "evidence_class": "METRIC-CERTIFICATION",
+  "evaluator": "vendor/gems57/metric.py",
+  "alpha": 0.2,
+  "beta": 0.8,
+  "radius_px": 3.0,
+  "checks": [
+    {
+      "name": "I4 oracle DTI (P == T)",
+      "got": 0.9999999999999976,
+      "want": 1.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "TP=420.0 FP=0.0 FN=0.0 K=420"
+    },
+    {
+      "name": "I1 denominator [random 400 dots]",
+      "got": 423.20302790703363,
+      "want": 423.20302790703363,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "DTI=0.1292 TP=54.7 FP=381.3 K=420 n_emit=400"
+    },
+    {
+      "name": "I1b brute-force agreement [random 400 dots]",
+      "got": 0.12920939264604434,
+      "want": 0.12920939264604425,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "I1 denominator [on-line dots s=3]",
+      "got": 401.4,
+      "want": 401.4,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "DTI=0.8146 TP=327.0 FP=0.0 K=420 n_emit=141"
+    },
+    {
+      "name": "I1b brute-force agreement [on-line dots s=3]",
+      "got": 0.8146487294469337,
+      "want": 0.8146487294469341,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "I1 denominator [soft random field]",
+      "got": 1820.7768919089078,
+      "want": 1820.776891908908,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "DTI=0.0696 TP=126.8 FP=7297.1 K=420 n_emit=25600"
+    },
+    {
+      "name": "I1b brute-force agreement [soft random field]",
+      "got": 0.06963014082156128,
+      "want": 0.0696301408215612,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "I1 denominator [5 px corridor]",
+      "got": 588.0,
+      "want": 588.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "DTI=0.7143 TP=420.0 FP=840.0 K=420 n_emit=2100"
+    },
+    {
+      "name": "I1b brute-force agreement [5 px corridor]",
+      "got": 0.7142857142857131,
+      "want": 0.7142857142857137,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "I1 denominator [1 px off-line s=2]",
+      "got": 400.2010101267767,
+      "want": 400.2010101267767,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "DTI=0.6272 TP=251.0 FP=70.0 K=420 n_emit=210"
+    },
+    {
+      "name": "I1b brute-force agreement [1 px off-line s=2]",
+      "got": 0.6271974439903806,
+      "want": 0.6271974439903811,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "I2a sign of recall lever",
+      "got": 1.0,
+      "want": 1.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "DTI 0.1292 -> 0.1338"
+    },
+    {
+      "name": "I2b sign of precision lever",
+      "got": -1.0,
+      "want": -1.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "DTI 0.1292 -> 0.1291"
+    }
+  ],
+  "lever_ratio_recall_over_precision": 37.69687719759636,
+  "marginal_rule": {
+    "base_dti": 0.5602536997885791,
+    "rows": [
+      {
+        "offset_px": 0,
+        "measured_dti": 0.890410958904103,
+        "improved": true,
+        "dT_per_px": 0.5066666666666668,
+        "dFP_per_px": 0.0,
+        "bar_alpha_times_dti": 0.11205073995771582,
+        "predicted_accept": true,
+        "agree": true
+      },
+      {
+        "offset_px": 1,
+        "measured_dti": 0.6794763822269445,
+        "improved": true,
+        "dT_per_px": 0.22645168299251367,
+        "dFP_per_px": 0.3333333333333332,
+        "bar_alpha_times_dti": 0.11205073995771582,
+        "predicted_accept": true,
+        "agree": true
+      },
+      {
+        "offset_px": 2,
+        "measured_dti": 0.5427750264673262,
+        "improved": false,
+        "dT_per_px": 0.056451682992513665,
+        "dFP_per_px": 0.6666666666666665,
+        "bar_alpha_times_dti": 0.11205073995771582,
+        "predicted_accept": false,
+        "agree": true
+      },
+      {
+        "offset_px": 3,
+        "measured_dti": 0.4835766423357631,
+        "improved": false,
+        "dT_per_px": 0.0,
+        "dFP_per_px": 1.0,
+        "bar_alpha_times_dti": 0.11205073995771582,
+        "predicted_accept": false,
+        "agree": true
+      }
+    ]
+  },
+  "spacing_model": [
+    {
+      "spacing_px": 1,
+      "measured_dti": 0.9999999999999929,
+      "model_dti": 0.9322033898305084,
+      "coverage": 1.0
+    },
+    {
+      "spacing_px": 1.5,
+      "measured_dti": 0.8620689655172351,
+      "model_dti": 0.8974358974358974,
+      "coverage": 0.8333333333333335
+    },
+    {
+      "spacing_px": 2,
+      "measured_dti": 0.8620689655172351,
+      "model_dti": 0.8620689655172413,
+      "coverage": 0.8333333333333335
+    },
+    {
+      "spacing_px": 2.8,
+      "measured_dti": 0.8146487294469296,
+      "model_dti": 0.8041958041958043,
+      "coverage": 0.7785714285714286
+    },
+    {
+      "spacing_px": 3,
+      "measured_dti": 0.8146487294469296,
+      "model_dti": 0.7894736842105262,
+      "coverage": 0.7785714285714286
+    },
+    {
+      "spacing_px": 4,
+      "measured_dti": 0.7099080694586261,
+      "model_dti": 0.7142857142857143,
+      "coverage": 0.661904761904762
+    },
+    {
+      "spacing_px": 6,
+      "measured_dti": 0.5602536997885791,
+      "model_dti": 0.5555555555555556,
+      "coverage": 0.5047619047619047
+    }
+  ],
+  "kernel_sum_over_line_profile": 3.0000000000000004,
+  "all_checks_passed": true
+}
