@@ -84,14 +84,13 @@
     "review_record": "docs/REPO_REVIEW_2026-10-30.md"
   },
   "post_review_2026-10-31_implementation_sha256": {
-    "scripts/build_site.py": "e2fd1ea4075849756b50310eae43a4d58e81eb34e58317f8fe23766e98539dc2",
-    "scripts/verify_release.py": "02a0d96bf9e0008ce8402c2c09abfbb2a2f5b6bf39c25b0789c86aaeeaf65259",
+    "scripts/build_site.py": "1f0db23f5954e8599dddb52b0630b5411e81465d527000f1c16aa9886d79faca",
     "scripts/check_release_entrypoints.py": "4d2b9ba8fc6fe94c4d81f0f66d66d30a89530a2ecbab32ccec4d5951b1a49052",
     "scripts/make_release.py": "06454397858d918456695843af17d03f3719cb38c85fc48cecfecc7b2b0b184a",
     "scripts/registry_snapshot.py": "3db47b0bcbd279102d3a26fdbeb126d206c1fd2f4063968f5fee48ec058b4540",
-    "scripts/restore_externals.py": "8e3042e8b0526c06506da3377751e3ab4ece0fa02f6eed9599a1aec33e2a76c0"
+    "scripts/restore_externals.py": "8e3042e8b0526c06506da3377751e3ab4ece0fa02f6eed9599a1aec33e2a76c0",
+    "scripts/verify_release.py": "02a0d96bf9e0008ce8402c2c09abfbb2a2f5b6bf39c25b0789c86aaeeaf65259"
   },
-  "post_review_2026-10-31_scope": "2026-10-31 H-KDAM lane. build_site.py: the release card, metric strip and the nine-site table are data-driven (measurement of the restored registry replaces the reported uniquity text; lattice disclosure rendered from evidence/kdam/release.json). verify_release.py: docs/downloads is now hash-locked to evidence cards (any published TIF/ZIP must have its sha256 claimed by a card, and any release card that approves its own file must agree with its gate table), and this post-review map is consulted. Frozen 2026-10-27 hashes are unchanged; registry/focus_inventory.json was restored to its 2026-10-27 bytes after a concurrent lane rewrote failed=0 as failed=114 without changing any data. Merged with the concurrent H-TIPRELAY lane (2026-10-31): active-release selection tiprelay->kdam->thermal, additive tiprelay/kdam checks, merged post-review maps; final bytes of both files re-pinned after the merge.",
   "post_review_2026-10-31_change_reasons": {
     "scripts/registry_snapshot.py": "2026-10-31: git-protocol fallback for REST-quota failures; same pinned-blob verification (protocol item 2 fix).",
     "scripts/restore_externals.py": "2026-10-31: git-protocol fallback for REST-quota failures; same sha256/size verification (protocol item 2 fix).",

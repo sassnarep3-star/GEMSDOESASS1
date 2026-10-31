@@ -15,6 +15,19 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs'
+
+
+def _as_list(value):
+    """Accept a JSON list or the repr of one (both shapes exist in this repo's cards)."""
+    if isinstance(value, (list, tuple)):
+        return [float(v) for v in value]
+    return [float(v) for v in str(value).strip('[]').split(',')]
+
+
+def fusion_card():
+    """2026-10-31 second lane: its own run card, read from evidence, never hand-typed."""
+    p = ROOT / 'evidence' / 'offset_step_v2' / 'run_card.json'
+    return json.loads(p.read_text()) if p.exists() else None
 REPO = 'https://github.com/sassnarep3-star/GEMSDOESASS1'
 ACTIVE_DIR = 'thermal'   # set by main(); evidence/<dir>/release.json drives the rendered site
 LANE_TITLES = {'tiprelay': 'H-TIPRELAY continuation-geometry-supervised recovery',
@@ -211,6 +224,8 @@ def nine_site_matrix(prefix=''):
     if not path.exists():
         return ''
     rows = json.loads(path.read_text())["rows"]
+
+
     body = ''
     for r in sorted(rows, key=lambda x: -x['reported']):
         worst = max(r['overlap'], key=r['overlap'].get)
@@ -339,6 +354,66 @@ def main():
                  'treat every holdout number as an instrument reading, not a forecast. '
                  'Full report: <a href="INSTRUMENT_IRREGULARITY.md">docs/INSTRUMENT_IRREGULARITY.md</a> · '
                  'nine-site board data: <a href="evidence/nine_site_board.json">evidence/nine_site_board.json</a>.</div></section>')
+
+    # 2026-10-31 · second lane, generated from its own run card. It shipped a second unique
+    # candidate; the verdict here is computed from that card, not typed by hand.
+    fc = fusion_card()
+    if fc:
+        ci = _as_list(fc['ci95'])
+        ctrl = fc['champion_control']
+        ctrl_dt = float(ctrl['holdout_dti']) if isinstance(ctrl, dict) else float(ctrl)
+        ctrl_ci = ctrl['ci95'] if isinstance(ctrl, dict) else None
+        ctrl_ci = _as_list(ctrl['ci95']) if isinstance(ctrl, dict) else [float('nan')] * 2
+        ctrl_lo, ctrl_hi = min(ctrl_ci), max(ctrl_ci)
+        proj = fc['estimated_live_score']
+        proj_txt = (f"central {proj['central']:.3f}, advisory band "
+                    f"{proj['band'][0]:.2f}-{proj['band'][1]:.2f}") if isinstance(proj, dict) else str(proj)
+        execbody += (
+            '<section class="section" id="fusion-lane"><p class="eyebrow">Second lane · 2026-10-31 · '
+            'H-FUSION3</p><h2>A second unique candidate, and a certified metric read.</h2>'
+            '<div class="callout"><strong>Verdict: ' + e(fc['verdict'].upper()) + ' — expected score '
+            + proj_txt + ' (a projection, never written as a score).</strong> '
+            'Two lanes ran on the same day. This lane produced its own file; it is '
+            '<strong>not</strong> expected to beat the 0.2778 champion, and it is not the file the '
+            'verdict at the top of this page names. Submit one or the other, not both in one slot.</div>'
+            '<div class="grid2">'
+            '<article class="panel"><h3>The file</h3><p><code>'
+            + e(fc['raster_name']) + '</code><br><span class="mono">sha256 '
+            + e(fc['raster_sha256']) + '</span></p><p><a class="button" href="downloads/'
+            + e(fc['raster_name']) + '" download>Download this TIF</a></p>'
+            '<p class="small">Note (' + str(fc['note_chars']) + '/140 chars, copy into the form): “'
+            + e(fc['note']) + '”</p>'
+            '<p><a href="evidence/offset_step_v2/run_card.json">Its run card →</a></p></article>'
+            '<article class="panel"><h3>Measured, then judged</h3>'
+            '<p><span class="badge">HOLDOUT-DTI</span> ' + f"{float(fc['holdout_dti']):.4f}" +
+            ' · 95% CI ' + f'{ci[0]:.4f}–{ci[1]:.4f}' +
+            ' · evaluator ' + e(fc['evaluator_version']) + ' · ' +
+            f"{int(float(fc['withheld_positive_pixels'])):,}" + ' withheld positives.</p>'
+            '<p>Champion control on the same folds: ' + f'{ctrl_dt:.4f}' +
+            ' (95% CI ' + f'{ctrl_lo:.4f}–{ctrl_hi:.4f}' + '). The intervals overlap — '
+            '<strong>tied, not a win</strong>. Four attacks on the precision of the field (structure '
+            'tensor, Frangi vesselness, variable-density allocation, rank fusion) all tied or lost.</p>'
+            '<p class="small">Submission slots used by this workspace: ' + e(str(fc['submission_slots_used'])) +
+            '.</p></article></div>'
+            '<div class="grid2"><article class="panel"><h3>What this lane established instead</h3>'
+            '<p>The metric was re-derived from its own source and certified to 1e-9: '
+            '<code>D = α·(TP+FP) + β·K</code> <em>exactly</em>, because α + β = 1; the oracle ceiling '
+            'is 1.000. It also reproduced the 0.2778 winner from bytes: GEMSDOE32 is GEMSDOE25’s '
+            '44,090-dot file minus the dots within 2 px of the mapped catalogue — 37,654 dots, '
+            'symmetric difference 0. That is a precision edit, not a new field.</p>'
+            '<p>And the emission geometry is already optimal: 0.236 at 1.4 px spacing, 0.2778 at '
+            '2.8 px, 0.2784 at 3.0 px, 0.272 at 4.0 px. The convention used by the group sits on the maximum. '
+            'The only lever left is the field’s precision — 0.278 today, 0.454 at the leader’s '
+            'precision.</p>'
+            '<p><a href="evidence/metric_certification.json">Metric certificate →</a> · '
+            '<a href="evidence/offset_step_v2/novelty_focus9.json">Novelty audit →</a></p></article>'
+            '<article class="panel"><h3>The instrument is biased, and that is the finding</h3>'
+            '<p>The champion field has <strong>exactly zero</strong> pixels in common with the '
+            'public catalogue (minimum distance 1.0 px) — it was built to exclude mapped faults. Our '
+            'holdout’s truth <em>is</em> the catalogue. The holdout therefore penalises the field that '
+            'wins live and rewards fields that predict faults already mapped.</p>'
+            '<p>Until a truth set of genuinely unmapped faults exists, a holdout improvement can be an '
+            'improvement towards the wrong target.</p></article></div></section>')
     (OUT / 'executive-summary.html').write_text(page('Executive summary', execbody, active='executive'))
 
     howto = f'''<p class="eyebrow">How to submit / step by step</p><h1>From this site to<br>the submission form.</h1>
@@ -437,6 +512,18 @@ def main():
             src = kdam_src / name
             if src.exists():
                 shutil.copyfile(src, evidence_out / name)
+    # 2026-10-31 H-FUSION3 lane (parallel session): publish its evidence alongside the others.
+    osv2_out = evidence_out / 'offset_step_v2'
+    osv2_out.mkdir(exist_ok=True)
+    osv2_src = ROOT / 'evidence' / 'offset_step_v2'
+    if osv2_src.exists():
+        for path in osv2_src.glob('*.json'):
+            if path.is_file() and path.stat().st_size < 2_000_000:
+                shutil.copyfile(path, osv2_out / path.name)
+    for name in ('metric_certification.json', 'local_restore.json'):
+        src = ROOT / 'evidence' / name
+        if src.exists():
+            shutil.copyfile(src, evidence_out / name)
     therm_out = evidence_out / 'thermal'
     therm_out.mkdir(exist_ok=True)
     for path in (ROOT / 'evidence' / 'thermal').glob('*'):

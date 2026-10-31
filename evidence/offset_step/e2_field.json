@@ -1,0 +1,230 @@
+{
+  "evidence_class": "HOLDOUT-DTI",
+  "evaluator": "GEMSASS1-HR-v2-segment",
+  "generated_utc": "2026-10-31T05:28:27.034962+00:00",
+  "hypothesis": "H-OFFSET-STEP: multi-instrument across-strike step corroboration",
+  "n_segments": 3199,
+  "n_withheld_positives": 60988,
+  "rows": [
+    {
+      "label": "CONTROL champion H19-5 md2.8 prune0",
+      "emitted": 44090,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.10068791862844308,
+      "ci95": [
+        0.09590918143429712,
+        0.10489291817349677
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9460.564784582632,
+      "fp": 216383.85734098795,
+      "fn": 51527.435215417376,
+      "coverage": 0.15512174172923576,
+      "farfield_gt5px_dti": 0.10154992293080713,
+      "farfield_ci95": [
+        0.09680909939485921,
+        0.10596798918110403
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "control",
+      "support_px": 121131,
+      "spacing": 2.8
+    },
+    {
+      "label": "CONTROL champion H19-5 md2.8 prune2",
+      "emitted": 41017,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.1048002062385249,
+      "ci95": [
+        0.09975329221867935,
+        0.10955788951761336
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 9526.1356521613,
+      "fp": 201012.17472374806,
+      "fn": 51461.86434783871,
+      "coverage": 0.15619688548831406,
+      "farfield_gt5px_dti": 0.10189814995510095,
+      "farfield_ci95": [
+        0.09700621964446653,
+        0.10754418618451922
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "control",
+      "support_px": 121131,
+      "spacing": 2.8
+    },
+    {
+      "label": "H-OFFSET-STEP product topo*geo md2.8 prune2",
+      "emitted": 18341,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04527865090623007,
+      "ci95": [
+        0.04094015163294415,
+        0.050029181063465766
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3053.2348464456395,
+      "fp": 90155.30166873719,
+      "fn": 57934.76515355436,
+      "coverage": 0.05006287870475568,
+      "farfield_gt5px_dti": 0.04483821390213644,
+      "farfield_ci95": [
+        0.040066741886053435,
+        0.05016026658840986
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.8,
+      "field": "product topo*geo"
+    },
+    {
+      "label": "H-OFFSET-STEP topo only md2.8 prune2",
+      "emitted": 18438,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.053273732416663104,
+      "ci95": [
+        0.04882881735880156,
+        0.05841255691889328
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3600.916583241898,
+      "fp": 90410.69323843387,
+      "fn": 57387.0834167581,
+      "coverage": 0.059043034420572876,
+      "farfield_gt5px_dti": 0.05523589757082576,
+      "farfield_ci95": [
+        0.04881256882562651,
+        0.060180214884095466
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.8,
+      "field": "topo only"
+    },
+    {
+      "label": "H-OFFSET-STEP geo only md2.8 prune2",
+      "emitted": 17384,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.028273324331782267,
+      "ci95": [
+        0.024349828177976193,
+        0.031777815824255276
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1876.002088626467,
+      "fp": 85933.84993342918,
+      "fn": 59111.99791137353,
+      "coverage": 0.030760183784129123,
+      "farfield_gt5px_dti": 0.02624205864060967,
+      "farfield_ci95": [
+        0.022048252376287523,
+        0.029878455727773836
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.8,
+      "field": "geo only"
+    },
+    {
+      "label": "H-OFFSET-STEP product md2.0 prune2",
+      "emitted": 32854,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04474364323360548,
+      "ci95": [
+        0.04033783236892292,
+        0.049431497878600156
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3660.2243071318712,
+      "fp": 161409.48722649628,
+      "fn": 57327.775692868134,
+      "coverage": 0.060015483490717364,
+      "farfield_gt5px_dti": 0.04384358799276782,
+      "farfield_ci95": [
+        0.039422690197941916,
+        0.04882670645646802
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.0
+    },
+    {
+      "label": "H-OFFSET-STEP product md2.8 prune2",
+      "emitted": 18341,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04527865090623007,
+      "ci95": [
+        0.04094015163294415,
+        0.050029181063465766
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 3053.2348464456395,
+      "fp": 90155.30166873719,
+      "fn": 57934.76515355436,
+      "coverage": 0.05006287870475568,
+      "farfield_gt5px_dti": 0.04483821390213644,
+      "farfield_ci95": [
+        0.040066741886053435,
+        0.05016026658840986
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 2.8
+    },
+    {
+      "label": "H-OFFSET-STEP product md3.5 prune2",
+      "emitted": 13071,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.04215849169828843,
+      "ci95": [
+        0.03724475126283567,
+        0.04689894095381815
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 2620.7403158207053,
+      "fp": 64247.24045772095,
+      "fn": 58367.25968417929,
+      "coverage": 0.04297140938907171,
+      "farfield_gt5px_dti": 0.041914525085451695,
+      "farfield_ci95": [
+        0.037773288801993286,
+        0.04670154189135046
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 3.5
+    },
+    {
+      "label": "H-OFFSET-STEP product md4.5 prune2",
+      "emitted": 8729,
+      "evaluator": "GEMSASS1-HR-v2-segment",
+      "holdout_dti": 0.03207702965070074,
+      "ci95": [
+        0.029040408521598716,
+        0.03612265919023624
+      ],
+      "n_withheld_positives": 60988,
+      "tp": 1852.5278725248636,
+      "fp": 42957.85017459492,
+      "fn": 59135.472127475135,
+      "coverage": 0.030375284851525932,
+      "farfield_gt5px_dti": 0.03162064162501842,
+      "farfield_ci95": [
+        0.02810377117577448,
+        0.03524770075994002
+      ],
+      "evidence_class": "HOLDOUT-DTI",
+      "role": "candidate",
+      "support_px": 121131,
+      "spacing": 4.5
+    }
+  ],
+  "elapsed_seconds": 225.9
+}

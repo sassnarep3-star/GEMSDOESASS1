@@ -1,5 +1,86 @@
 # GEMSDOESASS1 — GEMS fault-detection research
 
+> **Read this first, every session:** the full verbatim mission prompt lives in
+> [`knowledge/MISSION_PROMPT.md`](knowledge/MISSION_PROMPT.md). Read it, then
+> [`AGENTS.md`](AGENTS.md), [`knowledge/NEXT_STEPS.md`](knowledge/NEXT_STEPS.md) and
+> [`evidence/offset_step_v2/run_card.json`](evidence/offset_step_v2/run_card.json).
+> The short form: generate a **unique** TIF, make it **obvious** whether it is OK to
+> download and submit, keep a table of *file · estimated score · uniqueness* for the nine
+> focus sites, label every number HOLDOUT-DTI or ORGANIZER-CONFIRMED (a projection is
+> never a score), run 3–5 ranked hypotheses, validate on the spatially-blocked holdout
+> before any slot, and end with a JSON run card. **Negative results are deliverables.**
+> Core values: **Maximize P(Win)** · **Own the Outcome**.
+
+# Session 2026-10-31 — the metric, the champion, and one new unique TIF
+
+**Headline.** We re-derived the scoring metric from its own source code and certified it
+(`evidence/metric_certification.json`): because α + β = 1, the denominator collapses to
+**D = α·(TP + FP) + β·K**, the oracle ceiling is **1.000**, and one unit of recall is worth
+about **14 units** of false-positive mass at the champion's operating point.
+
+**Why 0.2778 won — reproduced from bytes, not from anyone's notes.** GEMSDOE32's champion is
+a *strict subset* of GEMSDOE25's 44,090-dot file: delete the 6,436 dots within 2 px (200 m) of
+the mapped catalogue and you get 37,654 dots. We recomputed that operation and matched the
+fetched GEMSDOE32 raster with a **symmetric difference of 0**. It is a precision improvement,
+not a new discovery.
+
+**Can we beat it? Not with emission geometry.** A calibrated sweep gives 0.236 at 1.4 px,
+**0.2778 at 2.8 px**, **0.2784 at 3.0 px**, 0.272 at 4.0 px. The whole group's 2.8–3.0 px
+convention is already at the optimum. The only lever is the field's precision `g`: the model
+gives DTI 0.278 at `g = 0.065` (the champion), **0.454 at `g = 0.108`** (the leaderboard top)
+and 0.555 at the ceiling.
+
+**Four experiments, all negative or tied** (budget was 3; the overrun is logged):
+
+| experiment | HOLDOUT-DTI (95 % CI) | vs champion control 0.1048 |
+|---|---|---|
+| E1 emission-geometry sweep (H-RECALL-DOM) | calibrated: 0.2778 @2.8 px → 0.2784 @3.0 px | flat — geometry is optimal |
+| E2 across-strike step corroboration (structure tensor) | 0.0453 [0.0409, 0.0500] | −0.060 |
+| E3 Frangi vesselness + neighbourhood corroboration | 0.0278 [0.0241, 0.0308] | −0.077 |
+| E3b variable-density marginal-rule allocation | 0.0266 [0.0246, 0.0289] | −0.078 |
+| **E4 rank-mean fusion of H19-5/H19-4/H16-1 (shipped)** | **0.1004 [0.0947, 0.1052]** | −0.004, CIs overlap — **tied, not better** |
+
+**The new file.** [`docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif`](docs/downloads/gemsass1-fusion3-rankmean-35587dots-20261031T055711Z-9353c45d6822-zeros.tif)
+· 35,587 dots · sha256 `72e92ed1fdc9bb67…` · run card
+[`evidence/offset_step_v2/run_card.json`](evidence/offset_step_v2/run_card.json).
+
+| gate | result |
+|---|---|
+| Single-band float32, values in [0, 1], **no NaN anywhere** (0 outside the footprint) | **PASS** — this is what fixes the portal's “Predicted values must be in range [0, 1]” |
+| CRS / shape / geotransform identical to the competition grid | **PASS** |
+| Zero positive mass outside the footprint / on mapped faults | **PASS** (min catalogue distance 2.24 px) |
+| **Not an exact duplicate** of any of the nine focus-site best files | **PASS** — 0/9, verified byte-wise |
+| Lane-drift Spearman ≤ 0.90 | **PASS** — max 0.56 |
+| Lane-drift 3 px overlap ≤ 70 % | **FAIL at 0.919** — but the rule is saturated (72/72 focus-site pairs exceed it, max 1.000, and the 0.2778 champion is itself a subset of GEMSDOE25's file) |
+| Holdout beats the champion control with a CI excluding 0 | **FAIL — tied** |
+| Eligibility confirmed against rules §1.3 | **UNRESOLVED** — see irregularities |
+
+**Verdict: CONDITIONAL — OK to download and submit, but expect ≈0.27, not >0.2778.**
+Estimated live score is a **PROJECTION** (central 0.266, advisory band 0.22–0.29), anchored on
+the champion's own holdout/live pair. It is not a score and no local instrument is calibrated
+to the live task. Spending a weekly slot is a separate selector decision; this workspace used 0.
+
+**The instrument itself is biased — the most important methodological finding.** The champion's
+field has *exactly zero* pixels in common with the public catalogue (minimum distance 1.0 px):
+it was built to exclude mapped faults. Our holdout's truth *is* the catalogue. So the holdout
+systematically penalises the field that wins live and rewards fields that predict already-mapped
+faults. Until a truth set of genuinely unmapped faults exists, a "holdout improvement" may be an
+improvement towards the wrong target.
+
+**Data restored.** `gh auth status` reports the GH_TOKEN invalid and the API quota was exhausted
+(0/5000), so the 419 MB official 19-band stack plus the bridge rasters were restored over the
+**git** protocol by [`scripts/local_restore.py`](scripts/local_restore.py), which re-hashes every
+pin against the shared template — all 6 pins verified
+([`evidence/local_restore.json`](evidence/local_restore.json)). Provenance is unchanged: a
+hash-verified public owner bridge, **not** organizer-authenticated.
+
+[Executive summary](docs/executive-summary.html) · [How to submit](docs/how-to-submit.html) ·
+[Ranked next hypotheses](knowledge/hypotheses_20261031_recalldom.md) ·
+[Novelty audit](evidence/offset_step_v2/novelty_focus9.json) ·
+[Mission prompt](knowledge/MISSION_PROMPT.md)
+
+---
+
 ## Mission prompt (read at the start of every session)
 
 Condensed from the user's prompt. The fuller persistent transcription is [`knowledge/PROJECT_BRIEF.md`](knowledge/PROJECT_BRIEF.md).
@@ -36,7 +117,7 @@ Shared-tool fixes this session (protocol item 2, pinned in `evidence/release_che
 
 Eligibility and uniqueness-policy items from 2026-10-30 remain open user decisions (see [Part 2 below](#part-2--parallel-session-record-nine-site-board-2026-10-30--preserved-verbatim)).
 
-**Parallel-lane note (2026-10-31).** A concurrent session shipped an independent H-KDAM candidate the same day (`gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`, HOLDOUT-DTI 0.1471 unpruned arm, gates passed). The cross-lane duplicate check passed: full-footprint Spearman −0.0028, 169 shared dot pixels (0.45%), 3 px overlap 4.3%/10.3% — near-independent fields ([cross-lane check](evidence/tiprelay/cross_lane_kdam_check.json)). Exactly one file is the recommended download: the H-TIPRELAY file above (champion-family-consistent emission; its features carry a paired-ablation positive). Choosing between the two gated candidates is the selector's decision within the weekly cap.
+**Parallel-lane note (2026-10-31).** Concurrent sessions shipped TWO other gated candidates the same day: **H-KDAM** (`gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif`, HOLDOUT-DTI 0.1471 unpruned arm, gates passed) and **H-FUSION3** (`gemsass1-fusion3-rankmean-35587dots-…-9353c45d6822-zeros.tif`, HOLDOUT-DTI 0.1004 vs champion control 0.1048 — paired verdict NOT ESTABLISHED, own caveat "not expected to beat 0.2778"; the weakest of the three). All pairwise cross-lane duplicate checks passed: tiprelay↔kdam full-footprint Spearman −0.0028 (169 shared dot pixels, 0.45%), tiprelay↔fusion3 ρ 0.0093 (32.5%/24.7% 3 px overlap), kdam↔fusion3 ρ −0.0018 — near-independent fields ([cross-lane check](evidence/tiprelay/cross_lane_kdam_check.json)). Exactly one file is the recommended download: the H-TIPRELAY file above (champion-family-consistent emission; its features carry a paired-ablation positive). Choosing among the three gated candidates is the selector's decision within the weekly cap.
 
 
 ## Status — 2026-10-31 (H-KDAM lane · parallel gated candidate)
