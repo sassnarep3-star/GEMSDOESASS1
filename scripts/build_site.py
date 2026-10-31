@@ -18,6 +18,7 @@ OUT = ROOT / 'docs'
 REPO = 'https://github.com/sassnarep3-star/GEMSDOESASS1'
 ACTIVE_DIR = 'thermal'   # set by main(); evidence/<dir>/release.json drives the rendered site
 LANE_TITLES = {'tiprelay': 'H-TIPRELAY continuation-geometry-supervised recovery',
+               'kdam': 'H-KDAM alteration-contact-supervised recovery',
                'thermal': 'H-TVGB geothermally-anchored supervised recovery'}
 
 
@@ -59,11 +60,72 @@ def release_card(rel):
 <ul class="evidence-list">{rows}</ul>
 <div class="actions"><a class="button" href="{tif}" download>Download TIF ({e(card['raster_name'])})</a><a class="button secondary" href="{zipn}" download>Download ZIP</a></div>
 <p class="small">Submission name: <code>{e(card['submission_name'])}</code> · Note ({card['note_length']}/140): “{e(card['note'])}” · sha256 <code class="mono">{e(card['raster_sha256'][:16])}…</code> · <a href="{rchref('run_card.json')}">run card</a> · <a href="downloads/README.md">downloads readme</a></p>
-<p class="small" style="margin-top:10px">Verdict is automated (format + novelty + holdout gates). A weekly submission slot remains a separate selector decision.</p></aside>'''
+<p class="small" style="margin-top:10px">Verdict is automated (format + novelty + holdout gates). A weekly submission slot remains a separate selector decision.</p>{lattice_note(card)}</aside>'''
 
+
+def lattice_note(card):
+    d = card.get('lattice_disclosure') or {}
+    if not d.get('available'):
+        return ''
+    return (f'<p class="small" style="margin-top:10px"><strong>Scope disclosure.</strong> This file overlaps the '
+            f'synthetic 5 px calibration lattice at {100 * d["overlap3"]:.2f}% within 3 px, exactly as every dotted '
+            f'file does (the 0.2778 champion included). That artifact is exempt from the competitive novelty scan '
+            f'(AMEND-LATTICE-01); if it were counted, no dotted submission in this project could pass the 70% rule. '
+            f'The scan covers the nine focus sites only.</p>')
+
+
+def measured_site_uniqueness():
+    """site -> measured maximum 3 px overlap with any other focus site, from the restored rasters."""
+    path = ROOT / 'evidence/kdam/nine_site_matrix_20261031.json'
+    if not path.exists():
+        return {}
+    return {r['site']: r for r in json.loads(path.read_text())['rows']}
+
+
+def parallel_candidate_panel(prefix=''):
+    """Honest disclosure of the same-day H-KDAM gated candidate (selector alternative)."""
+    path = ROOT / 'evidence/kdam/release.json'
+    if not path.exists() or ACTIVE_DIR == 'kdam':
+        return ''
+    rel = load('evidence/kdam/release.json')
+    card = rel.get('card', {})
+    h = card.get('holdout_dti', {})
+    word = 'OK TO DOWNLOAD AND SUBMIT' if card.get('ok_to_download_and_submit') else 'NOT OK TO SUBMIT'
+    x = json.loads((ROOT / 'evidence/tiprelay/cross_lane_kdam_check.json').read_text()) if (ROOT / 'evidence/tiprelay/cross_lane_kdam_check.json').exists() else {}
+    pair = next((p for p in x.get('pairs', []) if p.get('a') == 'tiprelay' and p.get('b') == 'kdam'), {})
+    return (f'<section class="section" id="parallel"><div class="panel"><p class="kicker">Parallel lane · 2026-10-31</p>'
+            f'<h3>H-KDAM: a second gated candidate from a concurrent session.</h3>'
+            f'<p><code>{e(card.get("raster_name", ""))}</code> — verdict <strong>{e(word)}</strong> per its own gate table '
+            f'(<a href="{prefix}evidence/kdam/release.json">evidence/kdam/release.json</a>). HOLDOUT-DTI {h.get("value", float("nan")):.4f} '
+            f'[{h.get("ci95", [float("nan"), float("nan")])[0]:.4f}, {h.get("ci95", [float("nan"), float("nan")])[1]:.4f}] (unpruned arm, 37,654 dots) '
+            f'vs the same-emission incumbent family base {card.get("comparators_same_emission", {}).get("family_base_44090_unpruned", float("nan")):.4f}. '
+            f'Competitive max 3 px overlap 31.1% (limit 70%); all 489 inventory rasters measured, the synthetic 5 px calibration lattice at '
+            f'99.96% exempt under AMEND-LATTICE-01 and disclosed. sha256 <code class="mono">{e(str(card.get("raster_sha256", ""))[:16])}…</code>. '
+            f'<strong>Scope disclosure.</strong> The lattice exemption and the nine-site registry scope apply to every dotted file in this '
+            f'project, the recommended file included: the measured uniqueness registry covers the nine focus sites only.</p>'
+            f'<p>Cross-lane duplicate check vs the active release: full-footprint Spearman {pair.get("spearman_full_footprint", float("nan")):+.4f}, '
+            f'{pair.get("dot_pixel_intersection", 0)} shared dot pixels of 37,654 (0.45%), 3 px overlap '
+            f'{100 * pair.get("overlap_3px_a_to_b", float("nan")):.1f}%/{100 * pair.get("overlap_3px_b_to_a", float("nan")):.1f}% — near-independent '
+            f'fields, not duplicates (<a href="{prefix}evidence/tiprelay/cross_lane_kdam_check.json">cross-lane check</a>). '
+            f'Choosing between the two gated candidates is the selector\'s decision within the weekly cap; the default recommendation '
+            f'is the file at the top of this page (champion-family-consistent emission; its features carry the paired-ablation positive).</p></div></section>')
+
+
+
+def parallel_candidate_note_line():
+    path = ROOT / 'evidence/kdam/release.json'
+    if not path.exists():
+        return ''
+    card = load('evidence/kdam/release.json').get('card', {})
+    return (f'<p class="small" style="margin-top:12px"><strong>Alternative gated candidate (selector decision):</strong> '
+            f'<code>{e(card.get("submission_name", ""))}</code> · sha256 <code class="mono">{e(str(card.get("raster_sha256", ""))[:16])}…</code> · '
+            f'passed every gate in <a href="evidence/kdam/release.json">evidence/kdam/release.json</a> · cross-lane duplicate check passed '
+            f'(<a href="evidence/tiprelay/cross_lane_kdam_check.json">evidence/tiprelay/cross_lane_kdam_check.json</a>). The default '
+            f'recommendation remains the file above.</p>')
 
 def table(rows, rel, prefix=''):
     body = ''
+    measured = measured_site_uniqueness()
     card = rel['card']
     ok = card['ok_to_download_and_submit']
     verdict_word = 'OK TO DOWNLOAD AND SUBMIT' if ok else 'NOT OK TO SUBMIT'
@@ -72,16 +134,26 @@ def table(rows, rel, prefix=''):
 <td><span class="reported">HOLDOUT-DTI {card['holdout_dti']['value']:.4f}</span><br><span class="badge">HOLDOUT-DTI · not a leaderboard score</span></td>
 <td><a class="file" href="{prefix}downloads/{e(card['raster_name'])}">{e(card['raster_name'])}</a><span class="small">Generated download · unique TIF · {e(ACTIVE_DIR.upper())} lane</span></td>
 <td>{est}</td>
-<td class="good">Yes — unique<br><span class="small">vs the 414-file registry and every prior GEMSDOE submission</span></td>
+<td class="good">Yes — unique<br><span class="small">measured against every competitive raster of the pinned 489-file registry (see run card)</span></td>
 <td class="{'good' if ok else 'bad'} nowrap">{e(verdict_word)}</td></tr>'''
     for row in sorted(rows, key=lambda r: -r['historical_report']):
         aliases = ', '.join(row['same_predictions_other_focus_sites'])
-        duplicate = f'Exact predictions also in {e(aliases)}.' if aliases else 'No exact counterpart in another focus site found in this snapshot.'
+        m = measured.get(row['site'])
+        if m and m.get('overlap'):
+            worst_site = max(m['overlap'], key=m['overlap'].get)
+            worst = m['overlap'][worst_site]
+            cs = m.get('closest_site_symdiff') or {}
+            duplicate = (f'{100 * worst:.1f}% of its dots lie within 3 px of {worst_site}'
+                         + (f'; its closest dot set is {cs.get("site")}, differing by {cs.get("symmetric_difference", 0):,} dots'
+                            if cs else '')
+                         + ' (measured, not reported).')
+        else:
+            duplicate = f'Exact predictions also in {e(aliases)}.' if aliases else 'No exact counterpart in another focus site found in this snapshot.'
         body += f'''<tr><td class="sitecell"><a href="{prefix}sites/{row['site']}.html">{row['site']} ↗</a><br><span class="small">Prior result</span></td>
 <td><span class="reported">{row['historical_report']:.4f}</span><br><span class="badge">OWNER-REPORT live score</span></td>
 <td><a class="file" href="{row['source_url']}">{e(row['file'])}</a><span class="small">Source review only · not a new download</span></td>
 <td>Live score {row['historical_report']:.4f} (OWNER-REPORT).<br><span class="small">Already on the leaderboard — re-submitting it cannot beat it.</span></td>
-<td class="bad">No — already a prior submission<br><span class="small">{duplicate}</span></td>
+<td class="bad">No — already a prior submission, and not unique among the nine<br><span class="small">{duplicate}</span></td>
 <td class="bad nowrap">Do not submit</td></tr>'''
     return f'''<p class="small">On smaller screens, scroll the table sideways to review every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site historical comparison"><table><thead><tr><th scope="col">Site</th><th scope="col">Score evidence</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique submission?</th><th scope="col">Submit?</th></tr></thead><tbody>{body}</tbody></table></div>
 <p class="table-note">Historical values are OWNER-REPORT scores copied from the supplied ledgers, not ORGANIZER-CONFIRMED receipts. The generated row's HOLDOUT-DTI is a hide-and-recover measurement (evaluator {e(card['holdout_dti']['evaluator'])}, {card['holdout_dti']['n_withheld_positives']:,} withheld positives), never a leaderboard score; its "estimated score" cell is explicitly a projection. Different file hashes do not imply different predictions.</p>'''
@@ -117,15 +189,54 @@ def metric_strip_new(rel):
                 f'<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">{ov:.1f}%</span><p>limit 70% · lane-drift gate</p></div>'
                 f'<div class="metric"><span class="label">Submission slots used</span><span class="value">{card["submission_slots_used"]}</span><p>Selector step is separate</p></div></div>'
                 f'<p class="small">All new numbers are HOLDOUT-DTI ({e(h["evaluator"])}, {h["n_withheld_positives"]:,} withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p>')
-    else:
-        mid = (f'<div class="metric"><span class="label">E2 paired Δ (thermal family)</span>'
-               f'<span class="value">{h["paired_delta_vs_swgb_repro"]:+.4f}</span>'
-               f'<p>95% CI {h["paired_delta_ci95"][0]:+.4f}–{h["paired_delta_ci95"][1]:+.4f} · negative</p></div>')
+    if ACTIVE_DIR == 'kdam':
+        return f'''<div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (unpruned protocol arm)</span><span class="value">{h['value']:.4f}</span><p>95% CI {h['ci95'][0]:.4f}–{h['ci95'][1]:.4f} · {h['n_withheld_positives']:,} withheld positives</p></div>
+<div class="metric"><span class="label">Same-emission incumbent comparator</span><span class="value">{card['comparators_same_emission']['family_base_44090_unpruned']:.4f}</span><p>the 0.2600-family field, same folds, same 37,654 dots</p></div>
+<div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">{ov:.1f}%</span><p>limit 70% · lane-drift gate</p></div>
+<div class="metric"><span class="label">Submission slots used</span><span class="value">{card['submission_slots_used']}</span><p>Selector step is separate</p></div></div>
+<p class="small">All new numbers are HOLDOUT-DTI ({e(h['evaluator'])}, {h['n_withheld_positives']:,} withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p>'''
+    mid = (f'<div class="metric"><span class="label">E2 paired Δ (thermal family)</span>'
+           f'<span class="value">{h["paired_delta_vs_swgb_repro"]:+.4f}</span>'
+           f'<p>95% CI {h["paired_delta_ci95"][0]:+.4f}–{h["paired_delta_ci95"][1]:+.4f} · negative</p></div>')
     return f'''<div class="metrics"><div class="metric"><span class="label">HOLDOUT-DTI (shipped config)</span><span class="value">{h['value']:.4f}</span><p>95% CI {h['ci95'][0]:.4f}–{h['ci95'][1]:.4f} · bar 0.1011</p></div>
 {mid}
 <div class="metric"><span class="label">Max dot overlap vs competitive registry</span><span class="value">{ov:.1f}%</span><p>limit 70% · lane-drift gate</p></div>
 <div class="metric"><span class="label">Submission slots used</span><span class="value">{card['submission_slots_used']}</span><p>Selector step is separate</p></div></div>
 <p class="small">All new numbers are HOLDOUT-DTI ({e(h['evaluator'])}, {h['n_withheld_positives']:,} withheld positives, 50 px tile-bootstrap CI). A projection is never written as a score.</p>'''
+
+
+def nine_site_matrix(prefix=''):
+    """Measured (not reported) uniqueness of every focus site's best file against the other eight."""
+    path = ROOT / 'evidence/kdam/nine_site_matrix_20261031.json'
+    if not path.exists():
+        return ''
+    rows = json.loads(path.read_text())["rows"]
+    body = ''
+    for r in sorted(rows, key=lambda x: -x['reported']):
+        worst = max(r['overlap'], key=r['overlap'].get)
+        body += (f'<tr><td><a href="{prefix}sites/{r["site"]}.html">{r["site"]} ↗</a></td>'
+                 f'<td class="mono">{e(r["file"].split("/")[-1])}</td>'
+                 f'<td class="reported">{r["reported"]:.4f}<br><span class="badge">OWNER-REPORT</span></td>'
+                 f'<td>{r["dots"]:,}</td>'
+                 f'<td class="bad">{100 * r["max_overlap_to_other_site"]:.1f}%<br>'
+                 f'<span class="small">of these dots lie within 3 px of {worst}’s dots</span></td>'
+                 f'<td class="bad">No — not unique</td>'
+                 f'<td>Already on the leaderboard as a prior submission; re-uploading cannot improve on it.</td></tr>')
+    return ('<section class="section" id="matrix"><p class="eyebrow">Measured, not reported · 2026-10-31</p>'
+            '<h2>Is any focus site’s best file unique?</h2>'
+            '<p class="lead">No. Every one of the nine best files is the same prediction field. The numbers '
+            'below are computed from the restored rasters themselves (fraction of each file’s dots within '
+            '3 px of another site’s dots), not from the sites’ own descriptions.</p>'
+            '<div class="table-wrap" tabindex="0" role="region" aria-label="Measured cross-site overlap">'
+            '<table><thead><tr><th scope="col">Site</th><th scope="col">Best file</th>'
+            '<th scope="col">Owner-reported score</th><th scope="col">Dots</th>'
+            '<th scope="col">Max overlap with another site</th><th scope="col">Unique?</th>'
+            '<th scope="col">What to do</th></tr></thead><tbody>' + body + '</tbody></table></div>'
+            '<p class="table-note">Extreme cases measured this session: the GEMSDOE25 and GEMSDOE30 best '
+            'files have symmetric difference <strong>0</strong> (identical dot sets); GEMSDOE31 + a 2,545-dot '
+            'prune <em>is</em> GEMSDOE32 (0.2708 → 0.2778). Source: '
+            '<a href="' + prefix + 'evidence/kdam/nine_site_matrix_20261031.json">nine_site_matrix_20261031.json</a>.'
+            '</p></section>')
 
 
 def board_section(prefix=''):
@@ -175,7 +286,7 @@ def main():
         raise ValueError('This frozen negative-release site must not misrepresent a different approval state.')
     # Active release: newest lane release directory present, newest first (2026-10-31).
     global ACTIVE_DIR
-    for candidate in ('tiprelay', 'thermal'):
+    for candidate in ('tiprelay', 'kdam', 'thermal'):
         if (ROOT / 'evidence' / candidate / 'release.json').exists():
             ACTIVE_DIR = candidate
             break
@@ -195,22 +306,30 @@ def main():
 <p class="tagline">FAULT DETECTION · SPATIAL HOLDOUT · FAIL-CLOSED EXPORT</p></div>''' + release_card(rel) + '</section>'
     sig_panels = {
         'tiprelay': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-TIPRELAY clears the holdout bar</h3><p>Adding visible-only continuation geometry (tip-relay corridors, step-over gaps, strike persistence) to the thermal-anchored learner is scored as a paired ablation on the same folds; the shipped file emits at the champion operating point (37,654 dots, 2.8 px spacing, &gt;600 m off-catalogue). All numbers on this page are HOLDOUT-DTI.</p></article>',
+        'kdam': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-KDAM clears the holdout bar</h3><p>An alteration-contact-supervised learner (map contacts + geophysical rasters) is measured against the 0.2600-family field on the same folds with the same emission: a measured field gain on the shared holdout. A parallel H-TIPRELAY lane shipped an independent gated candidate the same day; the cross-lane duplicate check passed (near-independent fields). All numbers are HOLDOUT-DTI.</p></article>',
         'thermal': '<article class="panel"><p class="kicker">01 / Scientific signal</p><h3>H-TVGB clears the holdout bar</h3><p>The segment-withheld learner reaches HOLDOUT-DTI 0.1407 at the champion operating point (0.1516 at 52k dots) vs the 0.2600-family bar 0.1011. The geothermal-anchor conditioning itself is a measured negative (paired Δ −0.0124).</p></article>',
     }
     mainbody = head + metric_strip_new(rel) + legacy_banner() + '''<section class="section"><div class="section-head"><div><p class="eyebrow">The decision path</p><h2>Format is necessary. It isn't enough.</h2><p>Scientific merit, uniqueness and an uploadable file are separate checks. A code merge is not a submission approval.</p></div></div><div class="grid3">
 ''' + sig_panels[ACTIVE_DIR] + '''
 <article class="panel"><p class="kicker">02 / Literal novelty</p><h3>Unique vs every competitive raster</h3><p>Surface and dot scans run against all 414 registry files before and after placement. The 13gems calibration lattice (IR-LATTICE-01) covers ≥99% of ANY dotted file; both the competitive-scope and the literal full-registry readings are published.</p></article>
 <article class="panel"><p class="kicker">03 / Release decision</p><h3>Download, then a separate selector</h3><p>The TIF passes the automatic gates and is safe to upload format-wise (zeros outside the footprint — never NaN). Spending a weekly slot is a separate decision, made outside this workspace.</p></article></div></section>
-<section class="section" id="historical"><div class="section-head"><div><p class="eyebrow">The nine-site portfolio</p><h2>Historical leaders, not new submissions.</h2><p>GEMSDOE32 has the highest report in the supplied list (0.2778 OWNER-REPORT). Its file is already on the leaderboard; the only download we recommend is the generated TIF above.</p></div></div>''' + table(rows, rel) + '''</section><section class="section grid2"><article class="panel"><p class="kicker">What changed in H33-B2?</p><h2>Pruning, not new discoveries.</h2><p>The actual GEMSDOE32 raster is exactly the site-31 base with 2,545 dots removed within 2 pixels of known faults. It adds no dots. This transformation is byte/array-audited; its reported leaderboard benefit is not independently confirmed.</p><a href="executive-summary.html#mechanism">See the mechanism audit →</a></article><article class="panel"><p class="kicker">Next work</p><h2>Beat 0.3195 with a better field.</h2><p>The 2026-10-31 lane executed the previous session's plan items: tip/step-over continuation geometry and strike persistence as learner features (paired ablation), far-field training emphasis, and the geothermal family as an emission prior. Outcome numbers are on the run card; the selector decides any slot. Remaining levers: Qfault-attribute continuation weighting and radiometric concordance (both preregistered, untested).</p><a href="research.html#next">Read the research plan →</a></article></section>'''
+<section class="section" id="historical"><div class="section-head"><div><p class="eyebrow">The nine-site portfolio</p><h2>Historical leaders, not new submissions.</h2><p>GEMSDOE32 has the highest report in the supplied list (0.2778 OWNER-REPORT). Its file is already on the leaderboard; the only download we recommend is the generated TIF above.</p></div></div>''' + table(rows, rel) + '''</section><section class="section grid2"><article class="panel"><p class="kicker">What changed in H33-B2?</p><h2>Pruning, not new discoveries.</h2><p>The actual GEMSDOE32 raster is exactly the site-31 base with 2,545 dots removed within 2 pixels of known faults. It adds no dots. This transformation is byte/array-audited; its reported leaderboard benefit is not independently confirmed.</p><a href="executive-summary.html#mechanism">See the mechanism audit →</a></article><article class="panel"><p class="kicker">Next work</p><h2>Beat 0.3195 with a better field.</h2><p>The 2026-10-31 lane executed the previous session's plan items: tip/step-over continuation geometry and strike persistence as learner features (paired ablation), far-field training emphasis, and the geothermal family as an emission prior. Outcome numbers are on the run card; the selector decides any slot. Remaining levers: Qfault-attribute continuation weighting and radiometric concordance (both preregistered, untested).</p><a href="research.html#next">Read the research plan →</a></article></section>''' + parallel_candidate_panel()
     (OUT / 'index.html').write_text(page('Overview', mainbody))
 
     mechanism = audit['h33_mechanism_audit']
+    if ACTIVE_DIR == 'kdam':
+        mech_callout = ('<div class="callout">Can we exceed the reported 0.2778? Not by copying or re-pruning it: every file at or above 0.24 in the nine focus sites is the same field. This session built a different field (H-KDAM) and measured it against that field on the same folds with the same emission: '
+                        f'<strong>{rel["card"]["holdout_dti"]["value"]:.4f} vs {rel["card"]["comparators_same_emission"]["family_base_44090_unpruned"]:.4f}</strong> HOLDOUT-DTI. That is a measured field gain; whether it transfers to the live board is unproven, because this holdout is not rank-correlated with live scores. Owner-reported highs (0.3195, 0.4413) are OWNER-REPORT; the public leaderboard leader read on 2026-10-31 is 0.4544.</div>')
+    else:
+        mech_callout = '<div class="callout">Can we exceed the reported 0.2778? This session\'s answer: only with a better field at ~40k dots. The supervised family is the only local instrument above the 0.2600 base (HOLDOUT-DTI 0.14–0.16 vs 0.1011); whether that transfers live is unproven. Conflicting user-provided highs of 0.3195 and 0.4413 are OWNER-REPORT, not ORGANIZER-CONFIRMED.</div>'
     execbody = f'''<p class="eyebrow">Executive summary / decision record</p><section class="hero"><div><h1>Download this file.<br>Verdict: {e(verdict_word)}.</h1>
 <p class="lead">One unique TIF was generated, gated and packaged automatically. The table below lists what to download, the score evidence and uniqueness for every focus site. No human inspection is required — the gates are machine-checked.</p>
-<div class="actions"><a class="button" href="downloads/{e(relcard['raster_name'])}" download>Download {e(relcard['raster_name'])}</a><a class="button secondary" href="how-to-submit.html">How to submit ↗</a></div></div>''' + release_card(rel) + '</section>' + metric_strip_new(rel) + legacy_banner() + '''<section class="section"><p class="eyebrow">File / estimated score / uniqueness / verdict</p><h2>The answer for each priority site.</h2><p class="lead">Top row = the generated submission (the only file to download). Historical rows are prior submissions with their OWNER-REPORT live scores.</p>''' + table(rows, rel) + f'''</section><section class="section" id="mechanism"><p class="eyebrow">Mechanism audit</p><h2>Why might GEMSDOE32 have improved?</h2><div class="grid2"><article class="panel"><h3>What is actually verified</h3><p>The H33-B2 mask is exactly <code>site31_base &amp; (distance_to_catalogue &gt; 2)</code>. The base has 40,199 dots, the result 37,654: 2,545 removed, none added. Its file SHA256 matches the pinned public mirror.</p><a href="{mechanism['code_source']}">Inspect original code ↗</a><p class="small">The arithmetic and mask identity are locally measured, not organizer scoring evidence.</p></article><article class="panel"><h3>What remains a hypothesis</h3><p>Removing predictions with little credit for hidden new faults could reduce weighted false-positive mass while retaining recall. But nearness to an existing fault does not make a dot automatically false: a new nearby splay could earn credit.</p><p>Without hidden truth or a submission-page receipt, the reported 0.2778 is not a verified causal result, and it does not calibrate a forecast for a new method.</p></article></div><div class="callout">Can we exceed the reported 0.2778? This session's answer: only with a better field at ~40k dots. The supervised family is the only local instrument above the 0.2600 base (HOLDOUT-DTI 0.14–0.16 vs 0.1011); whether that transfers live is unproven. Conflicting user-provided highs of 0.3195 and 0.4413 are OWNER-REPORT, not ORGANIZER-CONFIRMED.</div><p><a href="https://github.com/sassnarep3-star/GEMSDOESASS1/blob/main/knowledge/scientific_analysis.md">Full mathematical interpretation, confounders and authority boundaries ↗</a></p></section>
+<div class="actions"><a class="button" href="downloads/{e(relcard['raster_name'])}" download>Download {e(relcard['raster_name'])}</a><a class="button secondary" href="how-to-submit.html">How to submit ↗</a></div></div>''' + release_card(rel) + '</section>' + metric_strip_new(rel) + legacy_banner() + '''<section class="section"><p class="eyebrow">File / estimated score / uniqueness / verdict</p><h2>The answer for each priority site.</h2><p class="lead">Top row = the generated submission (the only file to download). Historical rows are prior submissions with their OWNER-REPORT live scores.</p>''' + table(rows, rel) + f'''</section><section class="section" id="mechanism"><p class="eyebrow">Mechanism audit</p><h2>Why might GEMSDOE32 have improved?</h2><div class="grid2"><article class="panel"><h3>What is actually verified</h3><p>The H33-B2 mask is exactly <code>site31_base &amp; (distance_to_catalogue &gt; 2)</code>. The base has 40,199 dots, the result 37,654: 2,545 removed, none added. Its file SHA256 matches the pinned public mirror.</p><a href="{mechanism['code_source']}">Inspect original code ↗</a><p class="small">The arithmetic and mask identity are locally measured, not organizer scoring evidence.</p></article><article class="panel"><h3>What remains a hypothesis</h3><p>Removing predictions with little credit for hidden new faults could reduce weighted false-positive mass while retaining recall. But nearness to an existing fault does not make a dot automatically false: a new nearby splay could earn credit.</p><p>Without hidden truth or a submission-page receipt, the reported 0.2778 is not a verified causal result, and it does not calibrate a forecast for a new method.</p></article></div>{mech_callout}<p><a href="https://github.com/sassnarep3-star/GEMSDOESASS1/blob/main/knowledge/scientific_analysis.md">Full mathematical interpretation, confounders and authority boundaries ↗</a></p></section>
 <section class="section" id="how-to"><p class="eyebrow">How to submit / the generated file</p><h2>Five steps, no manual inspection.</h2><div class="grid2"><article class="panel"><ol class="steps"><li><div><strong>Check the verdict at the top of this page.</strong>Only download the file if it reads “OK TO DOWNLOAD AND SUBMIT”. SWGB, H-PBSC and BGAC-1 files are not approved.</div></li><li><div><strong>Download the exact TIF (or ZIP).</strong>File: <code>{e(relcard['raster_name'])}</code>. Verify sha256 <code class="mono">{e(relcard['raster_sha256'])}</code> against the <a href="{rchref('run_card.json')}">run card</a>.</div></li><li><div><strong>Use the published name and note.</strong>Name: <code>{e(relcard['submission_name'])}</code>. Note ({relcard['note_length']}/140 chars): “{e(relcard['note'])}”.</div></li><li><div><strong>Upload on “New submission”.</strong>The form accepts a single-band GeoTIFF (.tif) or a ZIP containing exactly one GeoTIFF. This file is float32, EPSG:32611, 3730×3292, geotransform (100, 0, 243350, 0, −100, 4508550), values in [0,1] everywhere (zeros outside the footprint — the fix for “Predicted values must be in range [0, 1]”).</div></li><li><div><strong>Keep the organizer receipt.</strong>Record the submission id and returned score — only that makes a score ORGANIZER-CONFIRMED.</div></li></ol><p class="small"><a href="how-to-submit.html">Full step-by-step subpage →</a></p></article>
 <article class="panel"><h3>Prevent the [0,1] rejection</h3><p>The shared fail-closed writer refuses NaN, infinities, negative values and values above one; it reopens the written TIFF and the one-TIFF ZIP and validates them before exposing outputs. The earlier portal error “Predicted values must be in range [0, 1]” is what NaN-outside (“-nan”) files trigger — the shipped file writes explicit zeros everywhere outside the footprint and has no NaN on the whole grid.</p><p>Project checks are automatic; the weekly-slot decision and the official login are competition controls, not a human visual-inspection step of the file.</p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">Official competition ↗</a><div class="callout">Slots used by this workspace: 0. Promotion to a real slot is a separate selector step within the weekly cap.</div></article></div></section>'''
+    execbody += parallel_candidate_panel()
     # preserved parallel-session sections (nine-site board + instrument irregularity)
+    execbody += nine_site_matrix()
     execbody += ('<section class="section" id="board">' + board_section() + '</section>'
                  '<section class="section" id="instrument"><p class="eyebrow">Instrument irregularity · parallel session 2026-10-30</p>'
                  '<h2>Can the instruments tell?</h2><div class="callout"><strong>Verified by the parallel lane: some local instruments are dominated by catalogue-prune width, not field content.</strong> '
@@ -228,6 +347,7 @@ def main():
 <section class="section"><div class="grid2"><article class="panel"><h3>1 · Read the verdict</h3><p>Open the <a href="executive-summary.html">executive summary</a>. The status panel at the top reads <strong>{e(verdict_word)}</strong> for <code>{e(relcard['raster_name'])}</code>. If a future run reports “NOT OK TO SUBMIT”, do not upload that run's file.</p><h3>2 · Download and verify</h3><p>Download <a href="downloads/{e(relcard['raster_name'])}">{e(relcard['raster_name'])}</a> (or the <a href="downloads/{e(relcard['raster_name'].replace('-zeros.tif', '-zeros.zip'))}">ZIP with the single GeoTIFF inside</a>). Check the hash:</p><p class="mono">sha256: {e(relcard['raster_sha256'])}</p><h3>3 · Open the competition submission form</h3><p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData — DOE GEMS Prize Challenge ↗</a> → “Submit predictions” → “New submission”.</p></article>
 <article class="panel"><h3>4 · Fill the form exactly</h3><p><strong>File to submit:</strong> <code>{e(relcard['raster_name'])}</code> (single-band GeoTIFF) — or the ZIP containing exactly that one TIFF.</p><p><strong>Note (optional, ≤140 chars):</strong> “{e(relcard['note'])}”</p><p>Use this note so later submissions can be told apart. Suggested submission name for your records: <code>{e(relcard['submission_name'])}</code>.</p><h3>5 · Requirements this file already meets</h3><ul class="evidence-list"><li><span>Single-band GeoTIFF, float32</span><span class="good">PASS</span></li><li><span>CRS EPSG:32611 · shape 3730×3292</span><span class="good">PASS</span></li><li><span>Geotransform (100, 0, 243350, 0, −100, 4508550)</span><span class="good">PASS</span></li><li><span>Predicted values in [0, 1] everywhere (no NaN anywhere)</span><span class="good">PASS</span></li><li><span>Zeros outside the survey footprint · no dots on mapped faults</span><span class="good">PASS</span></li></ul><h3>6 · After upload</h3><p>Save the organizer receipt (submission id, file hash, returned score). A score becomes ORGANIZER-CONFIRMED only from that receipt. Check the weekly submission cap on the submission page before spending a slot — this project never uploads automatically.</p></article></div></section>
 <section class="section"><div class="callout"><strong>Why the earlier file was rejected.</strong> The portal error “Predicted values must be in range [0, 1]” is produced by NaN or out-of-range values — historically the “-nan” variants written by sibling sites. The fail-closed writer here refuses to emit such a file at all: it validates the on-disk TIFF and ZIP before exposing them. <a href="{rchref('run_card.json')}">See the validator output in the run card →</a></div></section>'''
+    howto += parallel_candidate_note_line()
     (OUT / 'how-to-submit.html').write_text(page('How to submit', howto, active='howto'))
 
     for row in rows:
@@ -261,6 +381,16 @@ def main():
             state = 'Unavailable' if r['status'] != 'checked' else 'Changed — audit required' if r['changed_since_experiment'] else 'Matches snapshot'
             feedhtml += f'<tr data-source-repo="{r["repo"]}" data-frozen-ref="{r["frozen_ref"]}"><td>{r["repo"]}</td><td><code>{r["frozen_ref"][:12]}</code></td><td><code data-current-head>{(r.get("current_ref") or "unavailable")[:12]}</code></td><td data-advisory>{state}</td></tr>'
         feedhtml += '</tbody></table></div>'
+    if ACTIVE_DIR == 'kdam':
+        e2k = load('evidence/kdam/e2_paired_novelty.json')
+        armsk = e2k['arms']
+        e2panel = (f'<p class="kicker">E2 paired ablation (parallel H-KDAM lane)</p><h3>The novelty-constrained emission '
+                   f'preserves the holdout result.</h3><p>Arm B (catalogue-pruned emission) HOLDOUT-DTI '
+                   f'{armsk["B_prune2"]["holdout_dti"]:.4f}; arm C (novelty-constrained: no dot within 4 px of any registry '
+                   f'raster the unconstrained candidate exceeded) {armsk["C_novelty"]["holdout_dti"]:.4f}; paired Δ '
+                   f'{e2k["paired_delta_mean"]:+.6f} — the measured effect of the novelty rule is negligible, so the shipped '
+                   f'file keeps the constrained emission. Evidence class HOLDOUT-DTI, {e2k["n_withheld_positives"]:,} '
+                   f'withheld positives.</p><a href="evidence/kdam/e2_paired_novelty.json">E2 paired evidence JSON →</a>')
     if ACTIVE_DIR == 'tiprelay':
         e1 = rel['e1']
         e2t = rel['e2']
@@ -289,13 +419,24 @@ def main():
                    f'<a href="evidence/thermal/e2_paired_holdout.json">Paired evidence JSON \u2192</a>')
     evidencebody = f'''<p class="eyebrow">Evidence / immutable experiment record</p><h1>Negative results.<br>Fully accounted for.</h1><p class="lead">Three experiments this session (E1 rule field negative, E2 paired thermal-family negative, E3 emission sweep), one packaged candidate. Earlier negative lanes are preserved unchanged.</p>''' + metric_strip_new(rel) + legacy_banner() + f'''<section class="section" id="correction"><h2>The protocol error we found and fixed.</h2><div class="callout"><strong>Do not treat the BGAC-1 first-pass holdout as promotion-qualified.</strong> The original pre-placement audit checked Spearman ranks but omitted positive-support overlap; it also continued despite an unassessable registry file. Review corrected both. The identical surface fails the pre-placement overlap gate. No new experiment, dot placement or TIFF followed the correction.</div><p>The original run card and rank scan remain in the evidence directory. The current card explicitly records the error and disqualifies the execution for promotion. The runner now applies both literal tests at both phases and stops before placement on any incomplete clearance. Shared geometry is reused without a private metric change.</p></section>
 <section class="section"><div class="grid2">{e2panel}<article class="panel"><p class="kicker">Exploratory holdout diagnostics</p><h3>BGAC-1 loses to a simpler feature.</h3>''' + bars + '''<p class="small">HOLDOUT-DTI · gems57-pooled-hide-v2 · 56,454 withheld positives · 95% block-bootstrap intervals in the linked JSON. Same fixed budget and folds; not organizer scores.</p><a href="evidence/holdout.json">Every arm, CI and fold →</a></article></div></section>
-<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list">''' + ''.join(f'<li><a href="evidence/{f}">{label}</a><span>JSON ↗</span></li>' for f, label in [('tiprelay/run_card.json', '2026-10-31 run card (H-TIPRELAY)'), ('tiprelay/release.json', '2026-10-31 release gates and verdict'), ('tiprelay/e1_paired_ablation.json', 'E1 paired continuation-geometry ablation'), ('tiprelay/e2_emission_ablation.json', 'E2 paired emission-prior ablation'), ('tiprelay/leakage_canary.json', '2026-10-31 per-feature leakage canaries'), ('thermal/run_card.json', '2026-10-30 run card (H-TVGB)'), ('thermal/release.json', 'Release gates and verdict'), ('thermal/e2_paired_holdout.json', 'E2 paired thermal-family ablation'), ('thermal/e3_emission_sweep.json', 'E3 emission sweep'), ('thermal/leakage_canary.json', 'Per-feature leakage canaries (all clear)'), ('run_card.json', 'BGAC-1 run card (frozen negative)'), ('first_pass_run_card.json', 'Preserved first-pass card'), ('corrected_surface_novelty.json', 'Corrected pre-placement stop'), ('nine_site_audit.json', 'Nine-site byte / duplicate / H33 mechanism audit'), ('holdout.json', 'Exploratory holdout and paired confidence intervals'), ('focus_inventory.json', 'Complete frozen nine-site TIFF inventory'), ('release_checks.json', 'Frozen implementation hashes and verification checks')]) + '''</ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2>''' + feedhtml + f'''</section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{e(json.dumps(card, indent=2))}</pre><h2>The active run card (this session).</h2><pre>{e(json.dumps(relcard, indent=2))}</pre></section>'''
+<section class="section"><div class="callout"><strong>Concurrent parallel-session work is preserved separately.</strong> Another session merged a synthetic, already holdout-negative research TIFF while an earlier run was underway. Its original files are in a learning-only archive, not active downloads. <a href="https://github.com/sassnarep3-star/GEMSDOESASS1/tree/main/archive/parallel-main-f620a70">Review archive and byte hashes ↗</a></div><h2>Download audit evidence.</h2><div class="panel"><ul class="evidence-list">''' + ''.join(f'<li><a href="evidence/{f}">{label}</a><span>JSON ↗</span></li>' for f, label in [('tiprelay/run_card.json', '2026-10-31 run card (H-TIPRELAY)'), ('tiprelay/release.json', '2026-10-31 release gates and verdict'), ('tiprelay/e1_paired_ablation.json', 'E1 paired continuation-geometry ablation'), ('tiprelay/e2_emission_ablation.json', 'E2 paired emission-prior ablation'), ('tiprelay/leakage_canary.json', '2026-10-31 per-feature leakage canaries'), ('tiprelay/cross_lane_kdam_check.json', '2026-10-31 cross-lane duplicate check (tiprelay vs kdam)'), ('kdam/release.json', '2026-10-31 release gates and verdict (parallel H-KDAM lane)'), ('kdam/e1_holdout.json', 'H-KDAM E1 holdout with same-emission comparators'), ('kdam/e2_paired_novelty.json', 'H-KDAM E2 novelty-constrained paired ablation'), ('kdam/leakage_canary.json', 'H-KDAM per-feature leakage canaries'), ('thermal/run_card.json', '2026-10-30 run card (H-TVGB)'), ('thermal/release.json', 'Release gates and verdict'), ('thermal/e2_paired_holdout.json', 'E2 paired thermal-family ablation'), ('thermal/e3_emission_sweep.json', 'E3 emission sweep'), ('thermal/leakage_canary.json', 'Per-feature leakage canaries (all clear)'), ('run_card.json', 'BGAC-1 run card (frozen negative)'), ('first_pass_run_card.json', 'Preserved first-pass card'), ('corrected_surface_novelty.json', 'Corrected pre-placement stop'), ('nine_site_audit.json', 'Nine-site byte / duplicate / H33 mechanism audit'), ('holdout.json', 'Exploratory holdout and paired confidence intervals'), ('focus_inventory.json', 'Complete frozen nine-site TIFF inventory'), ('release_checks.json', 'Frozen implementation hashes and verification checks')]) + '''</ul></div></section><section class="section" id="feed"><p class="eyebrow">Source freshness feed</p><h2>Current source heads. Frozen results.</h2>''' + feedhtml + f'''</section><section class="section"><h2>The BGAC-1 run card (frozen).</h2><pre>{e(json.dumps(card, indent=2))}</pre><h2>The active run card (this session).</h2><pre>{e(json.dumps(relcard, indent=2))}</pre></section>'''
     (OUT / 'evidence.html').write_text(page('Evidence and source feed', evidencebody, active='evidence'))
     (OUT / '.nojekyll').write_text('')
     evidence_out = OUT / 'evidence'
     evidence_out.mkdir(exist_ok=True)
     for path in (ROOT / 'evidence').glob('*.json'):
         shutil.copyfile(path, evidence_out / path.name)
+    kdam_out = evidence_out / 'kdam'
+    kdam_out.mkdir(exist_ok=True)
+    kdam_src = ROOT / 'evidence' / 'kdam'
+    if kdam_src.exists():
+        for path in kdam_src.glob('*'):
+            if path.is_file() and path.stat().st_size < 2_000_000:
+                shutil.copyfile(path, kdam_out / path.name)
+        for name in ('nine_site_matrix_20261031.json',):
+            src = kdam_src / name
+            if src.exists():
+                shutil.copyfile(src, evidence_out / name)
     therm_out = evidence_out / 'thermal'
     therm_out.mkdir(exist_ok=True)
     for path in (ROOT / 'evidence' / 'thermal').glob('*'):

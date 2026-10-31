@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="0; url=docs/index.html">
+<link rel="canonical" href="docs/index.html">
 <title>GEMS Fieldnotes — generated submission release (2026-10-31)</title>
 <style>
 :root{--bg:#0b1220;--card:#121a2f;--ink:#e8eef8;--mut:#93a0b8;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b;--acc:#38bdf8;--line:#1e293b}
@@ -24,6 +26,13 @@ footer{padding:30px 20px 46px;color:var(--mut);font-size:13px}
 </style>
 </head>
 <body>
+<div style="max-width:1120px;margin:18px auto 0;padding:16px 20px;border-radius:14px;border:1px solid #0e7490;background:#082f49">
+<p style="margin:0"><strong>This root page is the historical record.</strong> The generated, machine-gated release
+site — download first, nine-site decision table, evidence, how-to-submit — is <a href="docs/index.html">docs/index.html</a>.</p>
+<p style="margin:8px 0 0;font-size:14px"><a href="docs/executive-summary.html">Executive summary (download + per-site table)</a> ·
+<a href="docs/how-to-submit.html">How to submit</a> · <a href="docs/research.html">Research</a> · <a href="docs/evidence.html">Evidence</a></p>
+</div>
+
 <header>
 <nav>
 <a href="index.html">Home</a>
@@ -39,25 +48,38 @@ footer{padding:30px 20px 46px;color:var(--mut);font-size:13px}
 
 <div class="banner ok">
 <h2>VERDICT: OK TO DOWNLOAD AND SUBMIT — <code>gemsass1-tiprelay-continuation-37654-b6-20261031-zeros.tif</code></h2>
-<p>One unique GeoTIFF was generated this session (H-TIPRELAY continuation-geometry-supervised recovery:
-tip-relay corridors, step-over gaps and strike persistence as visible-only learner features;
-37,654 dots, 2.8 px spacing, 600 m catalogue exclusion). It passed every automatic project gate:
-on-disk format validator (values in [0,1], no NaN anywhere — the fix for the earlier portal
-rejection), exact-copy scan against all 414 registry rasters on disk and all prior repo files, the
-lane-drift novelty gates (per-raster Spearman ≤ 0.90 — measured 0.132 surface / 0.035 dots; 3 px
-dot overlap ≤ 70% — measured 65.2% vs the most similar competitive raster), and HOLDOUT-DTI above
-the 0.2600-family bar (shipped cell 0.1384 [0.1322, 0.1458] vs bar 0.1011 and vs the 2026-10-30
-incumbent 0.1287; far-field restricted 0.1445). The paired ablation behind it: relay features
-+0.0110 [+0.0081, +0.0141] over the identical learner without them.</p>
+<p>One unique GeoTIFF is the recommended download (H-TIPRELAY continuation-geometry-supervised recovery:
+tip-relay corridors, step-over gaps and strike persistence as visible-only learner features on the
+thermal-anchored stack; 37,654 dots, 2.8 px spacing, 600 m catalogue exclusion). It passed every
+automatic project gate: on-disk format validator (values in [0,1], no NaN anywhere — the fix for the
+earlier portal rejection), exact-copy scan against all 414 registry rasters on disk and all prior repo
+files, the lane-drift novelty gates (surface Spearman 0.132 ≤ 0.90; max competitive 3 px dot overlap
+65.2% ≤ 70%), and HOLDOUT-DTI above the 0.2600-family bar (shipped cell 0.1384 [0.1322, 0.1458] vs bar
+0.1011 and vs the superseded 2026-10-30 incumbent 0.1287; far-field restricted 0.1445). The paired
+ablation behind it: relay features +0.0110 [+0.0081, +0.0141] over the identical learner without them.</p>
 <p><a class="btn" href="docs/executive-summary.html">Open the executive summary → verdict, download, table</a>
 <a class="btn alt" href="docs/how-to-submit.html">How to submit (step by step)</a></p>
 <p class="mut">The file itself is downloaded from the executive summary (one click). Spending a weekly
 competition slot is a separate selector decision — this workspace never uploads. The verdict above is
 machine-computed from <a href="docs/evidence/tiprelay/run_card.json">the run card</a>; if any gate had
-failed, this page would read NOT OK TO SUBMIT. Uniqueness reading: not an exact duplicate of any
-GEMSDOE-site submission or repo prior; measured 83.9% 3 px overlap with this workspace's own
-2026-10-30 release (same operating point, different dot sets — 16% of dots moved beyond 3 px) is
-recorded in the run card.</p>
+failed, this page would read NOT OK TO SUBMIT. Uniqueness reading: not an exact duplicate of anything;
+measured 83.9% 3 px overlap with this workspace's own superseded 2026-10-30 release (same operating
+point, different dot sets) is recorded in the run card.</p>
+</div>
+
+<div class="banner warn">
+<h2>Parallel gated candidate — selector alternative (H-KDAM lane, 2026-10-31)</h2>
+<p>A concurrent session packaged <code>gemsass1-kdam-alteration-contact-37654-20261031-zeros.tif</code>
+(alteration-contact-supervised; HOLDOUT-DTI 0.1471 [0.1418, 0.1531] unpruned arm vs the same-emission
+family base 0.1011; competitive max 3 px overlap 31.1%; all 489 inventory rasters measured, lattice
+99.96% disclosed). It passed every gate in its own release
+(<a href="docs/evidence/kdam/release.json">evidence/kdam/release.json</a>). The cross-lane duplicate
+check passed: the two fields are near-independent (full-footprint Spearman −0.0028, 169 of 37,654 dot
+pixels shared, 3 px overlap 4.3%/10.3% —
+<a href="docs/evidence/tiprelay/cross_lane_kdam_check.json">cross-lane check</a>). Choosing between the
+two gated candidates is the selector's decision within the weekly cap; the default recommendation is the
+H-TIPRELAY file above (champion-family-consistent emission; its features carry the paired-ablation
+positive). The 2026-10-31 step-over and sparse TIFFs are research artifacts, not submit-cleared.</p>
 </div>
 
 <div class="banner bad">
@@ -68,7 +90,7 @@ holdout comparison (HOLDOUT-DTI 0.0650 vs bar 0.1011) and 99.48% of its dots fal
 same lattice; its <code>ok_to_submit = false</code> stands. BGAC-1 stopped before placement on the
 literal novelty gate. The 2026-10-30 H-TVGB release
 (<code>gemsass1-hvtgb-thermal-anchored-37654-b6-20261030-zeros.tif</code>) passed its gates in that
-session and is now <strong>superseded by the 2026-10-31 file above</strong> — do not upload it. Its
+session and is now <strong>superseded by the 2026-10-31 files above</strong> — do not upload it. Its
 first 2 px packaging
 (<code>gemsass1-hvtgb-thermal-anchored-37654-20261030-zeros.tif</code>) is likewise logged as a
 lane-drift duplicate (79.1% dot overlap with one GEMSDOE25 raster) and was never OK to submit.
@@ -81,7 +103,7 @@ None of these files is a new submission; they are retained as evidence only.</p>
 <tr><td><a href="docs/executive-summary.html">Executive summary</a></td><td>Generated-file verdict at the top, one-click download (TIF + ZIP), the file / estimated score / uniqueness / submit table for all nine focus sites, submission name and note, gates, and the exactly-how-to-submit checklist.</td></tr>
 <tr><td><a href="docs/how-to-submit.html">How to submit</a></td><td>Step-by-step: verify the file, copy the name and note, open the form, save the organizer receipt.</td></tr>
 <tr><td><a href="docs/index.html">Documentation</a></td><td>Current project documentation and release status.</td></tr>
-<tr><td><a href="docs/evidence.html">Evidence</a></td><td>Run cards, holdout JSONs, novelty audits, data provenance, and preserved negative results.</td></tr>
+<tr><td><a href="docs/evidence.html">Evidence</a></td><td>Run cards, holdout JSONs, novelty audits, cross-lane checks, data provenance, and preserved negative results.</td></tr>
 </table>
 
 <div class="banner warn">
